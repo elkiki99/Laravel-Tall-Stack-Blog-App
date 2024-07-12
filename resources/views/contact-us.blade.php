@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
             <h1 class="text-gray-500 text-7xl">
-                <span class="font-bold text-black">Contact us. </span>
+                <span class="font-bold text-black">Contact us.</span>
                 We'd love to hear from you
             </h1>
 
@@ -17,10 +17,10 @@
                 <div class="max-w-xl">
                     <section>
                         <header>
-                            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                            <h2 class="text-4xl font-medium text-gray-900 dark:text-gray-100">
                                 {{ __('Give us your email') }}
                             </h2>
-                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                            <p class="mt-1 text-gray-600 text-md dark:text-gray-400">
                                 {{ __("We'll try to answer as soon as possible, just give us your email") }}
                             </p>
                         </header>
@@ -46,16 +46,10 @@
         </div>
     </div>
 
-        <script>
-        // Add JavaScript to handle parallax effect on scroll
-        window.addEventListener('scroll', function () {
-            const parallaxElements = 
-                  document.querySelectorAll('.parallax-bg');
-            parallaxElements.forEach(function (element) {
-                let scrollPosition = window.pageYOffset;
-                element.style.transform = 
-                      'translateY(' + scrollPosition * 0.3 + 'px)';
-            });
-        });
+    <script>
+        // Scrolls to the top of the page when the page is loaded or refreshed
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
     </script>
 </x-app-layout>

@@ -13,26 +13,35 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.12/SmoothScroll.min.js"></script>
+
+        <script>
+            window.addEventListener('scroll', function () {
+                const parallaxElements = 
+                    document.querySelectorAll('.parallax-bg');
+                parallaxElements.forEach(function (element) {
+                    let scrollPosition = window.pageYOffset;
+                    element.style.transform = 
+                        'translateY(' + scrollPosition * 0.3 + 'px)';
+                });
+            });
+        </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-white dark:bg-gray-900">
             <div class="flex justify-center p-20">
                 @include('layouts.navigation')
             </div>
-            
-            <!-- Page Heading -->
-            {{-- @isset($header)
-                <header class="bg-white shadow dark:bg-gray-800">
-                    <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset --}}
-
-            <!-- Page Content -->
+        
             <main>
                 {{ $slot }}
             </main>
         </div>
     </body>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </html>
