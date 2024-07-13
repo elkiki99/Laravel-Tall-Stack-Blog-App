@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="absolute inset-0">  
-        <section id="section1" class="relative min-h-screen overflow-hidden">
+        <section id="section1" class="relative h-screen overflow-hidden">
             <div class="absolute inset-0 px-24 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture2.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">
                     <h1 class="py-10 mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl">Our purpose is to inspire bloggers all over the globe</h1>
@@ -73,6 +73,24 @@
                                 </div>
                             </div>
                             <p class="mt-2 text-2xl font-bold hover:cursor-pointer">The ancient architecture</p>
+                            <p class="text-lg font-bold text-gray-500">22 may, 2024</p>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="relative w-full pb-full">
+                                <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
+                                    {{-- <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
+                                </div>
+                            </div>
+                            <p class="mt-2 text-2xl font-bold hover:cursor-pointer">Corporis magni eius ipsum</p>
+                            <p class="text-lg font-bold text-gray-500">22 may, 2024</p>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="relative w-full pb-full">
+                                <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
+                                    {{-- <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
+                                </div>
+                            </div>
+                            <p class="mt-2 text-2xl font-bold hover:cursor-pointer">Corporis magni eius ipsum</p>
                             <p class="text-lg font-bold text-gray-500">22 may, 2024</p>
                         </div>
                     </div>

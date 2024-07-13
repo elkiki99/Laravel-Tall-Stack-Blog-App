@@ -22,7 +22,7 @@
                             <x-blog.metrics />
                             
                             <a wire:navigate href="{{ route('blog.show') }}">
-                                <h2 class="my-5 mb-2 text-4xl font-bold text-gray-900 hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">Best buildings in Netherlands</h2>
+                                <h2 class="my-5 mb-2 text-4xl font-bold text-gray-900 hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">Architectural Wonders of the Netherlands: A Journey Through Time and Design</h2>
                             </a>
                             <p class="text-lg text-gray-700 dark:text-gray-300">In this post, we dive into the different types of buildings in the Netherlands and its overall design system. What makes them unique?</p>
                         </div>
