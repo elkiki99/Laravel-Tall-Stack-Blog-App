@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="py-12">
         <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-            <h1 class="text-gray-500 text-7xl">
+            <h1 class="py-5 text-transparent text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
                 <span class="font-bold text-black">Contact us.</span>
                 We'd love to hear from you
             </h1>
@@ -37,7 +37,7 @@
                                 <x-input-error :messages="$errors->all('message')" class="mt-2" />
                             </div>
                             <div class="flex items-center gap-4">
-                                <x-primary-button>{{ __('Send') }}</x-primary-button>
+                                <x-primary-button class="text-sm">{{ __('Send') }}</x-primary-button>
                             </div>
                         </form>
                     </section>
@@ -45,11 +45,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Scrolls to the top of the page when the page is loaded or refreshed
-        window.onload = function() {
-            window.scrollTo(0, 0);
-        };
-    </script>
 </x-app-layout>

@@ -13,7 +13,6 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.12/SmoothScroll.min.js"></script>
 
         <script>
             window.addEventListener('scroll', function () {
@@ -25,11 +24,15 @@
                         'translateY(' + scrollPosition * 0.3 + 'px)';
                 });
             });
+            
+            window.onload = function() {
+                window.scrollTo(0, 0);
+            };
         </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-white dark:bg-gray-900">
-            <div class="flex justify-center p-20">
+            <div class="flex justify-center p-10">
                 @include('layouts.navigation')
             </div>
         
