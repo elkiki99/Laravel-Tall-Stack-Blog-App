@@ -2,11 +2,11 @@
     <div class="py-12">
         <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
             <h1 class="py-5 text-transparent text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
-                <span class="font-bold text-black">Contact us.</span>
+                <span class="font-bold text-black underline-yellow">Contact us.</span>
                 We'd love to hear from you
             </h1>
 
-            <div class="relative h-screen overflow-hidden rounded-3xl">
+            <div class="relative min-h-screen overflow-hidden rounded-3xl">
                 <div 
                     class="absolute inset-0 bg-fixed bg-no-repeat bg-cover rounded-3xl parallax-bg"
                     style="background-image: url('{{ asset('images/texture1.jpg') }}');">
@@ -45,4 +45,11 @@
             </div>
         </div>
     </div>
+
+    <style>
+        .underline-yellow {
+            text-decoration: underline;
+            text-decoration-color: yellow;
+        }
+    </style>
 </x-app-layout>

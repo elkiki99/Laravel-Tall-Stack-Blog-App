@@ -1,27 +1,27 @@
 <nav 
-    x-data="{ open: false }" 
-    class="fixed z-50 flex items-center justify-center px-3 mx-auto text-sm font-medium text-center bg-transparent rounded-full backdrop-filter backdrop-blur-md sm:w-auto sm:flex dark:text-zinc-200 dark:ring-white/10">
+    {{-- x-data="{ open: false }"  --}}
+    class="fixed z-50 flex items-center justify-center px-3 mx-auto text-sm font-medium text-center bg-transparent rounded-full backdrop-filter backdrop-blur-3xl sm:w-auto sm:flex dark:text-zinc-200 dark:ring-white/10">
     <!-- Primary Navigation Menu -->
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <!-- Logo -->
         <div class="flex items-center">
-            <a href="{{ route('dashboard') }}">
+            <a href="{{ route('blog.index') }}">
                 <x-application-logo class="block w-auto h-10 text-black fill-current dark:text-gray-200" />
             </a>
         </div>
 
         <!-- Navigation Links -->
         <div class="flex -my-px space-x-8 ms-10">
-            <x-nav-link wire:navigate :href="route('dashboard')" :active="request()->routeIs('dashboard')" >
-                {{ __('Blog') }}
-            </x-nav-link>
             <x-nav-link wire:navigate :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('About') }}
+            </x-nav-link>
+            <x-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')" >
+                {{ __('Blog') }}
             </x-nav-link>
             <x-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">
                 {{ __('Contact') }}
             </x-nav-link>
-            <x-nav-link wire:navigate :href="route('dashboard')" class="inline-flex items-center px-4 py-2 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+            <x-nav-link wire:navigate :href="route('blog.index')" class="inline-flex items-center px-4 py-2 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                 <div class="flex items-center">
                     {{ __('Newsletter') }}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">

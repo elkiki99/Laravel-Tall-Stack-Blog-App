@@ -13,26 +13,10 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-        <script>
-            window.addEventListener('scroll', function () {
-                const parallaxElements = 
-                    document.querySelectorAll('.parallax-bg');
-                parallaxElements.forEach(function (element) {
-                    let scrollPosition = window.pageYOffset;
-                    element.style.transform = 
-                        'translateY(' + scrollPosition * 0.3 + 'px)';
-                });
-            });
-            
-            window.onload = function() {
-                window.scrollTo(0, 0);
-            };
-        </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-white dark:bg-gray-900">
-            <div class="flex justify-center p-10">
+            <div class="flex justify-center py-10">
                 @include('layouts.navigation')
             </div>
         
@@ -41,10 +25,4 @@
             </main>
         </div>
     </body>
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
 </html>

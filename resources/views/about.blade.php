@@ -4,7 +4,7 @@
             <div class="absolute inset-0 px-24 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture2.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">
                     <h1 class="py-10 mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl">Our purpose is to inspire bloggers all over the globe</h1>
-                    <button class="inline-flex items-center px-5 py-2 text-3xl text-white bg-black rounded-3xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+                    <button class="inline-flex items-center px-5 py-2 text-3xl text-white bg-black border-2 border-gray-800 rounded-3xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-800 dark:hover:text-black focus:text-white focus:border-gray-700 dark:focus:text-black">
                         <span>Our newsletter</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
@@ -45,7 +45,7 @@
                                     <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
                                 </div>
                             </div>
-                            <p class="mt-2 text-2xl font-bold hover:cursor-pointer">Best buildings in Netherlands</p>
+                            <h2 class="mt-2 text-2xl font-bold hover:cursor-pointer">Best buildings in Netherlands</h2>
                             <p class="text-lg font-bold text-gray-500">4 jun, 2024</p>
                         </div>
                         <div class="flex flex-col">
@@ -87,7 +87,7 @@
         </section>
 
         <section id="section3" class="relative min-h-screen overflow-hidden">
-            <a class="absolute top-8 right-8" href="#section2">
+            <a class="absolute text-white top-8 right-8" href="#section2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                 </svg>
@@ -96,12 +96,12 @@
             <div class="h-screen px-24 bg-fixed bg-no-repeat bg-cover" style="background-image: url('{{ asset('images/texture3.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">
                     <h1 class="py-10 mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl">Oh! Yeah, did I mention? It's completely free to use</h1>
-                    <button class="inline-flex items-center px-5 py-2 text-3xl text-white bg-black rounded-3xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+                    <a wire:navigate href="{{ route('blog.index') }}" class="inline-flex items-center px-5 py-2 text-3xl text-white bg-black border-2 border-gray-900 rounded-3xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-800 dark:hover:text-black focus:text-white focus:border-gray-700 dark:focus:text-black">
                         <span>Our work</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
