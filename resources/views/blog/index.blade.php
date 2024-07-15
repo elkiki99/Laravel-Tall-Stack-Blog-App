@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex justify-between w-full px-4 py-10">
         <!-- First Section -->
-        <section class="w-1/6">
+        <section class="sticky w-1/6 top-20">
             <x-blog.nav-bar />
         </section>
 
@@ -59,7 +59,7 @@
         </section>
 
         <!-- Second Section -->
-        <section class="w-1/5 min-h-screen mx-auto">
+        <section class="w-1/5 min-h-screen pl-5 mx-auto">
             <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
                 Featured
             </h2>

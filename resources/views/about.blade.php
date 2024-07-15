@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="absolute inset-0">  
+    <div class="mt-[-80px]">  
         <section id="section1" class="relative h-screen overflow-hidden">
             <div class="absolute inset-0 px-24 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture2.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">
@@ -109,7 +109,7 @@
                 </svg>
             </a>
             
-            <div class="h-screen px-24 bg-fixed bg-no-repeat bg-cover" style="background-image: url('{{ asset('images/texture3.jpg') }}');">
+            <div class="h-screen px-24 mb-10 bg-fixed bg-no-repeat bg-cover" style="background-image: url('{{ asset('images/texture3.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">
                     <h1 class="py-10 mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl">Oh! Yeah, did I mention? It's completely free to use</h1>
                     <a wire:navigate href="{{ route('blog.index') }}" class="inline-flex items-center px-5 py-2 text-3xl text-white bg-black border-2 border-gray-900 rounded-3xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-800 dark:hover:text-black focus:text-white focus:border-gray-700 dark:focus:text-black">

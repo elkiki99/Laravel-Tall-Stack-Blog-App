@@ -17,9 +17,9 @@
                 </div>
             </div>
 
-            <div class="flex pt-10 space-x-6">
-                <div class="w-1/6 space-x-6 ">
-                    <div class="sticky block space-y-2 top-20">
+            <div class="flex py-10 space-x-12">
+                <div class="w-1/6 space-x-6">
+                    <div class="sticky block pb-20 space-y-2 top-20">
                         <a class="block w-full py-1" href="#section1">Canal Houses</a>
                         <a class="block w-full py-1" href="#section2">Rotterdam</a>
                         <a class="block w-full py-1" href="#section3">Utrecht's Medieval Towers</a>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="w-5/6 max-w-2xl mx-auto">
-                    <h2 class="mb-6 text-4xl font-bold text-gray-900">
+                    <h2 class="p-4 mb-6 text-4xl font-bold text-gray-900 border-b-2">
                         Exploring the Architectural Marvels of the Netherlands
                     </h2>
                     <p class="text-lg leading-relaxed text-gray-700" id="section1">

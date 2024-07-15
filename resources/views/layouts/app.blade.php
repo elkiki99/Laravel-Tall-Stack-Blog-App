@@ -20,9 +20,13 @@
                 @include('layouts.navigation')
             </div>
             
-            <main>
+            <main class="relative z-10 bg-white">
                 {{ $slot }}
             </main>
+            
+            <div class="sticky bottom-0">
+                <x-footer />
+            </div>
         </div>
     </body>
 </html>

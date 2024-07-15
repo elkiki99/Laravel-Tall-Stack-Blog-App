@@ -28,7 +28,7 @@
                         <form class="mt-6 space-y-6">
                             <div>
                                 <x-input-label for="email" :value="__('E-mail')" />
-                                <x-text-input id="email" name="email" type="text" class="block w-full mt-1" required autofocus autocomplete="email" />
+                                <x-text-input id="email" name="email" type="text" class="block w-full mt-1" required autocomplete="email" />
                                 <x-input-error :messages="$errors->all('email')" class="mt-2" />
                             </div>
                             <div>
