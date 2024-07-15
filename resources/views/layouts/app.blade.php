@@ -15,11 +15,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-white dark:bg-gray-900">
+        <div class="bg-white dark:bg-gray-900">
             <div class="flex justify-center py-10">
                 @include('layouts.navigation')
             </div>
-        
+            
             <main>
                 {{ $slot }}
             </main>

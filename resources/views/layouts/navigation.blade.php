@@ -1,5 +1,4 @@
 <nav 
-    {{-- x-data="{ open: false }"  --}}
     class="fixed z-50 flex items-center justify-center px-3 mx-auto text-sm font-medium text-center bg-transparent rounded-full backdrop-filter backdrop-blur-3xl sm:w-auto sm:flex dark:text-zinc-200 dark:ring-white/10">
     <!-- Primary Navigation Menu -->
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
