@@ -5,6 +5,7 @@
         </section>
 
         <div class="w-4/6 space-y-6 sm:px-6 lg:px-8">
+            {{-- <a href="{{ route('blog.index') }}">Back to blog</a> --}}
             <h1 class="pt-10 pb-0 text-6xl font-bold text-black lg:pt-20 lg:pb-10">
                 Architectural Wonders of the Netherlands: A Journey Through Time and Design
             </h1>

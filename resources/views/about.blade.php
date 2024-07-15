@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mt-[-80px]">  
+    <div class="mt-[-120px]">  
         <section id="section1" class="relative h-screen overflow-hidden">
             <div class="absolute inset-0 px-24 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture2.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">

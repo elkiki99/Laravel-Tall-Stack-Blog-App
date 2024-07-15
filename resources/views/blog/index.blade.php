@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex justify-between w-full px-4 py-10">
         <!-- First Section -->
-        <section class="sticky w-1/6 top-20">
+        <section class="w-1/6">
             <x-blog.nav-bar />
         </section>
 
