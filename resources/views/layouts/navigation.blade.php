@@ -11,16 +11,16 @@
 
         <!-- Navigation Links -->
         <div class="flex -my-px space-x-8 ms-10">
-            <x-nav-link wire:navigate :href="route('about')" :active="request()->routeIs('about')">
-                {{ __('About') }}
-            </x-nav-link>
             <x-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')" >
                 {{ __('Blog') }}
+            </x-nav-link>
+            <x-nav-link wire:navigate :href="route('about')" :active="request()->routeIs('about')">
+                {{ __('About') }}
             </x-nav-link>
             <x-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">
                 {{ __('Contact') }}
             </x-nav-link>
-            <x-nav-link wire:navigate :href="route('blog.index')" class="inline-flex items-center px-4 py-2 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+            <x-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-4 py-2 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                 <div class="flex items-center">
                     {{ __('Newsletter') }}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">

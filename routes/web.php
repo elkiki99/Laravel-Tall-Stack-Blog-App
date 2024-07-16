@@ -19,6 +19,10 @@ Route::get('/contact', function () {
     return view('contact-us');
 })->middleware(['auth', 'verified'])->name('contact');
 
+Route::get('/newsletter', function () {
+    return view('newsletter');
+})->middleware(['auth', 'verified'])->name('newsletter');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

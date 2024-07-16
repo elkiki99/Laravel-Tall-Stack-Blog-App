@@ -13,7 +13,7 @@
                 </div>
             </div>
             
-            <a class="absolute right-8 bottom-8" href="#section2">
+            <a class="absolute text-white right-8 bottom-8" href="#section2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
@@ -58,7 +58,7 @@
                         <div class="flex flex-col">
                             <div class="relative w-full pb-full">
                                 <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                    <img loading="lazy" src="{{ asset('images/blog3.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
+                                    {{-- <img loading="lazy" src="{{ asset('images/blog3.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
                                 </div>
                             </div>
                             <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Guide to classic urbanism</h4>
@@ -67,7 +67,7 @@
                         <div class="flex flex-col">
                             <div class="relative w-full pb-full">
                                 <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                    <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
+                                    {{-- <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
                                 </div>
                             </div>
                             <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">The ancient architecture</h4>
@@ -102,7 +102,7 @@
             </a>
         </section>
 
-        <section id="section3" class="relative min-h-screen overflow-hidden">
+        <section id="section3" class="min-h-screen">
             <a class="absolute text-white top-8 right-8" href="#section2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
@@ -111,7 +111,7 @@
             
             <div class="h-screen px-24 mb-10 bg-fixed bg-no-repeat bg-cover" style="background-image: url('{{ asset('images/texture3.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">
-                    <h1 class="py-10 mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl">Oh! Yeah, did I mention? It's completely free to use</h1>
+                    <h1 class="py-10 mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl">Oh! Yeah, did we mention? It's completely free to use</h1>
                     <a wire:navigate href="{{ route('blog.index') }}" class="inline-flex items-center px-5 py-2 text-3xl text-white bg-black border-2 border-gray-900 rounded-3xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-800 dark:hover:text-black focus:text-white focus:border-gray-700 dark:focus:text-black">
                         <span>Our work</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">

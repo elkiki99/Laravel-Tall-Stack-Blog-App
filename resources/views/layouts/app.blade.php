@@ -20,7 +20,7 @@
                 @include('layouts.navigation')
             </div>
             
-            <main class="relative z-10 pt-10 pb-20 bg-white">
+            <main class="relative z-10 pb-10 bg-white">
                 {{ $slot }}
             </main>
             
