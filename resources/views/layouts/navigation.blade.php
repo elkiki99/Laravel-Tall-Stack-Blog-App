@@ -11,11 +11,11 @@
 
         <!-- Navigation Links -->
         <div class="flex -my-px space-x-8 ms-10 ">
-            <x-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')">
-                {{ __('Blog') }}
-            </x-nav-link>
             <x-nav-link wire:navigate :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('About') }}
+            </x-nav-link>
+            <x-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')">
+                {{ __('Blog') }}
             </x-nav-link>
             <x-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">
                 {{ __('Contact') }}
