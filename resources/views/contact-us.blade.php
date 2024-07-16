@@ -13,7 +13,7 @@
                 </div>
             </div>
             
-            <div class="p-4 mt-10 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+            <div class="py-16 bg-white dark:bg-gray-800">
                 <div class="max-w-xl">
                     <section>
                         <header>

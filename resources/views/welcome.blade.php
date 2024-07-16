@@ -1,4 +1,111 @@
-<!DOCTYPE html>
+
+<x-app-layout>      
+    <div class="min-h-screen">
+        <div class="py-12">
+            <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
+                <h1 class="py-5 text-transparent text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">Welcome to <span class="font-bold text-black underline-yellow">{{env('APP_NAME')}}</span>, a beautiful blog template with integrated features</h1>
+                <p class="pb-5 text-2xl text-gray-800 border-b-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                <x-primary-button class="text-2xl">Get started</x-primary-button>
+                <x-secondary-button class="text-2xl">Learn more</x-secondary-button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .underline-yellow {
+            text-decoration: underline;
+            text-decoration-color: yellow;
+        }
+    </style>
+</x-app-layout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -169,4 +276,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}

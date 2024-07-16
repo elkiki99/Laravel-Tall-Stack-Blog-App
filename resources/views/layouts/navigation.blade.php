@@ -4,14 +4,14 @@
     <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <!-- Logo -->
         <div class="flex items-center">
-            <a href="{{ route('blog.index') }}">
+            <a href="{{ route('welcome') }}">
                 <x-application-logo class="block w-auto h-10 text-black fill-current dark:text-gray-200" />
             </a>
         </div>
 
         <!-- Navigation Links -->
-        <div class="flex -my-px space-x-8 ms-10">
-            <x-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')" >
+        <div class="flex -my-px space-x-8 ms-10 ">
+            <x-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')">
                 {{ __('Blog') }}
             </x-nav-link>
             <x-nav-link wire:navigate :href="route('about')" :active="request()->routeIs('about')">
@@ -20,6 +20,27 @@
             <x-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">
                 {{ __('Contact') }}
             </x-nav-link>
+            @if(auth()->check())
+                <form class="inline-flex" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-nav-link
+                            :href="route('logout')"
+                            onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-nav-link>
+                </form>
+            @else
+                <form class="inline-flex" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <x-nav-link
+                            :href="route('login')"
+                            onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                        {{ __('Log In') }}
+                    </x-nav-link>
+                </form>
+            @endif
             <x-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-4 py-2 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                 <div class="flex items-center">
                     {{ __('Newsletter') }}

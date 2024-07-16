@@ -8,20 +8,20 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/blog', [BlogController::class, 'index'])->middleware(['auth', 'verified'])->name('blog.index');
-Route::get('/blog1', [BlogController::class, 'show'])->middleware(['auth', 'verified'])->name('blog.show');
-
 Route::get('/about', function () {
     return view('about');
-})->middleware(['auth', 'verified'])->name('about');
+})->name('about');
 
 Route::get('/contact', function () {
     return view('contact-us');
-})->middleware(['auth', 'verified'])->name('contact');
+})->name('contact');
 
 Route::get('/newsletter', function () {
     return view('newsletter');
-})->middleware(['auth', 'verified'])->name('newsletter');
+})->name('newsletter');
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog1', [BlogController::class, 'show'])->name('blog.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

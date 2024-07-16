@@ -3,7 +3,7 @@
         <div class="flex flex-wrap">
             <div class="w-full p-4 md:w-1/2">
                 <h2 class="mb-2 text-lg font-bold">About Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="grid grid-cols-3 gap-5">
                 <div class="w-full p-4">

@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="w-5/6 max-w-2xl mx-auto">
-                    <h2 class="p-4 mb-6 text-4xl font-bold text-gray-900 border-b-2">
+                    <h2 class="pb-5 mb-6 text-4xl font-bold text-gray-900 border-b-2">
                         Exploring the Architectural Marvels of the Netherlands
                     </h2>
                     <p class="text-lg leading-relaxed text-gray-700" id="section1">
