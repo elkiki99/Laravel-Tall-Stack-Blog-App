@@ -89,7 +89,7 @@
         </div>
 
         <div class="flex justify-start w-full mt-auto">
-            <h1 class="font-bold text-8xl">{{ config('app.name') }}</h1>
+            <h1 class="text-6xl font-bold md:text-8xl">{{ config('app.name') }}</h1>
         </div>
     </div>
 </footer>
