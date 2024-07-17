@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="mt-[-80px]">  
-        <section id="section1" class="relative h-screen overflow-hidden">
-            <div class="absolute inset-0 px-24 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture3.jpg') }}');">
+        <section class="relative h-screen overflow-hidden">
+            <div class="absolute inset-0 px-24 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture6.jpg') }}');">
                 <div class="flex flex-col items-center justify-center h-full">
-                    <h1 class="py-10 mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
+                    <h1 class="py-10 mb-8 font-bold text-white text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
                     <button class="inline-flex items-center px-4 py-2 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                         <span>Our newsletter</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
@@ -12,21 +12,9 @@
                     </button>
                 </div>
             </div>
-            
-            <a class="absolute right-8 bottom-8" href="#section2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-            </a>
         </section>
         
-        <section id="section2" class="relative min-h-screen overflow-hidden">
-            <a class="absolute top-8 right-8" href="#section1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                </svg>
-            </a>
-            
+        <section class="relative min-h-screen overflow-hidden">
             <div class="p-10">
                 <div class="flex items-center justify-center h-full py-10">
                     <h1 class="py-2 pt-8 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
@@ -93,25 +81,13 @@
                         </div>
                     </div>
                 </div>
-            </div>  
-
-            <a class="absolute right-8 bottom-8" href="#section3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-            </a>
+            </div>
         </section>
 
-        <section id="section3" class="relative min-h-screen overflow-hidden">
-            <a class="absolute text-white top-8 right-8" href="#section2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                </svg>
-            </a>
-            
-            <div class="h-screen px-24 mb-10 bg-fixed bg-no-repeat bg-cover" style="background-image: url('{{ asset('images/texture2.jpg') }}');">
+        <section class="relative min-h-screen overflow-hidden">
+            <div class="h-screen px-24 mb-10 bg-gradient-to-b bg from-white via-amber-300 to-white">
                 <div class="flex flex-col items-center justify-center h-full">
-                    <h1 class="py-10 mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 text-8xl">Oh! Yeah, did we mention? It's <span class="underline-yellow">free to use</span></h1>
+                    <h1 class="py-10 mb-8 font-bold text-center text-gray-950 text-8xl">Oh! Yeah, did we mention? It's <span class="underline-yellow">free to use</span></h1>
                     <a wire:navigate href="{{ route('blog.index') }}" class="inline-flex items-center px-4 py-2 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                         <span>Our work</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
