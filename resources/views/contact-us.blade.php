@@ -37,7 +37,7 @@
                                 <x-input-error :messages="$errors->all('message')" class="mt-2" />
                             </div>
                             <div class="flex items-center gap-4">
-                                <x-primary-button class="text-sm">{{ __('Send') }}</x-primary-button>
+                                <x-primary-button class="px-4 py-2 text-sm">{{ __('Send') }}</x-primary-button>
                             </div>
                         </form>
                     </section>
