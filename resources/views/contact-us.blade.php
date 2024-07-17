@@ -9,7 +9,7 @@
             <div class="relative min-h-screen overflow-hidden rounded-3xl">
                 <div 
                     class="absolute inset-0 bg-fixed bg-no-repeat bg-cover rounded-3xl parallax-bg"
-                    style="background-image: url('{{ asset('images/texture1.jpg') }}');">
+                    style="background-image: url('{{ asset('images/texture7.jpg') }}');">
                 </div>
             </div>
             

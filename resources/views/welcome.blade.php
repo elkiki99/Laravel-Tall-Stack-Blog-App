@@ -1,5 +1,5 @@
 <x-app-layout>      
-    <div class="min-h-screen bg-gradient-to-b bg from-white via-amber-200 to-white">
+    <div class="min-h-screen bg-gradient-to-b bg from-white via-yellow-300 to-white">
         <div class="py-12">
             <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
                 <h1 class="py-5 text-transparent text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">Welcome to <span class="font-bold text-black underline-yellow">{{ config('app.name')}}</span>, a beautiful blog template with integrated features</h1>
@@ -183,14 +183,16 @@
                                 design.
                             </p>
                         </div>
-                        <div class="flex items-end py-10">
-                            <x-primary-button class="px-4 py-2 mx-1 ml-auto text-2xl rounded-lg">
+                        <div class="flex items-end justify-end py-10">
+                            <a href="{{ route('blog.index') }}">
+                              <x-primary-button class="flex items-center px-4 py-2 mx-1 text-2xl rounded-lg">
                                 Blog
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-2 size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                                </svg>   
-                            </x-primary-button>            
-                        </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                              </x-primary-button>
+                            </a>
+                          </div>
                     </div>
                 </div>
             </div>
