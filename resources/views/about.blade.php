@@ -5,10 +5,12 @@
                 <div class="flex flex-col items-center justify-center h-full">
                     <h1 class="py-10 mb-8 font-bold text-white text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
                     <button class="inline-flex items-center px-4 py-2 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
-                        <span>Our newsletter</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                        </svg>
+                        <a class="flex" wire:navigate href="{{ route('newsletter') }}">
+                            <span class="inline-flex items-center">Our newsletter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                            </svg>
+                        </a>
                     </button>
                 </div>
             </div>
@@ -97,7 +99,7 @@
                           </svg>
                         </button>
                         <div x-show="open" x-collapse class="py-2 text-gray-600">
-                          <p>This website is designed to help bloggers create beautiful and functional blogs. It's free to use and highly customizable.</p>
+                          <p class="pb-2">This website is designed to help bloggers create beautiful and functional blogs. It's free to use and highly customizable.</p>
                         </div>
                       </div>
                     <div x-data="{ open: false }" class="border-b border-gray-200">
@@ -108,7 +110,7 @@
                             </svg>
                         </button>
                         <div x-show="open" x-collapse class="py-2 text-gray-600">
-                            <p>Yes, our template is completely free to use. You can customize it to fit your needs.</p>
+                            <p class="pb-2">Yes, our template is completely free to use. You can customize it to fit your needs.</p>
                         </div>
                     </div>
                     <div x-data="{ open: false }" class="border-b border-gray-200">
@@ -119,7 +121,7 @@
                             </svg>
                         </button>
                         <div x-show="open" x-collapse class="py-2 text-gray-600">
-                            <p>All you need is a basic understanding of HTML and CSS. Our template is easy to use and comes with comprehensive documentation.</p>
+                            <p class="pb-2">All you need is a basic understanding of HTML and CSS. Our template is easy to use and comes with comprehensive documentation.</p>
                         </div>
                     </div>
                     <div x-data="{ open: false }" class="border-b border-gray-200">
@@ -130,7 +132,7 @@
                             </svg>
                         </button>
                         <div x-show="open" x-collapse class="py-2 text-gray-600">
-                            <p>Yes, you can fully customize the template to match your personal or business brand. Modify colors, layouts, and content as needed.</p>
+                            <p class="pb-2">Yes, you can fully customize the template to match your personal or business brand. Modify colors, layouts, and content as needed.</p>
                         </div>
                     </div>
                     <div x-data="{ open: false }" class="border-b border-gray-200">
@@ -141,7 +143,7 @@
                             </svg>
                         </button>
                         <div x-show="open" x-collapse class="py-2 text-gray-600">
-                            <p>To get started, simply download the template, open it in your preferred code editor, and start customizing. You can find detailed instructions in our documentation.</p>
+                            <p class="pb-2">To get started, simply download the template, open it in your preferred code editor, and start customizing. You can find detailed instructions in our documentation.</p>
                         </div>
                     </div>
                 </div>

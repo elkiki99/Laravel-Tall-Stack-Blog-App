@@ -69,13 +69,13 @@
                         skyscrapers, such as the Erasmus Bridge and the Cube Houses, which redefine urban living and
                         design.
                     </p>
-                    <img loading="lazy" src="{{ asset('images/rotterdam.jpg') }}" alt="Rotterdam" class="my-5">
                     <p class="mt-2 text-lg leading-relaxed text-gray-700">
                         The Erasmus Bridge, nicknamed "The Swan" for its graceful, asymmetrical shape, is a striking
                         symbol of the city. Spanning the Nieuwe Maas River, this bridge connects the northern and
                         southern parts of Rotterdam, facilitating both pedestrian and vehicular traffic. Its sleek,
                         white design and impressive engineering make it a focal point of the city's skyline.
                     </p>
+                    <img loading="lazy" src="{{ asset('images/rotterdam.jpg') }}" alt="Rotterdam" class="my-5">
                     <p class="text-lg leading-relaxed text-gray-700" id="section3">
                         Another architectural gem in Rotterdam is the Cube Houses, designed by the Dutch architect Piet
                         Blom. These distinctive houses are tilted at a 45-degree angle, creating a unique and

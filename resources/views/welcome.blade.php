@@ -1,15 +1,15 @@
 <x-app-layout>
-    <div class="flex items-center min-h-screen bg-gradient-to-b bg from-white via-yellow-300 to-white">
-        <div class="w-full py-12">
-            <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-                <h1 class="py-5 text-6xl text-transparent md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
+    <div class="flex min-h-screen my-10 sm:my-0 sm:items-center bg-gradient-to-b bg from-white via-yellow-300 to-white">
+        <div class="w-full">
+            <div class="px-6 mx-auto space-y-6 max-w-7xl lg:px-8">
+                <h1 class="py-1 text-6xl text-transparent md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
                     Welcome to <span class="font-bold text-black underline-yellow">{{ config('app.name') }}</span>, a beautiful blog template with integrated features
                 </h1>
-                <p class="text-2xl">
+                <p class="text-xl md:text-2xl">
                     This is a simple blog template for every use, you can use it as a starting point and customize it however you want. It's built with the TALL stack, TailwindCSS, Alpine.js, Livewire and Laravel.
                 </p>
     
-                <div class="items-center py-5">
+                <div class="items-center py-5 ">
                     <a href="https://github.com/elkiki99/Laravel-Tall-Stack-Blog-App">
                         <x-primary-button class="px-4 py-2 mx-1 text-2xl rounded-lg">
                             Get started
@@ -19,8 +19,8 @@
                             </svg>
                         </x-primary-button>
                     </a>
-                    <a href="{{ route('about') }}">
-                        <x-secondary-button class="px-4 py-2 mx-1 text-2xl font-thin rounded-lg">Learn more
+                    <a wire:navigate href="{{ route('about') }}">
+                        <x-secondary-button class="px-4 py-2 mx-1 mt-2 text-2xl font-thin rounded-lg sm:mt-0">Learn more
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="ml-2 size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -35,7 +35,7 @@
 
     <div class="flex items-center justify-center min-h-screen bg-fixed bg-no-repeat bg-cover"
         style="background-image: url('{{ asset('images/texture3.jpg') }}');">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 sm:py-6 lg:py-8">
+        <div class="px-6 py-6 mx-auto max-w-7xl lg:px-8 lg:py-8">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 <div
                     class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
@@ -155,19 +155,17 @@
                                 <x-blog.created-data class="text-lg" />
                             </div>
                         </div>
-                        {{-- @endforeach --}}
                     </div>
                 </div>
-                {{-- @endforeach --}}
             </div>
     
             <div class="w-full lg:w-1/2">
                 <div class="flex flex-col py-10 space-y-10 md:flex-row md:space-y-0 md:space-x-12">
-                    <div class="w-full max-w-2xl mx-auto">
+                    <div class="w-full mx-auto">
                         <h2 class="pb-5 mb-6 text-2xl font-bold text-gray-900 border-b-2 md:text-4xl">
                             Exploring the Architectural Marvels of the Netherlands
                         </h2>
-                        <p class="text-lg leading-relaxed text-gray-700" id="section1">
+                        <p class="text-lg leading-relaxed text-gray-700">
                             The Netherlands boasts a rich architectural heritage that spans centuries, blending traditional Dutch aesthetics with innovative modern designs. In this blog post, we delve deep into some of the most iconic buildings that define the architectural landscape of the Netherlands.
                         </p>
     
@@ -181,7 +179,7 @@
                         <p class="text-lg leading-relaxed text-gray-700">
                             During the 17th century, Amsterdam was a major trading hub, attracting merchants from all over the world. The wealth generated from trade led to the construction of grand canal houses, which served as both residences and warehouses. These houses were built along the iconic canals, creating a picturesque and functional urban layout.
                         </p>
-                        <p class="mt-2 text-lg leading-relaxed text-gray-700" id="section2">
+                        <p class="mt-2 text-lg leading-relaxed text-gray-700">
                             One of the most striking features of these houses is their narrow width, a result of the city taxing properties based on the width of the street-facing facade. This led to the development of tall, narrow houses with deep interiors and multiple floors. The facades are often adorned with ornate gables, each reflecting the unique style of the period in which they were built.
                         </p>
                         <div class="fade-container">
@@ -190,6 +188,12 @@
                             </h3>
                             <p class="text-lg leading-relaxed text-gray-700">
                                 Rotterdam, known for its bold and innovative architecture, showcases a blend of modern skyscrapers, such as the Erasmus Bridge and the Cube Houses, which redefine urban living and design.
+                            </p>
+                            <p class="mt-2 text-lg leading-relaxed text-gray-700">
+                                The Erasmus Bridge, nicknamed "The Swan" for its graceful, asymmetrical shape, is a striking
+                                symbol of the city. Spanning the Nieuwe Maas River, this bridge connects the northern and
+                                southern parts of Rotterdam, facilitating both pedestrian and vehicular traffic. Its sleek,
+                                white design and impressive engineering make it a focal point of the city's skyline.
                             </p>
                         </div>
                         <div class="flex items-end justify-end py-10">

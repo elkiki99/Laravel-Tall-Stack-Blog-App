@@ -6,7 +6,12 @@
                 <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua.</p>
             </div>
-            <div class="grid grid-cols-3 gap-5">
+            <div class="grid grid-cols-4 gap-5">
+                {{-- <div class="w-full p-4">
+                    <h2 class="mb-2 text-lg font-bold">Contact Us</h2>
+                    <p class="text-gray-400">contact@example.com</p>
+                    <p class="text-gray-400">(123) 456-7890</p>
+                </div> --}}
                 <div class="w-full p-4">
                     <h2 class="mb-2 text-lg font-bold">Socials</h2>
                     <ul>
