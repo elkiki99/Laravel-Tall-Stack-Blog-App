@@ -2,8 +2,8 @@
     <section class="relative min-h-screen overflow-hidden">
         <div class="absolute inset-0 px-6 bg-fixed bg-no-repeat bg-cover parallax-bg " style="background-image: url('{{ asset('images/texture6.jpg') }}');">
             <div class="flex flex-col items-center justify-center h-full py-10 mx-auto sm:py-0 max-w-7xl">
-                <h1 class="mt-10 mb-8 text-6xl font-bold text-center text-white sm:mt-0 sm:text-7xl md:text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
-                <button class="inline-flex items-center px-4 py-2 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+                <h1 class="mt-0 mb-8 text-6xl font-bold text-center text-white sm:mt-20 sm:text-7xl md:text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
+                <button class="inline-flex items-center px-4 py-2 my-5 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                     <a class="flex" wire:navigate href="{{ route('newsletter') }}">
                         <span class="inline-flex items-center">Our newsletter</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
@@ -18,7 +18,7 @@
     <section class="relative min-h-screen overflow-hidden">
         <div class="p-10">
             <div class="flex items-center justify-center h-full py-10">
-                <h2 class="py-1 pt-16 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
+                <h2 class="py-1 pt-4 text-6xl font-bold text-transparent sm:pt-16 bg-clip-text bg-gradient-to-r from-black to-gray-700">
                     Get your website 
                     <span class="underline-yellow">up and running</span>
                 </h2>
@@ -85,9 +85,8 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="relative min-h-screen overflow-hidden">
-        <div class="p-16 mx-auto max-w-7xl">
+        <div class="p-4 mx-auto sm:p-16 max-w-7xl">
             <h2 class="hidden p-1 pt-16 text-6xl font-bold text-center text-transparent sm:block bg-clip-text bg-gradient-to-r from-black to-gray-700">Frequently Asked <span class="underline-yellow">Questions</span></h2>
             <h2 class="p-1 pt-16 text-6xl font-bold text-center text-transparent sm:hidden bg-clip-text bg-gradient-to-r from-black to-gray-700 underline-yellow">FAQs</h2>
             

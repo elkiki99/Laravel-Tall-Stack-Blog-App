@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="flex items-center min-h-screen bg-gradient-to-b bg from-white via-yellow-300 to-white">
-        <div class="px-6 mx-auto sm:space-y-6 max-w-7xl lg:px-8">
+    <section class="flex items-center min-h-screen bg-gradient-to-b bg from-white via-yellow-300 to-white">
+        <div class="px-6 pt-0 mx-auto sm:mt-32 sm:space-y-6 max-w-7xl lg:px-8">
             <h1 class="py-10 mt-10 text-5xl text-center text-transparent sm:text-6xl sm:mt-0 sm:py-1 md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
                 Welcome to <span class="font-bold text-black underline-yellow">{{ config('app.name') }}</span>, a beautiful blog template with integrated features
             </h1>
@@ -8,7 +8,7 @@
                 This is a simple blog template for every use, you can use it as a starting point and customize it however you want. It's built with the TALL stack, TailwindCSS, Alpine.js, Livewire and Laravel.
             </p>
 
-            <div class="flex flex-col items-center justify-center py-5 space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
+            <div class="flex flex-col items-center justify-center py-10 space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
                 <a href="https://github.com/elkiki99/Laravel-Tall-Stack-Blog-App">
                     <x-primary-button class="px-4 py-2 text-2xl rounded-lg">
                         Get started
@@ -27,9 +27,9 @@
                 </a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="flex items-center justify-center min-h-screen bg-fixed bg-no-repeat bg-cover"
+    <section class="flex items-center justify-center min-h-screen bg-fixed bg-no-repeat bg-cover"
         style="background-image: url('{{ asset('images/texture3.jpg') }}');">
         <div class="px-6 py-6 mx-auto max-w-7xl lg:px-8 lg:py-8">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -101,10 +101,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="flex flex-col min-h-screen p-4 md:p-10 dark:bg-gray-900">
-        <h2 class="relative py-5 mt-24 text-4xl font-bold text-center md:text-6xl">Templates</h2>
+    <section class="flex flex-col min-h-screen p-4 md:p-10 dark:bg-gray-900">
+        <h2 class="relative py-5 mt-12 text-4xl font-bold text-center sm:mt-24 md:text-6xl">Templates</h2>
     
         <div class="flex flex-col justify-center space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0">
             <div class="w-full lg:w-1/2 ">
@@ -206,7 +206,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <style>
         .underline-yellow {
