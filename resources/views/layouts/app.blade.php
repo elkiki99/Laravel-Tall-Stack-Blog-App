@@ -16,11 +16,11 @@
     </head>
     <body class="font-sans antialiased">
         <div class="bg-white dark:bg-gray-900">
-            <div class="flex justify-center py-10">
+            <div class="flex justify-center">
                 @include('layouts.navigation')
             </div>
             
-            <main class="relative z-10 pb-10 bg-white">
+            <main class="relative z-10 pb-20 bg-white">
                 {{ $slot }}
             </main>
             
