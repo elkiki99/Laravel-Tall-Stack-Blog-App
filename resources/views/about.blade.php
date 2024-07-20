@@ -146,6 +146,17 @@
                         <p class="pb-2 text-sm">To get started, simply download the template, open it in your preferred code editor, and start customizing. You can find detailed instructions in our documentation.</p>
                     </div>
                 </div>
+                <div x-data="{ open: false }" class="border-b border-gray-200">
+                    <button @click="open = !open" class="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-600 focus:outline-none">
+                        <h4 class="text-sm text-gray-900 sm:text-xl">Can I use it for commercial purposes?</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': open }">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="open" x-collapse class="py-2 text-gray-600">
+                        <p class="pb-2 text-sm">Absolutely! Our template is highly customizable and can be used for both personal and business purposes.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
