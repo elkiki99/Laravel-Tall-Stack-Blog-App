@@ -1,10 +1,10 @@
 <x-app-layout>
-    <div class="flex w-full px-4 py-10 pt-16 sm:pt-32">
-        <!-- First Section -->
-        <section class="hidden w-0 lg:p-2 md:block md:w-1/6">
-            <x-blog.nav-bar />
-        </section>
-
+    <!-- First Section -->
+    <section class="pt-36">
+        <x-blog.nav-bar />
+    </section>
+    
+    <div class="flex w-full px-4 py-10 pt-16 max-w-7 sm:pt-32">
         <!-- Second Section -->
         <section class="w-full lg:p-2 md:w-5/6 lg:w-4/6 xl:w-3/6">
             <h1 class="py-5 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
@@ -60,8 +60,8 @@
             </div>
         </section>
 
-        <!-- Second Section -->
-        <section class="hidden w-0 min-h-screen pg-5 ld:p-2 lg:w-1/6 lg:block xl:w-2/6">
+        <!-- Third Section -->
+        <section class="hidden w-0 min-h-screen md:w-1/6 pg-5 lg:p-2 lg:w-1/6 lg:block xl:w-2/6">
             <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
                 Featured
             </h2>

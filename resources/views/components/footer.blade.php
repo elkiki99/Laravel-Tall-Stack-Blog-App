@@ -2,13 +2,13 @@
     <div class="flex flex-col justify-between h-full p-6 mx-auto">
         <div class="flex flex-wrap">
             <!-- About Us Section -->
-            <div class="w-full p-2 md:w-1/3">
+            <div class="w-full px-4 py-2 md:w-1/3">
                 <h2 class="mb-2 text-lg font-bold">About Us</h2>
                 <p class="text-sm text-gray-400 md:text-md">Our company is dedicated to providing the best service and products to our customers. We value quality, reliability, and customer satisfaction.</p>
             </div>
 
             <!-- Contact & Socials Section -->
-            <div class="w-full p-2 md:w-2/3">
+            <div class="w-full px-4 py-2 md:w-2/3">
                 <div class="grid w-full grid-cols-2 gap-4 lg:grid-cols-4">
                     <div class="w-full">
                         <h2 class="mb-2 text-lg font-bold">Contact Us</h2>

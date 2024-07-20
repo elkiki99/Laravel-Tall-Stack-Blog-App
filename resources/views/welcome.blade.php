@@ -32,7 +32,7 @@
     <section class="flex items-center justify-center min-h-screen bg-fixed bg-no-repeat bg-cover"
         style="background-image: url('{{ asset('images/texture3.jpg') }}');">
         <div class="px-6 py-6 mx-auto max-w-7xl lg:px-8 lg:py-8">
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-1 gap-4 py-24 md:grid-cols-2 lg:grid-cols-3">
                 <div
                     class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">SEO Optimized</h3>
