@@ -1,25 +1,24 @@
 <x-app-layout>
+    <section class="pt-20 sm:pt-36">
+        <x-blog.nav-bar />
+    </section>
+    
     <div class="flex px-4">
-        <section class="w-1/6 py-10">
-            <x-blog.nav-bar />
-        </section>
-
-        <div class="w-4/6 space-y-6 sm:px-6 lg:px-8">
-            {{-- <a href="{{ route('blog.index') }}">Back to blog</a> --}}
-            <h1 class="pt-10 pb-0 text-6xl font-bold text-black lg:pt-20 lg:pb-10">
+        <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
+            <h1 class="pt-10 pb-0 text-4xl font-bold text-black sm:text-5xl md:text-7xl lg:pt-20 lg:pb-10">
                 Architectural Wonders of the Netherlands: A Journey Through Time and Design
             </h1>
 
             <x-blog.metrics />
 
-            <div class="relative min-h-screen overflow-hidden rounded-3xl">
+            <div class="relative overflow-hidden aspect-square sm:aspect-video rounded-3xl">
                 <div class="absolute inset-0 bg-fixed bg-no-repeat bg-cover rounded-3xl parallax-bg"
                     style="background-image: url('{{ asset('images/blog1.jpg') }}');">
                 </div>
             </div>
 
-            <div class="flex py-10 space-x-12">
-                <div class="w-1/6 space-x-6">
+            <div class="flex max-w-5xl py-10 mx-auto md:space-x-12">
+                <div class="hidden w-1/6 space-x-6 md:block">
                     <div class="sticky block pb-20 space-y-2 top-20">
                         <a class="block w-full py-1" href="#section1">Canal Houses</a>
                         <a class="block w-full py-1" href="#section2">Rotterdam</a>
@@ -28,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class="w-5/6 max-w-2xl mx-auto">
+                <div class="w-full md:w-5/6">
                     <h2 class="pb-5 mb-6 text-4xl font-bold text-gray-900 border-b-2">
                         Exploring the Architectural Marvels of the Netherlands
                     </h2>
@@ -120,9 +119,9 @@
 
                     <div class="my-16">
                         <x-blog.created-data />
-                        <x-blog.tags />
+                        <x-blog.tags class="my-5" />
                     </div>
-                </div>
+                </div>  
             </div>
         </div>
     </div>

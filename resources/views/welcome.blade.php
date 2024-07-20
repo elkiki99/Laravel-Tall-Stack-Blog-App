@@ -128,7 +128,7 @@
                             <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform rounded-3xl hover:scale-105 hover:cursor-pointer">
                         </a>
                     </div>
-                    <x-blog.tags />
+                    <x-blog.tags class="py-5" />
                     <x-blog.created-data class="text-lg" />
     
                     <div class="grid grid-cols-1 gap-6 py-10">
@@ -147,7 +147,7 @@
                                     <p class="text-lg text-gray-700 dark:text-gray-300">In this post, we dive into the different types of buildings in the Netherlands and its overall design system. What makes them unique?</p>
                                 </div>
     
-                                <x-blog.tags />
+                                <x-blog.tags class="py-5" />
                                 <x-blog.created-data class="text-lg" />
                             </div>
                         </div>

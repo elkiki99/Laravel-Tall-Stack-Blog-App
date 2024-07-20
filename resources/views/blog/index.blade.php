@@ -1,25 +1,20 @@
 <x-app-layout>
     <!-- First Section -->
-    <section class="pt-36">
+    <section class="pt-20 pb-10 sm:pt-36">
         <x-blog.nav-bar />
     </section>
     
-    <div class="flex w-full px-4 py-10 pt-16 max-w-7 sm:pt-32">
+    <div class="flex min-h-screen mx-auto max-w-7xl">
         <!-- Second Section -->
-        <section class="w-full lg:p-2 md:w-5/6 lg:w-4/6 xl:w-3/6">
-            <h1 class="py-5 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
-                All our blog <span class="underline-yellow">posts</span>
-            </h1>
-
+        <section class="w-4/6 px-2">
             <div class="grid grid-cols-1 gap-6 py-5">
-                {{-- @foreach ($posts as $post) --}}
-                <div class="flex flex-col bg-white rounded-lg shadow-sm 2xl:flex-row dark:bg-gray-800">
-                    <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 aspect-square">
+                <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">
+                    <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
                         <a wire:navigate href="{{ route('blog.show') }}">
                             <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
                         </a>
                     </div>
-                    <div class="flex flex-col justify-between w-full p-4 2xl:w-1/2">
+                    <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
                         <div>
                             <x-blog.metrics />
 
@@ -29,20 +24,18 @@
                             <p class="text-lg text-gray-700 dark:text-gray-300">We dive into the different types of buildings in the Netherlands and its overall design system.</p>
                         </div>
 
-                        <x-blog.tags />
-                        <x-blog.created-data class="text-lg" />
+                        <x-blog.created-data class="pt-4 text-lg" />
+                        <x-blog.tags class="pt-2" />
                     </div>
                 </div>
-                {{-- @endforeach --}}
             </div>
 
             <div class="grid grid-cols-1 gap-6 py-5">
-                {{-- @foreach ($posts as $post) --}}
-                <div class="flex flex-col bg-white rounded-lg shadow-sm 2xl:flex-row dark:bg-gray-800">
-                    <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 aspect-square">
+                <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">
+                    <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
                         <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
                     </div>
-                    <div class="flex flex-col justify-between w-full p-4 2xl:w-1/2">
+                    <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
                         <div>
                             <x-blog.metrics />
 
@@ -52,48 +45,168 @@
                             <p class="text-lg text-gray-700 dark:text-gray-300">In this post, we dive into the different types of buildings in the Netherlands and its overall design system. What makes them unique?</p>
                         </div>
 
-                        <x-blog.tags />
-                        <x-blog.created-data class="text-lg" />
+                        <x-blog.created-data class="pt-4 text-lg" />
+                        <x-blog.tags class="pt-2" />
                     </div>
                 </div>
-                {{-- @endforeach --}}
             </div>
+
+            <div class="grid grid-cols-1 gap-6 py-5">
+                <div class="flex flex-col bg-white rounded-lg dark:bg-gray-700 2xl:flex-row">
+                    <!-- Placeholder Image -->
+                    <div class="w-full overflow-hidden bg-gray-200 2xl:w-1/2 2xl:aspect-square aspect-video"></div>
+                    
+                    <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
+                        <div>
+                            <!-- Placeholder Metrics -->
+                            <div class="w-48 h-4 mb-4 bg-gray-300"></div>
+
+                            <!-- Placeholder Title -->
+                            <div class="w-64 h-8 mb-4 bg-gray-300"></div>
+
+                            <!-- Placeholder Paragraph -->
+                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                            <div class="w-1/2 h-4 bg-gray-200"></div>
+                        </div>
+
+                        <!-- Placeholder Created Data -->
+                        <div class="w-32 h-4 mt-5 mb-4 bg-gray-300 2xl:mt-auto"></div>
+
+                        <!-- Placeholder Tags -->
+                        <div class="flex space-x-2">
+                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- Third Section -->
-        <section class="hidden w-0 min-h-screen md:w-1/6 pg-5 lg:p-2 lg:w-1/6 lg:block xl:w-2/6">
-            <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-700">
-                Featured
-            </h2>
-            
-            <div class="grid grid-cols-1 gap-6 py-5">
-                {{-- @foreach ($posts as $post) --}}
-                <div class="items-center bg-white rounded-lg shadow-sm dark:bg-gray-800">
-                    <div class="overflow-hidden shadow-lg aspect-square">
-                        <img loading="lazy" src="{{ asset('images/blog3.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
-                    </div>
-                    <div class="p-4 ">
-                        <h2 class="mb-2 text-2xl font-bold text-gray-900 hover:cursor-pointer dark:text-gray-100">Best buildings in Netherlands</h2>
-                        
-                        <x-blog.metrics />
-                    </div>
+        <section class="w-2/6 px-2">
+            <div class="py-6 pb-5 border-b-2 border-gray-300">
+                <x-blog.metrics />
+                <h2 class="my-2 text-2xl font-bold text-gray-900 hover:cursor-pointer dark:text-gray-100">Best buildings in Netherlands</h2>
+                <p>Explore the architectural gems of the Netherlands, from the sleek modern designs of Amsterdam's skyline to the historic charm of Utrecht's medieval structures.</p>
+
+                <x-blog.created-data class="pt-5" />
+
+                <div class="flex pt-2">
+                    <x-blog.tags />
+                    
+                    <a href="#" class="ml-auto hover:cursor-pointer">  
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg> 
+                    </a>
                 </div>
-                {{-- @endforeach --}}
+            </div>
+            
+            <div class="py-6 pb-5 border-b-2 border-gray-300">
+                <x-blog.metrics />
+                <h2 class="my-2 text-2xl font-bold text-gray-900 hover:cursor-pointer dark:text-gray-100">The Seven Wonders of the Ancient World</h2>
+                <p>Uncover the marvels of the ancient world with our guide to the Seven Wonders, each a testament to the ingenuity and craftsmanship of past civilizations.</p>
+                
+                <x-blog.created-data class="pt-5" />
+
+                <div class="flex pt-2">
+                    <x-blog.tags />
+                    
+                    <a href="#" class="ml-auto hover:cursor-pointer">  
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg> 
+                    </a>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-6 py-5">
-                {{-- @foreach ($posts as $post) --}}
-                <div class="items-center bg-white rounded-lg shadow-sm dark:bg-gray-800">
-                    <div class="overflow-hidden shadow-lg aspect-square">
-                        <img loading="lazy" src="{{ asset('images/blog2.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
+            <div class="py-6 pb-5 border-b-2 border-gray-300">
+                <!-- Placeholder Metrics -->
+                <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+                
+                <!-- Placeholder Title -->
+                <div class="w-48 h-6 mb-2 bg-gray-300"></div>
+                
+                <!-- Placeholder Paragraph -->
+                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
+                
+                <!-- Placeholder Created Data -->
+                <div class="w-24 h-4 mb-5 bg-gray-200"></div>
+            
+                <!-- Placeholder Tags and Action -->
+                <div class="flex pt-2">
+                    <div class="flex space-x-2">
+                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
                     </div>
-                    <div class="p-4 ">
-                        <h2 class="mb-2 text-2xl font-bold text-gray-900 hover:cursor-pointer dark:text-gray-100">Best buildings in Netherlands</h2>
-                        
-                        <x-blog.metrics />
+                    <div class="ml-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
                     </div>
                 </div>
-                {{-- @endforeach --}}
+            </div>
+
+            <div class="py-6 pb-5 border-b-2 border-gray-300">
+                <!-- Placeholder Metrics -->
+                <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+                
+                <!-- Placeholder Title -->
+                <div class="w-48 h-6 mb-2 bg-gray-300"></div>
+                
+                <!-- Placeholder Paragraph -->
+                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
+                
+                <!-- Placeholder Created Data -->
+                <div class="w-24 h-4 mb-5 bg-gray-200"></div>
+            
+                <!-- Placeholder Tags and Action -->
+                <div class="flex pt-2">
+                    <div class="flex space-x-2">
+                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                    </div>
+                    <div class="ml-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-6 pb-5 border-b-2 border-gray-300">
+                <!-- Placeholder Metrics -->
+                <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+                
+                <!-- Placeholder Title -->
+                <div class="w-48 h-6 mb-2 bg-gray-300"></div>
+                
+                <!-- Placeholder Paragraph -->
+                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
+                
+                <!-- Placeholder Created Data -->
+                <div class="w-24 h-4 mb-5 bg-gray-200"></div>
+            
+                <!-- Placeholder Tags and Action -->
+                <div class="flex pt-2">
+                    <div class="flex space-x-2">
+                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                    </div>
+                    <div class="ml-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

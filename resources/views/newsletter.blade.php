@@ -2,7 +2,7 @@
     <div class="min-h-screen">
         <div class="py-12">
             <div class="px-6 mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-                <h1 class="py-5 mt-16 text-6xl text-transparent sm:mt-32 sm:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">Get the best of <span class="font-bold text-black underline-yellow">{{ config('app.name')}}</span> in your in-box</h1>
+                <h1 class="py-5 mt-16 text-4xl text-transparent sm:text-5xl sm:mt-32 md:text-6xl bg-clip-text bg-gradient-to-r from-black to-gray-700">Get the best of <span class="font-bold text-black underline-yellow">{{ config('app.name')}}</span> in your in-box</h1>
                 <p class="pb-5 text-2xl text-gray-800 border-b-2">Stay updated with our latest news and special offers directly in your inbox.</p>
 
                 <div class="gap-5 lg:flex">
