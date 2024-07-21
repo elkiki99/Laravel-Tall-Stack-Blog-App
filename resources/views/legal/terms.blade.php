@@ -34,7 +34,7 @@
             <li>
                 <p><strong>Terms and Conditions</strong> (also referred as &quot;Terms&quot;) mean these Terms and
                     Conditions that form the entire agreement between You and the Company regarding the use of the
-                    Service. This Terms and Conditions agreement has been created with the help of the <a
+                    Service. This Terms and Conditions agreement has been created with the help of the <a class="text-yellow-500" 
                         href="https://www.freeprivacypolicy.com/free-terms-and-conditions-generator/" target="_blank">Free
                         Terms and Conditions Generator</a>.</p>
             </li>
@@ -44,7 +44,7 @@
                     available by the Service.</p>
             </li>
             <li>
-                <p><strong>Website</strong> refers to The Edifice Gazette, accessible from <a
+                <p><strong>Website</strong> refers to The Edifice Gazette, accessible from <a class="text-yellow-500" 
                         href="https://blog-floral-butterfly-7155.fly.dev" rel="external nofollow noopener"
                         target="_blank">https://blog-floral-butterfly-7155.fly.dev</a></p>
             </li>
@@ -160,10 +160,10 @@
         <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
         <ul>
             <li>
-                <p>By email: theedificegazette@gmail.com</p>
+                <p>By email: gazette@gmail.com</p>
             </li>
             <li>
-                <p>By visiting this page on our website: <a href="https://blog-floral-butterfly-7155.fly.dev/terms"
+                <p>By visiting this page on our website: <a class="text-yellow-500" href="https://blog-floral-butterfly-7155.fly.dev/terms"
                         rel="external nofollow noopener"
                         target="_blank">https://blog-floral-butterfly-7155.fly.dev/terms</a></p>
             </li>

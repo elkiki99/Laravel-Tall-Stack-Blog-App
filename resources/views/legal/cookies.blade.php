@@ -4,7 +4,7 @@
         <p>Last updated: July 21, 2024</p>
         <p>This Cookies Policy explains what Cookies are and how We use them. You should read this policy so You can
             understand what type of cookies We use, or the information We collect using Cookies and how that information
-            is used. This Cookies Policy has been created with the help of the <a
+            is used. This Cookies Policy has been created with the help of the <a class="text-yellow-500" 
                 href="https://www.freeprivacypolicy.com/free-cookies-policy-generator/" target="_blank">Free Cookies
                 Policy Generator</a>.</p>
         <p>Cookies do not typically contain any information that personally identifies a user, but personal information
@@ -25,7 +25,7 @@
             <li><strong>Cookies</strong> means small files that are placed on Your computer, mobile device or any other
                 device by a website, containing details of your browsing history on that website among its many uses.
             </li>
-            <li><strong>Website</strong> refers to The Edifice Gazette, accessible from <a
+            <li><strong>Website</strong> refers to The Edifice Gazette, accessible from <a class="text-yellow-500" 
                     href="https://blog-floral-butterfly-7155.fly.dev" rel="external nofollow noopener"
                     target="_blank">https://blog-floral-butterfly-7155.fly.dev</a></li>
             <li><strong>You</strong> means the individual accessing or using the Website, or a company, or any legal
@@ -67,24 +67,24 @@
             help pages of your web browser.</p>
         <ul>
             <li>
-                <p>For the Chrome web browser, please visit this page from Google: <a
+                <p>For the Chrome web browser, please visit this page from Google: <a class="text-yellow-500" 
                         href="https://support.google.com/accounts/answer/32050" rel="external nofollow noopener"
                         target="_blank">https://support.google.com/accounts/answer/32050</a></p>
             </li>
             <li>
-                <p>For the Internet Explorer web browser, please visit this page from Microsoft: <a
+                <p>For the Internet Explorer web browser, please visit this page from Microsoft: <a class="text-yellow-500" 
                         href="http://support.microsoft.com/kb/278835" rel="external nofollow noopener"
                         target="_blank">http://support.microsoft.com/kb/278835</a></p>
             </li>
             <li>
-                <p>For the Firefox web browser, please visit this page from Mozilla: <a
+                <p>For the Firefox web browser, please visit this page from Mozilla: <a class="text-yellow-500" 
                         href="https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored"
                         rel="external nofollow noopener"
                         target="_blank">https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored</a>
                 </p>
             </li>
             <li>
-                <p>For the Safari web browser, please visit this page from Apple: <a
+                <p>For the Safari web browser, please visit this page from Apple: <a class="text-yellow-500" 
                         href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
                         rel="external nofollow noopener"
                         target="_blank">https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac</a>
@@ -93,12 +93,12 @@
         </ul>
         <p>For any other web browser, please visit your web browser's official web pages.</p>
         <h4>More Information about Cookies</h4>
-        <p>You can learn more about cookies: <a href="https://www.freeprivacypolicy.com/blog/cookies/"
+        <p>You can learn more about cookies: <a class="text-yellow-500"  class="text-yellow-500" href="https://www.freeprivacypolicy.com/blog/cookies/"
                 target="_blank">Cookies: What Do They Do?</a>.</p>
         <h4>Contact Us</h4>
         <p>If you have any questions about this Cookies Policy, You can contact us:</p>
         <ul>
-            <li>By visiting this page on our website: <a href="https://blog-floral-butterfly-7155.fly.dev/cookies"
+            <li>By visiting this page on our website: <a class="text-yellow-500"  class="text-yellow-500" href="https://blog-floral-butterfly-7155.fly.dev/cookies"
                     rel="external nofollow noopener"
                     target="_blank">https://blog-floral-butterfly-7155.fly.dev/cookies</a></li>
         </ul>

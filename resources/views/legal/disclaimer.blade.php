@@ -15,7 +15,7 @@
             <li><strong>Service</strong> refers to the Website.</li>
             <li><strong>You</strong> means the individual accessing the Service, or the company, or other legal entity
                 on behalf of which such individual is accessing or using the Service, as applicable.</li>
-            <li><strong>Website</strong> refers to The Edifice Gazette, accessible from <a
+            <li><strong>Website</strong> refers to The Edifice Gazette, accessible from <a class="text-yellow-500" 
                     href="https://blog-floral-butterfly-7155.fly.dev/" rel="external nofollow noopener"
                     target="_blank">https://blog-floral-butterfly-7155.fly.dev/</a></li>
         </ul>
@@ -26,7 +26,7 @@
             damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out
             of or in connection with the use of the Service or the contents of the Service. The Company reserves the
             right to make additions, deletions, or modifications to the contents on the Service at any time without
-            prior notice. This Disclaimer has been created with the help of the <a
+            prior notice. This Disclaimer has been created with the help of the <a class="text-yellow-500" 
                 href="https://www.freeprivacypolicy.com/free-disclaimer-generator/" target="_blank">Free Disclaimer
                 Generator</a>.</p>
         <p>The Company does not warrant that the Service is free of viruses or other harmful components.</p>
@@ -76,7 +76,7 @@
         <h2>Contact Us</h2>
         <p>If you have any questions about this Disclaimer, You can contact Us:</p>
         <ul>
-            <li>By visiting this page on our website: <a href="https://blog-floral-butterfly-7155.fly.dev/disclaimer"
+            <li>By visiting this page on our website: <a class="text-yellow-500" href="https://blog-floral-butterfly-7155.fly.dev/disclaimer"
                     rel="external nofollow noopener"
                     target="_blank">https://blog-floral-butterfly-7155.fly.dev/disclaimer</a></li>
         </ul>

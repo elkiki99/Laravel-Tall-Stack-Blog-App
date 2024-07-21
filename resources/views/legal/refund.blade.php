@@ -4,7 +4,7 @@
             <p>Last updated: July 21, 2024</p>
             <p>Thank you for shopping at The Edifice Gazette.</p>
             <p>If, for any reason, You are not completely satisfied with a purchase We invite You to review our policy
-                on refunds and returns. This Return and Refund Policy has been created with the help of the <a
+                on refunds and returns. This Return and Refund Policy has been created with the help of the <a class="text-yellow-500" 
                     href="https://www.freeprivacypolicy.com/free-return-refund-policy-generator/" target="_blank">Free
                     Return and Refund Policy Generator</a>.</p>
             <p>The following terms are applicable for any products that You purchased with Us.</p>
@@ -30,7 +30,7 @@
                     <p><strong>Service</strong> refers to the Website.</p>
                 </li>
                 <li>
-                    <p><strong>Website</strong> refers to The Edifice Gazette, accessible from <a
+                    <p><strong>Website</strong> refers to The Edifice Gazette, accessible from <a class="text-yellow-500" 
                             href="https://blog-floral-butterfly-7155.fly.dev/" rel="external nofollow noopener"
                             target="_blank">https://blog-floral-butterfly-7155.fly.dev/</a></p>
                 </li>
@@ -47,7 +47,7 @@
             <p>In order to exercise Your right of cancellation, You must inform Us of your decision by means of a clear
                 statement. You can inform us of your decision by:</p>
             <ul>
-                <li>By visiting this page on our website: <a href="https://blog-floral-butterfly-7155.fly.dev/refund"
+                <li>By visiting this page on our website: <a class="text-yellow-500"  href="https://blog-floral-butterfly-7155.fly.dev/refund"
                         rel="external nofollow noopener"
                         target="_blank">https://blog-floral-butterfly-7155.fly.dev/refund</a></li>
             </ul>
@@ -92,7 +92,7 @@
             <h3>Contact Us</h3>
             <p>If you have any questions about our Returns and Refunds Policy, please contact us:</p>
             <ul>
-                <li>By visiting this page on our website: <a href="https://blog-floral-butterfly-7155.fly.dev/refund"
+                <li>By visiting this page on our website: <a class="text-yellow-500"  href="https://blog-floral-butterfly-7155.fly.dev/refund"
                         rel="external nofollow noopener"
                         target="_blank">https://blog-floral-butterfly-7155.fly.dev/refund</a></li>
             </ul>

@@ -18,8 +18,8 @@
 
                     <div class="w-full">
                         <h2 class="mb-2 text-lg font-bold">Socials</h2>
-                        <ul>
-                            <li>
+                        <ul class="ml-[-2.25px]">
+                            <li class="m-1">
                                 <a href="#" class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 size-4" fill="none"
                                         viewBox="0 0 1200 1227">
@@ -28,7 +28,7 @@
                                     </svg>Twitter
                                 </a>
                             </li>
-                            <li>
+                            <li class="m-1">
                                 <a href="#"
                                     class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
                                     <svg class="mr-2 size-4" xmlns="http://www.w3.org/2000/svg"
@@ -39,25 +39,7 @@
                                     </svg>LinkedIn
                                 </a>
                             </li>
-                            {{-- <li>
-                                <a href="#" class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="white"
-                                        class="mr-2 bg-black size-4">
-                                        <defs>
-                                            <linearGradient x1="50%" x2="50%" y1="97.078%" y2="0%"
-                                                id="a">
-                                                <stop offset="0%" stop-color="#0062E0" />
-                                                <stop offset="100%" stop-color="#19AFFF" />
-                                            </linearGradient>
-                                        </defs>
-                                        <path
-                                            d="M15 35.8C6.5 34.3 0 26.9 0 18 0 8.1 8.1 0 18 0s18 8.1 18 18c0 8.9-6.5 16.3-15 17.8l-1-.8h-4l-1 .8z" />
-                                        <path fill="#000"
-                                            d="m25 23 .8-5H21v-3.5c0-1.4.5-2.5 2.7-2.5H26V7.4c-1.3-.2-2.7-.4-4-.4-4.1 0-7 2.5-7 7v4h-4.5v5H15v12.7c1 .2 2 .3 3 .3s2-.1 3-.3V23h4z" />
-                                    </svg>Facebook
-                                </a>
-                            </li> --}}
-                            <li>
+                            <li class="m-1">
                                 <a href="#"
                                     class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 size-4"
@@ -77,8 +59,6 @@
                                     class="text-sm text-gray-400 md:text-md hover:text-gray-200">Blog</a></li>
                             <li><a wire:navigate href="{{ route('about') }}"
                                     class="text-sm text-gray-400 md:text-md hover:text-gray-200">About</a></li>
-                            {{-- <li><a wire:navigate href="{{ route('welcome') }}" --}}
-                                    {{-- class="text-sm text-gray-400 md:text-md hover:text-gray-200">Home</a></li> --}}
                             <li><a wire:navigate href="{{ route('contact') }}"
                                     class="text-sm text-gray-400 md:text-md hover:text-gray-200">Contact</a></li>
                             <li><a wire:navigate href="{{ route('newsletter') }}"

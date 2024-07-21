@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class LegalPages extends Controller
+class LegalPagesController extends Controller
 {
     public function terms()
     {

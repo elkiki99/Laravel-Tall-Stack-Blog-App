@@ -7,7 +7,7 @@
         </p>
         <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the
             collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been
-            created with the help of the <a href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/"
+            created with the help of the <a class="text-yellow-500" href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/"
                 target="_blank">Free Privacy Policy Generator</a>.</p>
         <h2>Interpretation and Definitions</h2>
         <h3>Interpretation</h3>
@@ -66,7 +66,7 @@
                 </p>
             </li>
             <li>
-                <p><strong>Website</strong> refers to The Edifice Gazette, accessible from <a
+                <p><strong>Website</strong> refers to The Edifice Gazette, accessible from <a class="text-yellow-500"
                         href="https://blog-floral-butterfly-7155.fly.dev" rel="external nofollow noopener"
                         target="_blank">https://blog-floral-butterfly-7155.fly.dev</a></p>
             </li>
@@ -138,7 +138,7 @@
         </ul>
         <p>Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your
             personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You
-            close Your web browser. Learn more about cookies on the <a
+            close Your web browser. Learn more about cookies on the <a class="text-yellow-500"
                 href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
                 target="_blank">Free Privacy Policy website</a> article.</p>
         <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
@@ -309,7 +309,7 @@
         <h2>Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, You can contact us:</p>
         <ul>
-            <li>By visiting this page on our website: <a href="https://blog-floral-butterfly-7155.fly.dev/privacy-policy"
+            <li>By visiting this page on our website: <a class="text-yellow-500" href="https://blog-floral-butterfly-7155.fly.dev/privacy-policy"
                     rel="external nofollow noopener" target="_blank">https://blog-floral-butterfly-7155.fly.dev/privacy-policy</a></li>
         </ul>
     </section>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class HomePages extends Controller
+class HomePagesController extends Controller
 {
     public function welcome()
     {
