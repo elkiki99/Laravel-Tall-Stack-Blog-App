@@ -32,7 +32,7 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'subtitle' => 'nullable|string|max:255',
             'body' => 'required|string',
-            'slug' => 'required|string|unique:blogs,slug',
+            'slug' => 'required|string|unique:blogs,slug|max:140',
             'excerpt' => 'nullable|string',
             'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'author_id' => 'required|exists:authors,id',

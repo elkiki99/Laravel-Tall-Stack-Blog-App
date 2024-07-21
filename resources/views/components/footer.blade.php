@@ -18,8 +18,8 @@
 
                     <div class="w-full">
                         <h2 class="mb-2 text-lg font-bold">Socials</h2>
-                        <ul class="ml-[-2.25px]">
-                            <li class="m-1">
+                        <ul class="ml-[-1.25px]">
+                            <li class="p-0.5">
                                 <a href="#" class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 size-4" fill="none"
                                         viewBox="0 0 1200 1227">
@@ -28,7 +28,7 @@
                                     </svg>Twitter
                                 </a>
                             </li>
-                            <li class="m-1">
+                            <li class="p-0.5">
                                 <a href="#"
                                     class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
                                     <svg class="mr-2 size-4" xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@
                                     </svg>LinkedIn
                                 </a>
                             </li>
-                            <li class="m-1">
+                            <li class="p-0.5">
                                 <a href="#"
                                     class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 size-4"

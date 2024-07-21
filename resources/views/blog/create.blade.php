@@ -1,12 +1,20 @@
 <x-app-layout>
-    <div class="p-4 mx-auto max-w-7xl ">
-        <h1 class="mb-4 text-2xl font-bold">Crear Nuevo Blog</h1>
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-1/5">
+            @include('layouts.sidebar')
+        </div>
+        
+        <!-- Main Content -->
+        <div class="w-4/5">
+            <div class="max-w-5xl min-h-screen p-4 pb-32 mx-auto">
+        <h1 class="pt-20 mb-4 text-2xl font-bold sm:pt-36">Create New Blog</h1>
 
         <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-4">
-                <label for="title" class="block text-sm font-medium text-gray-700">Título</label>
+                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                 <input type="text" id="title" name="title" value="{{ old('title') }}" 
                     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
                 @error('title')
@@ -15,7 +23,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="subtitle" class="block text-sm font-medium text-gray-700">Subtítulo</label>
+                <label for="subtitle" class="block text-sm font-medium text-gray-700">Subtitle</label>
                 <input type="text" id="subtitle" name="subtitle" value="{{ old('subtitle') }}" 
                     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
                 @error('subtitle')
@@ -24,12 +32,16 @@
             </div>
 
             <div class="mb-4">
-                <label for="body" class="block text-sm font-medium text-gray-700">Cuerpo</label>
-                <textarea id="body" name="body" rows="5" 
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>{{ old('body') }}</textarea>
+                <label for="body" class="block text-sm font-medium text-gray-700">Body</label> 
+                <input id="x" value="Write something awesome!" type="hidden" name="content">
+                <trix-editor input="x"></trix-editor>
+                  
+                {{-- <label for="body" class="block text-sm font-medium text-gray-700">Body</label>
+                <textarea name="body" rows="5" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>{{ old('body') }}</textarea>
                 @error('body')
                     <p class="text-sm text-red-600">{{ $message }}</p>
-                @enderror
+                @enderror --}}
             </div>
 
             <div class="mb-4">
@@ -42,16 +54,16 @@
             </div>
 
             <div class="mb-4">
-                <label for="excerpt" class="block text-sm font-medium text-gray-700">Extracto</label>
+                <label for="excerpt" class="block text-sm font-medium text-gray-700">Excerpt</label>
                 <textarea id="excerpt" name="excerpt" rows="3" 
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">{{ old('excerpt') }}</textarea>
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">{{ old('excerpt') }}</textarea>
                 @error('excerpt')
                     <p class="text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-4">
-                <label for="featured_image" class="block text-sm font-medium text-gray-700">Imagen Destacada</label>
+                <label for="featured_image" class="block text-sm font-medium text-gray-700">Featured Image</label>
                 <input type="file" id="featured_image" name="featured_image" 
                     class="block w-full mt-1">
                 @error('featured_image')
@@ -60,10 +72,10 @@
             </div>
 
             <div class="mb-4">
-                <label for="author_id" class="block text-sm font-medium text-gray-700">Autor</label>
+                <label for="author_id" class="block text-sm font-medium text-gray-700">Author</label>
                 <select id="author_id" name="author_id" 
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
-                    <option value="">Selecciona un autor</option>
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
+                    <option value="">Select an author</option>
                     {{-- @foreach($authors as $id => $name)
                         <option value="{{ $id }}" {{ old('author_id') == $id ? 'selected' : '' }}>{{ $name }}</option>
                     @endforeach --}}
@@ -74,10 +86,10 @@
             </div>
 
             <div class="mb-4">
-                <label for="category_id" class="block text-sm font-medium text-gray-700">Categoría</label>
+                <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
                 <select id="category_id" name="category_id" 
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
-                    <option value="">Selecciona una categoría</option>
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
+                    <option value="">Select a category</option>
                     {{-- @foreach($categories as $id => $name)
                         <option value="{{ $id }}" {{ old('category_id') == $id ? 'selected' : '' }}>{{ $name }}</option>
                     @endforeach --}}
@@ -88,7 +100,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="reading_time" class="block text-sm font-medium text-gray-700">Tiempo de Lectura (minutos)</label>
+                <label for="reading_time" class="block text-sm font-medium text-gray-700">Reading Time (minutes)</label>
                 <input type="number" id="reading_time" name="reading_time" value="{{ old('reading_time') }}" 
                     min="0" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
                 @error('reading_time')
@@ -96,16 +108,7 @@
                 @enderror
             </div>
 
-            <div class="mb-4">
-                <label for="is_published" class="block text-sm font-medium text-gray-700">Publicado</label>
-                <input type="checkbox" id="is_published" name="is_published" value="1" 
-                    {{ old('is_published') ? 'checked' : '' }} class="mt-1">
-                @error('is_published')
-                    <p class=" -600">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-md">Crear Blog</button>
+            <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-md">Create Blog</button>
         </form>
     </div>
 </x-app-layout>
