@@ -1,4 +1,4 @@
-<footer class="text-white from-black via-gray-950 bg-gradient-to-r to-gray-900 h-[88vh] sm:h-[80vh] lg:p-5">
+<footer class="text-white from-black via-gray-950 bg-gradient-to-r to-gray-900 h-[88vh] sm:h-[80vh] lg:p-8">
     <div class="flex flex-col justify-between h-full p-6 mx-auto">
         <div class="flex flex-wrap">
             <!-- About Us Section -->

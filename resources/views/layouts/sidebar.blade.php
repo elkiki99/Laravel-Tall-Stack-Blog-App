@@ -1,5 +1,6 @@
-<div class="fixed flex w-1/5 h-full">
-    <div class="w-16 bg-black">
+<div class="sticky top-0 flex">
+    <!-- Sidebar -->
+    <div class="flex flex-col w-16 h-screen bg-black ">
         <div class="py-5">
             <a class="flex items-center justify-center my-8" wire:navigate href="{{ route('blog.create') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="size-7">
@@ -36,21 +37,26 @@
         </div>
     </div>
 
-    <div class="w-full p-2 bg-gradient-to-l bg from-white to-yellow-300 ">
+    <div class="flex-1 bg-gradient-to-b from-white via-yellow-300 to-white">
         <div
-            class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-            <h3 class="my-2 text-3xl font-bold text-black">Manage blog posts</h3>
+            class="justify-between p-6 m-5 bg-transparent rounded-lg shadow-lg hover:cursor-pointer hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+            <h3 class="my-2 text-xl font-bold text-black">Manage posts</h3>
             <p class="text-black">View all blog posts</p>
         </div>
         <div
-            class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-            <h3 class="my-2 text-3xl font-bold text-black">Create new blog post</h3>
-            <p class="text-black">Create blog posts</p>
+            class="justify-between p-6 m-5 bg-transparent rounded-lg shadow-lg hover:cursor-pointer hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+            <h3 class="my-2 text-xl font-bold text-black">Create new post</h3>
+            <p class="text-black">Create a new blog posts</p>
         </div>
         <div
-            class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-            <h3 class="my-2 text-3xl font-bold text-black">View blog analytics</h3>
-            <p class="text-black"></p>
+            class="justify-between p-6 m-5 bg-transparent rounded-lg shadow-lg hover:cursor-pointer hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+            <h3 class="my-2 text-xl font-bold text-black">Blog analytics</h3>
+            <p class="text-black">Check out you blog's performance</p>
+        </div>
+        <div
+            class="justify-between p-6 m-5 bg-transparent rounded-lg shadow-lg hover:cursor-pointer hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+            <h3 class="my-2 text-xl font-bold text-black">Pending posts</h3>
+            <p class="text-black">View all pending blog posts</p>
         </div>
     </div>
 </div>

@@ -1,14 +1,6 @@
-<x-app-layout>
-    <div class="flex">
-        <!-- Sidebar -->
-        <div class="w-1/5">
-            @include('layouts.sidebar')
-        </div>
-        
-        <!-- Main Content -->
-        <div class="w-4/5">
-            <div class="max-w-5xl min-h-screen p-4 pb-32 mx-auto">
-        <h1 class="pt-20 mb-4 text-2xl font-bold sm:pt-36">Create New Blog</h1>
+<x-admin-layout>
+    <div class="max-w-5xl min-h-screen p-4 pb-32 mx-auto">
+        <h1 class="pt-20 mb-4 text-2xl font-bold sm:text-4xl sm:pt-36">Create New Blog</h1>
 
         <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -111,4 +103,4 @@
             <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-md">Create Blog</button>
         </form>
     </div>
-</x-app-layout>
+</x-admin-layout>
