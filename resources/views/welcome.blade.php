@@ -104,7 +104,9 @@
     </section>
 
     <section class="flex flex-col min-h-screen p-4 md:p-10 dark:bg-gray-900">
-        <h2 class="relative py-5 mt-12 text-4xl font-bold text-center sm:mt-24 md:text-6xl">Templates</h2>
+        <h2 class="relative py-5 my-12 text-6xl font-bold text-center sm:mt-24 md:text-7xl">Get your website 
+            <span class="underline-yellow">up and running</span>
+        </h2>
     
         <div class="flex flex-col justify-center space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0">
             <div class="w-full lg:w-1/2 ">

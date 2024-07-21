@@ -4,10 +4,11 @@
         <x-blog.nav-bar />
     </section>
     
-    <div class="flex min-h-screen mx-auto max-w-7xl">
+    <div class="flex flex-col min-h-screen mx-auto max-w-7xl lg:flex-row">
         <!-- Second Section -->
-        <section class="w-4/6 px-2">
+        <section class="w-full px-2 lg:w-4/6">
             <div class="grid grid-cols-1 gap-6 py-5">
+                <!-- Blog Post 1 -->
                 <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">
                     <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
                         <a wire:navigate href="{{ route('blog.show') }}">
@@ -28,9 +29,8 @@
                         <x-blog.tags class="pt-2" />
                     </div>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-1 gap-6 py-5">
+                <!-- Blog Post 2 -->
                 <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">
                     <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
                         <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
@@ -49,9 +49,8 @@
                         <x-blog.tags class="pt-2" />
                     </div>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-1 gap-6 py-5">
+                <!-- Placeholder Blog Post -->
                 <div class="flex flex-col bg-white rounded-lg dark:bg-gray-700 2xl:flex-row">
                     <!-- Placeholder Image -->
                     <div class="w-full overflow-hidden bg-gray-200 2xl:w-1/2 2xl:aspect-square aspect-video"></div>
@@ -81,11 +80,10 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
         <!-- Third Section -->
-        <section class="w-2/6 px-2">
+        <section class="px-2 pb-20 mt-5 lg:px-5 lg:w-2/6 lg:mt-0">
             <div class="py-6 pb-5 border-b-2 border-gray-300">
                 <x-blog.metrics />
                 <h2 class="my-2 text-2xl font-bold text-gray-900 hover:cursor-pointer dark:text-gray-100">Best buildings in Netherlands</h2>

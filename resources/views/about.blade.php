@@ -18,14 +18,14 @@
     <section class="relative min-h-screen overflow-hidden">
         <div class="p-10">
             <div class="flex items-center justify-center h-full py-10">
-                <h2 class="py-1 pt-4 text-6xl font-bold text-transparent sm:pt-16 bg-clip-text bg-gradient-to-r from-black to-gray-700">
-                    Get your website 
-                    <span class="underline-yellow">up and running</span>
+                <h2 class="py-1 pt-4 text-6xl font-bold text-center text-transparent sm:text-5xl md:text-7xl sm:pt-16 bg-clip-text bg-gradient-to-r from-black to-gray-700">
+                    Our
+                    <span class="underline-yellow">templates</span>
                 </h2>
             </div>
             
             <div class="pb-10">
-                <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
+                <div class="grid grid-cols-1 gap-5 py-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     <div class="flex flex-col">
                         <div class="relative w-full pb-full">
                             <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
@@ -45,40 +45,117 @@
                         <x-blog.created-data class="mt-1 text-sm" />
                     </div>
                     <div class="flex flex-col">
+                        <!-- Placeholder Image -->
                         <div class="relative w-full pb-full">
-                            <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                {{-- <img loading="lazy" src="{{ asset('images/blog3.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
-                            </div>
+                            <div class="absolute inset-0 overflow-hidden bg-gray-200 rounded-lg shadow-lg"></div>
                         </div>
-                        <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Guide to classic urbanism</h4>
-                        <x-blog.created-data class="mt-1 text-sm" />
+                        
+                        <!-- Placeholder Title -->
+                        <div class="w-3/4 h-6 mt-2 bg-gray-300"></div>
+                        
+                        <!-- Placeholder Created Data -->
+                        <div class="w-1/2 h-4 mt-1 bg-gray-200"></div>
                     </div>
                     <div class="flex flex-col">
+                        <!-- Placeholder Image -->
                         <div class="relative w-full pb-full">
-                            <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                {{-- <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
-                            </div>
+                            <div class="absolute inset-0 overflow-hidden bg-gray-200 rounded-lg shadow-lg"></div>
                         </div>
-                        <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">The ancient architecture</h4>
-                        <x-blog.created-data class="mt-1 text-sm" />
+                        
+                        <!-- Placeholder Title -->
+                        <div class="w-3/4 h-6 mt-2 bg-gray-300"></div>
+                        
+                        <!-- Placeholder Created Data -->
+                        <div class="w-1/2 h-4 mt-1 bg-gray-200"></div>
                     </div>
-                    <div class="flex flex-col">
-                        <div class="relative w-full pb-full">
-                            <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                {{-- <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
+                </div>
+                
+                <div class="grid grid-cols-1 gap-10 py-5 md:grid-cols-2">
+                    <div class="flex flex-col bg-white rounded-lg dark:bg-gray-700 2xl:flex-row">
+                        <!-- Placeholder Image -->
+                        <div class="w-full overflow-hidden bg-gray-200 2xl:w-1/2 2xl:aspect-square aspect-video"></div>
+                        
+                        <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
+                            <div>
+                                <!-- Placeholder Metrics -->
+                                <div class="w-48 h-4 mb-4 bg-gray-300"></div>
+    
+                                <!-- Placeholder Title -->
+                                <div class="w-64 h-8 mb-4 bg-gray-300"></div>
+    
+                                <!-- Placeholder Paragraph -->
+                                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                                <div class="w-1/2 h-4 bg-gray-200"></div>
+                            </div>
+    
+                            <!-- Placeholder Created Data -->
+                            <div class="w-32 h-4 mt-5 mb-4 bg-gray-300 2xl:mt-auto"></div>
+    
+                            <!-- Placeholder Tags -->
+                            <div class="flex space-x-2">
+                                <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                                <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
                             </div>
                         </div>
-                        <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Corporis magni eius ipsum</h4>
-                        <x-blog.created-data class="mt-1 text-sm" />
                     </div>
-                    <div class="flex flex-col">
-                        <div class="relative w-full pb-full">
-                            <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                {{-- <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer"> --}}
+                    <div class="flex flex-col py-6 pb-5 border-b-2 border-gray-300">
+                        <div>
+                            <!-- Placeholder Metrics -->
+                            <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+                            
+                            <!-- Placeholder Title -->
+                            <div class="w-48 h-6 mb-2 bg-gray-300"></div>
+                            
+                            <!-- Placeholder Paragraph -->
+                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                            <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
+                            
+                            <!-- Placeholder Created Data -->
+                            <div class="w-24 h-4 mb-5 bg-gray-200"></div>
+                        
+                            <!-- Placeholder Tags and Action -->
+                            <div class="flex pt-2">
+                                <div class="flex space-x-2">
+                                    <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                                    <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                                </div>
+                                <div class="ml-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                        <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Corporis magni eius ipsum</h4>
-                        <x-blog.created-data class="mt-1 text-sm" />
+                        <div class="hidden mt-10 md:block">
+                            <!-- Placeholder Metrics -->
+                            <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+                            
+                            <!-- Placeholder Title -->
+                            <div class="w-48 h-6 mb-2 bg-gray-300"></div>
+                            
+                            <!-- Placeholder Paragraph -->
+                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                            <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
+                            
+                            <!-- Placeholder Created Data -->
+                            <div class="w-24 h-4 mb-5 bg-gray-200"></div>
+                        
+                            <!-- Placeholder Tags and Action -->
+                            <div class="flex pt-2">
+                                <div class="flex space-x-2">
+                                    <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                                    <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                                </div>
+                                <div class="ml-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,7 +164,7 @@
 
     <section class="relative min-h-screen overflow-hidden">
         <div class="p-4 mx-auto sm:p-16 max-w-7xl">
-            <h2 class="hidden p-1 pt-16 text-6xl font-bold text-center text-transparent sm:block bg-clip-text bg-gradient-to-r from-black to-gray-700">Frequently Asked <span class="underline-yellow">Questions</span></h2>
+            <h2 class="hidden p-1 pt-16 text-6xl font-bold text-center text-transparent md:text-7xl sm:block bg-clip-text bg-gradient-to-r from-black to-gray-700">Frequently Asked <span class="underline-yellow">Questions</span></h2>
             <h2 class="p-1 pt-16 text-6xl font-bold text-center text-transparent sm:hidden bg-clip-text bg-gradient-to-r from-black to-gray-700 underline-yellow">FAQs</h2>
             
             <div class="py-10 space-y-4">
