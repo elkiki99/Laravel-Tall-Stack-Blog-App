@@ -3,7 +3,7 @@
         <div class="absolute inset-0 px-6 bg-fixed bg-no-repeat bg-cover parallax-bg " style="background-image: url('{{ asset('images/texture6.jpg') }}');">
             <div class="flex flex-col items-center justify-center h-full py-10 mx-auto sm:py-0 max-w-7xl">
                 <h1 class="mt-0 mb-8 text-6xl font-bold text-center text-white sm:mt-20 sm:text-7xl md:text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
-                <button class="inline-flex items-center px-4 py-2 my-5 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+                <button class="inline-flex items-center px-4 py-1 my-5 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                     <a class="flex" wire:navigate href="{{ route('newsletter') }}">
                         <span class="inline-flex items-center">Our newsletter</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
@@ -99,8 +99,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col py-6 pb-5 border-b-2 border-gray-300">
-                        <div>
+                    <div class="flex flex-col py-6">
+                        <div class="pb-5 border-b-2 border-gray-300">
                             <!-- Placeholder Metrics -->
                             <div class="w-32 h-4 mb-4 bg-gray-200"></div>
                             
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="hidden mt-10 md:block">
+                        <div class="hidden pb-5 mt-10 border-b-2 border-gray-300 md:block"">
                             <!-- Placeholder Metrics -->
                             <div class="w-32 h-4 mb-4 bg-gray-200"></div>
                             
@@ -170,68 +170,68 @@
             <div class="py-10 space-y-4">
                 <div x-data="{ open: false }" class="border-b border-gray-200">
                     <button @click="open = !open" class="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-600 focus:outline-none">
-                        <h4 class="text-sm text-gray-900 sm:text-xl">What is this website about?</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 sm:text-xl">What is this website about?</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': open }">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="py-2 text-gray-600">
-                        <p class="pb-2 text-sm">This website is designed to help bloggers create beautiful and functional blogs. It's free to use and highly customizable.</p>
+                        <p class="pb-2 text-sm sm:text-xl">This website is designed to help bloggers create beautiful and functional blogs. It's free to use and highly customizable.</p>
                     </div>
                     </div>
                 <div x-data="{ open: false }" class="border-b border-gray-200">
                     <button @click="open = !open" class="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-600 focus:outline-none">
-                        <h4 class="text-sm text-gray-900 sm:text-xl">Is the template free to use?</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 sm:text-xl">Is the template free to use?</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': open }">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="py-2 text-gray-600">
-                        <p class="pb-2 text-sm">Yes, our template is completely free to use. You can customize it to fit your needs.</p>
+                        <p class="pb-2 text-sm sm:text-xl">Yes, our template is completely free to use. You can customize it to fit your needs.</p>
                     </div>
                 </div>
                 <div x-data="{ open: false }" class="border-b border-gray-200">
                     <button @click="open = !open" class="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-600 focus:outline-none">
-                        <h4 class="text-sm text-gray-900 sm:text-xl">What do I need to use this template?</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 sm:text-xl">What do I need to use this template?</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': open }">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="py-2 text-gray-600">
-                        <p class="pb-2 text-sm">All you need is a basic understanding of HTML and CSS. Our template is easy to use and comes with comprehensive documentation.</p>
+                        <p class="pb-2 text-sm sm:text-xl">All you need is a basic understanding of HTML and CSS. Our template is easy to use and comes with comprehensive documentation.</p>
                     </div>
                 </div>
                 <div x-data="{ open: false }" class="border-b border-gray-200">
                     <button @click="open = !open" class="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-600 focus:outline-none">
-                        <h4 class="text-sm text-gray-900 sm:text-xl">Can I customize the template?</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 sm:text-xl">Can I customize the template?</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': open }">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="py-2 text-gray-600">
-                        <p class="pb-2 text-sm">Yes, you can fully customize the template to match your personal or business brand. Modify colors, layouts, and content as needed.</p>
+                        <p class="pb-2 text-sm sm:text-xl">Yes, you can fully customize the template to match your personal or business brand. Modify colors, layouts, and content as needed.</p>
                     </div>
                 </div>
                 <div x-data="{ open: false }" class="border-b border-gray-200">
                     <button @click="open = !open" class="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-600 focus:outline-none">
-                        <h4 class="text-sm text-gray-900 sm:text-xl">How do I get started?</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 sm:text-xl">How do I get started?</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': open }">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="py-2 text-gray-600">
-                        <p class="pb-2 text-sm">To get started, simply download the template, open it in your preferred code editor, and start customizing. You can find detailed instructions in our documentation.</p>
+                        <p class="pb-2 text-sm sm:text-xl">To get started, simply download the template, open it in your preferred code editor, and start customizing. You can find detailed instructions in our documentation.</p>
                     </div>
                 </div>
                 <div x-data="{ open: false }" class="border-b border-gray-200">
                     <button @click="open = !open" class="flex items-center justify-between w-full py-4 text-lg font-medium text-gray-600 focus:outline-none">
-                        <h4 class="text-sm text-gray-900 sm:text-xl">Can I use it for commercial purposes?</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 sm:text-xl">Can I use it for commercial purposes?</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': open }">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div x-show="open" x-collapse class="py-2 text-gray-600">
-                        <p class="pb-2 text-sm">Absolutely! Our template is highly customizable and can be used for both personal and business purposes.</p>
+                        <p class="pb-2 text-sm sm:text-xl">Absolutely! Our template is highly customizable and can be used for both personal and business purposes.</p>
                     </div>
                 </div>
             </div>

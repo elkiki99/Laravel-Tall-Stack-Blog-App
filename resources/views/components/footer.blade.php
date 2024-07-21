@@ -89,12 +89,11 @@
                     <div class="w-full">
                         <h2 class="mb-2 text-lg font-bold">Legal</h2>
                         <ul>
-                            <li><a href="#" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Terms</a></li>
-                            <li><a href="#" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Cookies</a></li>
-                            {{-- <li><a href="#" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Sitemap</a></li> --}}
-                            <li><a href="#" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Services</a></li>
-                            <li><a href="#" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Contracts</a></li>
-                            <li><a href="#" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Privacy policy</a></li>
+                            <li><a wire:navigate href="{{ route('terms') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Terms</a></li>
+                            <li><a wire:navigate href="{{ route('refund') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Refund</a></li>
+                            <li><a wire:navigate href="{{ route('cookies') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Cookies</a></li>
+                            <li><a wire:navigate href="{{ route('disclaimer') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Disclaimer</a></li>
+                            <li><a wire:navigate href="{{ route('privacy') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Privacy policy</a></li>
                         </ul>
                     </div>
                     <div>

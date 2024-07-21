@@ -4,7 +4,7 @@
             <h1 class="py-10 mt-10 text-5xl text-center text-transparent sm:text-6xl sm:mt-0 sm:py-1 md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
                 Welcome to <span class="font-bold text-black underline-yellow">{{ config('app.name') }}</span>, a beautiful blog template with integrated features
             </h1>
-            <p class="text-xl text-center md:text-2xl">
+            <p class="py-2 text-xl text-center md:text-2xl">
                 This is a simple blog template for every use, you can use it as a starting point and customize it however you want. It's built with the TALL stack, TailwindCSS, Alpine.js, Livewire and Laravel.
             </p>
 
@@ -196,7 +196,7 @@
                         </div>
                         <div class="flex items-end justify-end py-10">
                             <a wire:navigate href="{{ route('blog.index') }}">
-                                <x-primary-button class="flex items-center px-4 py-2 mx-1 text-2xl rounded-lg">
+                                <x-primary-button class="flex items-center px-4 py-1 mx-1 text-2xl rounded-lg">
                                     Blog
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
