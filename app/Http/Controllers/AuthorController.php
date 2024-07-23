@@ -9,12 +9,12 @@ class AuthorController extends Controller
 {
     public function index()
     {
-        return view('author.index');
+        return view('authors.index');
     }
 
     public function create()
     {
-        return view('author.create');
+        return view('authors.create');
     }
 
     public function store(Request $request)
@@ -33,14 +33,14 @@ class AuthorController extends Controller
 
     public function show(Author $author)
     {
-        return view('author.show', [
+        return view('authors.show', [
             'author' => $author
         ]);
     }
 
     public function edit(Author $author)
     {
-        return view('author.edit', [
+        return view('authors.edit', [
             'author' => $author
         ]);
     }

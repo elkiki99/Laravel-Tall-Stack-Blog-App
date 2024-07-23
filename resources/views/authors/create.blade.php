@@ -1,11 +1,11 @@
 <x-admin-layout>
-    <div class="max-w-5xl min-h-screen p-4 pb-32 mx-auto">
-        <h1 class="pt-20 mb-4 text-2xl font-bold sm:pt-36">Create Author</h1>
+    <div class="max-w-4xl min-h-screen p-4 pb-32 mx-auto">
+        <h1 class="pt-20 mb-4 text-2xl font-bold sm:text-4xl sm:pt-28">Create Author</h1>
 
-        <form action="{{ route('author.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('authors.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <!-- Name -->
+            <!-- Name -->   
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                 <input type="text" id="name" name="name" value="{{ old('name') }}" 
@@ -85,7 +85,7 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-md">Create Author</button>
+            <x-primary-button type="submit" class="px-4 py-2 rounded-lg">Create Author</x-primary-button>
         </form>
     </div>
 </x-app-layout>

@@ -1,6 +1,6 @@
 <x-admin-layout>
-    <div class="max-w-5xl min-h-screen p-4 pb-32 mx-auto">
-        <h1 class="pt-20 mb-4 text-2xl font-bold sm:text-4xl sm:pt-36">Create New Blog</h1>
+    <div class="max-w-4xl min-h-screen p-4 pb-32 mx-auto">
+        <h1 class="pt-20 mb-4 text-2xl font-bold sm:text-4xl sm:pt-28">Create New Blog</h1>
 
         <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -26,7 +26,7 @@
             <div class="mb-4">
                 <label for="body" class="block text-sm font-medium text-gray-700">Body</label> 
                 <input id="x" value="Write something awesome!" type="hidden" name="content">
-                <trix-editor input="x"></trix-editor>
+                <trix-editor class="h-screen" input="x"></trix-editor>
                   
                 {{-- <label for="body" class="block text-sm font-medium text-gray-700">Body</label>
                 <textarea name="body" rows="5" 
@@ -100,7 +100,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-md">Create Blog</button>
+            <x-primary-button type="submit" class="px-4 py-2 rounded-lg">Create Blog</x-primary-button>
         </form>
     </div>
 </x-admin-layout>
