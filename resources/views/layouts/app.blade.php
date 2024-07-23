@@ -21,6 +21,23 @@
         <div class="bg-white dark:bg-gray-900">
             <div class="flex justify-center">
                 @include('layouts.navigation')
+                            
+                @if(!auth()->check())
+                    <form class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <x-nav-link :href="route('login')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Log In') }}
+                        </x-nav-link>
+                    </form>
+                @endif
+                
+                @if(auth()->check() && auth()->user()->role === 'admin')
+                    <x-nav-link class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" wire:navigate href="{{ route('panel') }}">Panel</x-nav-link>
+                @elseif(auth()->check() && auth()->user()->role === 'author')
+                    <x-nav-link class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" wire:navigate href="#">Panel</x-nav-link>
+                @elseif(auth()->check() && auth()->user()->role === 'user')
+                    <x-nav-link class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" wire:navigate href="#">Profile</x-nav-link>
+                @endif
             </div>
             
             <main class="relative z-10 pb-20 bg-white">

@@ -1,14 +1,14 @@
 <x-app-layout>
-    <section class="flex items-center min-h-screen bg-gradient-to-b bg from-white via-yellow-300 to-white">
-        <div class="px-6 pt-0 mx-auto sm:mt-32 sm:space-y-6 max-w-7xl lg:px-8">
+    <section class="flex items-center justify-center min-h-screen sm:pt-24 bg-gradient-to-b bg from-white via-yellow-300 to-white">
+        <div class="px-6 mx-auto sm:space-y-6 max-w-7xl lg:px-8">
             <h1 class="py-10 mt-10 text-5xl text-center text-transparent sm:text-6xl sm:mt-0 sm:py-1 md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
-                Welcome to <span class="font-bold text-black underline-yellow">{{ config('app.name') }}</span>, a beautiful blog template with integrated features
+                <span class="font-bold text-black underline-yellow">{{ config('app.name') }}</span>, an elegant blog template with integrated features
             </h1>
             <p class="py-2 text-xl text-center md:text-2xl">
-                This is a simple blog template for every use, you can use it as a starting point and customize it however you want. It's built with the TALL stack, TailwindCSS, Alpine.js, Livewire and Laravel.
+                Welcome to The Ediffice Gazette, an elegant template to elevate your brand. It's built with the TALL stack, TailwindCSS, Alpine.js, Livewire and Laravel.
             </p>
 
-            <div class="flex flex-col items-center justify-center py-10 space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
+            <div class="flex flex-col items-center justify-center py-5 space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
                 <a href="https://github.com/elkiki99/Laravel-Tall-Stack-Blog-App">
                     <x-primary-button class="px-4 py-2 text-2xl rounded-lg">
                         Get started

@@ -2,7 +2,7 @@
     <!-- Sidebar -->
     <div class="flex flex-col w-16 h-screen bg-black">
         <div class="p-2">
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer"
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'panel' && activeSection !== 'panel',
                     'bg-gray-800 rounded-md': activeSection === 'panel',
@@ -17,7 +17,7 @@
                         d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer" 
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer" 
                 :class="{
                     'blur-xs': hoverSection === 'blog' && activeSection !== 'blog',
                     'bg-gray-800 rounded-md': activeSection === 'blog',
@@ -32,7 +32,7 @@
                         d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer"
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'author' && activeSection !== 'author',
                     'bg-gray-800 rounded-md': activeSection === 'author',
@@ -47,7 +47,7 @@
                         d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer"
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'category' && activeSection !== 'category',
                     'bg-gray-800 rounded-md': activeSection === 'category',
@@ -62,7 +62,7 @@
                         d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer"
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'tag' && activeSection !== 'tag',
                     'bg-gray-800 rounded-md': activeSection === 'tag',
@@ -78,7 +78,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer"
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'metrics' && activeSection !== 'metrics',
                     'bg-gray-800 rounded-md': activeSection === 'metrics',
@@ -93,7 +93,7 @@
                         d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer"
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'mail' && activeSection !== 'mail',
                     'bg-gray-800 rounded-md': activeSection === 'mail',
@@ -108,7 +108,7 @@
                         d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer"
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'comments' && activeSection !== 'comments',
                     'bg-gray-800 rounded-md': activeSection === 'comments',
@@ -123,7 +123,7 @@
                         d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
                 </svg>
             </div>
-            <div class="flex items-center justify-center p-2 my-2 hover:cursor-pointer" 
+            <div class="flex items-center justify-center p-2 hover:cursor-pointer" 
                 :class="{
                     'blur-xs': hoverSection === 'settings' && activeSection !== 'settings',
                     'bg-gray-800 rounded-md': activeSection === 'settings',
@@ -209,7 +209,7 @@
                     <p class="text-sm text-black 2xl:text-md">View all author</p>
                 </div>
             </a>
-            <a wire:navigate href="#">
+            <a wire:navigate href="{{ route('authors.create') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new author</h3>

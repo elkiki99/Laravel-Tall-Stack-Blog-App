@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="min-h-screen">
         <div class="py-12">
-            <div class="px-6 mx-auto space-y-6 max-w-7xl lg:px-8">
-                <h1 class="py-5 mt-6 text-4xl text-transparent sm:text-5xl sm:mt-32 md:text-7xl lg:text-8xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
+            <div class="mx-auto space-y-6 sm:px-6 sm:mt-20 max-w-7xl lg:px-8">
+                <h1 class="px-6 py-5 text-4xl text-transparent sm:px-0 sm:text-5xl md:text-7xl lg:text-8xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
                     <span class="font-bold text-black underline-yellow">Contact us.</span>
                     We'd love to hear from you
                 </h1>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <section class="relative min-h-screen overflow-hidden">
-        <div class="absolute inset-0 px-6 bg-fixed bg-no-repeat bg-cover parallax-bg " style="background-image: url('{{ asset('images/texture6.jpg') }}');">
-            <div class="flex flex-col items-center justify-center h-full py-10 mx-auto sm:py-0 max-w-7xl">
+        <div class="absolute inset-0 px-6 pt-10 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture6.jpg') }}');">
+            <div class="z-10 flex flex-col items-center justify-center h-full py-10 mx-auto sm:py-0 max-w-7xl">
                 <h1 class="mt-0 mb-8 text-6xl font-bold text-center text-white sm:mt-20 sm:text-7xl md:text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
                 <button class="inline-flex items-center px-4 py-1 my-5 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                     <a class="flex" wire:navigate href="{{ route('newsletter') }}">
@@ -14,6 +14,7 @@
             </div>
         </div>
     </section>
+</x-app-layout
     
     <section class="relative min-h-screen overflow-hidden">
         <div class="p-10">

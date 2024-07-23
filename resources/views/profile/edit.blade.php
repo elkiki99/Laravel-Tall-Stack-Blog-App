@@ -18,6 +18,17 @@
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
+
+            <div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
+                <div class="max-w-xl">
+                    <form class="" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-nav-link>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>

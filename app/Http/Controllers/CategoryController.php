@@ -33,6 +33,14 @@ class CategoryController extends Controller
             'slug' => 'required|string|unique:categories,slug|max:140',
             'description' => 'nullable|string|max:255',
         ]);
+
+        $category = new Category([
+            'name' => $request->input('name'),
+            'slug' => $request->input('slug'),
+            'description' => $request->input('description'),
+        ]);
+        $category->save();
+        return redirect ()->route('categories.index');
     }
 
     /**

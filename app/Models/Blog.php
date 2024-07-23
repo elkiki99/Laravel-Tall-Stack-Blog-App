@@ -25,6 +25,13 @@ class Blog extends Model
         'meta_description',
     ];
 
+    public static function calculateReadingTime($body)
+    {
+        $wordCount = str_word_count(strip_tags($body));
+        $readingTime = ceil($wordCount / 200);
+        return $readingTime;
+    }
+
     public function author()
     {
         return $this->belongsTo(Author::class);

@@ -1,12 +1,12 @@
 <x-app-layout>
     <!-- First Section -->
-    <section class="pt-20 pb-10 sm:pt-36">
+    <section class="pt-16 pb-10 sm:pt-32">
         <x-blog.nav-bar />
     </section>
     
     <div class="flex flex-col min-h-screen mx-auto max-w-7xl lg:flex-row">
         <!-- Second Section -->
-        <section class="w-full px-2 lg:w-4/6">
+        <section class="w-full px-2 pb-10 lg:pb-20 lg:w-4/6">
             <div class="grid grid-cols-1 gap-6 py-5">
                 <!-- Blog Post 1 -->
                 <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">

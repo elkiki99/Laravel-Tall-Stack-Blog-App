@@ -26,9 +26,9 @@
                 
                 <div class="w-4/5">
                     <div class="flex justify-center">
-                        @include('layouts.navigation')
+                        <a class="pt-4 pr-4 mt-10 ml-auto mr-10 text-sm hover:blur-xs" href="{{ route('welcome') }}">Go to homepage</a>
                     </div>
-                    
+                
                     <main class="relative z-10 pb-20 bg-white">
                         {{ $slot }}
                     </main>

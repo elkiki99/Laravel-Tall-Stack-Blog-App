@@ -29,6 +29,20 @@ class AuthorController extends Controller
             'bio' => 'nullable|string',
             'date_of_birth' => 'nullable|date',
         ]);
+
+        $author = new Author([
+            'name' => $request->input('name'),
+            'username' => $request->input('username'),
+            'profile_image' => $request->input('profile_image'),
+            'email' => $request->input('email'),
+            'linkedin_profile' => $request->input('linkedin_profile'),
+            'website' => $request->input('website'),
+            'bio' => $request->input('bio'),
+            'date_of_birth' => $request->input('date_of_birth'),
+        ]);
+
+        $author->save();
+        return redirect()->route('authors.index')->with('success', 'Author created successfully.');
     }
 
     public function show(Author $author)

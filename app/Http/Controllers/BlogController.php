@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -20,7 +21,11 @@ class BlogController extends Controller
      */
     public function create() 
     {
-        return view('blog.create');
+        $categories = Category::all();
+        
+        return view('blog.create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -40,6 +45,25 @@ class BlogController extends Controller
             'reading_time' => 'nullable|integer|min:0',
             'is_published' => 'nullable|boolean',
         ]);
+
+        $body = $request->input('body');
+        $readingTime = Blog::calculateReadingTime($body);
+
+        $blog = new Blog([
+            'title' => $request->input('title'),
+            'subtitle' => $request->input('subtitle'),
+            'body' => $request->input('body'),
+            'slug' => $request->input('slug'),
+            'excerpt' => $request->input('excerpt'),
+            'featured_image' => $request->input('featured_image'),
+            'author_id' => $request->input('author_id'),
+            'category_id' => $request->input('category_id'),
+            'reading_time' => $readingTime,
+            'is_published' => $request->input('is_published'),
+        ]);
+
+        $blog->save();
+        return redirect()->route('blog.index')->with('success', 'Blog post created successfully.');
     }
 
     /**

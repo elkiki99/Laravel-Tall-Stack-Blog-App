@@ -29,21 +29,24 @@
             <x-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">
                 {{ __('Contact') }}
             </x-nav-link>
-            @if(auth()->check())
-                <form class="inline-flex" method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <x-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-nav-link>
-                </form>
-            @else
-                <form class="inline-flex" method="POST" action="{{ route('login') }}">
+                     
+            @if(!auth()->check())
+                <form class="md:hidden" method="POST" action="{{ route('login') }}">
                     @csrf
                     <x-nav-link :href="route('login')" onclick="event.preventDefault(); this.closest('form').submit();">
                         {{ __('Log In') }}
                     </x-nav-link>
                 </form>
             @endif
+
+            @if(auth()->check() && auth()->user()->role === 'admin')
+                <x-nav-link class="md:hidden" wire:navigate href="{{ route('panel') }}">Panel</x-nav-link>
+            @elseif(auth()->check() && auth()->user()->role === 'author')
+                <x-nav-link class="md:hidden" wire:navigate href="#">Panel</x-nav-link>
+            @elseif(auth()->check() && auth()->user()->role === 'user')
+                <x-nav-link class="md:hidden" wire:navigate href="#">Profile</x-nav-link>
+            @endif
+            
             <x-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-3 py-1 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                 <div class="flex items-center">
                     {{ __('Newsletter') }}
@@ -67,6 +70,15 @@
             <x-responsive-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">
                 {{ __('Contact') }}
             </x-responsive-nav-link>
+            
+            @if(auth()->check() && auth()->user()->role === 'admin')
+                <x-responsive-nav-link wire:navigate href="{{ route('panel') }}">Panel</x-nav-link>
+            @elseif(auth()->check() && auth()->user()->role === 'author')
+                <x-responsive-nav-link wire:navigate href="#">Panel</x-nav-link>
+            @elseif(auth()->check() && auth()->user()->role === 'user')
+                <x-responsive-nav-link wire:navigate href="#">Profile</x-nav-link>
+            @endif
+            
             @if(auth()->check())
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
