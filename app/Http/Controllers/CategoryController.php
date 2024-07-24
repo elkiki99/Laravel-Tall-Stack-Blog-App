@@ -39,8 +39,9 @@ class CategoryController extends Controller
             'slug' => $request->input('slug'),
             'description' => $request->input('description'),
         ]);
+        
         $category->save();
-        return redirect ()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
     /**

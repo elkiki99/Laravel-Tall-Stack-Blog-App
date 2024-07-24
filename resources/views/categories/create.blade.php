@@ -1,6 +1,6 @@
 <x-admin-layout>
-    <div class="max-w-4xl min-h-screen p-4 pb-32 mx-auto">
-        <h1 class="pt-20 mb-4 text-2xl font-bold sm:text-4xl sm:pt-28">Create Category</h1>
+    <div class="max-w-6xl min-h-screen p-10 pb-32 mx-auto">
+        <h1 class="mb-4 text-2xl font-bold sm:text-4xl">Create Category</h1>
 
         <form action="{{ route('categories.store') }}" method="POST">
             @csrf

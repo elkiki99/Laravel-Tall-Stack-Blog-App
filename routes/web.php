@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePagesController;
@@ -37,18 +36,10 @@ Route::get('/panel', function() {
  * Blog pages.
  */
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog1', [BlogController::class, 'show'])->name('blog.show');
+// Route::get('/blog1', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
-Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
-// Route::get('/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
-
-/**
- * Author pages.
- */
-Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
-Route::get('/author/create', [AuthorController::class, 'create'])->name('authors.create');
-Route::post('/author/create', [AuthorController::class, 'store'])->name('authors.store');
-Route::get('/authors/{author:username}', [AuthorController::class, 'show'])->name('authors.show');
+Route::post('/blog/create', [BlogController::class, 'store'])->name('blog.store');
+Route::get('/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 
 /**
  * Category pages.
@@ -66,7 +57,9 @@ Route::get('/tag/create', [TagController::class, 'create'])->name('tags.create')
 Route::post('/tag/create', [TagController::class, 'store'])->name('tags.store');
 Route::get('/tags/{tag:slug}', [TagController::class, 'show'])->name('tags.show');
 
-
+/**
+ * Profile.
+ */
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

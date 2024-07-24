@@ -17,6 +17,7 @@
         <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+    
     <body class="font-sans antialiased">
         <div class="bg-white dark:bg-gray-900">
             <div class="flex">
@@ -24,9 +25,9 @@
                     @include('layouts.sidebar')
                 </div>
                 
-                <div class="w-4/5">
-                    <div class="flex justify-center">
-                        <a class="pt-4 pr-4 mt-10 ml-auto mr-10 text-sm hover:blur-xs" href="{{ route('welcome') }}">Go to homepage</a>
+                <div class="relative w-4/5">
+                    <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
+                        <a class="text-sm hover:blur-xs" href="{{ route('welcome') }}">Go to homepage</a>
                     </div>
                 
                     <main class="relative z-10 pb-20 bg-white">

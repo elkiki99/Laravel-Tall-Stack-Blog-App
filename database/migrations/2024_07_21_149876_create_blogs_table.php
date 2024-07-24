@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('excerpt')->nullable();
             $table->string('featured_image')->nullable();
-            $table->foreignId('author_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->integer('reading_time')->nullable();
             $table->unsignedBigInteger('views')->default(0);
-            $table->boolean('is_published')->default(false);
-            $table->timestamp('published_at')->nullable();
+            $table->string('status')->default('draft');
             $table->text('meta_description')->nullable();
             $table->timestamps();
         });

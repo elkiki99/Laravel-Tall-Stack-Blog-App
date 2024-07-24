@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -32,6 +33,15 @@ class TagController extends Controller
             'slug' => 'required|string|unique:tags,slug|max:140',
             'description' => 'nullable|string|max:255',
         ]);
+
+        $tag = new Tag([
+            'name' => $request->input('name'),
+            'slug' => $request->input('slug'),
+            'description' => $request->input('description'),
+        ]);
+
+        $tag->save();
+        return redirect()->route('tags.index');
     }
 
     /**

@@ -32,11 +32,17 @@
                 @endif
                 
                 @if(auth()->check() && auth()->user()->role === 'admin')
-                    <x-nav-link class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" wire:navigate href="{{ route('panel') }}">Panel</x-nav-link>
+                    <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
+                        <a class="text-sm hover:blur-xs" href="{{ route('panel') }}">Panel</a>
+                    </div>
                 @elseif(auth()->check() && auth()->user()->role === 'author')
-                    <x-nav-link class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" wire:navigate href="#">Panel</x-nav-link>
+                    <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
+                        <a class="text-sm hover:blur-xs" href="{{ route('panel') }}">Panel</a>
+                    </div>
                 @elseif(auth()->check() && auth()->user()->role === 'user')
-                    <x-nav-link class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" wire:navigate href="#">Profile</x-nav-link>
+                    <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
+                        <a class="text-sm hover:blur-xs" href="#">Profile</a>
+                    </div>
                 @endif
             </div>
             

@@ -116,7 +116,7 @@
                         <div>
                             <x-blog.metrics />
     
-                            <a wire:navigate href="{{ route('blog.show') }}">
+                            <a wire:navigate href="#">
                                 <h2 class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">
                                     Netherlands: A Journey Through Time and Design
                                 </h2>
@@ -126,7 +126,7 @@
                     </div>
     
                     <div class="overflow-hidden aspect-square">
-                        <a wire:navigate href="{{ route('blog.show') }}">
+                        <a wire:navigate href="#">
                             <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform rounded-3xl hover:scale-105 hover:cursor-pointer">
                         </a>
                     </div>

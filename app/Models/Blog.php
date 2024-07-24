@@ -16,11 +16,10 @@ class Blog extends Model
         'slug',
         'excerpt',
         'featured_image',
-        'author_id',
         'category_id',
         'reading_time',
         'views',
-        'is_published',
+        'status',
         'published_at',
         'meta_description',
     ];
@@ -32,9 +31,9 @@ class Blog extends Model
         return $readingTime;
     }
 
-    public function author()
+    public function user()
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(User::class);
     }
 
     public function category()

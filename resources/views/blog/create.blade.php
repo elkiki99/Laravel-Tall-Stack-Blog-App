@@ -1,58 +1,97 @@
 <x-admin-layout>
-    <div class="max-w-4xl min-h-screen p-4 pb-32 mx-auto">
+    <div class="max-w-6xl min-h-screen p-10 pb-32 mx-auto">
         <h1 class="mb-4 text-2xl font-bold sm:text-4xl">Create new blog</h1>
 
         <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="mt-5">
-                <x-input-label for="title" :value="__('Title')" />
-                <x-text-input id="title" class="block w-full mt-1" type="text" name="title" :value="old('title')" required />
-                <x-input-error :messages="$errors->get('title')" class="mt-2" />
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                <input id="title" type="text" name="title" value="{{ old('title') }}" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
+                @error('title')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <div class="mt-5">
-                <x-input-label for="subtitle" :value="__('Subtitle')" />
-                <x-text-input id="subtitle" class="block w-full mt-1" type="text" name="subtitle" :value="old('subtitle')" />
-                <x-input-error :messages="$errors->get('subtitle')" class="mt-2" />
+            <div class="mb-4">
+                <label for="subtitle" class="block text-sm font-medium text-gray-700">Subtitle</label>
+                <input id="subtitle" type="text" name="subtitle" value="{{ old('subtitle') }}" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+                @error('subtitle')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <div class="mt-5">
-                <x-input-label for="body" :value="__('Body')" />
-                <input id="x" value="Write something awesome!" type="hidden" name="content">
-                <trix-editor class="h-screen" input="x"></trix-editor>
+            <div class="mb-4">
+                <label for="body" class="block text-sm font-medium text-gray-700">Body</label>
+                <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+                <trix-editor class="h-screen" input="body"></trix-editor>
+                @error('body')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <div class="mt-5">
-                <x-input-label for="slug" :value="__('Slug')" />
-                <x-text-input id="slug" class="block w-full mt-1" type="text" name="slug" :value="old('slug')" required />
-                <x-input-error :messages="$errors->get('slug')" class="mt-2" />
+            <div class="mb-4">
+                <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+                <input id="slug" type="text" name="slug" value="{{ old('slug') }}" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
+                @error('slug')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <div class="mt-5">
-                <x-input-label for="excerpt" :value="__('Excerpt')" />
-                <textarea id="excerpt" name="excerpt" rows="3" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">{{ old('excerpt') }}</textarea>
-                <x-input-error :messages="$errors->get('excerpt')" class="mt-2" />
+            <div class="mb-4">
+                <label for="excerpt" class="block text-sm font-medium text-gray-700">Excerpt</label>
+                <textarea id="excerpt" name="excerpt" rows="3" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">{{ old('excerpt') }}</textarea>
+                @error('excerpt')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <div class="mt-5">
-                <x-input-label for="featured_image" :value="__('Featured Image')" />
-                <x-text-input id="featured_image" class="block w-full mt-1" type="file" name="featured_image" />
-                <x-input-error :messages="$errors->get('featured_image')" class="mt-2" />
+            <div class="mb-4">
+                <label for="meta_description" class="block text-sm font-medium text-gray-700">Meta description</label>
+                <textarea id="meta_description" name="meta_description" rows="3" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">{{ old('meta_description') }}</textarea>
+                @error('meta_description')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <div class="mt-5">
-                <x-input-label for="category_id" :value="__('Category')" />
-                <select id="category_id" name="category_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
+            <div class="mb-4">
+                <label for="featured_image" class="block text-sm font-medium text-gray-700">Featured Image</label>
+                <input id="featured_image" type="file" name="featured_image" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+                @error('featured_image')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+                <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
+                <select id="category_id" name="category_id" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" required>
                     <option value="">Select a category</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
-                <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
+                @error('category_id')
+                    <p class="text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <x-primary-button type="submit" class="px-4 py-2 my-5 rounded-lg">Create Blog</x-primary-button>
+            <button type="submit" class="px-4 py-2 my-5 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
+                Create Blog
+            </button>
         </form>
     </div>
+    
+    {{-- <script>
+        document.addEventListener('trix-change', function(event) {
+            const trixInput = document.querySelector('input[name=content]');
+            trixInput.value = event.target.innerHTML;
+        });
+    </script> --}}
 </x-admin-layout>
