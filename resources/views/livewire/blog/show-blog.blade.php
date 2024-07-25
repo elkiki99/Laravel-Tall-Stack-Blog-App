@@ -36,7 +36,7 @@
         function blogContent() {
             return {
                 navBar: null,
-                offset: 125,
+                headers: [],
 
                 initialize() {
                     this.navBar = document.getElementById('nav-bar');
@@ -46,38 +46,56 @@
 
                 updateNavBar() {
                     const headers = document.querySelectorAll('h2');
+                    this.headers = Array.from(headers);
 
                     this.navBar.innerHTML = '';
 
-                    headers.forEach(header => {
+                    this.headers.forEach(header => {
                         let text = header.innerText;
                         let id = text.toLowerCase().replace(/\s+/g, '-');
 
                         header.id = id;
 
                         let link = document.createElement('a');
-                        link.classList.add('block', 'w-full', 'py-1');
+                        link.classList.add('block', 'w-full', 'py-1', 'hover:blur-xs', 'transition', 'duration-300', 'ease-in-out');
                         link.href = `#${id}`;
                         link.innerText = text;
+                        link.setAttribute('data-id', id);
 
                         this.navBar.appendChild(link);
                     });
+
+                    // Set initial active link
+                    this.updateActiveLink();
                 },
 
                 setupScroll() {
-                    this.navBar.addEventListener('click', (event) => {
-                        if (event.target.tagName === 'A') {
-                            event.preventDefault();
-                            const targetId = event.target.getAttribute('href').substring(1);
-                            const targetElement = document.getElementById(targetId);
+                    window.addEventListener('scroll', () => this.updateActiveLink());
+                },
 
-                            if (targetElement) {
-                                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                                window.scrollTo({
-                                    top: elementPosition - this.offset,
-                                    behavior: 'smooth'
-                                });
-                            }
+                updateActiveLink() {
+                    let currentId = null;
+
+                    // Check each header to see if it's in the viewport
+                    this.headers.forEach((header) => {
+                        const rect = header.getBoundingClientRect();
+                        const id = header.id;
+
+                        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                            currentId = id;
+                        }
+                    });
+
+                    // Set the active link based on the currentId
+                    this.setActiveLink(currentId);
+                },
+
+                setActiveLink(id) {
+                    this.navBar.querySelectorAll('a').forEach(link => {
+                        if (link.getAttribute('data-id') === id) {
+                            link.classList.add('font-bold');
+                        } else {
+                            link.classList.remove('font-bold');
                         }
                     });
                 }
