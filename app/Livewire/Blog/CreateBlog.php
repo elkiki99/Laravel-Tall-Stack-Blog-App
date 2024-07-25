@@ -7,6 +7,7 @@ use App\Livewire\Quill;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class CreateBlog extends Component
 {   
@@ -46,12 +47,15 @@ class CreateBlog extends Component
     
     public function submit()
     {
-        dd($this->body);
         $this->validate();
+        $directory = 'public/featured_images';
 
+        Storage::exists($directory) || Storage::makeDirectory($directory);
+        
         $featuredImagePath = $this->featured_image 
-            ? $this->featured_image->store('public/featured_images') 
+            ? $this->featured_image->store($directory) 
             : null;
+        $featuredImageName = $featuredImagePath ? basename($featuredImagePath) : null;
 
         $readingTime = Blog::calculateReadingTime($this->body);
 
@@ -60,7 +64,7 @@ class CreateBlog extends Component
             'subtitle' => $this->subtitle,
             'slug' => $this->slug,
             'excerpt' => $this->excerpt,
-            'featured_image' => $featuredImagePath,
+            'featured_image' => $featuredImageName,
             'body' => $this->body,
             'category_id' => $this->category_id,
             'meta_description' => $this->meta_description,
