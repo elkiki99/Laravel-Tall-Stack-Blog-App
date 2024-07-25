@@ -20,7 +20,6 @@ class Blog extends Model
         'reading_time',
         'views',
         'status',
-        'published_at',
         'meta_description',
     ];
 

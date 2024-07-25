@@ -12,7 +12,3 @@ window.addEventListener("scroll", function () {
         element.style.transform = "translateY(" + scrollPosition * 0.2 + "px)";
     });
 });
-
-// window.onload = function () {
-//     window.scrollTo(0, 0);
-// };

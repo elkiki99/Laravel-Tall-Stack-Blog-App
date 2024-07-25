@@ -13,63 +13,19 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog.index');
+        $blogs = Blog::all();
+
+        return view('blog.index', [
+            'blogs' => $blogs
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create() 
-    {
-        $categories = Category::all();
-        
-        return view('blog.create', [
-            'categories' => $categories,
-        ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
     {   
-        $featuredImagePath = null;
-        if ($request->hasFile('featured_image')) {
-            $featuredImagePath = $request->file('featured_image')->store('public/featured_images');
-        }
-
-        $body = $request->input('body');
-        $readingTime = Blog::calculateReadingTime($body);
-
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'subtitle' => 'nullable|string|max:255',
-            'body' => 'required|string',
-            'slug' => 'required|string|unique:blogs,slug|max:140',
-            'excerpt' => 'nullable|string',
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'category_id' => 'required|exists:categories,id',
-            'reading_time' => 'integer|min:0',
-            'meta_description' => 'nullable|string|max:255',
-            'status' => 'string|in:draft,published',
-        ]);
-
-        $blog = new Blog([
-            'title' => $request->input('title'),
-            'subtitle' => $request->input('subtitle'),
-            'body' => $request->input('body'),
-            'slug' => $request->input('slug'),
-            'excerpt' => $request->input('excerpt'),
-            'featured_image' => $featuredImagePath,
-            'category_id' => $request->input('category_id'),
-            'meta_description' => $request->input('meta_description'),
-            'reading_time' => $readingTime,
-            'status' => $request->input('status', 'draft'),
-        ]);
-
-        $blog->author_id = auth()->user()->id;
-        $blog->save();
-        return redirect()->route('blog.index')->with('success', 'Blog post created successfully.');
+        return view('blog.create');
     }
 
     /**

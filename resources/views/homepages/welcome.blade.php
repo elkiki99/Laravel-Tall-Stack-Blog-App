@@ -1,7 +1,7 @@
 <x-app-layout>
     <section class="flex items-center justify-center min-h-screen sm:pt-24 bg-gradient-to-b bg from-white via-yellow-300 to-white">
         <div class="px-6 mx-auto sm:space-y-6 max-w-7xl lg:px-8">
-            <h1 class="py-10 mt-10 text-5xl text-center text-transparent sm:text-6xl sm:mt-0 sm:py-1 md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
+            <h1 class="py-10 mt-10 text-5xl text-center text-transparent sm:text-6xl sm:mt-0 sm:py-4 md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
                 <span class="font-bold text-black underline-yellow">{{ config('app.name') }}</span>, an elegant blog template with integrated features
             </h1>
             <p class="py-2 text-xl text-center md:text-2xl">

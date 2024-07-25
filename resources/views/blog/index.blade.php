@@ -9,26 +9,28 @@
         <section class="w-full px-2 pb-10 lg:pb-20 lg:w-4/6">
             <div class="grid grid-cols-1 gap-6 py-5">
                 <!-- Blog Post 1 -->
-                <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">
-                    <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
-                        <a wire:navigate href="{{ route('blog.show') }}">
-                            <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
-                        </a>
-                    </div>
-                    <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
-                        <div>
-                            <x-blog.metrics />
-
-                            <h2 class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">
-                                Netherlands: A Journey Through Time and Design
-                            </h2>
-                            <p class="text-lg text-gray-700 dark:text-gray-300">We dive into the different types of buildings in the Netherlands and its overall design system.</p>
+                @foreach($blogs as $blog)
+                    <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">
+                        <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
+                            <a wire:navigate href="{{ route('blog.show', $blog) }}">
+                                <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
+                            </a>
                         </div>
+                        <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
+                            <div>
+                                <x-blog.metrics />
 
-                        <x-blog.created-data class="pt-4 text-lg" />
-                        <x-blog.tags class="pt-2" />
+                                <h2 class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">
+                                    Netherlands: A Journey Through Time and Design
+                                </h2>
+                                <p class="text-lg text-gray-700 dark:text-gray-300">We dive into the different types of buildings in the Netherlands and its overall design system.</p>
+                            </div>
+
+                            <x-blog.created-data class="pt-4 text-lg" />
+                            <x-blog.tags class="pt-2" />
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
                 <!-- Blog Post 2 -->
                 <div class="flex flex-col bg-white rounded-lg 2xl:flex-row dark:bg-gray-800">
