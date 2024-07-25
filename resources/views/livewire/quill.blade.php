@@ -1,13 +1,22 @@
-<div>
-    <link href="/styles.css" rel="stylesheet" />
+<div x-data="{ quillInstance: null }" x-init="
+    quillInstance = new Quill('#{{ $quillId }}', {
+        modules: {
+            syntax: true,
+            toolbar: '#toolbar-container',
+        },
+        theme: 'snow',
+    });
+
+    quillInstance.on('text-change', function() {
+        const value = quillInstance.root.innerHTML;
+        $wire.set('value', value);
+    });
+">
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 
+    <!-- Toolbar container -->
     <div id="toolbar-container" wire:ignore>
         <span class="ql-formats">
             <select class="ql-font"></select>
@@ -53,26 +62,12 @@
             <button class="ql-clean"></button>
         </span>
     </div>
-    <div id="{{ $quillId }}" wire:ignore>
-    </div>
 
-    <!-- Initialize Quill editor -->
-    <script>
-        const quill = new Quill('#{{ $quillId }}', {
-            modules: {
-                syntax: true,
-                toolbar: '#toolbar-container',
-            },
-            placeholder: 'Write something awesome!...',
-            theme: 'snow',
-        });
+    <!-- Quill editor container -->
+    <div id="{{ $quillId }}" wire:ignore"></div>
 
-        quill.on('text-change', function() {
-            let value = document.getElementsByClassName('ql-editor')[0].innerHTML;
-            @this.set('value', value)
-        })
-    </script>
+    <!-- JavaScript for Quill, Highlight.js, and KaTeX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" defer></script>
 </div>
-
-
-

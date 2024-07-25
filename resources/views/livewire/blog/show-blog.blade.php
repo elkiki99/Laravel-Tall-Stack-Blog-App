@@ -37,6 +37,7 @@
             return {
                 navBar: null,
                 headers: [],
+                offset: 125, // Offset value for scrolling
 
                 initialize() {
                     this.navBar = document.getElementById('nav-bar');
@@ -63,6 +64,16 @@
                         link.setAttribute('data-id', id);
 
                         this.navBar.appendChild(link);
+
+                        // Add smooth scroll with offset
+                        link.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            const targetElement = document.getElementById(id);
+                            window.scrollTo({
+                                top: targetElement.offsetTop - this.offset,
+                                behavior: 'smooth'
+                            });
+                        });
                     });
 
                     // Set initial active link

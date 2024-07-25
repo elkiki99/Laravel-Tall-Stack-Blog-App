@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Blog;
 
+use App\Models\Tag;
 use App\Models\Blog;
 use App\Livewire\Quill;
 use Livewire\Component;
@@ -20,6 +21,7 @@ class CreateBlog extends Component
     public $excerpt;
     public $featured_image;
     public $category_id;
+    public $tag_id = [];
     public $reading_time;
     public $views;
     public $status = 'draft';
@@ -41,6 +43,7 @@ class CreateBlog extends Component
         'excerpt' => 'required|string|max:255',
         'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         'category_id' => 'required|exists:categories,id',
+        'tag_id' => 'required|exists:tags,id',
         'status' => 'required|string|in:draft,published',
         'meta_description' => 'required|string|max:255',
     ];
@@ -67,6 +70,7 @@ class CreateBlog extends Component
             'featured_image' => $featuredImageName,
             'body' => $this->body,
             'category_id' => $this->category_id,
+            'tag_id' => $this->tag_id,
             'meta_description' => $this->meta_description,
             'reading_time' => $readingTime,
             'status' => $this->status,
@@ -82,9 +86,11 @@ class CreateBlog extends Component
     public function render()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
         return view('livewire.blog.create-blog', [
-            'categories' => $categories
+            'categories' => $categories,
+            'tags' => $tags
         ]);
     }
 }

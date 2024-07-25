@@ -97,6 +97,21 @@
         <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
     </div>
 
+    <div class="mt-4">
+        <x-input-label for="category_id" :value="__('Category')" />
+        <select 
+            id="category_id" 
+            wire:model="category_id" 
+            class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
+        >
+            <option value="">Select tags</option>
+            @foreach($tags as $tag)
+                <option value="{{ $category->id }}">{{ $tag->name }}</option>
+            @endforeach
+        </select>
+        <x-input-error :messages="$errors->get('tag_id')" class="mt-2" />
+    </div>
+
     <x-primary-button type="submit" class="px-4 py-2 my-5 ">
         Create post
     </x-primary-button>
