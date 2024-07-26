@@ -70,14 +70,15 @@ class CreateBlog extends Component
             'featured_image' => $featuredImageName,
             'body' => $this->body,
             'category_id' => $this->category_id,
-            'tag_id' => $this->tag_id,
             'meta_description' => $this->meta_description,
             'reading_time' => $readingTime,
             'status' => $this->status,
+            // 'author_id' => auth()->id(),
         ]);
 
         $blog->author_id = auth()->id();
         $blog->save();
+        $blog->tags()->sync($this->tag_id);
 
         session()->flash('success', 'Blog post created successfully.');
         return redirect()->route('blog.index');

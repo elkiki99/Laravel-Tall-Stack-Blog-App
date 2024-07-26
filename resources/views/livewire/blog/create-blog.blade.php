@@ -98,15 +98,15 @@
     </div>
 
     <div class="mt-4">
-        <x-input-label for="category_id" :value="__('Category')" />
+        <x-input-label for="tag_id" :value="__('Tag')" />
         <select 
-            id="category_id" 
-            wire:model="category_id" 
+            id="tag_id" 
+            wire:model="tag_id" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
         >
             <option value="">Select tags</option>
             @foreach($tags as $tag)
-                <option value="{{ $category->id }}">{{ $tag->name }}</option>
+                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
             @endforeach
         </select>
         <x-input-error :messages="$errors->get('tag_id')" class="mt-2" />
