@@ -32,15 +32,15 @@
                 
                 @if(auth()->check() && auth()->user()->role === 'admin')
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="text-sm hover:blur-xs" href="{{ route('panel') }}">Panel</a>
+                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('panel') }}">Panel</a>
                     </div>
                 @elseif(auth()->check() && auth()->user()->role === 'author')
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="text-sm hover:blur-xs" href="{{ route('panel') }}">Panel</a>
+                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('panel') }}">Panel</a>
                     </div>
                 @elseif(auth()->check() && auth()->user()->role === 'user')
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="text-sm hover:blur-xs" href="#">Profile</a>
+                        <a class="hidden text-sm md:flex hover:blur-xs" href="#">Profile</a>
                     </div>
                 @endif
             </div>

@@ -1,8 +1,8 @@
 <div x-data="blogContent()" x-init="initialize()">
     <div class="flex px-4">
-        <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
+        <div class="container mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
             <h1 class="pt-10 pb-0 text-4xl font-bold text-black sm:text-5xl md:text-7xl lg:pt-20 lg:pb-10">
-                {{ $blog->title }}
+                {{ $blog->title }} 
             </h1>
 
             <x-blog-metrics :blog="$blog" />
