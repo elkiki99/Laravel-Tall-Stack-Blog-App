@@ -40,6 +40,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog/create', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/edit/{blog:slug}', [BlogController::class, 'edit'])->name('blog.edit');
 
 /**
  * Category pages.

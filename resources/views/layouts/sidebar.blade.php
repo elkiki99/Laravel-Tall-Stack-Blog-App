@@ -170,7 +170,7 @@
 
         <div x-show="hoverSection === 'blog' || (hoverSection === null && activeSection === 'blog')"
             class="transition-opacity duration-300">
-            <a wire:navigate href="#">
+            <a wire:navigate href="{{ route('blog.index') }}">
                 <div
                     class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage posts</h3>

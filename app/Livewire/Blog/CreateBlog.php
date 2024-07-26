@@ -23,14 +23,18 @@ class CreateBlog extends Component
     public $category_id;
     public $tag_id = [];
     public $reading_time;
-    public $views;
+    public $views = 0;
     public $status = 'draft';
     public $meta_description;
+
+    protected $messages = [
+        'tag_id.required' => 'At least one tag is required.',
+        'category_id.required' => 'The category field is required.',
+    ];
 
     public $listeners = [
         Quill::EVENT_VALUE_UPDATED
     ];
-
     public function quill_value_updated($value){
         $this->body = $value;
     }
@@ -44,21 +48,22 @@ class CreateBlog extends Component
         'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         'category_id' => 'required|exists:categories,id',
         'tag_id' => 'required|exists:tags,id',
+        'tag_id.*' => 'required|exists:tags,id',
         'status' => 'required|string|in:draft,published',
         'meta_description' => 'required|string|max:255',
     ];
     
     public function submit()
     {
+        // dd($this->all());
         $this->validate();
-        $directory = 'public/featured_images';
 
-        Storage::exists($directory) || Storage::makeDirectory($directory);
-        
-        $featuredImagePath = $this->featured_image 
+        $directory = 'public/featured_images';
+            Storage::exists($directory) || Storage::makeDirectory($directory);
+            $featuredImagePath = $this->featured_image 
             ? $this->featured_image->store($directory) 
             : null;
-        $featuredImageName = $featuredImagePath ? basename($featuredImagePath) : null;
+            $featuredImageName = $featuredImagePath ? basename($featuredImagePath) : null;
 
         $readingTime = Blog::calculateReadingTime($this->body);
 
@@ -73,7 +78,6 @@ class CreateBlog extends Component
             'meta_description' => $this->meta_description,
             'reading_time' => $readingTime,
             'status' => $this->status,
-            // 'author_id' => auth()->id(),
         ]);
 
         $blog->author_id = auth()->id();
