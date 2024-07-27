@@ -8,14 +8,14 @@ use App\Livewire\Quill;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class EditBlog extends Component
 {
     use WithFileUploads;
 
-    public $blogId;
+    public $blog;
     public $title;
     public $subtitle;
     public $body;
@@ -25,13 +25,9 @@ class EditBlog extends Component
     public $category_id;
     public $tag_id = [];
     public $reading_time;
+    public $views;
     public $status;
     public $meta_description;
-
-    protected $messages = [
-        'tag_id.required' => 'At least one tag is required.',
-        'category_id.required' => 'The category field is required.',
-    ];
 
     public $listeners = [
         Quill::EVENT_VALUE_UPDATED
@@ -39,13 +35,12 @@ class EditBlog extends Component
 
     public function mount($id)
     {
-        $this->blogId = $id;
-        $this->loadBlog();
+        $this->blog = Blog::findOrFail($id);
+        $this->renderBlog($this->blog);
     }
 
-    public function loadBlog()
+    public function renderBlog($blog)
     {
-        $blog = Blog::findOrFail($this->blogId);
         $this->title = $blog->title;
         $this->subtitle = $blog->subtitle;
         $this->body = $blog->body;
@@ -55,6 +50,7 @@ class EditBlog extends Component
         $this->category_id = $blog->category_id;
         $this->tag_id = $blog->tags->pluck('id')->toArray();
         $this->reading_time = $blog->reading_time;
+        $this->views = $blog->views;
         $this->status = $blog->status;
         $this->meta_description = $blog->meta_description;
     }
@@ -74,7 +70,7 @@ class EditBlog extends Component
                 'required',
                 'string',
                 'max:75',
-                Rule::unique('blogs', 'slug')->ignore($this->blogId),
+                Rule::unique('blogs', 'slug')->ignore($this->blog->id),
             ],
             'excerpt' => 'required|string|max:255',
             'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -90,36 +86,36 @@ class EditBlog extends Component
     {
         $this->validate();
 
-        $blog = Blog::findOrFail($this->blogId);
-
         $directory = 'public/featured_images';
         Storage::exists($directory) || Storage::makeDirectory($directory);
 
         // Handle image upload if a new image is provided
         if ($this->featured_image && $this->featured_image->isValid()) {
-            // Delete old image if exists
-            if ($blog->featured_image) {
-                Storage::delete($directory . '/' . $blog->featured_image);
+            if ($this->blog->featured_image) {
+                Storage::delete($directory . '/' . $this->blog->featured_image);
             }
             $featuredImagePath = $this->featured_image->store($directory);
             $featuredImageName = basename($featuredImagePath);
         } else {
-            $featuredImageName = $blog->featured_image; // Retain old image if not replaced
+            $featuredImageName = $this->blog->featured_image;
         }
 
-        $blog->title = $this->title;
-        $blog->subtitle = $this->subtitle;
-        $blog->slug = $this->slug;
-        $blog->excerpt = $this->excerpt;
-        $blog->featured_image = $featuredImageName;
-        $blog->body = $this->body;
-        $blog->category_id = $this->category_id;
-        $blog->meta_description = $this->meta_description;
-        $blog->reading_time = Blog::calculateReadingTime($this->body);
-        $blog->status = $this->status;
+        $readingTime = Blog::calculateReadingTime($this->body);
 
-        $blog->save();
-        $blog->tags()->sync($this->tag_id);
+        $this->blog->update([
+            'title' => $this->title,
+            'subtitle' => $this->subtitle,
+            'slug' => $this->slug,
+            'excerpt' => $this->excerpt,
+            'featured_image' => $featuredImageName,
+            'body' => $this->body,
+            'category_id' => $this->category_id,
+            'meta_description' => $this->meta_description,
+            'reading_time' => $readingTime,
+            'status' => $this->status,
+        ]);
+
+        $this->blog->tags()->sync($this->tag_id);
 
         session()->flash('success', 'Blog post updated successfully.');
         return redirect()->route('blog.index');

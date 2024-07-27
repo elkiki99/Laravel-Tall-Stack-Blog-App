@@ -25,7 +25,7 @@
 
                     <div class="my-16">
                         <x-blog-created-data :blog="$blog" />
-                        {{-- <x-blog-tags class="my-5" :blog="$blog" /> --}}
+                        <x-blog-tags class="my-5" :blog="$blog" />
                     </div>
                 </div>  
             </div>

@@ -6,7 +6,7 @@
             id="title" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
             type="text"
-            wire:model.defer="title"
+            wire:model="title"
             placeholder="Your blog post title"
         />
         <x-input-error :messages="$errors->get('title')" class="mt-2" />
@@ -19,7 +19,7 @@
             id="subtitle" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
             type="text"
-            wire:model.defer="subtitle"
+            wire:model="subtitle"
             placeholder="Your blog post subtitle"
         />
         <x-input-error :messages="$errors->get('subtitle')" class="mt-2" />
@@ -39,7 +39,7 @@
             id="slug" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
             type="text"
-            wire:model.defer="slug"
+            wire:model="slug"
             placeholder="Friendly URL slug"
         />
         <x-input-error :messages="$errors->get('slug')" class="mt-2" />
@@ -50,7 +50,7 @@
         <x-input-label for="excerpt" :value="__('Excerpt')" />
         <textarea 
             id="excerpt" 
-            wire:model.defer="excerpt" 
+            wire:model="excerpt" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" 
             rows="3" 
             placeholder="Short summary of the post"
@@ -63,7 +63,7 @@
         <x-input-label for="meta_description" :value="__('Meta description')" />
         <textarea 
             id="meta_description" 
-            wire:model.defer="meta_description" 
+            wire:model="meta_description" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" 
             rows="3" 
             placeholder="SEO meta description"
@@ -80,24 +80,26 @@
             wire:model="featured_image" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
         />
-        @if ($featured_image)
+        @if($featured_image)
             <div class="mt-2">
-                {{-- <img src="{{ $featured_image->temporaryUrl() }}" alt="Preview" class="object-cover w-32 h-32"> --}}
+                <img src="{{ asset('storage/featured_images/' . $blog->featured_image) }}" alt="Preview" class="object-cover w-32 h-32">
             </div>
-        @elseif ($existingFeaturedImage)
+        @else
             <div class="mt-2">
-                <img src="{{ Storage::url('public/featured_images/' . $existingFeaturedImage) }}" alt="Preview" class="object-cover w-32 h-32">
+                {{-- <img src="{{ asset('storage/featured_images/' . $blog->featured_image) }}" alt="Preview" class="object-cover w-32 h-32"> --}}
             </div>
         @endif
         <x-input-error :messages="$errors->get('featured_image')" class="mt-2" />
     </div>
+
+    {{-- <img src="{{ Storage::url('public/featured_images/' . $existingFeaturedImage) }}"> --}}
 
     <!-- Categoría -->
     <div class="mt-4">
         <x-input-label for="category_id" :value="__('Category')" />
         <select 
             id="category_id" 
-            wire:model.defer="category_id" 
+            wire:model="category_id" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
         >
             <option value="">Select a category</option>
@@ -115,7 +117,7 @@
             id="tag_id" 
             multiple
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
-            wire:model.defer="tag_id"
+            wire:model="tag_id"
         >
             <option hidden>Select tags</option>
             @foreach($tags as $tag)
