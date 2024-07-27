@@ -82,17 +82,11 @@
         />
         @if($featured_image)
             <div class="mt-2">
-                <img src="{{ asset('storage/featured_images/' . $blog->featured_image) }}" alt="Preview" class="object-cover w-32 h-32">
-            </div>
-        @else
-            <div class="mt-2">
-                {{-- <img src="{{ asset('storage/featured_images/' . $blog->featured_image) }}" alt="Preview" class="object-cover w-32 h-32"> --}}
+                <img src="{{ asset('storage/featured_images/' . $blog->featured_image) }}" alt="Preview" class="object-cover aspect-square">
             </div>
         @endif
         <x-input-error :messages="$errors->get('featured_image')" class="mt-2" />
     </div>
-
-    {{-- <img src="{{ Storage::url('public/featured_images/' . $existingFeaturedImage) }}"> --}}
 
     <!-- Categoría -->
     <div class="mt-4">
