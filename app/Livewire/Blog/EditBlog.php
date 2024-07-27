@@ -116,9 +116,7 @@ class EditBlog extends Component
         ]);
 
         $this->blog->tags()->sync($this->tag_id);
-
-        session()->flash('success', 'Blog post updated successfully.');
-        return redirect()->route('blog.index');
+        return redirect()->route('blog.index')->with('success', 'Blog post updated successfully.');
     }
 
     public function render()

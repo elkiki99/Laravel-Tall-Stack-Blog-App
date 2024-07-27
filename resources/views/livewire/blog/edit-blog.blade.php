@@ -1,5 +1,4 @@
 <form wire:submit.prevent="submit">
-    <!-- Título -->
     <div class="mt-4">
         <x-input-label for="title" :value="__('Post title')" />
         <x-text-input 
@@ -12,7 +11,6 @@
         <x-input-error :messages="$errors->get('title')" class="mt-2" />
     </div>
 
-    <!-- Subtítulo -->
     <div class="mt-4">
         <x-input-label for="subtitle" :value="__('Subtitle')" />
         <x-text-input 
@@ -25,14 +23,12 @@
         <x-input-error :messages="$errors->get('subtitle')" class="mt-2" />
     </div>
     
-    <!-- Cuerpo del Post -->
     <div class="mt-4">
         <x-input-label for="body" :value="__('Body')" />
         <livewire:quill :value="$body" />
         <x-input-error :messages="$errors->get('body')" class="mt-2" />
     </div>
     
-    <!-- Slug -->
     <div class="mt-4">
         <x-input-label for="slug" :value="__('Slug')" />
         <x-text-input 
@@ -45,7 +41,6 @@
         <x-input-error :messages="$errors->get('slug')" class="mt-2" />
     </div>
 
-    <!-- Extracto -->
     <div class="mt-4">
         <x-input-label for="excerpt" :value="__('Excerpt')" />
         <textarea 
@@ -58,7 +53,6 @@
         <x-input-error :messages="$errors->get('excerpt')" class="mt-2" />
     </div>
 
-    <!-- Meta Descripción -->
     <div class="mt-4">
         <x-input-label for="meta_description" :value="__('Meta description')" />
         <textarea 
@@ -71,7 +65,6 @@
         <x-input-error :messages="$errors->get('meta_description')" class="mt-2" />
     </div>
 
-    <!-- Imagen Destacada -->
     <div class="mt-4">
         <x-input-label for="featured_image" :value="__('Featured Image')" />
         <x-text-input 
@@ -87,8 +80,7 @@
         @endif
         <x-input-error :messages="$errors->get('featured_image')" class="mt-2" />
     </div>
-
-    <!-- Categoría -->
+    
     <div class="mt-4">
         <x-input-label for="category_id" :value="__('Category')" />
         <select 
@@ -104,7 +96,6 @@
         <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
     </div>
     
-    <!-- Etiquetas -->
     <div class="mt-4">
         <x-input-label for="tag_id" :value="__('Tags')" />
         <select 
@@ -121,8 +112,7 @@
         <x-input-error :messages="$errors->get('tag_id')" class="mt-2" />
     </div>
 
-    <!-- Botón de Envío -->
     <x-primary-button type="submit" class="px-4 py-2 my-5">
-        Update Post
+        Update post
     </x-primary-button>
 </form>

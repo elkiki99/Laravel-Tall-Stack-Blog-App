@@ -29,11 +29,13 @@
                                     <x-blog-tags :blog="$blog" class="pt-2" />
                                 </div>
                             <div class="ml-auto">
-                                <a class="hover:cursor-pointer" href={{ route('blog.edit', $blog) }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-                                    </svg>
-                                </a>
+                                @if(auth()->user()->role === 'admin')
+                                    <a class="hover:cursor-pointer" href={{ route('blog.edit', $blog) }}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                        </svg>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -77,7 +79,19 @@
         @foreach($blogs as $blog)
             <div class="py-6 pb-5 border-b-2 border-gray-300">
 
-                <x-blog-metrics :blog="$blog" />
+                <div class="flex items-center justify-center">
+                    <x-blog-metrics :blog="$blog" />
+                    
+                    <div class="ml-auto">
+                        @if(auth()->user()->role === 'admin')
+                        <a class="hover:cursor-pointer" href={{ route('blog.edit', $blog) }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                            </svg>
+                        </a>
+                        @endif
+                    </div>
+                </div>
                 
                 <a wire:navigate href="{{ route('blog.show', $blog) }}">
                     <h2 class="my-2 text-2xl font-bold text-gray-900 hover:cursor-pointer dark:text-gray-100">{{ $blog->title }}</h2>

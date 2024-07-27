@@ -32,21 +32,6 @@
                         d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
                 </svg>
             </div>
-            {{-- <div class="flex items-center justify-center p-2 hover:cursor-pointer"
-                :class="{
-                    'blur-xs': hoverSection === 'author' && activeSection !== 'author',
-                    'bg-gray-800 rounded-md': activeSection === 'author',
-                    '': hoverSection !== 'author' && activeSection !== 'author'
-                }"      
-                @mouseover="hoverSection = 'author'"
-                @mouseleave="hoverSection = null" 
-                @click="activeSection = 'author'; hoverSection = null">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="white" class="size-7">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-                </svg>
-            </div> --}}
             <div class="flex items-center justify-center p-2 hover:cursor-pointer"
                 :class="{
                     'blur-xs': hoverSection === 'category' && activeSection !== 'category',
@@ -199,28 +184,10 @@
                 </div>
             </a>
         </div>
-
-        {{-- <div x-show="hoverSection === 'author' || (hoverSection === null && activeSection === 'author')"
-            class="transition-opacity duration-300">
-            <a wire:navigate href="#">
-                <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage authors</h3>
-                    <p class="text-sm text-black 2xl:text-md">View all author</p>
-                </div>
-            </a>
-            <a wire:navigate href="{{ route('authors.create') }}">
-                <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new author</h3>
-                    <p class="text-sm text-black 2xl:text-md">Create a new author</p>
-                </div>
-            </a>
-        </div> --}}
         
         <div x-show="hoverSection === 'category' || (hoverSection === null && activeSection === 'category')"
             class="transition-opacity duration-300">
-            <a wire:navigate href="#">
+            <a wire:navigate href="{{ route('categories.index') }}">
                 <div
                     class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage categories</h3>

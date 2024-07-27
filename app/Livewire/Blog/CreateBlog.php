@@ -35,6 +35,7 @@ class CreateBlog extends Component
     public $listeners = [
         Quill::EVENT_VALUE_UPDATED
     ];
+    
     public function quill_value_updated($value){
         $this->body = $value;
     }
@@ -55,7 +56,6 @@ class CreateBlog extends Component
     
     public function submit()
     {
-        // dd($this->all());
         $this->validate();
 
         $directory = 'public/featured_images';
@@ -83,9 +83,7 @@ class CreateBlog extends Component
         $blog->author_id = auth()->id();
         $blog->save();
         $blog->tags()->sync($this->tag_id);
-
-        session()->flash('success', 'Blog post created successfully.');
-        return redirect()->route('blog.index');
+        return redirect()->route('blog.index')->with('success', 'Blog post created successfully.');
     }
 
     public function render()

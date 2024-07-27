@@ -15,33 +15,9 @@ class CategoryController extends Controller
         return view('categories.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create() 
     {
         return view('categories.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:categories,slug|max:140',
-            'description' => 'nullable|string|max:255',
-        ]);
-
-        $category = new Category([
-            'name' => $request->input('name'),
-            'slug' => $request->input('slug'),
-            'description' => $request->input('description'),
-        ]);
-        
-        $category->save();
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
     /**
@@ -60,7 +36,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', [
+            'category' => $category
+        ]);
     }
 
     /**
