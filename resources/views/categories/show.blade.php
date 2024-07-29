@@ -5,13 +5,6 @@
     </section>
     
     <livewire:categories.show-category :category="$category" />
-
-    <style>
-        .underline-yellow {
-            text-decoration: underline;
-            text-decoration-color: yellow;
-        }
-    </style>
 </x-app-layout>
 
 

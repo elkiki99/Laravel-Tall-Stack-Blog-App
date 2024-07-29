@@ -53,8 +53,8 @@ Route::get('/category/edit/{category:slug}', [CategoryController::class, 'edit']
  */
 Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
 Route::get('/tag/create', [TagController::class, 'create'])->name('tags.create');
-Route::post('/tag/create', [TagController::class, 'store'])->name('tags.store');
-Route::get('/tags/{tag:slug}', [TagController::class, 'show'])->name('tags.show');
+Route::get('/blog/tag/{tag:slug}', [TagController::class, 'show'])->name('tags.show');
+Route::get('/tag/edit/{tag:slug}', [TagController::class, 'edit'])->name('tags.edit');
 
 /**
  * Profile.
