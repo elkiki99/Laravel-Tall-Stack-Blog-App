@@ -45,7 +45,7 @@ Route::get('/blog/edit/{blog:slug}', [BlogController::class, 'edit'])->name('blo
  */
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/blog/category/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('/category/edit/{category:slug}', [CategoryController::class, 'edit'])->name('categories.edit');
 
 /**

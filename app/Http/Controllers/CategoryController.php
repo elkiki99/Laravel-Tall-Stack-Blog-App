@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('categories.index');
@@ -20,14 +17,10 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Category $category)
     {
         return view('categories.show', [
-            // 'category' => $category
-            
+            'category' => $category
         ]);
     }
 

@@ -1,34 +1,26 @@
 <x-admin-layout>
-    {{-- <div class="py-12"> --}}
-        <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-            <div class="p-4 bg-white sm:p-8 dark:bg-gray-800 sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <div class="max-w-6xl min-h-screen p-10 pb-32 mx-auto">
+        @include('profile.partials.update-profile-information-form')
+        
+        @include('profile.partials.update-password-form')
 
-            <div class="p-4 bg-white sm:p-8 dark:bg-gray-800 sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+        @include('profile.partials.delete-user-form')
 
-            <div class="p-4 bg-white sm:p-8 dark:bg-gray-800 sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>      
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold sm:text-3xl">
+                {{ __('Log out') }}
+            </h2>
 
-            <div class="p-4 bg-white sm:p-8 dark:bg-gray-800 sm:rounded-lg">
-                <div class="max-w-xl">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-nav-link class="text-xl" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-nav-link>
-                    </form>
-                </div>
-            </div>
+            <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
+                {{ __("Log out from your account.") }}
+            </p>
+            
+            <form class="" method="POST" action="{{ route('logout') }}">
+                @csrf
+                <x-secondary-button class="px-4 py-2" :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-secondary-button>
+            </form>
         </div>
-    {{-- </div> --}}
+    </div>
 </x-admin-layout>

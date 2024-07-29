@@ -6,15 +6,15 @@
     </div>
     <div class="items-center justify-center hidden space-x-4 lg:flex">
         <a wire:navigate href="{{ route('blog.index') }}" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('blog.index') ? 'text-black border-b-4  border-gray-700' : 'text-gray-600' }}">All</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('modern') ? 'text-black border-b-4  border-gray-700' : 'text-gray-600' }}">Modern</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('gothic') ? 'text-gray-900 border-b-4 border-gray-700' : 'text-gray-600' }}">Gothic</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('baroque') ? 'text-black border-b-4 border-gray-700' : 'text-gray-600' }}">Baroque</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('renaissance') ? 'text-black border-b-4 border-gray-700' : 'text-gray-600' }}">Renaissance</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('industrial') ? 'text-black border-b-4 border-gray-700' : 'text-gray-600' }}">Industrial</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('sustainable') ? 'text-black border-b-4 border-gray-700' : 'text-gray-600' }}">Sustainable</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('minimalist') ? 'text-black border-b-4 border-gray-700' : 'text-gray-600' }}">Minimalist</a>
-        <a href="#" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('classical') ? 'text-black border-b-4 border-gray-700' : 'text-gray-600' }}">Classical</a>
-
+        @foreach(App\Models\Category::all() as $category)
+            <a 
+                wire:navigate 
+                href="{{ route('categories.show', $category) }}" 
+                class="px-1 font-medium hover:text-black relative pb-2 {{ request()->routeIs('categories.show') && request()->route('category')->slug === $category->slug ? 'text-black border-b-4 border-gray-700' : 'text-gray-600' }}">
+                {{ $category->name }}
+            </a>
+        @endforeach
+        
         <div class="relative pb-2">
             <input type="text" placeholder="Search..." class="py-2 pl-10 pr-4 text-sm font-medium text-gray-600 bg-white border-none focus:outline-none focus:ring-0">
             <svg class="absolute pb-2 text-gray-500 transform -translate-y-1/2 w-7 h-7 top-1/2 left-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -43,13 +43,8 @@
     <!-- Responsive Navigation Menu -->
     <div x-show="open" @click.away="open = false" class="absolute z-40 w-56 mt-2 bg-transparent rounded-md shadow-lg right-2 backdrop-filter backdrop-blur-3xl xl:hidden">
         <a wire:navigate href="{{ route('blog.index') }}" class="block px-4 py-2 text-sm text-black hover:blur-xs ">All</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Modern</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Gothic</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Baroque</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Renaissance</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Industrial</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Sustainable</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Minimalist</a>
-        <a href="#" class="block px-4 py-2 text-sm text-black hover:blur-xs">Classical</a>
+        @foreach(App\Models\Category::all() as $category)
+            <a wire:navigate href="{{ route('categories.show', $category) }}" class="block px-4 py-2 text-sm text-black hover:blur-xs ">{{ $category->name }}</a>
+        @endforeach
     </div>
 </nav>

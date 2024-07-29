@@ -1,5 +1,5 @@
 <div x-data="blogContent()" x-init="initialize()">
-    <div class="flex px-4">
+    <div class="flex px-4 mb-20">
         <div class="container mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
             <h1 class="pt-10 pb-0 text-4xl font-bold text-black sm:text-5xl md:text-7xl lg:pt-20 lg:pb-10">
                 {{ $blog->title }} 
@@ -48,7 +48,7 @@
             return {
                 navBar: null,
                 headers: [],
-                offset: 125, // Offset value for scrolling
+                offset: 125,
 
                 initialize() {
                     this.navBar = document.getElementById('nav-bar');

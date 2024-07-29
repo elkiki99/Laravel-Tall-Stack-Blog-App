@@ -44,8 +44,47 @@
         @enderror
     </div>
 
-    <!-- Submit Button -->
-    <div class="mt-6">
-        <x-primary-button type="submit" class="px-4 py-2 rounded-lg">Edit category</x-primary-button>
+    <div class="flex items-center justify-center">
+        <!-- Submit Button -->
+        <div class="mt-6 mr-auto">
+            <x-primary-button type="submit" class="px-4 py-2">Update category</x-primary-button>
+        </div>
+        
+        <!-- Delete Button -->
+        <div class="mt-6">
+            <x-danger-button 
+                class="px-4 py-2 ml-auto"
+                x-on:click.prevent="$dispatch('open-modal', 'confirm-category-deletion')">
+                
+                {{ __('Delete') }}
+            </x-danger-button>
+        </div>
     </div>
+
+    <x-modal name="confirm-category-deletion">
+        <div class="p-6">
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {{ __('Are you sure you want to delete this category?') }}
+            </h2>
+            
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                {{ __('All of your blog posts which are associated with this category will be reasigned to uncategorized.') }}
+            </p>
+            
+            <div class="flex justify-end mt-6">
+                <x-secondary-button class="px-4 py-2" x-on:click="$dispatch('close')">
+                    {{ __('Cancel') }}
+                </x-secondary-button>
+
+                <x-danger-button 
+                    class="px-4 py-2 ms-3" 
+                    wire:click="deleteCategory({{ $category->id }})"
+                >
+                    {{ __('Yes, delete category') }}
+                </x-danger-button>
+            </div>
+        </div>
+    </x-modal>
 </form>
+
+

@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Category;
 
 class ShowCategories extends Component
-{
+{   
     public function render()
     {
         $categories = Category::all();
