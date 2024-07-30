@@ -7,7 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
 
-class ShowPosts extends Component
+class ShowPendingPosts extends Component
 {
     use WithPagination;
 
@@ -19,10 +19,10 @@ class ShowPosts extends Component
             ->when($this->searchPost !== '', function (Builder $query) {
                 $query->where('name', 'like', '%' . $this->searchPost . '%');
             })
-            ->where('status', 'published')
+            ->where('status', 'draft')
             ->paginate(20);
 
-        return view('livewire.posts.show-posts', [
+        return view('livewire.posts.show-pending-posts', [
             'posts' => $posts,
         ]);
     }

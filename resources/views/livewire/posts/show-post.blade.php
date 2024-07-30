@@ -33,12 +33,37 @@
 
                 <div class="w-full md:w-5/6">
                     {!! $post->body !!}
-
-                    <div>
-                        <x-post-created-data :post="$post" />
-                        <x-post-tags class="my-5" :post="$post" />
-                    </div>
-                </div>  
+                    
+                    @if(auth()->user()->role === 'admin')
+                        <div class="flex">
+                            <div>
+                                <x-post-created-data :post="$post" />
+                                <x-post-tags class="my-5" :post="$post" />
+                            </div>
+                            
+                            @if($post->status === 'draft')
+                                <div class="ml-auto">
+                                    <x-primary-button
+                                        class="px-4 py-2"
+                                        
+                                    >Publish</x-primary-button>
+                                </div>
+                            @elseif($post->status === 'published')
+                                <div class="ml-auto">
+                                    <x-primary-button
+                                        class="px-4 py-2"
+                                        
+                                    >Move to drafts</x-primary-button>
+                                </div>
+                            @endif
+                        </div>  
+                    @else
+                        <div>
+                            <x-post-created-data :post="$post" />
+                            <x-post-tags class="my-5" :post="$post" />
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
@@ -87,7 +112,6 @@
                         });
                     });
 
-                    // Set initial active link
                     this.updateActiveLink();
                 },
 
@@ -98,7 +122,6 @@
                 updateActiveLink() {
                     let currentId = null;
 
-                    // Check each header to see if it's in the viewport
                     this.headers.forEach((header) => {
                         const rect = header.getBoundingClientRect();
                         const id = header.id;
@@ -108,7 +131,6 @@
                         }
                     });
 
-                    // Set the active link based on the currentId
                     this.setActiveLink(currentId);
                 },
 

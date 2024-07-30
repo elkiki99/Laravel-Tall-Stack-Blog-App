@@ -37,6 +37,7 @@ Route::get('/panel', function() {
  * Blog pages.
  */
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/pending', [PostController::class, 'pending'])->name('posts.pending');
 Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
 Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/post/edit/{post:slug}', [PostController::class, 'edit'])->name('posts.edit');

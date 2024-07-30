@@ -10,6 +10,11 @@ class PostController extends Controller
     {
         return view('posts.index');
     }
+
+    public function pending()
+    {
+        return view('posts.pending');
+    }
     
     public function create() 
     {   

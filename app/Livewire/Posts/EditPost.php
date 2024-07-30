@@ -89,7 +89,6 @@ class EditPost extends Component
         $directory = 'public/featured_images';
         Storage::exists($directory) || Storage::makeDirectory($directory);
 
-        // Handle image upload if a new image is provided
         if ($this->new_featured_image && $this->new_featured_image->isValid()) {
             if ($this->post->new_featured_image) {
                 Storage::delete($directory . '/' . $this->post->new_featured_image);
@@ -107,7 +106,7 @@ class EditPost extends Component
             'subtitle' => $this->subtitle,
             'slug' => $this->slug,
             'excerpt' => $this->excerpt,
-            'new_featured_image' => $featuredImageName,
+            'featured_image' => $featuredImageName,
             'body' => $this->body,
             'category_id' => $this->category_id,
             'meta_description' => $this->meta_description,

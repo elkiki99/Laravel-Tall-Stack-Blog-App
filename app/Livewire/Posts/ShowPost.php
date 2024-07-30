@@ -14,6 +14,21 @@ class ShowPost extends Component
         $this->post = $post;
     }
 
+    public function publishPost()
+    {
+        $this->post->update([
+            'status' => 'published'
+        ]);
+        
+    }
+
+    public function moveToDraft()
+    {
+        $this->post->update([
+            'status' => 'draft'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.posts.show-post', [
