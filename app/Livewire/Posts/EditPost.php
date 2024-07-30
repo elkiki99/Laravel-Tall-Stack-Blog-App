@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Livewire\Blog;
+namespace App\Livewire\Posts;
 
 use App\Models\Tag;
-use App\Models\Blog;
+use App\Models\Post;
 use App\Livewire\Quill;
 use Livewire\Component;
 use App\Models\Category;
@@ -11,17 +11,17 @@ use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 
-class EditBlog extends Component
+class EditPost extends Component
 {
     use WithFileUploads;
 
-    public $blog;
+    public $post;
     public $title;
     public $subtitle;
     public $body;
     public $slug;
     public $excerpt;
-    public $featured_image;
+    public $new_featured_image;
     public $category_id;
     public $tag_id = [];
     public $reading_time;
@@ -35,24 +35,24 @@ class EditBlog extends Component
 
     public function mount($id)
     {
-        $this->blog = Blog::findOrFail($id);
-        $this->renderBlog($this->blog);
+        $this->post = Post::findOrFail($id);
+        $this->renderPost($this->post);
     }
 
-    public function renderBlog($blog)
+    public function renderPost($post)
     {
-        $this->title = $blog->title;
-        $this->subtitle = $blog->subtitle;
-        $this->body = $blog->body;
-        $this->slug = $blog->slug;
-        $this->excerpt = $blog->excerpt;
-        $this->featured_image = $blog->featured_image;
-        $this->category_id = $blog->category_id;
-        $this->tag_id = $blog->tags->pluck('id')->toArray();
-        $this->reading_time = $blog->reading_time;
-        $this->views = $blog->views;
-        $this->status = $blog->status;
-        $this->meta_description = $blog->meta_description;
+        $this->title = $post->title;
+        $this->subtitle = $post->subtitle;
+        $this->body = $post->body;
+        $this->slug = $post->slug;
+        $this->excerpt = $post->excerpt;
+        $this->new_featured_image = $post->new_featured_image;
+        $this->category_id = $post->category_id;
+        $this->tag_id = $post->tags->pluck('id')->toArray();
+        $this->reading_time = $post->reading_time;
+        $this->views = $post->views;
+        $this->status = $post->status;
+        $this->meta_description = $post->meta_description;
     }
 
     public function quill_value_updated($value)
@@ -70,10 +70,10 @@ class EditBlog extends Component
                 'required',
                 'string',
                 'max:75',
-                Rule::unique('blogs', 'slug')->ignore($this->blog->id),
+                Rule::unique('posts', 'slug')->ignore($this->post->id),
             ],
             'excerpt' => 'required|string|max:255',
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'new_featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
             'tag_id' => 'required|array',
             'tag_id.*' => 'required|exists:tags,id',
@@ -90,24 +90,24 @@ class EditBlog extends Component
         Storage::exists($directory) || Storage::makeDirectory($directory);
 
         // Handle image upload if a new image is provided
-        if ($this->featured_image && $this->featured_image->isValid()) {
-            if ($this->blog->featured_image) {
-                Storage::delete($directory . '/' . $this->blog->featured_image);
+        if ($this->new_featured_image && $this->new_featured_image->isValid()) {
+            if ($this->post->new_featured_image) {
+                Storage::delete($directory . '/' . $this->post->new_featured_image);
             }
-            $featuredImagePath = $this->featured_image->store($directory);
+            $featuredImagePath = $this->new_featured_image->store($directory);
             $featuredImageName = basename($featuredImagePath);
         } else {
-            $featuredImageName = $this->blog->featured_image;
+            $featuredImageName = $this->post->new_featured_image;
         }
 
-        $readingTime = Blog::calculateReadingTime($this->body);
+        $readingTime = Post::calculateReadingTime($this->body);
 
-        $this->blog->update([
+        $this->post->update([
             'title' => $this->title,
             'subtitle' => $this->subtitle,
             'slug' => $this->slug,
             'excerpt' => $this->excerpt,
-            'featured_image' => $featuredImageName,
+            'new_featured_image' => $featuredImageName,
             'body' => $this->body,
             'category_id' => $this->category_id,
             'meta_description' => $this->meta_description,
@@ -115,8 +115,8 @@ class EditBlog extends Component
             'status' => $this->status,
         ]);
 
-        $this->blog->tags()->sync($this->tag_id);
-        return redirect()->route('blog.index')->with('success', 'Blog post updated successfully.');
+        $this->post->tags()->sync($this->tag_id);
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
     }
 
     public function render()
@@ -124,7 +124,7 @@ class EditBlog extends Component
         $categories = Category::all();
         $tags = Tag::all();
 
-        return view('livewire.blog.edit-blog', [
+        return view('livewire.posts.edit-post', [
             'categories' => $categories,
             'tags' => $tags
         ]);

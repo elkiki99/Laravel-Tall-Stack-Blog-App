@@ -1,15 +1,15 @@
-<div x-data="blogContent()" x-init="initialize()">
+<div x-data="postContent()" x-init="initialize()">
     <div class="flex px-4 mb-20">
         <div class="container mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
             <h1 class="pt-10 pb-0 text-4xl font-bold text-black sm:text-5xl md:text-7xl lg:pt-20 lg:pb-10">
-                {{ $blog->title }} 
+                {{ $post->title }} 
             </h1>
             <div class="flex items-center justify-center">   
-                <x-blog-metrics :blog="$blog" />
+                <x-post-metrics :post="$post" />
                 
                 <div class="ml-auto">
                     @if(auth()->user()->role === 'admin')
-                    <a class="hover:cursor-pointer" href={{ route('blog.edit', $blog) }}>
+                    <a class="hover:cursor-pointer" href={{ route('posts.edit', $post) }}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                         </svg>
@@ -20,23 +20,23 @@
 
             <div class="relative overflow-hidden aspect-square sm:aspect-video rounded-3xl">
                 <div class="absolute inset-0 bg-fixed bg-no-repeat bg-cover rounded-3xl parallax-bg"
-                    style="background-image: url('{{ asset('storage/featured_images/' . $blog->featured_image) }}');">
+                    style="background-image: url('{{ asset('storage/featured_images/' . $post->featured_image) }}');">
                 </div>
             </div>
 
             <div class="flex max-w-5xl py-10 mx-auto md:space-x-12">
                 <div class="hidden w-1/6 space-x-6 md:block">
                     <div class="sticky block pb-20 space-y-2 top-20" id="nav-bar">
-                        <!-- H2 blog links -->
+                        <!-- H2 post links -->
                     </div>
                 </div>
 
                 <div class="w-full md:w-5/6">
-                    {!! $blog->body !!}
+                    {!! $post->body !!}
 
                     <div>
-                        <x-blog-created-data :blog="$blog" />
-                        <x-blog-tags class="my-5" :blog="$blog" />
+                        <x-post-created-data :post="$post" />
+                        <x-post-tags class="my-5" :post="$post" />
                     </div>
                 </div>  
             </div>
@@ -44,7 +44,7 @@
     </div>
 
     <script>
-        function blogContent() {
+        function postContent() {
             return {
                 navBar: null,
                 headers: [],

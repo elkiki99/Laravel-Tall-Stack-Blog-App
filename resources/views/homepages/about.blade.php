@@ -14,7 +14,6 @@
             </div>
         </div>
     </section>
-</x-app-layout
     
     <section class="relative min-h-screen overflow-hidden">
         <div class="p-10">
@@ -34,8 +33,11 @@
                             </div>
                         </div>
                         <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Best buildings in Netherlands</h4>
-                        <x-blog.created-data class="mt-1 text-sm" />
+                        <div class="my-1 mt-auto">
+                            <p dark:text-gray-300">by <span class="font-bold text-black">Bruno </span>| 2 days ago</p>
+                        </div>                    
                     </div>
+                    
                     <div class="flex flex-col">
                         <div class="relative w-full pb-full">
                             <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
@@ -43,8 +45,11 @@
                             </div>
                         </div>
                         <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Architecture for modern people</h4>
-                        <x-blog.created-data class="mt-1 text-sm" />
+                        <div class="my-1 mt-auto">
+                            <p dark:text-gray-300">by <span class="font-bold text-black">Bruno </span>| 2 days ago</p>
+                        </div>                    
                     </div>
+                    
                     <div class="flex flex-col">
                         <!-- Placeholder Image -->
                         <div class="relative w-full pb-full">

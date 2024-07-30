@@ -23,7 +23,7 @@
             <x-nav-link wire:navigate :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('About') }}
             </x-nav-link>
-            <x-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')">
+            <x-nav-link wire:navigate :href="route('blog')" :active="request()->routeIs('blog')">
                 {{ __('Blog') }}
             </x-nav-link>
             <x-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">
@@ -64,7 +64,7 @@
             <x-responsive-nav-link wire:navigate :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('About') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link wire:navigate :href="route('blog.index')" :active="request()->routeIs('blog')">
+            <x-responsive-nav-link wire:navigate :href="route('blog')" :active="request()->routeIs('blog')">
                 {{ __('Blog') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link wire:navigate :href="route('contact')" :active="request()->routeIs('contact')">

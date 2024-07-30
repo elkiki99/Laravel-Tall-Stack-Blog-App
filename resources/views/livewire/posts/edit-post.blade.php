@@ -66,19 +66,20 @@
     </div>
 
     <div class="mt-4">
-        <x-input-label for="featured_image" :value="__('Featured Image')" />
+        <x-input-label for="new_featured_image" :value="__('Featured Image')" />
         <x-text-input 
-            id="featured_image" 
+            id="new_featured_image" 
             type="file" 
-            wire:model="featured_image" 
+            wire:model="new_featured_image" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
         />
-        @if($featured_image)
-            <div class="mt-2">
-                <img src="{{ asset('storage/featured_images/' . $blog->featured_image) }}" alt="Preview" class="object-cover aspect-square">
+        @if ($new_featured_image)
+            <div class="mt-4">
+                <x-input-label :value="__('Image Preview')" />
+                <img src="{{ $new_featured_image->temporaryUrl() }}" alt="Image Preview" class="w-1/2 mt-2 rounded-md shadow-md"/>
             </div>
         @endif
-        <x-input-error :messages="$errors->get('featured_image')" class="mt-2" />
+        <x-input-error :messages="$errors->get('new_featured_image')" class="mt-2" />
     </div>
     
     <div class="mt-4">
@@ -88,7 +89,7 @@
             wire:model="category_id" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
         >
-            <option value="">Select a category</option>
+            <option hidden>Select a category</option>
             @foreach($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach

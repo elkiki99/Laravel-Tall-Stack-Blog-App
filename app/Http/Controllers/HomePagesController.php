@@ -2,8 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+
 class HomePagesController extends Controller
 {
+    public function blog()
+    {
+        $posts = Post::with('author')->where('status', 'published')->get();
+
+        return view ('homepages.blog', [
+            'posts' => $posts
+        ]);
+    }
+
     public function welcome()
     {
         return view ('homepages.welcome');

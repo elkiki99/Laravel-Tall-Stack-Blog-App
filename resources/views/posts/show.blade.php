@@ -3,5 +3,5 @@
         <x-blog-nav-bar />
     </section>
     
-    <livewire:blog.show-blog :blog="$blog" />
+    <livewire:posts.show-post :post="$post" />
 </x-app-layout>

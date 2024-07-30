@@ -8,12 +8,12 @@ use App\Models\Category;
 class ShowCategory extends Component
 {
     public $category;
-    public $blogs;
+    public $posts;
 
     public function mount(Category $category) 
     {
         $this->category = $category;
-        $this->blogs = $category->blogs;
+        $this->posts = $category->posts->where('status', 'published');
     }
 
     public function render()

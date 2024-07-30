@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Livewire\Blog;
+namespace App\Livewire\Posts;
 
 use App\Models\Tag;
-use App\Models\Blog;
+use App\Models\Post;
 use App\Livewire\Quill;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
-class CreateBlog extends Component
+class CreatePost extends Component
 {   
     use WithFileUploads;
 
@@ -44,7 +44,7 @@ class CreateBlog extends Component
         'title' => 'required|string|max:255',
         'subtitle' => 'required|string|max:255',
         'body' => 'required|string',
-        'slug' => 'required|string|max:75|unique:blogs,slug',
+        'slug' => 'required|string|max:75|unique:posts,slug',
         'excerpt' => 'required|string|max:255',
         'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         'category_id' => 'required|exists:categories,id',
@@ -65,9 +65,9 @@ class CreateBlog extends Component
             : null;
             $featuredImageName = $featuredImagePath ? basename($featuredImagePath) : null;
 
-        $readingTime = Blog::calculateReadingTime($this->body);
+        $readingTime = Post::calculateReadingTime($this->body);
 
-        $blog = new Blog([
+        $post = new Post([
             'title' => $this->title,
             'subtitle' => $this->subtitle,
             'slug' => $this->slug,
@@ -80,10 +80,10 @@ class CreateBlog extends Component
             'status' => $this->status,
         ]);
 
-        $blog->author_id = auth()->id();
-        $blog->save();
-        $blog->tags()->sync($this->tag_id);
-        return redirect()->route('blog.index')->with('success', 'Blog post created successfully.');
+        $post->author_id = auth()->id();
+        $post->save();
+        $post->tags()->sync($this->tag_id);
+        return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
 
     public function render()
@@ -91,7 +91,7 @@ class CreateBlog extends Component
         $categories = Category::all();
         $tags = Tag::all();
 
-        return view('livewire.blog.create-blog', [
+        return view('livewire.posts.create-post', [
             'categories' => $categories,
             'tags' => $tags
         ]);

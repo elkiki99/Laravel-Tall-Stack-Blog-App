@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Post extends Model
 {
     use HasFactory;
 
@@ -47,12 +47,7 @@ class Blog extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'blog_tags');
-    }
-
-    public function images()
-    {
-        return $this->belongsTo(BlogImage::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function comments()

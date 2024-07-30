@@ -55,7 +55,7 @@
                     <div class="w-full">
                         <h3 class="mb-2 text-lg font-bold">Quick Links</h3>
                         <ul>
-                            <li><a wire:navigate href="{{ route('blog.index') }}"
+                            <li><a wire:navigate href="{{ route('blog') }}"
                                     class="text-sm text-gray-400 md:text-md hover:text-gray-200">Blog</a></li>
                             <li><a wire:navigate href="{{ route('about') }}"
                                     class="text-sm text-gray-400 md:text-md hover:text-gray-200">About</a></li>

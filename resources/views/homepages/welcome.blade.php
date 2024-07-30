@@ -281,7 +281,7 @@
                             </p>
                         </div>
                         <div class="flex items-end justify-end py-10">
-                            <a wire:navigate href="{{ route('blog.index') }}">
+                            <a wire:navigate href="{{ route('blog') }}">
                                 <x-primary-button class="flex items-center px-4 py-1 mx-1 text-2xl rounded-lg">
                                     Blog
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

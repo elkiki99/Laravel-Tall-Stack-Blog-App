@@ -8,18 +8,18 @@
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                 </div>
-                <input wire:model.live="searchTags" type="text" id="simple-search" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search tags..." required="">
+                <input wire:model.live="searchPost" type="text" id="simple-search" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search posts..." required="">
             </div>
         </form>
     </div>
     
-    @if($tags->count() > 0)
+    @if($posts->count() > 0)
         <table class="min-w-full bg-white">
             <thead class="bg-gray-100">
                 <tr class="">
                     <th class="p-4 font-normal text-left">
                         <div class="inline-flex items-center">
-                            Name
+                            Title
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                             </svg>
@@ -35,7 +35,15 @@
                     </th>
                     <th class="p-4 font-normal text-left">
                         <div class="inline-flex items-center">
-                            Description
+                            Excerpt
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                            </svg>
+                        </div>
+                    </th>
+                    <th class="p-4 font-normal text-left">
+                        <div class="inline-flex items-center">
+                            Category
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                             </svg>
@@ -53,31 +61,34 @@
             </thead>
 
             <tbody>
-                @foreach($tags as $tag)
+                @foreach($posts as $post)
                     <tr 
                         wire:loading.remove 
-                        wire:target='deleteCategory({{ $tag->id }})'
+                        wire:target='deletePost({{ $post->id }})'
                         class="odd:bg-white even:bg-gray-100"
                     />
                         <td class="p-4 font-bold rounded-lg">
-                            <a wire:navigate href="{{ route('tags.show', $tag) }}">
-                                {{ $tag->name }}
+                            <a wire:navigate href="{{ route('posts.show', $post) }}">
+                                {{ $post->title }}
                             </a>
                         </td>
                         <td class="p-4 font-medium">
-                            {{ $tag->slug }}
+                            {{ $post->slug }}
                         </td>
                         <td class="p-4 font-medium">
-                            {{ \Illuminate\Support\Str::limit($tag->description, 80) }}
+                            {{ \Illuminate\Support\Str::limit($post->excerpt, 80) }}
+                        </td>
+                        <td class="p-4 font-medium">
+                            {{ $post->category->name }}
                         </td>
                         <td class="p-4 rounded-lg">
                             <div class="flex items-end justify-end">
-                                <a class="hover:blur-xs" wire:navigate href="{{ route('tags.edit', $tag) }}">
+                                <a class="hover:blur-xs" wire:navigate href="{{ route('posts.edit', $post) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                                     </svg>      
                                 </a>                                   
-                                <a class="hover:blur-xs" wire:navigate href="{{ route('tags.show', $tag) }}">
+                                <a class="hover:blur-xs" wire:navigate href="{{ route('posts.show', $post) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                     </svg>                                   
@@ -89,11 +100,11 @@
             </tbody>
         </table>
         <div class="justify-end px-1 mt-10">
-            <span>{{ $tags->links() }}</span>
+            <span>{{ $posts->links() }}</span>
         </div>
     @else
         <div class="p-6 shadow-md rounded-xl">
-            <p class="text-md">No tags found.
+            <p class="text-md">No posts found.
         </div>
     @endif
 </div>

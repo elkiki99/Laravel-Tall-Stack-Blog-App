@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePagesController;
@@ -11,6 +11,7 @@ use App\Http\Controllers\LegalPagesController;
 /**
  * Home pages.
  */
+Route::get('/blog', [HomePagesController::class, 'blog'])->name('blog');
 Route::get('/', [HomePagesController::class, 'welcome'])->name('welcome');
 Route::get('/about', [HomePagesController::class, 'about'])->name('about');
 Route::get('/contact', [HomePagesController::class, 'contact'])->name('contact');
@@ -35,10 +36,10 @@ Route::get('/panel', function() {
 /**
  * Blog pages.
  */
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
-Route::get('/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
-Route::get('/blog/edit/{blog:slug}', [BlogController::class, 'edit'])->name('blog.edit');
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/post/edit/{post:slug}', [PostController::class, 'edit'])->name('posts.edit');
 
 /**
  * Category pages.

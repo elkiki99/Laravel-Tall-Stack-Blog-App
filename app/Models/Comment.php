@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Comment extends Model
 {
@@ -11,7 +13,7 @@ class Comment extends Model
 
     protected $fillable = [
         'user_id',
-        'blog_id',
+        'post_id',
         'body',
     ];
 
@@ -20,8 +22,8 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function blog()
+    public function posts()
     {
-        return $this->belongsTo(Blog::class);
+        return $this->belongsTo(Post::class);
     }
 }

@@ -8,12 +8,12 @@ use App\Models\Tag;
 class ShowTag extends Component
 {
     public $tag;
-    public $blogs;
+    public $posts;
 
     public function mount(Tag $tag) 
     {
         $this->tag = $tag;
-        $this->blogs = $tag->blogs;
+        $this->posts = $tag->posts;
     }
 
     public function render()

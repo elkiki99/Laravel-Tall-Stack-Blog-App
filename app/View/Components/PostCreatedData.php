@@ -6,17 +6,17 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class BlogMetrics extends Component
+class PostCreatedData extends Component
 {
-    public $blog;
+    public $post;
 
-    public function __construct($blog)
+    public function __construct($post)
     {
-        $this->blog = $blog;
+        $this->post = $post;
     }
-
+    
     public function render(): View|Closure|string
     {
-        return view('components.blog-metrics');
+        return view('components.post-created-data');
     }
 }
