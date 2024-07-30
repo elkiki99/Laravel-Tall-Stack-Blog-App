@@ -44,16 +44,15 @@
                             @if($post->status === 'draft')
                                 <div class="ml-auto">
                                     <x-primary-button
-                                        class="px-4 py-2"
-                                        
-                                    >Publish</x-primary-button>
+                                        x-on:click.prevent="$dispatch('open-modal', 'publish-post')"
+                                        class="px-4 py-2">Publish
+                                    </x-primary-button>
                                 </div>
                             @elseif($post->status === 'published')
                                 <div class="ml-auto">
                                     <x-primary-button
-                                        class="px-4 py-2"
-                                        
-                                    >Move to drafts</x-primary-button>
+                                        x-on:click.prevent="$dispatch('open-modal', 'move-to-drafts')"
+                                        class="px-4 py-2">Move to drafts</x-primary-button>
                                 </div>
                             @endif
                         </div>  
@@ -66,8 +65,58 @@
                 </div>
             </div>
         </div>
-    </div>
 
+        <x-modal name="publish-post">
+            <div class="p-6">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {{ __('Are you sure you want to publish this post?') }}
+                </h3>
+                
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    {{ __('This post will go live for everyone to see!') }}
+                </p>
+                
+                <div class="flex justify-end mt-6">
+                    <x-secondary-button class="px-4 py-2" x-on:click="$dispatch('close')">
+                        {{ __('Cancel') }}
+                    </x-secondary-button>
+    
+                    <x-danger-button 
+                        class="px-4 py-2 ms-3" 
+                        wire:click="publishPost({{ $post->id }})"
+                    >
+                        {{ __('Yes, publish post') }}
+                    </x-danger-button>
+                </div>
+            </div>
+        </x-modal>
+    
+        <x-modal name="move-to-drafts">
+            <div class="p-6">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {{ __('Are you sure you want to move this post to drafts?') }}
+                </h3>
+                
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    {{ __('This post will move to drafts until you publish it again!') }}
+                </p>
+                
+                <div class="flex justify-end mt-6">
+                    <x-secondary-button class="px-4 py-2" x-on:click="$dispatch('close')">
+                        {{ __('Cancel') }}
+                    </x-secondary-button>
+    
+                    <x-danger-button 
+                        class="px-4 py-2 ms-3" 
+                        wire:click="moveToDrafts({{ $post->id }})"
+                    >
+                        {{ __('Yes, move to drafts') }}
+                    </x-danger-button>
+                </div>
+            </div>
+        </x-modal>
+    </div>
+    
     <script>
         function postContent() {
             return {

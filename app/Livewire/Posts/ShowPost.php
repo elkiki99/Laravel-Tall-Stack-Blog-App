@@ -19,14 +19,15 @@ class ShowPost extends Component
         $this->post->update([
             'status' => 'published'
         ]);
-        
+        return redirect()->route('posts.index')->with('success', 'Post published successfully.');
     }
 
-    public function moveToDraft()
+    public function moveToDrafts()
     {
         $this->post->update([
             'status' => 'draft'
         ]);
+        return redirect()->route('posts.pending')->with('success', 'Post moved to drafts successfully.');
     }
 
     public function render()

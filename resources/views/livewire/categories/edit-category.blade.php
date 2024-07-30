@@ -56,16 +56,16 @@
                 class="px-4 py-2 ml-auto"
                 x-on:click.prevent="$dispatch('open-modal', 'confirm-category-deletion')">
                 
-                {{ __('Delete') }}
+                {{ __('Delete category') }}
             </x-danger-button>
         </div>
     </div>
 
     <x-modal name="confirm-category-deletion">
         <div class="p-6">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 {{ __('Are you sure you want to delete this category?') }}
-            </h2>
+            </h3>
             
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
                 {{ __('All of your blog posts which are associated with this category will be reasigned to uncategorized.') }}

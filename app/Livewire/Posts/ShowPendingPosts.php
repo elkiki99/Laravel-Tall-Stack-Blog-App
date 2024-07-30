@@ -17,7 +17,7 @@ class ShowPendingPosts extends Component
     {
         $posts = Post::query()
             ->when($this->searchPost !== '', function (Builder $query) {
-                $query->where('name', 'like', '%' . $this->searchPost . '%');
+                $query->where('title', 'like', '%' . $this->searchPost . '%');
             })
             ->where('status', 'draft')
             ->paginate(20);
