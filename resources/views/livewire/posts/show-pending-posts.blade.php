@@ -43,7 +43,7 @@
                     </th>
                     <th class="p-4 font-normal text-left">
                         <div class="inline-flex items-center">
-                            Category
+                            Created
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                             </svg>
@@ -79,7 +79,7 @@
                             {{ \Illuminate\Support\Str::limit($post->excerpt, 80) }}
                         </td>
                         <td class="p-4 font-medium">
-                            {{ $post->category->name }}
+                            {{ $post->created_at->diffForHumans() }}
                         </td>
                         <td class="p-4 rounded-lg">
                             <div class="flex items-end justify-end">
@@ -104,7 +104,7 @@
         </div>
     @else
         <div class="p-6 shadow-md rounded-xl">
-            <p class="text-md">No posts found.
+            <p class="text-md">No pending posts found.
         </div>
     @endif
 </div>

@@ -20,6 +20,7 @@ class ShowPendingPosts extends Component
                 $query->where('title', 'like', '%' . $this->searchPost . '%');
             })
             ->where('status', 'draft')
+            ->latest()
             ->paginate(20);
 
         return view('livewire.posts.show-pending-posts', [

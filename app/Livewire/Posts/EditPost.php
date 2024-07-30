@@ -51,7 +51,7 @@ class EditPost extends Component
         $this->tag_id = $post->tags->pluck('id')->toArray();
         $this->reading_time = $post->reading_time;
         $this->views = $post->views;
-        $this->status = $post->status;
+        $this->status = 'draft';
         $this->meta_description = $post->meta_description;
     }
 

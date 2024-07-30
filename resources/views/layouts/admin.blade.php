@@ -25,11 +25,15 @@
     <body class="font-sans antialiased">
         <div class="bg-white dark:bg-gray-900">
             <div class="flex">
-                <div class="z-10 w-1/5">
+                <div class="z-10 hidden w-1/5 xl:block">
                     @include('layouts.sidebar')
                 </div>
+
+                <div class="z-30 flex xl:hidden">
+                    @include('layouts.small_sidebar')
+                </div>
                 
-                <div class="relative w-4/5">
+                <div class="relative w-full xl:w-4/5">
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
                         <a class="text-sm hover:blur-xs" href="{{ route('welcome') }}">Go to homepage</a>
                     </div>

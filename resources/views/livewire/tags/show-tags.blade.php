@@ -57,9 +57,9 @@
                     <tr 
                         wire:loading.remove 
                         wire:target='deleteCategory({{ $tag->id }})'
-                        class="odd:bg-white even:bg-gray-100"
+                        class="rounded-lg odd:bg-white even:bg-gray-100"
                     />
-                        <td class="p-4 font-bold rounded-lg">
+                        <td class="p-4 font-bold">
                             <a wire:navigate href="{{ route('tags.show', $tag) }}">
                                 {{ $tag->name }}
                             </a>
@@ -70,7 +70,7 @@
                         <td class="p-4 font-medium">
                             {{ \Illuminate\Support\Str::limit($tag->description, 80) }}
                         </td>
-                        <td class="p-4 rounded-lg">
+                        <td class="p-4">
                             <div class="flex items-end justify-end">
                                 <a class="hover:blur-xs" wire:navigate href="{{ route('tags.edit', $tag) }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">

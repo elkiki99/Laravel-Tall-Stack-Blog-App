@@ -20,7 +20,7 @@
                         <h3 class="mb-2 text-lg font-bold">Socials</h3>
                         <ul class="ml-[-1.25px]">
                             <li class="p-0.5">
-                                <a href="#" class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
+                                <a href="#" class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 size-4" fill="none"
                                         viewBox="0 0 1200 1227">
                                         <path fill="#fff"
@@ -30,7 +30,7 @@
                             </li>
                             <li class="p-0.5">
                                 <a href="#"
-                                    class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
+                                    class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">
                                     <svg class="mr-2 size-4" xmlns="http://www.w3.org/2000/svg"
                                         preserveAspectRatio="xMidYMid" viewBox="0 0 256 256">
                                         <path
@@ -41,7 +41,7 @@
                             </li>
                             <li class="p-0.5">
                                 <a href="#"
-                                    class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200">
+                                    class="inline-flex items-center text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 size-4"
                                         preserveAspectRatio="xMidYMid" viewBox="0 0 256 256">
                                         <path fill="#fff"
@@ -56,24 +56,24 @@
                         <h3 class="mb-2 text-lg font-bold">Quick Links</h3>
                         <ul>
                             <li><a wire:navigate href="{{ route('blog') }}"
-                                    class="text-sm text-gray-400 md:text-md hover:text-gray-200">Blog</a></li>
+                                    class="text-sm text-gray-400 hover:blur-xs md:text-md hover:text-gray-200">Blog</a></li>
                             <li><a wire:navigate href="{{ route('about') }}"
-                                    class="text-sm text-gray-400 md:text-md hover:text-gray-200">About</a></li>
+                                    class="text-sm text-gray-400 hover:blur-xs md:text-md hover:text-gray-200">About</a></li>
                             <li><a wire:navigate href="{{ route('contact') }}"
-                                    class="text-sm text-gray-400 md:text-md hover:text-gray-200">Contact</a></li>
+                                    class="text-sm text-gray-400 hover:blur-xs md:text-md hover:text-gray-200">Contact</a></li>
                             <li><a wire:navigate href="{{ route('newsletter') }}"
-                                    class="text-sm text-gray-400 md:text-md hover:text-gray-200">Newsletter</a></li>
+                                    class="text-sm text-gray-400 hover:blur-xs md:text-md hover:text-gray-200">Newsletter</a></li>
                         </ul>
                     </div>
                     
                     <div class="w-full">
                         <h3 class="mb-2 text-lg font-bold">Legal</h3>
                         <ul>
-                            <li><a wire:navigate href="{{ route('terms') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Terms</a></li>
-                            <li><a wire:navigate href="{{ route('refund') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Refund</a></li>
-                            <li><a wire:navigate href="{{ route('cookies') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Cookies</a></li>
-                            <li><a wire:navigate href="{{ route('disclaimer') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Disclaimer</a></li>
-                            <li><a wire:navigate href="{{ route('privacy') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200">Privacy policy</a></li>
+                            <li><a wire:navigate href="{{ route('terms') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">Terms</a></li>
+                            <li><a wire:navigate href="{{ route('refund') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">Refund</a></li>
+                            <li><a wire:navigate href="{{ route('cookies') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">Cookies</a></li>
+                            <li><a wire:navigate href="{{ route('disclaimer') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">Disclaimer</a></li>
+                            <li><a wire:navigate href="{{ route('privacy') }}" class="text-sm text-gray-400 md:text-md hover:text-gray-200 hover:blur-xs">Privacy policy</a></li>
                         </ul>
                     </div>
                     <div>

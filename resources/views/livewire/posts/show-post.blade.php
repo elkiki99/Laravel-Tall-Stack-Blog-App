@@ -81,12 +81,12 @@
                         {{ __('Cancel') }}
                     </x-secondary-button>
     
-                    <x-danger-button 
+                    <x-primary-button 
                         class="px-4 py-2 ms-3" 
                         wire:click="publishPost({{ $post->id }})"
                     >
                         {{ __('Yes, publish post') }}
-                    </x-danger-button>
+                    </x-primary-button>
                 </div>
             </div>
         </x-modal>
@@ -106,12 +106,12 @@
                         {{ __('Cancel') }}
                     </x-secondary-button>
     
-                    <x-danger-button 
+                    <x-primary-button 
                         class="px-4 py-2 ms-3" 
                         wire:click="moveToDrafts({{ $post->id }})"
                     >
                         {{ __('Yes, move to drafts') }}
-                    </x-danger-button>
+                    </x-primary-button>
                 </div>
             </div>
         </x-modal>

@@ -8,7 +8,7 @@
         <!-- First Section -->
         <section class="w-full px-2 pb-10 lg:pb-20 lg:w-4/6">
             <div class="grid grid-cols-1 gap-6 py-5">
-                @foreach($posts as $post)
+                @forelse($posts as $post)
                     <div class="flex flex-col pb-10 bg-white rounded-lg 2xl:pb-5 2xl:flex-row dark:bg-gray-800">
                         <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
                             <a wire:navigate href="{{ route('posts.show', $post) }}">
@@ -45,43 +45,43 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <!-- Placeholder Blog Post -->
+                    <div class="flex flex-col bg-white rounded-lg dark:bg-gray-700 2xl:flex-row">
+                        <!-- Placeholder Image -->
+                        <div class="w-full overflow-hidden bg-gray-200 2xl:w-1/2 2xl:aspect-square aspect-video"></div>
+                        
+                        <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
+                            <div>
+                                <!-- Placeholder Metrics -->
+                                <div class="w-48 h-4 mb-4 bg-gray-300"></div>
 
-                <!-- Placeholder Blog Post -->
-                <div class="flex flex-col bg-white rounded-lg dark:bg-gray-700 2xl:flex-row">
-                    <!-- Placeholder Image -->
-                    <div class="w-full overflow-hidden bg-gray-200 2xl:w-1/2 2xl:aspect-square aspect-video"></div>
-                    
-                    <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
-                        <div>
-                            <!-- Placeholder Metrics -->
-                            <div class="w-48 h-4 mb-4 bg-gray-300"></div>
+                                <!-- Placeholder Title -->
+                                <div class="w-64 h-8 mb-4 bg-gray-300"></div>
 
-                            <!-- Placeholder Title -->
-                            <div class="w-64 h-8 mb-4 bg-gray-300"></div>
+                                <!-- Placeholder Paragraph -->
+                                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                                <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                                <div class="w-1/2 h-4 bg-gray-200"></div>
+                            </div>
 
-                            <!-- Placeholder Paragraph -->
-                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                            <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                            <div class="w-1/2 h-4 bg-gray-200"></div>
-                        </div>
+                            <!-- Placeholder Created Data -->
+                            <div class="w-32 h-4 mt-5 mb-4 bg-gray-300 2xl:mt-auto"></div>
 
-                        <!-- Placeholder Created Data -->
-                        <div class="w-32 h-4 mt-5 mb-4 bg-gray-300 2xl:mt-auto"></div>
-
-                        <!-- Placeholder Tags -->
-                        <div class="flex space-x-2">
-                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
-                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                            <!-- Placeholder Tags -->
+                            <div class="flex space-x-2">
+                                <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                                <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforelse
         </section>
 
         <!-- Second Section -->
         <section class="px-2 pb-20 mt-5 lg:px-5 lg:w-2/6 lg:mt-0">  
-            @foreach($posts as $post)
+            @forelse($posts as $post)
                 <div class="py-6 pb-5 border-b-2 border-gray-300">
 
                     <div class="flex items-center justify-center">
@@ -116,65 +116,65 @@
                         </a>
                     </div>
                 </div>
-            @endforeach
-
-            <div class="py-6 pb-5 border-b-2 border-gray-300">
-                <!-- Placeholder Metrics -->
-                <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+            @empty
+                <div class="py-6 pb-5 border-b-2 border-gray-300">
+                    <!-- Placeholder Metrics -->
+                    <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+                    
+                    <!-- Placeholder Title -->
+                    <div class="w-48 h-6 mb-2 bg-gray-300"></div>
+                    
+                    <!-- Placeholder Paragraph -->
+                    <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                    <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                    <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
+                    
+                    <!-- Placeholder Created Data -->
+                    <div class="w-24 h-4 mb-5 bg-gray-200"></div>
                 
-                <!-- Placeholder Title -->
-                <div class="w-48 h-6 mb-2 bg-gray-300"></div>
-                
-                <!-- Placeholder Paragraph -->
-                <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
-                
-                <!-- Placeholder Created Data -->
-                <div class="w-24 h-4 mb-5 bg-gray-200"></div>
-            
-                <!-- Placeholder Tags and Action -->
-                <div class="flex pt-2">
-                    <div class="flex space-x-2">
-                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
-                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
-                    </div>
-                    <div class="ml-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <div class="py-6 pb-5 border-b-2 border-gray-300">
-                <!-- Placeholder Metrics -->
-                <div class="w-32 h-4 mb-4 bg-gray-200"></div>
-                
-                <!-- Placeholder Title -->
-                <div class="w-48 h-6 mb-2 bg-gray-300"></div>
-                
-                <!-- Placeholder Paragraph -->
-                <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
-                
-                <!-- Placeholder Created Data -->
-                <div class="w-24 h-4 mb-5 bg-gray-200"></div>
-            
-                <!-- Placeholder Tags and Action -->
-                <div class="flex pt-2">
-                    <div class="flex space-x-2">
-                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
-                        <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
-                    </div>
-                    <div class="ml-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                        </svg>
+                    <!-- Placeholder Tags and Action -->
+                    <div class="flex pt-2">
+                        <div class="flex space-x-2">
+                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                        </div>
+                        <div class="ml-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="py-6 pb-5 border-b-2 border-gray-300">
+                    <!-- Placeholder Metrics -->
+                    <div class="w-32 h-4 mb-4 bg-gray-200"></div>
+                    
+                    <!-- Placeholder Title -->
+                    <div class="w-48 h-6 mb-2 bg-gray-300"></div>
+                    
+                    <!-- Placeholder Paragraph -->
+                    <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                    <div class="w-full h-4 mb-2 bg-gray-200"></div>
+                    <div class="w-1/2 h-4 mb-4 bg-gray-200"></div>
+                    
+                    <!-- Placeholder Created Data -->
+                    <div class="w-24 h-4 mb-5 bg-gray-200"></div>
+                
+                    <!-- Placeholder Tags and Action -->
+                    <div class="flex pt-2">
+                        <div class="flex space-x-2">
+                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                            <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
+                        </div>
+                        <div class="ml-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            @endforelse
         </section>
     </div>
 </x-app-layout>
