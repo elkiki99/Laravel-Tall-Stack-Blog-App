@@ -30,6 +30,12 @@ class ShowPost extends Component
         return redirect()->route('posts.pending')->with('success', 'Post moved to drafts successfully.');
     }
 
+    public function deletePost()
+    {
+        $this->post->delete();
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+    }
+
     public function render()
     {
         return view('livewire.posts.show-post', [

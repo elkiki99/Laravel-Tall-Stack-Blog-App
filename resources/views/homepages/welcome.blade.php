@@ -3,9 +3,9 @@
         class="flex items-center justify-center min-h-screen sm:pt-24 bg-gradient-to-b bg from-white via-yellow-300 to-white">
         <div class="px-6 mx-auto sm:space-y-6 max-w-7xl lg:px-8">
             <h1
-                class="py-10 mt-10 text-5xl text-center text-transparent sm:text-6xl sm:mt-0 sm:py-4 md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
+                class="py-10 mt-10 text-5xl text-center text-transparent sm:text-6xl sm:mt-0 sm:py-4 xl:text-8xl md:text-7xl bg-clip-text bg-gradient-to-r from-black to-gray-800">
                 <span class="font-bold text-black underline-yellow">{{ config('app.name') }}</span>, an elegant blog
-                template with integrated features
+                template
             </h1>
             <p class="py-2 text-xl text-center md:text-2xl">
                 Welcome to The Ediffice Gazette, an elegant template to elevate your brand. It's built with the TALL
@@ -37,8 +37,8 @@
         </div>
     </section>
 
-    <section class="flex items-center justify-center min-h-screen bg-fixed bg-no-repeat bg-cover"
-        style="background-image: url('{{ asset('images/texture3.jpg') }}');">
+    <section class="flex items-center justify-center min-h-screen bg-fixed bg-no-repeat bg-cover"   
+        style="background-image: url('{{ asset('images/welcome5.jpg') }}');">
         <div class="px-6 py-6 mx-auto max-w-7xl lg:px-8 lg:py-8">
             <div class="grid grid-cols-1 gap-4 py-24 md:grid-cols-2 lg:grid-cols-3">
                 <div
@@ -156,7 +156,7 @@
 
                     <div class="overflow-hidden aspect-square">
                         <a wire:navigate href="#">
-                            <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1"
+                            <img loading="lazy" src="{{ asset('images/welcome2.jpg') }}" alt="Blog Image 1"
                                 class="object-cover w-full h-full transition-transform duration-300 transform rounded-3xl hover:scale-105 hover:cursor-pointer">
                         </a>
                     </div>
@@ -174,7 +174,7 @@
                         {{-- @foreach ($posts as $post) --}}
                         <div class="flex flex-col bg-white rounded-lg shadow-sm 2xl:flex-row dark:bg-gray-800">
                             <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 aspect-square">
-                                <img loading="lazy" src="{{ asset('images/blog4.jpg') }}" alt="Blog Image 1"
+                                <img loading="lazy" src="{{ asset('images/welcome3.jpg') }}" alt="Blog Image 1"
                                     class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
                             </div>
                             <div class="flex flex-col justify-between w-full p-4 2xl:w-1/2">
@@ -246,7 +246,7 @@
                             narrow, tall facades and ornate gables. These houses reflect the city's rich history and its
                             prosperous Golden Age.
                         </p>
-                        <img loading="lazy" src="{{ asset('images/canal-houses.jpg') }}" alt="Amsterdam canal houses"
+                        <img loading="lazy" src="{{ asset('images/welcome4.jpg') }}" alt="Amsterdam canal houses"
                             class="my-5">
                         <p class="text-lg leading-relaxed text-gray-700">
                             During the 17th century, Amsterdam was a major trading hub, attracting merchants from all

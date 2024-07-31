@@ -9,6 +9,6 @@
             {{ __('Edit the current category') }}
         </p>
 
-        <livewire:categories.edit-category :id="$category->id" />
+        <livewire:categories.edit-category :categoryId="$category->id" />
     </div>
 </x-admin-layout>

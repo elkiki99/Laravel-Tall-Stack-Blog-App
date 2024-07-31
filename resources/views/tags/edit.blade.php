@@ -9,6 +9,6 @@
             {{ __('Edit the current tag') }}
         </p>
 
-        <livewire:tags.edit-tag :id="$tag->id" />
+        <livewire:tags.edit-tag :tagId="$tag->id" />
     </div>
 </x-admin-layout>

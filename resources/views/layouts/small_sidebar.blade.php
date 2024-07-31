@@ -97,54 +97,56 @@
             </div>
         </div>
         
-        <div x-show="openMenuIndex === 1"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Admin panel</a>
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Analytics</a>
-        </div>
+        <div>
+            <div x-show="openMenuIndex === 1"
+                class="absolute z-40 w-56 mt-2 top-0 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Admin panel</a>
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Analytics</a>
+            </div>
 
-        <div x-show="openMenuIndex === 2"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="{{ route('posts.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage posts</a>
-            <a wire:navigate href="{{ route('posts.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new post</a>
-            <a wire:navigate href="{{ route('posts.pending') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Pending posts</a>
-        </div>
+            <div x-show="openMenuIndex === 2"
+                class="absolute z-40 w-56 mt-2 top-[45px] bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="{{ route('posts.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage posts</a>
+                <a wire:navigate href="{{ route('posts.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new post</a>
+                <a wire:navigate href="{{ route('posts.pending') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Pending posts</a>
+            </div>
 
-        <div x-show="openMenuIndex === 3"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="{{ route('categories.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage categories</a>
-            <a wire:navigate href="{{ route('categories.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new category</a>
-        </div>
-        
-        <div x-show="openMenuIndex === 4"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="{{ route('tags.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage tags</a>
-            <a wire:navigate href="{{ route('tags.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new tag</a>
-        </div>
-        
-        <div x-show="openMenuIndex === 5"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Overall metrics</a>
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">View web perfmormance</a>
-        </div>
-                
-        <div x-show="openMenuIndex === 6"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My inbox</a>
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Unread mails</a>
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Notifications</a>
-        </div>
-                
-        <div x-show="openMenuIndex === 7"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">New comments</a>
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Approve comments</a>
-        </div>
-                        
-        <div x-show="openMenuIndex === 8"
-            class="absolute z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-            <a wire:navigate href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Profile</a>
-            <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage account</a>
+            <div x-show="openMenuIndex === 3"
+                class="absolute z-40 w-56 mt-2 bg-white top-[90px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="{{ route('categories.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage categories</a>
+                <a wire:navigate href="{{ route('categories.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new category</a>
+            </div>
+            
+            <div x-show="openMenuIndex === 4"
+                class="absolute z-40 w-56 mt-2 bg-white top-[135px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="{{ route('tags.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage tags</a>
+                <a wire:navigate href="{{ route('tags.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new tag</a>
+            </div>
+            
+            <div x-show="openMenuIndex === 5"
+                class="absolute z-40 w-56 mt-2 bg-white top-[180px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Overall metrics</a>
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">View web perfmormance</a>
+            </div>
+                    
+            <div x-show="openMenuIndex === 6"
+                class="absolute z-40 w-56 mt-2 bg-white top-[225px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My inbox</a>
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Unread mails</a>
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Notifications</a>
+            </div>
+                    
+            <div x-show="openMenuIndex === 7"
+                class="absolute z-40 w-56 mt-2 bg-white top-[270px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">New comments</a>
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Approve comments</a>
+            </div>
+                            
+            <div x-show="openMenuIndex === 8"
+                class="absolute z-40 w-56 mt-2 bg-white top-[315px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Profile</a>
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage account</a>
+            </div>
         </div>
     </div>
 </div>

@@ -1,7 +1,8 @@
 <div x-data="postContent()" x-init="initialize()">
     <div class="flex px-4 mb-20">
         <div class="container mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-            <h1 class="pt-10 pb-0 text-4xl font-bold text-black sm:text-5xl md:text-7xl lg:pt-20 lg:pb-10">
+            <a class="text-lg" wire:navigate href="{{ route('categories.show', $post->category) }}" class="mt-10">{{ $post->category->name}}</a>
+            <h1 class="pb-0 text-4xl font-bold text-black sm:text-5xl md:text-7xl lg:pt-20 lg:pb-10">
                 {{ $post->title }} 
             </h1>
             <div class="flex items-center justify-center">   
@@ -42,17 +43,40 @@
                             </div>
                             
                             @if($post->status === 'draft')
-                                <div class="ml-auto">
-                                    <x-primary-button
-                                        x-on:click.prevent="$dispatch('open-modal', 'publish-post')"
-                                        class="px-4 py-2">Publish
-                                    </x-primary-button>
+                                <div class="flex ml-auto gap-2 items-center justify-center">
+                                    <div class="mt-6">
+                                        <x-primary-button
+                                            x-on:click.prevent="$dispatch('open-modal', 'publish-post')"
+                                            class="px-4 py-2">Publish
+                                        </x-primary-button>
+                                    </div>
+                            
+                                    <div class="mt-6">
+                                        <x-danger-button 
+                                            class="px-4 py-2 ml-auto"
+                                            x-on:click.prevent="$dispatch('open-modal', 'confirm-post-deletion')">
+                                            
+                                            {{ __('Delete post') }}
+                                        </x-danger-button>
+                                    </div>
                                 </div>
                             @elseif($post->status === 'published')
-                                <div class="ml-auto">
-                                    <x-primary-button
-                                        x-on:click.prevent="$dispatch('open-modal', 'move-to-drafts')"
-                                        class="px-4 py-2">Move to drafts</x-primary-button>
+                                <div class="flex ml-auto gap-2 items-center justify-center">
+                                    <div class="mt-6">
+                                        <x-primary-button
+                                            x-on:click.prevent="$dispatch('open-modal', 'publish-post')"
+                                            class="px-4 py-2">Move to drafts
+                                        </x-primary-button>
+                                    </div>
+                            
+                                    <div class="mt-6">
+                                        <x-danger-button 
+                                            class="px-4 py-2 ml-auto"
+                                            x-on:click.prevent="$dispatch('open-modal', 'move-to-drafts')">
+                                            
+                                            {{ __('Delete post') }}
+                                        </x-danger-button>
+                                    </div>
                                 </div>
                             @endif
                         </div>  
@@ -113,6 +137,31 @@
                         {{ __('Yes, move to drafts') }}
                     </x-primary-button>
                 </div>
+            </div>
+        </x-modal>
+
+        <x-modal name="confirm-post-deletion">
+            <div class="p-6">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {{ __('Are you sure you want to delete this post?') }}
+                </h3>
+                
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    {{ __('You won\'t be able to revert this.') }}
+                </p>
+                
+                <div class="flex justify-end mt-6">
+                    <x-secondary-button class="px-4 py-2" x-on:click="$dispatch('close')">
+                        {{ __('Cancel') }}
+                    </x-secondary-button>
+    
+                    <x-danger-button 
+                        class="px-4 py-2 ms-3" 
+                        wire:click="deletePost({{ $post->id }})"
+                    >
+                        {{ __('Yes, delete post') }}
+                    </x-danger-button>     
+                </div>           
             </div>
         </x-modal>
     </div>

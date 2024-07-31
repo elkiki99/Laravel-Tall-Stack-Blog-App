@@ -8,6 +8,6 @@
             {{ __('Edit the current blog post') }}
         </p>
 
-        <livewire:posts.edit-post :id="$post->id" />
+        <livewire:posts.edit-post :postId="$post->id" />
     </div>
 </x-admin-layout>   

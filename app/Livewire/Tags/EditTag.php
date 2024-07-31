@@ -12,9 +12,9 @@ class EditTag extends Component
     public $slug;
     public $description;
     
-    public function mount($id)
+    public function mount($tagId)
     {
-        $this->tag = Tag::findOrFail($id);
+        $this->tag = Tag::findOrFail($tagId);
         $this->name = $this->tag->name;
         $this->slug = $this->tag->slug;
         $this->description = $this->tag->description;

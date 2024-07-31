@@ -12,9 +12,9 @@ class EditCategory extends Component
     public $slug;
     public $description;
     
-    public function mount($id)
+    public function mount($categoryId)
     {
-        $this->category = Category::findOrFail($id);
+        $this->category = Category::findOrFail($categoryId);
         $this->name = $this->category->name;
         $this->slug = $this->category->slug;
         $this->description = $this->category->description;
@@ -42,13 +42,19 @@ class EditCategory extends Component
 
     public function deleteCategory()
     {
+        $uncategorized = Category::firstOrCreate(
+            ['slug' => 'uncategorized'],
+            ['name' => 'Uncategorized', 'description' => 'Posts without a specific category']
+        );
+        if ($this->category->posts()->exists()) {
+            $this->category->posts()->update(['category_id' => $uncategorized->id]);
+        }
         $this->category->delete();
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
 
     public function render()
     {  
-        return view('livewire.categories.edit-category', [
-        ]);
+        return view('livewire.categories.edit-category');
     }
 }

@@ -81,7 +81,7 @@
                     wire:click="deleteCategory({{ $category->id }})"
                 >
                     {{ __('Yes, delete category') }}
-                </x-danger-button>
+                </x-danger-button>            
             </div>
         </div>
     </x-modal>

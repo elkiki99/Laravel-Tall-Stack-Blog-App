@@ -113,7 +113,7 @@
         <x-input-error :messages="$errors->get('tag_id')" class="mt-2" />
     </div>
 
-    <x-primary-button type="submit" class="px-4 py-2 my-5">
-        Update post
-    </x-primary-button>
+    <div class="mt-6">
+        <x-primary-button type="submit" class="px-4 py-2 my-5">Update post</x-primary-button>
+    </div>
 </form>

@@ -29,31 +29,26 @@ class EditPost extends Component
     public $status;
     public $meta_description;
 
+    public function mount($postId)
+    {
+        $this->post = Post::findOrFail($postId);
+        $this->title = $this->post->title;
+        $this->subtitle = $this->post->subtitle;
+        $this->body = $this->post->body;
+        $this->slug = $this->post->slug;
+        $this->excerpt = $this->post->excerpt;
+        $this->new_featured_image = $this->post->new_featured_image;
+        $this->category_id = $this->post->category_id;
+        $this->tag_id = $this->post->tags->pluck('id')->toArray();
+        $this->reading_time = $this->post->reading_time;
+        $this->views = $this->post->views;
+        $this->status = 'draft';
+        $this->meta_description = $this->post->meta_description;
+    }
+
     public $listeners = [
         Quill::EVENT_VALUE_UPDATED
     ];
-
-    public function mount($id)
-    {
-        $this->post = Post::findOrFail($id);
-        $this->renderPost($this->post);
-    }
-
-    public function renderPost($post)
-    {
-        $this->title = $post->title;
-        $this->subtitle = $post->subtitle;
-        $this->body = $post->body;
-        $this->slug = $post->slug;
-        $this->excerpt = $post->excerpt;
-        $this->new_featured_image = $post->new_featured_image;
-        $this->category_id = $post->category_id;
-        $this->tag_id = $post->tags->pluck('id')->toArray();
-        $this->reading_time = $post->reading_time;
-        $this->views = $post->views;
-        $this->status = 'draft';
-        $this->meta_description = $post->meta_description;
-    }
 
     public function quill_value_updated($value)
     {
@@ -116,6 +111,13 @@ class EditPost extends Component
 
         $this->post->tags()->sync($this->tag_id);
         return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
+    }
+
+    public function deletePost()
+    {
+        $this->post->tags()->detach();
+        $this->post->delete();
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
 
     public function render()

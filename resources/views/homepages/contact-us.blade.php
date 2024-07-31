@@ -2,7 +2,7 @@
     <div class="min-h-screen">
         <div class="py-12">
             <div class="mx-auto space-y-6 sm:px-6 sm:mt-20 max-w-7xl lg:px-8">
-                <h1 class="px-6 py-5 text-4xl text-transparent sm:px-0 sm:text-5xl md:text-7xl lg:text-8xl bg-clip-text bg-gradient-to-r from-black to-gray-700">
+                <h1 class="px-6 py-5 text-4xl text-transparent sm:px-0 sm:text-5xl md:text-7xl lg:text-8xl bg-clip-text bg-gradient-to-r from-black to-gray-800">
                     <span class="font-bold text-black underline-yellow">Contact us.</span>
                     We'd love to hear from you
                 </h1>
@@ -10,7 +10,7 @@
                 <div class="relative min-h-screen overflow-hidden rounded-3xl">
                     <div 
                         class="absolute inset-0 bg-fixed bg-no-repeat bg-cover rounded-3xl parallax-bg"
-                        style="background-image: url('{{ asset('images/texture7.jpg') }}');">
+                        style="background-image: url('{{ asset('images/contact.jpg') }}');">
                     </div>
                 </div>
                 
@@ -29,7 +29,8 @@
                             <form class="mt-6 space-y-6">
                                 <div>
                                     <x-input-label for="email" :value="__('E-mail')" />
-                                    <x-text-input id="email" name="email" type="text" class="block w-full mt-1" required autocomplete="email" />
+                                    <x-text-input id="email" name="email" type="text" class="block w-full mt-1" required autocomplete="email" 
+                                    placeholder="{{ __('Your e-mail') }}" />
                                     <x-input-error :messages="$errors->all('email')" class="mt-2" />
                                 </div>
                                 <div>

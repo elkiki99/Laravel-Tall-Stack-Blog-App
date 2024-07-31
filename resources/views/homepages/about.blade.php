@@ -1,6 +1,6 @@
 <x-app-layout>
     <section class="relative min-h-screen overflow-hidden">
-        <div class="absolute inset-0 px-6 pt-10 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/texture6.jpg') }}');">
+        <div class="absolute inset-0 px-6 pt-10 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/about.jpg') }}');">
             <div class="z-10 flex flex-col items-center justify-center h-full py-10 mx-auto sm:py-0 max-w-7xl">
                 <h1 class="mt-0 mb-8 text-6xl font-bold text-center text-white sm:mt-20 sm:text-7xl md:text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
                 <button class="inline-flex items-center px-4 py-1 my-5 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
@@ -29,7 +29,7 @@
                     <div class="flex flex-col">
                         <div class="relative w-full pb-full">
                             <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                <img loading="lazy" src="{{ asset('images/blog1.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
+                                <img loading="lazy" src="{{ asset('images/welcome2.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
                             </div>
                         </div>
                         <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Best buildings in Netherlands</h4>
@@ -41,7 +41,7 @@
                     <div class="flex flex-col">
                         <div class="relative w-full pb-full">
                             <div class="absolute inset-0 overflow-hidden rounded-lg shadow-lg">
-                                <img loading="lazy" src="{{ asset('images/blog2.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
+                                <img loading="lazy" src="{{ asset('images/welcome3.jpg') }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
                             </div>
                         </div>
                         <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Architecture for modern people</h4>
