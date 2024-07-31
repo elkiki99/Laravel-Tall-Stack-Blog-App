@@ -40,11 +40,11 @@ class EditTag extends Component
         ];
     }
 
-    public function deleteTag()
-    {
-        $this->tag->delete();
-        return redirect()->route('tags.index')->with('success_deleted', 'Tag deleted successfully.');
-    }
+    // public function deleteTag()
+    // {
+    //     $this->tag->delete();
+    //     return redirect()->route('tags.index')->with('success_deleted', 'Tag deleted successfully.');
+    // }
 
     public function render()
     {  
