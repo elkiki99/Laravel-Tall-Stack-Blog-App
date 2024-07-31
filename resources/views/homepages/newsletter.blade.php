@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="min-h-screen">
         <div class="py-12">
-            <div class="px-6 mx-auto space-y-6 sm:mt-20 max-w-7xl sm:px-6 lg:px-8">
+            <div class="px-6 mx-auto space-y-6 sm:mt-20 max-w-7xl lg:px-8">
                 <h1 class="py-5 text-4xl text-transparent sm:text-5xl md:text-7xl lg:text-8xl bg-clip-text bg-gradient-to-r from-black to-gray-700">Get the best of <span class="font-bold text-black underline-yellow">{{ config('app.name')}}</span> in your in-box</h1>
                 <p class="pb-5 text-2xl text-gray-800 border-b-2">Stay updated with our latest news and special offers directly in your inbox.</p>
 
@@ -23,8 +23,6 @@
                         <p class="text-lg">Our weekly newsletter is your go-to source for a curated collection of our best content from the past week. Delivered every Friday, it features in-depth articles, expert insights, and exclusive content that you won't find anywhere else.</p>
                     </div>
                 </div>
-
-
                 
                 <div class="py-16 bg-white dark:bg-gray-800">
                     <div class="max-w-xl">

@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 
-                <div class="py-16 bg-white dark:bg-gray-800">
+                <div class="px-6 py-16 bg-white sm:px-0 dark:bg-gray-800">
                     <div class="max-w-xl">
                         <section>
                             <header>
