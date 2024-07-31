@@ -8,6 +8,26 @@
         <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
             {{ __('Manage your posts, update or delete them') }}
         </p>
+            
+        @if(session('success_deleted'))
+            <p
+                x-data="{ show: true }"
+                x-show="show"
+                class="text-red-500"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)"
+                class="text-sm text-gray-600 dark:text-gray-400"
+            >{{ session('success_deleted') }}</p>
+        @elseif(session('success_published'))
+            <p
+                x-data="{ show: true }"
+                x-show="show"
+                class="text-green-500"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)"
+                class="text-sm text-gray-600 dark:text-gray-400"
+            >{{ session('success_published') }}</p>
+        @endif
 
         <livewire:posts.show-posts />
     </div>

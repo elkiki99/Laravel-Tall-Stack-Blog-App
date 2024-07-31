@@ -83,7 +83,7 @@ class CreatePost extends Component
         $post->author_id = auth()->id();
         $post->save();
         $post->tags()->sync($this->tag_id);
-        return redirect()->route('posts.index')->with('success', 'Post created successfully.');
+        return redirect()->route('posts.pending')->with('success_created', 'Post created successfully.');
     }
 
     public function render()

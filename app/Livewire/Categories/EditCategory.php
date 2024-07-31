@@ -28,7 +28,7 @@ class EditCategory extends Component
             'slug' => $this->slug,
             'description' => $this->description,
         ]);
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        return redirect()->route('categories.index')->with('success_updated', 'Category updated successfully.');
     }
 
     public function rules()
@@ -50,7 +50,7 @@ class EditCategory extends Component
             $this->category->posts()->update(['category_id' => $uncategorized->id]);
         }
         $this->category->delete();
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('categories.index')->with('success_deleted', 'Category deleted successfully.');
     }
 
     public function render()

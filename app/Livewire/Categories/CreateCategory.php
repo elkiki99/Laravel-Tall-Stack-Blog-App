@@ -28,7 +28,7 @@ class CreateCategory extends Component
         ]);
 
         $category->save();
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        return redirect()->route('categories.index')->with('success_created', 'Category created successfully.');
     }
 
     public function render()

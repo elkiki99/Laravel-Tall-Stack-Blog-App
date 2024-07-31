@@ -19,7 +19,7 @@ class ShowPost extends Component
         $this->post->update([
             'status' => 'published'
         ]);
-        return redirect()->route('posts.index')->with('success', 'Post published successfully.');
+        return redirect()->route('posts.index')->with('success_published', 'Post published successfully.');
     }
 
     public function moveToDrafts()
@@ -27,13 +27,13 @@ class ShowPost extends Component
         $this->post->update([
             'status' => 'draft'
         ]);
-        return redirect()->route('posts.pending')->with('success', 'Post moved to drafts successfully.');
+        return redirect()->route('posts.pending')->with('success_drafted', 'Post moved to drafts successfully.');
     }
 
     public function deletePost()
     {
         $this->post->delete();
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+        return redirect()->route('posts.index')->with('success_deleted', 'Post deleted successfully.');
     }
 
     public function render()

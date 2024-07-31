@@ -28,7 +28,7 @@ class EditTag extends Component
             'slug' => $this->slug,
             'description' => $this->description,
         ]);
-        return redirect()->route('tags.index')->with('success', 'Tag updated successfully.');
+        return redirect()->route('tags.index')->with('success_updated', 'Tag updated successfully.');
     }
 
     public function rules()
@@ -43,12 +43,11 @@ class EditTag extends Component
     public function deleteTag()
     {
         $this->tag->delete();
-        return redirect()->route('tags.index')->with('success', 'Tag deleted successfully.');
+        return redirect()->route('tags.index')->with('success_deleted', 'Tag deleted successfully.');
     }
 
     public function render()
     {  
-        return view('livewire.tags.edit-tag', [
-        ]);
+        return view('livewire.tags.edit-tag');
     }
 }

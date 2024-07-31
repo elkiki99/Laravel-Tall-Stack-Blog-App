@@ -110,14 +110,14 @@ class EditPost extends Component
         ]);
 
         $this->post->tags()->sync($this->tag_id);
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
+        return redirect()->route('posts.pending')->with('success_updated', 'Post updated successfully.');
     }
 
     public function deletePost()
     {
         $this->post->tags()->detach();
         $this->post->delete();
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+        return redirect()->route('posts.index')->with('success_deleted', 'Post deleted successfully.');
     }
 
     public function render()

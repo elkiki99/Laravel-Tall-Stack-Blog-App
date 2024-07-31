@@ -28,7 +28,7 @@ class CreateTag extends Component
         ]);
 
         $tag->save();
-        return redirect()->route('tags.index')->with('success', 'Tag created successfully.');
+        return redirect()->route('tags.index')->with('success_created', 'Tag created successfully.');
     }
 
     public function render()

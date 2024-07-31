@@ -64,7 +64,7 @@
                                 <div class="flex ml-auto gap-2 items-center justify-center">
                                     <div class="mt-6">
                                         <x-primary-button
-                                            x-on:click.prevent="$dispatch('open-modal', 'publish-post')"
+                                            x-on:click.prevent="$dispatch('open-modal', 'move-to-drafts')"
                                             class="px-4 py-2">Move to drafts
                                         </x-primary-button>
                                     </div>
@@ -157,7 +157,7 @@
     
                     <x-danger-button 
                         class="px-4 py-2 ms-3" 
-                        wire:click="deletePost({{ $post->id }})"
+                        wire:click="deletePost()"
                     >
                         {{ __('Yes, delete post') }}
                     </x-danger-button>     
