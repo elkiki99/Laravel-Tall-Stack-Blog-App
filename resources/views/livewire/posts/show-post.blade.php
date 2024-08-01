@@ -43,7 +43,7 @@
                             </div>
                             
                             @if($post->status === 'draft')
-                                <div class="flex ml-auto gap-2 items-center justify-center">
+                                <div class="flex items-center justify-center gap-2 ml-auto">
                                     <div class="mt-6">
                                         <x-primary-button
                                             x-on:click.prevent="$dispatch('open-modal', 'publish-post')"
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                             @elseif($post->status === 'published')
-                                <div class="flex ml-auto gap-2 items-center justify-center">
+                                <div class="flex items-center justify-center gap-2 ml-auto">
                                     <div class="mt-6">
                                         <x-primary-button
                                             x-on:click.prevent="$dispatch('open-modal', 'move-to-drafts')"
@@ -154,13 +154,8 @@
                     <x-secondary-button class="px-4 py-2" x-on:click="$dispatch('close')">
                         {{ __('Cancel') }}
                     </x-secondary-button>
-    
-                    <x-danger-button 
-                        class="px-4 py-2 ms-3" 
-                        wire:click="deletePost()"
-                    >
-                        {{ __('Yes, delete post') }}
-                    </x-danger-button>     
+                    
+                    <livewire:posts.delete-post :postId="$post->id" />
                 </div>           
             </div>
         </x-modal>

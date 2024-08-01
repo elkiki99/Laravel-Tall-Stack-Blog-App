@@ -40,19 +40,6 @@ class EditCategory extends Component
         ];
     }
 
-    public function deleteCategory()
-    {
-        $uncategorized = Category::firstOrCreate(
-            ['slug' => 'uncategorized'],
-            ['name' => 'Uncategorized', 'description' => 'Posts without a specific category']
-        );
-        if ($this->category->posts()->exists()) {
-            $this->category->posts()->update(['category_id' => $uncategorized->id]);
-        }
-        $this->category->delete();
-        return redirect()->route('categories.index')->with('success_deleted', 'Category deleted successfully.');
-    }
-
     public function render()
     {  
         return view('livewire.categories.edit-category');

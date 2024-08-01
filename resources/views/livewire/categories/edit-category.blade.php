@@ -77,13 +77,8 @@
                 <x-secondary-button class="px-4 py-2" x-on:click="$dispatch('close')">
                     {{ __('Cancel') }}
                 </x-secondary-button>
-
-                <x-danger-button 
-                    class="px-4 py-2 ms-3" 
-                    wire:click="deleteCategory({{ $category->id }})"
-                >
-                    {{ __('Yes, delete category') }}
-                </x-danger-button>            
+                
+                <livewire:categories.delete-category :categoryId="$category->id" />       
             </div>
         </div>
     </x-modal>
