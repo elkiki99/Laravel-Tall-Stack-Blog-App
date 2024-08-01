@@ -1,13 +1,24 @@
 <div x-data="postContent()" x-init="initialize()">
     <div class="flex px-4 mb-20">
         <div class="container mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
-            <a class="text-lg" wire:navigate href="{{ route('categories.show', $post->category) }}" class="mt-10">{{ $post->category->name}}</a>
-            <h1 class="pb-0 text-4xl font-bold text-black sm:text-5xl md:text-7xl lg:pt-20 lg:pb-10">
+            <h1 class="mt-10 text-4xl font-bold text-black lg:mt-0 sm:text-5xl md:text-7xl lg:pt-20">
                 {{ $post->title }} 
             </h1>
+            <h3 class="pb-0 font-light text-black text-md lg:pb-10 sm:text-xl md:text-2xl">{{ $post->subtitle }}</h3>
+
             <div class="flex items-center justify-center">   
-                <x-post-metrics :post="$post" />
-                
+                <div>
+                    <x-post-metrics :post="$post" />
+                    
+                    <div class="flex mt-2">
+                        <a class="flex items-center text-lg hover:blur-xs" wire:navigate href="{{ route('categories.show', $post->category) }}">
+                            {{ $post->category->name}}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-2 size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </a>
+                    </div>                    
+                </div>
                 <div class="ml-auto">
                     @if(auth()->user()->role === 'admin')
                     <a class="hover:cursor-pointer" href={{ route('posts.edit', $post) }}>
@@ -32,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="w-full md:w-5/6">
+                <div class="w-full md:w-5/6">                    
                     {!! $post->body !!}
                     
                     @if(auth()->user()->role === 'admin')
@@ -87,6 +98,12 @@
                         </div>
                     @endif
                 </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-6xl font-bold">{{ __('Comments') }}</h3>
+
+                <livewire:comments.post-comments :post="$post" />
             </div>
         </div>
 
