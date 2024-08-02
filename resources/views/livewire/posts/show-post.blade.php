@@ -193,6 +193,7 @@
 
                 updateNavBar() {
                     const headers = document.querySelectorAll('h2');
+                    // header.classList.add('text-blue-500');
                     this.headers = Array.from(headers);
 
                     this.navBar.innerHTML = '';

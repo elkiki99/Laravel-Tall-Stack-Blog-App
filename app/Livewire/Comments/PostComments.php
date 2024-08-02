@@ -9,12 +9,12 @@ use Livewire\Component;
 class PostComments extends Component
 {   
     public $post;
-    public $message = '';
+    public $comment = '';
     public $reply = '';
     public $parentCommentId;
 
     protected $rules = [
-        'message' => 'required|string|max:255',
+        'comment' => 'required|string|max:255',
         'reply' => 'required|string|max:255',
     ];
 
@@ -25,14 +25,14 @@ class PostComments extends Component
 
     public function addComment()
     {
-        $this->validate(['message' => 'required|string|max:255']);
+        $this->validate(['comment' => 'required|string|max:255']);
 
         $this->post->comments()->create([
             'user_id' => auth()->id(),
             'post_id' => $this->post->id,
-            'body' => $this->message,
+            'body' => $this->comment,
         ]);
-        $this->message = '';
+        $this->comment = '';
     }
 
     public function setParentComment($commentId)
@@ -50,6 +50,7 @@ class PostComments extends Component
             'body' => $this->reply,
             'parent_id' => $this->parentCommentId,
         ]);
+
         $this->reply = '';
         $this->parentCommentId = null;
     }

@@ -1,6 +1,6 @@
 <div class="my-10">
     @forelse($comments as $comment)
-        <div class="mb-4" wire:key="comment-{{ $comment->id }}">
+        <div wire:loading.remove wire:target='deleteComment({{ $comment->id }})' class="mb-4" wire:key="{{ $comment->id }}">
             <div class="flex items-start p-4 bg-gray-100 rounded-lg">
                 @if ($comment->user->profile_pic)
                     <img src="{{ asset('storage/' . $comment->user->profile_pic) }}" alt="Profile picture"
@@ -26,8 +26,13 @@
 
                     @if($parentCommentId === $comment->id)
                         <form wire:submit.prevent="addReply" class="mt-4">
-                            <textarea id="reply" wire:model.defer="reply" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
-                                placeholder="Write a reply"></textarea>
+                            <textarea 
+                                rows="3"
+                                id="reply" 
+                                wire:model.defer="reply" 
+                                placeholder="Write a reply"
+                                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" 
+                            ></textarea>
                             <x-input-error :messages="$errors->get('reply')" class="mt-2" />
 
                             <x-primary-button type="submit" class="px-4 py-2 mt-4">Reply</x-primary-button>
@@ -39,7 +44,7 @@
             @if($comment->children->isNotEmpty())
                 <div class="mt-4 ml-8">
                     @foreach ($comment->children as $childComment)
-                        <div wire:key='childComment-{{ $comment->id }}' class="flex items-start p-4 mb-4 bg-gray-200 rounded">
+                        <div wire:loading.remove wire:target='deleteComment({{ $childComment->id }})' wire:key='{{ $comment->id }}' class="flex items-start p-4 mb-4 bg-gray-200 rounded">
                             @if ($childComment->user->profile_pic)
                                 <img src="{{ asset('storage/' . $childComment->user->profile_pic) }}"
                                     alt="Profile picture" class="mr-4 rounded-full size-12">
@@ -78,9 +83,10 @@
     @auth
         <form wire:submit.prevent="addComment" class="mb-4">
             <div class="mt-4">
-                <textarea id="comment" wire:model.defer="message" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
+                <textarea id="comment" wire:model.defer="comment" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" 
                     rows="3" placeholder="Write a comment"></textarea>
-                <x-input-error :messages="$errors->get('message')" class="mt-2" />
+                <x-input-error :messages="$errors->get('comment')" class="mt-2" />
 
                 <x-primary-button type="submit" class="px-4 py-2 mt-4">Comment</x-primary-button>
             </div>
