@@ -7,13 +7,15 @@ use App\Models\Comment;
 use Livewire\Component;
 
 class PostComments extends Component
-{
+{   
     public $post;
-    public $newComment;
+    public $message = '';
+    public $reply = '';
     public $parentCommentId;
 
     protected $rules = [
-        'newComment' => 'required|max:255',
+        'message' => 'required|string|max:255',
+        'reply' => 'required|string|max:255',
     ];
 
     public function mount(Post $post)
@@ -23,17 +25,14 @@ class PostComments extends Component
 
     public function addComment()
     {
-        $this->validate();
+        $this->validate(['message' => 'required|string|max:255']);
 
-        Comment::create([
+        $this->post->comments()->create([
             'user_id' => auth()->id(),
             'post_id' => $this->post->id,
-            'body' => $this->newComment,
-            'parent_id' => $this->parentCommentId,
+            'body' => $this->message,
         ]);
-
-        $this->newComment = '';
-        $this->parentCommentId = null;
+        $this->message = '';
     }
 
     public function setParentComment($commentId)
@@ -41,9 +40,30 @@ class PostComments extends Component
         $this->parentCommentId = $commentId;
     }
 
+    public function addReply()
+    {
+        $this->validate(['reply' => 'required|string|max:255']);
+
+        $this->post->comments()->create([
+            'user_id' => auth()->id(),
+            'post_id' => $this->post->id,
+            'body' => $this->reply,
+            'parent_id' => $this->parentCommentId,
+        ]);
+        $this->reply = '';
+        $this->parentCommentId = null;
+    }
+
+    public function deleteComment($commentId)
+    {
+        $comment = Comment::findOrFail($commentId);
+        $comment->delete();
+        $this->post = $this->post->fresh();
+    }
+
     public function render()
     {
-        $comments = $this->post->comments();
+        $comments = $this->post->comments()->with('user', 'children.user')->whereNull('parent_id')->get();
         return view('livewire.comments.post-comments', [
             'comments' => $comments
         ]);

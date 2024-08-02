@@ -20,7 +20,7 @@
                     </div>                    
                 </div>
                 <div class="ml-auto">
-                    @if(auth()->user()->role === 'admin')
+                    @if(auth()->check() && auth()->user()->role === 'admin')
                     <a class="hover:cursor-pointer" href={{ route('posts.edit', $post) }}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
@@ -46,7 +46,7 @@
                 <div class="w-full md:w-5/6">                    
                     {!! $post->body !!}
                     
-                    @if(auth()->user()->role === 'admin')
+                    @if(auth()->check() && auth()->user()->role === 'admin')
                         <div class="flex">
                             <div>
                                 <x-post-created-data :post="$post" />
@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="max-w-5xl mx-auto">
+            <div class="max-w-5xl py-10 mx-auto">
                 <h3 class="text-6xl font-bold">{{ __('Comments') }}</h3>
 
                 <livewire:comments.post-comments :post="$post" />
