@@ -40,7 +40,7 @@
             @endif
 
             @if(auth()->check() && auth()->user()->role === 'admin')
-                <x-nav-link class="md:hidden" wire:navigate href="{{ route('panel') }}">Panel</x-nav-link>
+                <x-nav-link class="md:hidden" wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
             @elseif(auth()->check() && auth()->user()->role === 'author')
                 <x-nav-link class="md:hidden" wire:navigate href="#">Panel</x-nav-link>
             @elseif(auth()->check() && auth()->user()->role === 'user')
@@ -72,7 +72,7 @@
             </x-responsive-nav-link>
             
             @if(auth()->check() && auth()->user()->role === 'admin')
-                <x-responsive-nav-link wire:navigate href="{{ route('panel') }}">Panel</x-nav-link>
+                <x-responsive-nav-link wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
             @elseif(auth()->check() && auth()->user()->role === 'author')
                 <x-responsive-nav-link wire:navigate href="#">Panel</x-nav-link>
             @elseif(auth()->check() && auth()->user()->role === 'user')

@@ -13,6 +13,11 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+        
+        <!-- Alpine Plugins -->
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+        <!-- Alpine Core -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
@@ -31,11 +36,11 @@
                 
                 @if(auth()->check() && auth()->user()->role === 'admin')
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('panel') }}">Panel</a>
+                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('posts.index') }}">Panel</a>
                     </div>
                 @elseif(auth()->check() && auth()->user()->role === 'author')
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('panel') }}">Panel</a>
+                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('posts.index') }}">Panel</a>
                     </div>
                 @elseif(auth()->check() && auth()->user()->role === 'user')
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
@@ -53,4 +58,6 @@
             </div>
         </div>
     </body>
+
+    @livewireScripts
 </html>

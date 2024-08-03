@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PanelController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePagesController;
@@ -29,9 +31,7 @@ Route::get('/disclaimer', [LegalPagesController::class, 'disclaimer'])->name('di
 /**
  * Admin panel.
  */
-Route::get('/panel', function() {
-    return view('panel.admin-panel');
-})->name('panel');
+Route::get('/panel', [PanelController::class, 'admin'])->name('panel.admin');
 
 /**
  * Blog pages.
@@ -57,6 +57,12 @@ Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
 Route::get('/tag/create', [TagController::class, 'create'])->name('tags.create');
 Route::get('/blog/tag/{tag:slug}', [TagController::class, 'show'])->name('tags.show');
 Route::get('/tag/edit/{tag:slug}', [TagController::class, 'edit'])->name('tags.edit');
+
+/**
+ * Comments.
+ */
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::get('/comments/pending', [CommentController::class, 'pending'])->name('comments.pending');
 
 /**
  * Profile.

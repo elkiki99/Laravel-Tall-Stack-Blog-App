@@ -3,8 +3,8 @@
 @endphp
 
 <div class="sticky top-0 flex" x-data="{ openMenuIndex: null }" @click.outside="openMenuIndex = null">
-    <div class="relative flex flex-col w-16 h-full bg-black">
-        <div class="p-2">        
+    <div class="relative flex flex-col w-16 h-full p-2 bg-black">
+        <div>        
             <div class="flex items-center justify-center hover:blur-xs">
                 <button 
                     @click="openMenuIndex = openMenuIndex === 1 ? null : 1"
@@ -99,8 +99,8 @@
         
         <div>
             <div x-show="openMenuIndex === 1"
-                class="absolute z-40 w-56 mt-2 top-0 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Admin panel</a>
+                class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
+                <a wire:navigate href="{{ route('panel.admin') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Admin panel</a>
                 <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Analytics</a>
             </div>
 

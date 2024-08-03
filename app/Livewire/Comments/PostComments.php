@@ -9,8 +9,8 @@ use Livewire\Component;
 class PostComments extends Component
 {   
     public $post;
-    public $comment = '';
-    public $reply = '';
+    public $comment;
+    public $reply;
     public $parentCommentId;
 
     protected $rules = [
