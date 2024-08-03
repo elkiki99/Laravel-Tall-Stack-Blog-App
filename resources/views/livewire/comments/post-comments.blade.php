@@ -1,7 +1,7 @@
 <div class="my-10">
     @forelse($comments as $comment)
         <div wire:loading.remove wire:target='deleteComment({{ $comment->id }})' class="mb-4" wire:key="{{ $comment->id }}">
-            <div class="flex items-start p-4 bg-gray-100 rounded-lg">
+            <div class="flex items-start p-4 rounded-lg bg-gray-50">
                 @if ($comment->user->profile_pic)
                     <img src="{{ asset('storage/' . $comment->user->profile_pic) }}" alt="Profile picture"
                         class="mr-4 rounded-full size-12">
@@ -14,9 +14,20 @@
                     </svg>
                 @endif
 
-                <div>
-                    <strong>{{ $comment->user->name }}</strong> <span>{{ $comment->created_at->diffForHumans() }}</span>
-                    <p>{{ $comment->body }}</p>
+                <div class="w-full">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold">{{ $comment->user->name }}</p>
+                        </div>
+                        <div class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
+                              </svg>                              
+                            {{ $comment->created_at->diffForHumans() }}
+                        </div>
+                    </div>
+                        
+                    <p class="mr-24">{{ $comment->body }}</p>
                     <button wire:click="setParentComment({{ $comment->id }})"
                         class="text-sm text-blue-500">Reply</button>
                     @if(auth()->check() && auth()->user()->id === $comment->user_id)
@@ -44,7 +55,7 @@
             @if($comment->children->isNotEmpty())
                 <div class="mt-4 ml-8">
                     @foreach ($comment->children as $childComment)
-                        <div wire:loading.remove wire:target='deleteComment({{ $childComment->id }})' wire:key='{{ $comment->id }}' class="flex items-start p-4 mb-4 bg-gray-200 rounded">
+                        <div wire:loading.remove wire:target='deleteComment({{ $childComment->id }})' wire:key='{{ $comment->id }}' class="flex items-start p-4 bg-gray-100 rounded-lg">
                             @if ($childComment->user->profile_pic)
                                 <img src="{{ asset('storage/' . $childComment->user->profile_pic) }}"
                                     alt="Profile picture" class="mr-4 rounded-full size-12">
@@ -57,14 +68,24 @@
                                 </svg>
                             @endif
                             
-                            <div>
-                                <strong>{{ $childComment->user->name }}</strong>
-                                <span>{{ $childComment->created_at->diffForHumans() }}</span>
-                                <p>{{ $childComment->body }}</p>
+                            <div class="w-full">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold">{{ $comment->user->name }}</p>
+                                    </div>
+                                    <div class="flex">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
+                                          </svg>                              
+                                        {{ $comment->created_at->diffForHumans() }}
+                                    </div>
+                                </div>
+                                
+                                <p class="mr-24"><span class="text-gray-400">&#64;{{ $comment->user->name }} </span> {{ $childComment->body }}</p>
                                 
                                 @if(auth()->check() && auth()->user()->id === $childComment->user_id)
                                     <button wire:click="deleteComment({{ $childComment->id }})"
-                                        class="text-sm text-red-500">Delete</button>
+                                        class="text-sm text-red-500 ">Delete</button>
                                 @endif
                             </div>
                         </div>
@@ -79,6 +100,10 @@
             </div>
         @endauth
     @endforelse
+    
+    <div class="justify-end px-1 mt-10">
+        <span>{{ $comments->links() }}</span>
+    </div>
     
     @auth
         <form wire:submit.prevent="addComment" class="mb-4">

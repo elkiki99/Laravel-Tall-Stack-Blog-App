@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="max-w-5xl py-10 mx-auto">
+            <div class="max-w-5xl py-24 mx-auto">
                 <h3 class="text-6xl font-bold">{{ __('Comments') }}</h3>
 
                 <livewire:comments.post-comments :post="$post" />
