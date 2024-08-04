@@ -12,6 +12,8 @@
         $activeSection = 'panel';
     } elseif(str_contains($routeName, 'comments')) {
         $activeSection = 'comments';
+    } elseif(str_contains($routeName, 'profile')) {
+        $activeSection = 'profile';
     }
 @endphp
 
@@ -125,13 +127,13 @@
         </div>
         <div class="flex items-center justify-center hover:cursor-pointer" 
             :class="{
-                'blur-xs': hoverSection === 'settings' && activeSection !== 'settings',
-                'bg-gray-800 rounded-md': activeSection === 'settings',
-                '': hoverSection !== 'settings' && activeSection !== 'settings'
+                'blur-xs': hoverSection === 'profile' && activeSection !== 'profile',
+                'bg-gray-800 rounded-md': activeSection === 'profile',
+                '': hoverSection !== 'profile' && activeSection !== 'profile'
             }"      
-            @mouseover="hoverSection = 'settings'"
+            @mouseover="hoverSection = 'profile'"
             @mouseleave="hoverSection = null" 
-            @click="activeSection = 'settings'; hoverSection = null">
+            @click="activeSection = 'profile'; hoverSection = null">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="white" class="m-2 size-7">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -280,16 +282,16 @@
                     <p class="text-sm text-black 2xl:text-md">Show all comments</p>
                 </div>
             </a>
-            <a wire:navigate href="{{ route('comments.pending') }}">
+            {{-- <a wire:navigate href="{{ route('comments.pending') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Approve comments</h3>
                     <p class="text-sm text-black 2xl:text-md">Manage pending comments</p>
                 </div>
-            </a>
+            </a> --}}
         </div>
 
-        <div x-show="hoverSection === 'settings' || (hoverSection === null && activeSection === 'settings')"
+        <div x-show="hoverSection === 'profile' || (hoverSection === null && activeSection === 'profile')"
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('profile.edit') }}">
                 <div

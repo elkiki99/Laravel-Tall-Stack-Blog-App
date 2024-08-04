@@ -34,7 +34,7 @@
                 
                 <div class="relative w-full xl:w-4/5">
                     <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('welcome') }}">Go to homepage</a>
+                        <a class="hidden text-sm md:flex hover:blur-xs" wire:navigate href="{{ route('welcome') }}">Go to homepage</a>
                     </div>
                     
                     <main class="relative z-10 pb-20 bg-white">

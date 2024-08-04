@@ -62,7 +62,7 @@ Route::get('/tag/edit/{tag:slug}', [TagController::class, 'edit'])->name('tags.e
  * Comments.
  */
 Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
-Route::get('/comments/pending', [CommentController::class, 'pending'])->name('comments.pending');
+// Route::get('/comments/pending', [CommentController::class, 'pending'])->name('comments.pending');
 
 /**
  * Profile.

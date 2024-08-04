@@ -9,7 +9,7 @@
             {{ __('Manage all of your comments') }}
         </p>
 
-        {{-- @if(session('success_updated'))
+        @if(session('success_updated'))
             <p
                 x-data="{ show: true }"
                 x-show="show"
@@ -38,7 +38,7 @@
                 x-init="setTimeout(() => show = false, 2000)"
                 class="text-sm text-gray-600 dark:text-gray-400"
             >{{ session('success_created') }}</p>
-        @endif --}}
+        @endif
 
         <livewire:comments.show-comments />
     </div>

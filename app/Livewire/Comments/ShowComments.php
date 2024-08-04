@@ -9,7 +9,7 @@ class ShowComments extends Component
 {
     public function render()
     {
-        $comments = Comment::where('is_approved', 1)->paginate(3);
+        $comments = Comment::latest()->paginate(20);
         
         return view('livewire.comments.show-comments', [
             'comments' => $comments

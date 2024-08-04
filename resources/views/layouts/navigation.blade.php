@@ -30,22 +30,22 @@
                 {{ __('Contact') }}
             </x-nav-link>
                      
-            @if(!auth()->check())
+            @auth
+                @if(auth()->user()->role === 'admin')
+                    <x-nav-link class="md:hidden" wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
+                @elseif(auth()->user()->role === 'author')
+                    <x-nav-link class="md:hidden" wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
+                @elseif(auth()->user()->role === 'user')
+                    <x-nav-link class="md:hidden" wire:navigate href="{{ route('profile.edit') }}">Profile</x-nav-link>
+                @endif
+            @else
                 <form class="md:hidden" method="POST" action="{{ route('login') }}">
                     @csrf
                     <x-nav-link :href="route('login')" onclick="event.preventDefault(); this.closest('form').submit();">
                         {{ __('Log In') }}
                     </x-nav-link>
                 </form>
-            @endif
-
-            @if(auth()->check() && auth()->user()->role === 'admin')
-                <x-nav-link class="md:hidden" wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
-            @elseif(auth()->check() && auth()->user()->role === 'author')
-                <x-nav-link class="md:hidden" wire:navigate href="#">Panel</x-nav-link>
-            @elseif(auth()->check() && auth()->user()->role === 'user')
-                <x-nav-link class="md:hidden" wire:navigate href="#">Profile</x-nav-link>
-            @endif
+            @endauth
             
             <x-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-3 py-1 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
                 <div class="flex items-center">
@@ -71,15 +71,15 @@
                 {{ __('Contact') }}
             </x-responsive-nav-link>
             
-            @if(auth()->check() && auth()->user()->role === 'admin')
-                <x-responsive-nav-link wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
-            @elseif(auth()->check() && auth()->user()->role === 'author')
-                <x-responsive-nav-link wire:navigate href="#">Panel</x-nav-link>
-            @elseif(auth()->check() && auth()->user()->role === 'user')
-                <x-responsive-nav-link wire:navigate href="#">Profile</x-nav-link>
-            @endif
-            
-            @if(auth()->check())
+            @auth
+                @if(auth()->user()->role === 'admin')
+                    <x-responsive-nav-link wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
+                @elseif(auth()->user()->role === 'author')
+                    <x-responsive-nav-link wire:navigate href="{{ route('posts.index') }}">Panel</x-nav-link>
+                @elseif(auth()->user()->role === 'user')
+                    <x-responsive-nav-link wire:navigate href="{{ route('profile.edit') }}">Profile</x-nav-link>
+                @endif
+                
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
@@ -93,7 +93,8 @@
                         {{ __('Log In') }}
                     </x-responsive-nav-link>
                 </form>
-            @endif
+            @endauth
+            
             <div class="flex justify-start">
                 <x-responsive-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-3 py-1 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black" style="width: auto;">
                     <div class="flex items-center">

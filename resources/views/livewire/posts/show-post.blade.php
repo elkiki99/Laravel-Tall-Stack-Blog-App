@@ -11,7 +11,7 @@
                     <x-post-metrics :post="$post" />
                     
                     <div class="flex pt-2">
-                        <a class="flex items-center text-xl text-blue-700 hover:blur-xs" wire:navigate href="{{ route('categories.show', $post->category) }}">
+                        <a class="flex items-center text-xl text-yellow-500 hover:blur-xs" wire:navigate href="{{ route('categories.show', $post->category) }}">
                             {{ $post->category->name}}
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-2 size-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
@@ -83,7 +83,7 @@
                                     <div class="mt-6">
                                         <x-danger-button 
                                             class="px-4 py-2 ml-auto"
-                                            x-on:click.prevent="$dispatch('open-modal', 'move-to-drafts')">
+                                            x-on:click.prevent="$dispatch('open-modal', 'confirm-post-deletion')">
                                             
                                             {{ __('Delete post') }}
                                         </x-danger-button>

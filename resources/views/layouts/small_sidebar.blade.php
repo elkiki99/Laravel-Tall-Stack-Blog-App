@@ -56,7 +56,9 @@
             </div>
 
             <div class="flex items-center justify-center hover:blur-xs">
-                <button @click="openMenuIndex = openMenuIndex === 5 ? null : 5">
+                <button @click="openMenuIndex = openMenuIndex === 5 ? null : 5"
+                class="{{str_contains($routeName, 'metrics') ? 'bg-gray-800 rounded-md' : ''}}"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="white" class="m-2 size-7">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -66,7 +68,9 @@
             </div>
 
             <div class="flex items-center justify-center hover:blur-xs">
-                <button @click="openMenuIndex = openMenuIndex === 6 ? null : 6">
+                <button @click="openMenuIndex = openMenuIndex === 6 ? null : 6"
+                class="{{str_contains($routeName, 'mail') ? 'bg-gray-800 rounded-md' : ''}}"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="white" class="m-2 size-7">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -76,7 +80,9 @@
             </div>
 
             <div class="flex items-center justify-center hover:blur-xs">
-                <button @click="openMenuIndex = openMenuIndex === 7 ? null : 7">
+                <button @click="openMenuIndex = openMenuIndex === 7 ? null : 7"
+                    class="{{str_contains($routeName, 'comments') ? 'bg-gray-800 rounded-md' : ''}}"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="white" class="m-2 size-7">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -86,7 +92,9 @@
             </div>
 
             <div class="flex items-center justify-center hover:blur-xs">
-                <button @click="openMenuIndex = openMenuIndex === 8 ? null : 8">
+                <button @click="openMenuIndex = openMenuIndex === 8 ? null : 8"
+                class="{{str_contains($routeName, 'profile') ? 'bg-gray-800 rounded-md' : ''}}"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="white" class="m-2 size-7">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -138,8 +146,8 @@
                     
             <div x-show="openMenuIndex === 7"
                 class="absolute z-40 w-56 mt-2 bg-white top-[270px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">New comments</a>
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Approve comments</a>
+                <a wire:navigate href="{{ route('comments.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">New comments</a>
+                {{-- <a wire:navigate href="{{ route('comments.pending') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Approve comments</a> --}}
             </div>
                             
             <div x-show="openMenuIndex === 8"

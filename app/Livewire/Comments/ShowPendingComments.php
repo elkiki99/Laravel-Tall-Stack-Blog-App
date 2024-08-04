@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Livewire\Comments;
+// namespace App\Livewire\Comments;
 
-use App\Models\Comment;
-use Livewire\Component;
+// use App\Models\Comment;
+// use Livewire\Component;
 
-class ShowPendingComments extends Component
-{
-    public function render()
-    {
-        $comments = Comment::where('is_approved', 0)->paginate(3);
+// class ShowPendingComments extends Component
+// {
+//     public function render()
+//     {
+//         $comments = Comment::where('is_approved', 0)->paginate(20);
         
-        return view('livewire.comments.show-pending-comments', [
-            'comments' => $comments
-        ]);
-    }
-}
+//         return view('livewire.comments.show-pending-comments', [
+//             'comments' => $comments
+//         ]);
+//     }
+// }

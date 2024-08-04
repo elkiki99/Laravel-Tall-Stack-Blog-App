@@ -64,7 +64,12 @@ class PostComments extends Component
 
     public function render()
     {
-        $comments = $this->post->comments()->with('user', 'children.user')->whereNull('parent_id')->paginate(10);
+        $comments = $this->post->comments()
+                    ->with('user', 'children.user')
+                    ->whereNull('parent_id')
+                    // ->where('is_approved', 1)
+                    ->paginate(10);
+
         return view('livewire.comments.post-comments', [
             'comments' => $comments
         ]);

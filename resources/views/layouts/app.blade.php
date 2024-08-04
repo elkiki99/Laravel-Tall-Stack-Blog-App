@@ -25,28 +25,28 @@
             <div class="flex justify-center">
                 @include('layouts.navigation')
                             
-                @if(!auth()->check())
+                @guest
                     <form class="absolute top-0 right-0 z-20 hidden pt-4 pr-4 mt-10 ml-auto mr-10 md:flex" method="POST" action="{{ route('login') }}">
                         @csrf
                         <x-nav-link :href="route('login')" onclick="event.preventDefault(); this.closest('form').submit();">
                             {{ __('Log In') }}
                         </x-nav-link>
                     </form>
-                @endif
-                
-                @if(auth()->check() && auth()->user()->role === 'admin')
-                    <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('posts.index') }}">Panel</a>
-                    </div>
-                @elseif(auth()->check() && auth()->user()->role === 'author')
-                    <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="hidden text-sm md:flex hover:blur-xs" href="{{ route('posts.index') }}">Panel</a>
-                    </div>
-                @elseif(auth()->check() && auth()->user()->role === 'user')
-                    <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                        <a class="hidden text-sm md:flex hover:blur-xs" href="#">Profile</a>
-                    </div>
-                @endif
+                @else
+                    @if(auth()->user()->role === 'admin')
+                        <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
+                            <a class="hidden text-sm md:flex hover:blur-xs" wire:navigate href="{{ route('posts.index') }}">Panel</a>
+                        </div>
+                    @elseif(auth()->user()->role === 'author')
+                        <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
+                            <a class="hidden text-sm md:flex hover:blur-xs" wire:navigate href="{{ route('posts.index') }}">Panel</a>
+                        </div>
+                    @elseif(auth()->user()->role === 'user')
+                        <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
+                            <a class="hidden text-sm md:flex hover:blur-xs" wire:navigate href="{{ route('profile.edit') }}">Profile</a>
+                        </div>
+                    @endif
+                @endguest
             </div>
             
             <main class="relative z-10 pb-20 bg-white">
