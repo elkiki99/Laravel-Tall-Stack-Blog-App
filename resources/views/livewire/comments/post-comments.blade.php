@@ -34,10 +34,12 @@
                     <p class="mr-24">{{ $comment->body }}</p>
                     <button wire:click="setParentComment({{ $comment->id }})"
                         class="text-sm text-blue-500">Reply</button>
-                    @if(auth()->check() && auth()->user()->id === $comment->user_id)
-                        <button wire:click="deleteComment({{ $comment->id }})"
-                            class="ml-4 text-sm text-red-500">Delete</button>
-                    @endif
+                    @auth
+                        @if(auth()->user()->id === $comment->user_id || auth()->user()->role === 'admin')
+                            <button wire:click="deleteComment({{ $comment->id }})"
+                                class="ml-4 text-sm text-red-500">Delete</button>
+                        @endif
+                    @endauth
 
                     @if($parentCommentId === $comment->id)
                         <form wire:submit.prevent="addReply" class="mt-4">
@@ -87,10 +89,13 @@
                                 
                                 <p class="mr-24"><span class="text-gray-400">&#64;{{ $comment->user->name }} </span> {{ $childComment->body }}</p>
                                 
-                                @if(auth()->check() && auth()->user()->id === $childComment->user_id)
-                                    <button wire:click="deleteComment({{ $childComment->id }})"
-                                        class="text-sm text-red-500 ">Delete</button>
-                                @endif
+                                @auth
+                                    @if(auth()->user()->id === $childComment->user_id || auth()->user()->role === 'admin')
+                                        <button wire:click="deleteComment({{ $childComment->id }})"
+                                            class="text-sm text-red-500">Delete
+                                        </button>
+                                    @endif
+                                @endauth
                             </div>
                         </div>
                     @endforeach
