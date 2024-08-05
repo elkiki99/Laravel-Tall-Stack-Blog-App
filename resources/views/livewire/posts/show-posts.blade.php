@@ -63,8 +63,6 @@
             <tbody>
                 @foreach($posts as $post)
                     <tr 
-                        {{-- wire:loading.remove  --}}
-                        {{-- wire:target='deletePost({{ $post->id }})' --}}
                         class="odd:bg-white even:bg-gray-100"
                     />
                         <td class="p-4 font-bold rounded-lg">

@@ -12,7 +12,6 @@ class PostController extends Controller
         Gate::authorize('viewAny', Post::class);
         return view('posts.index');
     }
-
     public function pending()
     {
         Gate::authorize('viewAny', Post::class);
@@ -27,7 +26,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        Gate::authorize('view', $post); // Permitir a todos los usuarios ver posts individuales
+        Gate::authorize('view', $post);
         return view('posts.show', [
             'post' => $post
         ]);

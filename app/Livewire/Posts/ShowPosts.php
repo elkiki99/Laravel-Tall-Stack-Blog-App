@@ -15,6 +15,7 @@ class ShowPosts extends Component
     
     public function render()
     {
+        if(auth()->user()->role === 'admin') {
         $posts = Post::query()
             ->when($this->searchPost !== '', function (Builder $query) {
                 $query->where('title', 'like', '%' . $this->searchPost . '%');
@@ -22,6 +23,16 @@ class ShowPosts extends Component
             ->where('status', 'published')
             ->latest()
             ->paginate(20);
+        } elseif(auth()->user()->role === 'author') {
+            $posts = Post::query()
+                ->when($this->searchPost !== '', function (Builder $query) {
+                    $query->where('title', 'like', '%' . $this->searchPost . '%');
+                })
+                ->where('author_id', auth()->user()->id)
+                ->where('status', 'published')
+                ->latest()
+                ->paginate(20);
+        }
 
         return view('livewire.posts.show-posts', [
             'posts' => $posts,

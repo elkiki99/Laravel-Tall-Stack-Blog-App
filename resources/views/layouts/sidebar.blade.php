@@ -12,6 +12,10 @@
         $activeSection = 'panel';
     } elseif(str_contains($routeName, 'comments')) {
         $activeSection = 'comments';
+    } elseif(str_contains($routeName, 'liked')) {
+        $activeSection = 'liked';
+    } elseif(str_contains($routeName, 'subscription')) {
+        $activeSection = 'subscription';
     } elseif(str_contains($routeName, 'profile')) {
         $activeSection = 'profile';
     }
@@ -20,111 +24,116 @@
 <div x-data="{ activeSection: '{{ $activeSection }}', hoverSection: null }" class="sticky top-0 flex">
     <!-- Sidebar -->
     <div class="flex flex-col w-16 h-screen p-2 bg-black">
-        <div class="flex items-center justify-center hover:cursor-pointer"
-            :class="{
-                'blur-xs': hoverSection === 'panel' && activeSection !== 'panel',
-                'bg-gray-800 rounded-md': activeSection === 'panel',
-                '': hoverSection !== 'panel' && activeSection !== 'panel'
-            }"              
-            @mouseover="hoverSection = 'panel'"
-            @mouseleave="hoverSection = null" @click="activeSection = 'panel'; 
-            hoverSection = null">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="white" class="m-2 size-7">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-            </svg>
-        </div>
-        <div class="flex items-center justify-center hover:cursor-pointer"  
-            :class="{
-                'blur-xs': hoverSection === 'post' && activeSection !== 'post',
-                'bg-gray-800 rounded-md': activeSection === 'post',
-                '': hoverSection !== 'post' && activeSection !== 'post'
-            }"           
-            @mouseover="hoverSection = 'post'"
-            @mouseleave="hoverSection = null" 
-            @click="activeSection = 'post'; hoverSection = null"
-            >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="white" class="m-2 size-7">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
-            </svg>
-        </div>
-        <div class="flex items-center justify-center hover:cursor-pointer"
-            :class="{
-                'blur-xs': hoverSection === 'category' && activeSection !== 'category',
-                'bg-gray-800 rounded-md': activeSection === 'category',
-                '': hoverSection !== 'category' && activeSection !== 'category'
-            }"      
-            @mouseover="hoverSection = 'category'"
-            @mouseleave="hoverSection = null" 
-            @click="activeSection = 'category'; hoverSection = null">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"            stroke="white" class="m-2 size-7">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75 2.25-1.313M12 21.75V19.5m0 2.25-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+        @if(auth()->user()->role === 'admin')
+            <div class="flex items-center justify-center hover:cursor-pointer"
+                :class="{
+                    'blur-xs': hoverSection === 'panel' && activeSection !== 'panel',
+                    'bg-gray-800 rounded-md': activeSection === 'panel',
+                    '': hoverSection !== 'panel' && activeSection !== 'panel'
+                }"              
+                @mouseover="hoverSection = 'panel'"
+                @mouseleave="hoverSection = null" @click="activeSection = 'panel'; 
+                hoverSection = null">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="white" class="m-2 size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
-                
-        </div>
-        <div class="flex items-center justify-center hover:cursor-pointer"
-            :class="{
-                'blur-xs': hoverSection === 'tag' && activeSection !== 'tag',
-                'bg-gray-800 rounded-md': activeSection === 'tag',
-                '': hoverSection !== 'tag' && activeSection !== 'tag'
-            }"      
-            @mouseover="hoverSection = 'tag'"
-            @mouseleave="hoverSection = null" 
-            @click="activeSection = 'tag'; hoverSection = null">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"            stroke="white" class="m-2 size-7">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-            </svg>
-        </div>
-        {{-- <div class="flex items-center justify-center hover:cursor-pointer"
-            :class="{
-                'blur-xs': hoverSection === 'metrics' && activeSection !== 'metrics',
-                'bg-gray-800 rounded-md': activeSection === 'metrics',
-                '': hoverSection !== 'metrics' && activeSection !== 'metrics'
-            }"      
-            @mouseover="hoverSection = 'metrics'"
-            @mouseleave="hoverSection = null" 
-            @click="activeSection = 'metrics'; hoverSection = null">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="white" class="m-2 size-7">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-            </svg>
-        </div>
-        <div class="flex items-center justify-center hover:cursor-pointer"
-            :class="{
-                'blur-xs': hoverSection === 'mail' && activeSection !== 'mail',
-                'bg-gray-800 rounded-md': activeSection === 'mail',
-                '': hoverSection !== 'mail' && activeSection !== 'mail'
-            }"      
-            @mouseover="hoverSection = 'mail'"
-            @mouseleave="hoverSection = null" 
-            @click="activeSection = 'mail'; hoverSection = null">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="white" class="m-2 size-7">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-            </svg>
-        </div> --}}
-        <div class="flex items-center justify-center hover:cursor-pointer"
-            :class="{
-                'blur-xs': hoverSection === 'comments' && activeSection !== 'comments',
-                'bg-gray-800 rounded-md': activeSection === 'comments',
-                '': hoverSection !== 'comments' && activeSection !== 'comments'
-            }"      
-            @mouseover="hoverSection = 'comments'"
-            @mouseleave="hoverSection = null" 
-            @click="activeSection = 'comments'; hoverSection = null">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="white" class="m-2 size-7">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
-            </svg>
-        </div>
+            </div>
+        @endif
+        @if(auth()->user()->role !== 'user')
+            <div class="flex items-center justify-center hover:cursor-pointer"  
+                :class="{
+                    'blur-xs': hoverSection === 'post' && activeSection !== 'post',
+                    'bg-gray-800 rounded-md': activeSection === 'post',
+                    '': hoverSection !== 'post' && activeSection !== 'post'
+                }"           
+                @mouseover="hoverSection = 'post'"
+                @mouseleave="hoverSection = null" 
+                @click="activeSection = 'post'; hoverSection = null"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="white" class="m-2 size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+                </svg>
+            </div>
+        @endif
+        @if(auth()->user()->role === 'admin')
+            <div class="flex items-center justify-center hover:cursor-pointer"
+                :class="{
+                    'blur-xs': hoverSection === 'category' && activeSection !== 'category',
+                    'bg-gray-800 rounded-md': activeSection === 'category',
+                    '': hoverSection !== 'category' && activeSection !== 'category'
+                }"      
+                @mouseover="hoverSection = 'category'"
+                @mouseleave="hoverSection = null" 
+                @click="activeSection = 'category'; hoverSection = null">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"            stroke="white" class="m-2 size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75 2.25-1.313M12 21.75V19.5m0 2.25-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+                    </svg>
+                    
+            </div>
+            <div class="flex items-center justify-center hover:cursor-pointer"
+                :class="{
+                    'blur-xs': hoverSection === 'tag' && activeSection !== 'tag',
+                    'bg-gray-800 rounded-md': activeSection === 'tag',
+                    '': hoverSection !== 'tag' && activeSection !== 'tag'
+                }"      
+                @mouseover="hoverSection = 'tag'"
+                @mouseleave="hoverSection = null" 
+                @click="activeSection = 'tag'; hoverSection = null">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"            stroke="white" class="m-2 size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+                </svg>
+            </div>
+            <div class="flex items-center justify-center hover:cursor-pointer"
+                :class="{
+                    'blur-xs': hoverSection === 'comments' && activeSection !== 'comments',
+                    'bg-gray-800 rounded-md': activeSection === 'comments',
+                    '': hoverSection !== 'comments' && activeSection !== 'comments'
+                }"      
+                @mouseover="hoverSection = 'comments'"
+                @mouseleave="hoverSection = null" 
+                @click="activeSection = 'comments'; hoverSection = null">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="white" class="m-2 size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                </svg>
+            </div>
+        @endif
+        @if(auth()->user()->role === 'user')
+            <div class="flex items-center justify-center hover:cursor-pointer"  
+                :class="{
+                    'blur-xs': hoverSection === 'subscription' && activeSection !== 'subscription',
+                    'bg-gray-800 rounded-md': activeSection === 'subscription',
+                    '': hoverSection !== 'subscription' && activeSection !== 'subscription'
+                }"           
+                @mouseover="hoverSection = 'subscription'"
+                @mouseleave="hoverSection = null" 
+                @click="activeSection = 'subscription'; hoverSection = null"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="m-2 size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                </svg>
+            </div>
+            <div class="flex items-center justify-center hover:cursor-pointer"
+                :class="{
+                    'blur-xs': hoverSection === 'liked' && activeSection !== 'liked',
+                    'bg-gray-800 rounded-md': activeSection === 'liked',
+                    '': hoverSection !== 'liked' && activeSection !== 'liked'
+                }"      
+                @mouseover="hoverSection = 'liked'"
+                @mouseleave="hoverSection = null" 
+                @click="activeSection = 'liked'; hoverSection = null">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="m-2 size-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+            </div>
+        @endif
         <div class="flex items-center justify-center hover:cursor-pointer" 
             :class="{
                 'blur-xs': hoverSection === 'profile' && activeSection !== 'profile',
@@ -181,7 +190,7 @@
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Pending posts</h3>
-                    <p class="text-sm text-black 2xl:text-md">View all pending blog posts</p>
+                    <p class="text-sm text-black 2xl:text-md">View pending blog posts</p>
                 </div>
             </a>
         </div>
@@ -219,54 +228,6 @@
                 </div>
             </a>
         </div>
-        {{-- <div x-show="hoverSection === 'metrics' || (hoverSection === null && activeSection === 'metrics')"
-            class="transition-opacity duration-300">
-            <a wire:navigate href="#">
-                <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Overall metrics</h3>
-                    <p class="text-sm text-black 2xl:text-md">View web performance</p>
-                </div>
-            </a>
-            <a wire:navigate href="#">
-                <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new post</h3>
-                    <p class="text-sm text-black 2xl:text-md">Create a new post posts</p>
-                </div>
-            </a>
-            <a wire:navigate href="#">
-                <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Blog analytics</h3>
-                    <p class="text-sm text-black 2xl:text-md">Check out you post's performance</p>
-                </div>
-            </a>
-        </div> 
-        <div x-show="hoverSection === 'mail' || (hoverSection === null && activeSection === 'mail')"
-            class="transition-opacity duration-300">
-            <a wire:navigate href="#">
-                <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">My inbox</h3>
-                    <p class="text-sm text-black 2xl:text-md">View your inbox</p>
-                </div>
-            </a>
-            <a wire:navigate href="#">
-                <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Unread mails</h3>
-                    <p class="text-sm text-black 2xl:text-md">View unread mails</p>
-                </div>
-            </a>
-            <a wire:navigate href="#">
-                <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Notifications</h3>
-                    <p class="text-sm text-black 2xl:text-md">View notifications</p>
-                </div>
-            </a>
-        </div> --}}
         <div x-show="hoverSection === 'comments' || (hoverSection === null && activeSection === 'comments')"
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('comments.index') }}">
@@ -283,6 +244,26 @@
                     <p class="text-sm text-black 2xl:text-md">Manage pending comments</p>
                 </div>
             </a> --}}
+        </div>
+        <div x-show="hoverSection === 'subscription' || (hoverSection === null && activeSection === 'subscription')"
+            class="transition-opacity duration-300">
+            <a wire:navigate href="#">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">My subscription</h3>
+                    <p class="text-sm text-black 2xl:text-md">Your daily/weekly subscription</p>
+                </div>
+            </a>
+        </div>
+        <div x-show="hoverSection === 'liked' || (hoverSection === null && activeSection === 'liked')"
+            class="transition-opacity duration-300">
+            <a wire:navigate href="{{ route('tags.index') }}">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">My likes</h3>
+                    <p class="text-sm text-black 2xl:text-md">View all my liked posts</p>
+                </div>
+            </a>
         </div>
         <div x-show="hoverSection === 'profile' || (hoverSection === null && activeSection === 'profile')"
             class="transition-opacity duration-300">

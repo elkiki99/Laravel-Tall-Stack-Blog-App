@@ -16,13 +16,21 @@ class PostPolicy
     }
 
     public function view(?User $user, Post $post): Response
-    {
-        return Response::allow();
+    {   
+        if($post->status === 'published') {
+            return Response::allow();
+        } elseif($post->status === 'draft' && $user->role === 'admin') {
+            return Response::allow();
+        } elseif($post->status === 'draft' && ($user->role === 'author' && $user->id === $post->author_id)) {
+            return Response::allow();
+        } else {
+            return Response::deny('You do not have the required permissions.');
+        }
     }
 
     public function create(User $user): Response
     {
-        return $user->role === 'admin'
+        return $user->role === 'admin' || $user->role === 'author'
                 ? Response::allow()
                 : Response::deny('You do not have the required permissions.');
     }

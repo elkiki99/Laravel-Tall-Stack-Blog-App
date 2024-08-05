@@ -15,13 +15,25 @@ class ShowPendingPosts extends Component
     
     public function render()
     {
-        $posts = Post::query()
-            ->when($this->searchPost !== '', function (Builder $query) {
-                $query->where('title', 'like', '%' . $this->searchPost . '%');
-            })
-            ->where('status', 'draft')
-            ->latest()
-            ->paginate(20);
+        if(auth()->user()->role === 'admin') {
+            $posts = Post::query()
+                ->when($this->searchPost !== '', function (Builder $query) {
+                    $query->where('title', 'like', '%' . $this->searchPost . '%');
+                })
+                ->where('status', 'draft')
+                ->latest()
+                ->paginate(20);
+
+        } elseif(auth()->user()->role === 'author') {
+            $posts = Post::query()
+                ->when($this->searchPost !== '', function (Builder $query) {
+                    $query->where('title', 'like', '%' . $this->searchPost . '%');
+                })
+                ->where('author_id', auth()->user()->id)
+                ->where('status', 'draft')
+                ->latest()
+                ->paginate(20);
+        }
 
         return view('livewire.posts.show-pending-posts', [
             'posts' => $posts,
