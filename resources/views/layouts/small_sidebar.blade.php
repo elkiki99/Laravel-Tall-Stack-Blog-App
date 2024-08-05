@@ -55,7 +55,7 @@
                 </button>
             </div>
 
-            <div class="flex items-center justify-center hover:blur-xs">
+            {{-- <div class="flex items-center justify-center hover:blur-xs">
                 <button @click="openMenuIndex = openMenuIndex === 5 ? null : 5"
                 class="{{str_contains($routeName, 'metrics') ? 'bg-gray-800 rounded-md' : ''}}"
                 >
@@ -77,7 +77,7 @@
                             d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                     </svg>
                 </button>
-            </div>
+            </div> --}}
 
             <div class="flex items-center justify-center hover:blur-xs">
                 <button @click="openMenuIndex = openMenuIndex === 7 ? null : 7"
@@ -131,7 +131,7 @@
                 <a wire:navigate href="{{ route('tags.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new tag</a>
             </div>
             
-            <div x-show="openMenuIndex === 5"
+            {{-- <div x-show="openMenuIndex === 5"
                 class="absolute z-40 w-56 mt-2 bg-white top-[180px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
                 <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Overall metrics</a>
                 <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">View web perfmormance</a>
@@ -142,7 +142,7 @@
                 <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My inbox</a>
                 <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Unread mails</a>
                 <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Notifications</a>
-            </div>
+            </div> --}}
                     
             <div x-show="openMenuIndex === 7"
                 class="absolute z-40 w-56 mt-2 bg-white top-[270px] rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">

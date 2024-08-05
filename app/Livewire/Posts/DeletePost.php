@@ -12,7 +12,7 @@ class DeletePost extends Component
     public function deletePost()
     {
         $post = Post::findOrFail($this->postId);
-        $post->delete();
+        $post->delete();    
         return redirect()->route('posts.index')->with('success_deleted', 'Post deleted successfully.');
     }
 

@@ -35,7 +35,7 @@
                     d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
         </div>
-        <button class="flex items-center justify-center hover:cursor-pointer" 
+        <div class="flex items-center justify-center hover:cursor-pointer"  
             :class="{
                 'blur-xs': hoverSection === 'post' && activeSection !== 'post',
                 'bg-gray-800 rounded-md': activeSection === 'post',
@@ -50,7 +50,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
             </svg>
-        </button>
+        </div>
         <div class="flex items-center justify-center hover:cursor-pointer"
             :class="{
                 'blur-xs': hoverSection === 'category' && activeSection !== 'category',
@@ -80,7 +80,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
             </svg>
         </div>
-        <div class="flex items-center justify-center hover:cursor-pointer"
+        {{-- <div class="flex items-center justify-center hover:cursor-pointer"
             :class="{
                 'blur-xs': hoverSection === 'metrics' && activeSection !== 'metrics',
                 'bg-gray-800 rounded-md': activeSection === 'metrics',
@@ -109,7 +109,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
-        </div>
+        </div> --}}
         <div class="flex items-center justify-center hover:cursor-pointer"
             :class="{
                 'blur-xs': hoverSection === 'comments' && activeSection !== 'comments',
@@ -161,7 +161,6 @@
                 </div>
             </a>
         </div>
-
         <div x-show="hoverSection === 'post' || (hoverSection === null && activeSection === 'post')"
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('posts.index') }}">
@@ -186,7 +185,6 @@
                 </div>
             </a>
         </div>
-        
         <div x-show="hoverSection === 'category' || (hoverSection === null && activeSection === 'category')"
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('categories.index') }}">
@@ -204,7 +202,6 @@
                 </div>
             </a>
         </div>
-
         <div x-show="hoverSection === 'tag' || (hoverSection === null && activeSection === 'tag')"
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('tags.index') }}">
@@ -222,8 +219,7 @@
                 </div>
             </a>
         </div>
-
-        <div x-show="hoverSection === 'metrics' || (hoverSection === null && activeSection === 'metrics')"
+        {{-- <div x-show="hoverSection === 'metrics' || (hoverSection === null && activeSection === 'metrics')"
             class="transition-opacity duration-300">
             <a wire:navigate href="#">
                 <div
@@ -246,8 +242,7 @@
                     <p class="text-sm text-black 2xl:text-md">Check out you post's performance</p>
                 </div>
             </a>
-        </div>
-        
+        </div> 
         <div x-show="hoverSection === 'mail' || (hoverSection === null && activeSection === 'mail')"
             class="transition-opacity duration-300">
             <a wire:navigate href="#">
@@ -271,8 +266,7 @@
                     <p class="text-sm text-black 2xl:text-md">View notifications</p>
                 </div>
             </a>
-        </div>
-
+        </div> --}}
         <div x-show="hoverSection === 'comments' || (hoverSection === null && activeSection === 'comments')"
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('comments.index') }}">
@@ -290,7 +284,6 @@
                 </div>
             </a> --}}
         </div>
-
         <div x-show="hoverSection === 'profile' || (hoverSection === null && activeSection === 'profile')"
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('profile.edit') }}">
