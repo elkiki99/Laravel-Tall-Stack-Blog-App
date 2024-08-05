@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <div class="max-w-6xl min-h-screen p-10 pb-32 mx-auto">
+    <div class="max-w-6xl min-h-screen px-4 py-10 pb-32 mx-auto sm:px-10">
         @include('profile.partials.update-profile-information-form')
         
         @include('profile.partials.update-password-form')
