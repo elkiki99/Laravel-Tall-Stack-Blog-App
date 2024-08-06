@@ -25,7 +25,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-left">
+                    <th class="hidden p-4 font-normal text-left md:table-cell">
                         <div class="inline-flex items-center">
                             User
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -33,7 +33,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-left">
+                    <th class="hidden p-4 font-normal text-left lg:table-cell">
                         <div class="inline-flex items-center">
                             Created
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -62,13 +62,13 @@
                     />
                         <td class="p-4 font-bold rounded-lg">
                             <a  wire:navigate href="{{ route('posts.show', $comment->post) }}">
-                                {{ $comment->body }}
+                                {{ \Illuminate\Support\Str::limit($comment->body, 40) }}
                             </a>
                         </td>
-                        <td class="p-4 font-medium">
+                        <td class="hidden p-4 font-medium md:table-cell">
                             {{ $comment->user->name }}
                         </td>
-                        <td class="p-4 font-medium">
+                        <td class="hidden p-4 font-medium lg:table-cell">
                             {{ $comment->created_at->diffForHumans() }}
                         </td>
                         <td class="p-4">

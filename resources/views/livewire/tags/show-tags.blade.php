@@ -26,7 +26,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-left">
+                    <th class="hidden p-4 font-normal text-left md:table-cell">
                         <div class="inline-flex items-center">
                             Slug
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -34,7 +34,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-left">
+                    <th class="hidden p-4 font-normal text-left lg:table-cell">
                         <div class="inline-flex items-center">
                             Description
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -42,7 +42,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-right ">
+                    <th class="p-4 font-normal text-right">
                         <div class="inline-flex items-center">
                             Manage
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -65,11 +65,11 @@
                                 {{ $tag->name }}
                             </a>
                         </td>
-                        <td class="p-4 font-medium">
+                        <td class="hidden p-4 font-medium md:table-cell">
                             {{ $tag->slug }}
                         </td>
-                        <td class="p-4 font-medium">
-                            {{ \Illuminate\Support\Str::limit($tag->description, 80) }}
+                        <td class="hidden p-4 font-medium lg:table-cell">
+                            {{ \Illuminate\Support\Str::limit($tag->description, 40) }}
                         </td>
                         <td class="p-4">
                             <div class="flex items-end justify-end">

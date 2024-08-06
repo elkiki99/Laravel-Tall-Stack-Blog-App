@@ -16,7 +16,7 @@
     @if($posts->count() > 0)
         <table class="min-w-full bg-white">
             <thead class="bg-gray-100">
-                <tr class="">
+                <tr>
                     <th class="p-4 font-normal text-left">
                         <div class="inline-flex items-center">
                             Title
@@ -25,7 +25,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-left">
+                    <th class="hidden p-4 font-normal text-left md:table-cell">
                         <div class="inline-flex items-center">
                             Slug
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -33,7 +33,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-left">
+                    <th class="hidden p-4 font-normal text-left lg:table-cell">
                         <div class="inline-flex items-center">
                             Excerpt
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -41,7 +41,7 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-left">
+                    <th class="hidden p-4 font-normal text-left xl:table-cell">
                         <div class="inline-flex items-center">
                             Created
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
@@ -49,36 +49,32 @@
                             </svg>
                         </div>
                     </th>
-                    <th class="p-4 font-normal text-right ">
+                    <th class="p-4 font-normal text-right">
                         <div class="inline-flex items-center">
                             Manage
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                             </svg>
                         </div>
-                    </th>                
+                    </th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach($posts as $post)
-                    <tr 
-                        wire:loading.remove 
-                        wire:target='deletePost({{ $post->id }})'
-                        class="odd:bg-white even:bg-gray-100"
-                    />
+                    <tr wire:loading.remove wire:target='deletePost({{ $post->id }})' class="odd:bg-white even:bg-gray-100">
                         <td class="p-4 font-bold rounded-lg">
                             <a wire:navigate href="{{ route('posts.show', $post) }}">
-                                {{ $post->title }}
+                                {{ \Illuminate\Support\Str::limit($post->title, 40) }}
                             </a>
                         </td>
-                        <td class="p-4 font-medium">
+                        <td class="hidden p-4 font-medium md:table-cell">
                             {{ $post->slug }}
+                        </td>   
+                        <td class="hidden p-4 font-medium lg:table-cell">
+                            {{ \Illuminate\Support\Str::limit($post->excerpt, 40) }}
                         </td>
-                        <td class="p-4 font-medium">
-                            {{ \Illuminate\Support\Str::limit($post->excerpt, 80) }}
-                        </td>
-                        <td class="p-4 font-medium">
+                        <td class="hidden p-4 font-medium xl:table-cell">
                             {{ $post->created_at->diffForHumans() }}
                         </td>
                         <td class="p-4 rounded-lg">
@@ -99,6 +95,7 @@
                 @endforeach
             </tbody>
         </table>
+        
         <div class="justify-end px-1 mt-10">
             <span>{{ $posts->links() }}</span>
         </div>

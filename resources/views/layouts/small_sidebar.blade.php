@@ -3,13 +3,13 @@
 @endphp
 
 <div class="sticky " x-data="{ openMenuIndex: null }" @click.outside="openMenuIndex = null">
-    <div class="relative flex flex-col h-full p-2 bg-white border-r-2 w-14 sm:w-16 sm:bg-black">
+    <div class="relative flex flex-col h-full p-2 sm:bg-none bg-gradient-to-b from-white via-yellow-300 to-white w-14 sm:w-16 sm:bg-black">
         <div>      
             @if(auth()->user()->role === 'admin')
                 <div class="flex items-center justify-center hover:blur-xs">
                     <button 
                         @click="openMenuIndex = openMenuIndex === 1 ? null : 1"
-                        class="{{str_contains($routeName, 'panel') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                        class="{{str_contains($routeName, 'panel') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'panel') ? 'stroke-white' : ''}}">
@@ -23,7 +23,7 @@
                 <div class="flex items-center justify-center hover:blur-xs">
                     <button 
                         @click="openMenuIndex = openMenuIndex === 2 ? null : 2" 
-                        class="{{str_contains($routeName, 'post') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                        class="{{str_contains($routeName, 'post') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'post') ? 'stroke-white' : ''}}">
@@ -37,7 +37,7 @@
                 <div class="flex items-center justify-center hover:blur-xs">
                     <button 
                         @click="openMenuIndex = openMenuIndex === 3 ? null : 3"
-                        class="{{str_contains($routeName, 'categories') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                        class="{{str_contains($routeName, 'categories') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'categories') ? 'stroke-white' : ''}}">
@@ -45,11 +45,10 @@
                         </svg>
                     </button>
                 </div>
-
                 <div class="flex items-center justify-center hover:blur-xs">
                     <button 
                         @click="openMenuIndex = openMenuIndex === 4 ? null : 4"
-                        class="{{str_contains($routeName, 'tags') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                        class="{{str_contains($routeName, 'tags') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'tags') ? 'stroke-white' : ''}}">
@@ -59,10 +58,9 @@
                         </svg>
                     </button>
                 </div>
-
                 <div class="flex items-center justify-center hover:blur-xs">
-                    <button @click="openMenuIndex = openMenuIndex === 7 ? null : 7"
-                        class="{{str_contains($routeName, 'comments') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                    <button @click="openMenuIndex = openMenuIndex === 5 ? null : 5"
+                        class="{{str_contains($routeName, 'comments') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'comments') ? 'stroke-white' : ''}}">
@@ -74,8 +72,8 @@
             @endif
             @if(auth()->user()->role === 'user')
                 <div class="flex items-center justify-center hover:blur-xs">
-                    <button @click="openMenuIndex = openMenuIndex === 5 ? null : 5"
-                        class="{{str_contains($routeName, 'subscription') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                    <button @click="openMenuIndex = openMenuIndex === 6 ? null : 6"
+                        class="{{str_contains($routeName, 'subscription') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'subscription') ? 'stroke-white' : ''}}">
@@ -84,8 +82,8 @@
                     </button>
                 </div>
                 <div class="flex items-center justify-center hover:blur-xs">
-                    <button @click="openMenuIndex = openMenuIndex === 6 ? null : 6"
-                        class="{{str_contains($routeName, 'liked') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                    <button @click="openMenuIndex = openMenuIndex === 7 ? null : 7"
+                        class="{{str_contains($routeName, 'liked') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                     >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                      class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'liked') ? 'stroke-white' : ''}}">
@@ -94,10 +92,9 @@
                     </button>
                 </div>
             @endif
-
             <div class="flex items-center justify-center hover:blur-xs">
                 <button @click="openMenuIndex = openMenuIndex === 8 ? null : 8"
-                class="{{str_contains($routeName, 'profile') ? 'sm:bg-gray-800 bg-black rounded-full sm:rounded-md' : ''}}"
+                class="{{str_contains($routeName, 'profile') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                      class="m-2 size-6 sm:size-7 stroke-black sm:stroke-white {{str_contains($routeName, 'profile') ? 'stroke-white' : ''}}">
@@ -133,16 +130,16 @@
             </div>   
             <div x-show="openMenuIndex === 5"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My subscription</a>
-            </div>
+                <a wire:navigate href="{{ route('comments.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">New comments</a>
+            </div>  
             <div x-show="openMenuIndex === 6"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My likes</a>
-            </div> 
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My subscription</a>
+            </div>
             <div x-show="openMenuIndex === 7"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="{{ route('comments.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">New comments</a>
-            </div>         
+                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My likes</a>
+            </div>        
             <div x-show="openMenuIndex === 8"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
                 <a wire:navigate href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Profile</a>
