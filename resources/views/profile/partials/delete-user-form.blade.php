@@ -1,4 +1,4 @@
-<section>
+<section class="max-w-xl">
     <header>
         <h2 class="mt-12 text-2xl font-bold sm:text-3xl">
             {{ __('Delete account') }}

@@ -23,7 +23,7 @@ class EditPost extends Component
     public $excerpt;
     public $new_featured_image;
     public $category_id;
-    public $tag_id = [];
+    public $tag_ids = [];
     public $reading_time;
     public $views;
     public $status;
@@ -39,7 +39,7 @@ class EditPost extends Component
         $this->excerpt = $this->post->excerpt;
         $this->new_featured_image = $this->post->new_featured_image;
         $this->category_id = $this->post->category_id;
-        $this->tag_id = $this->post->tags->pluck('id')->toArray();
+        $this->tag_ids = $this->post->tags->pluck('id')->toArray();
         $this->reading_time = $this->post->reading_time;
         $this->views = $this->post->views;
         $this->status = 'draft';
@@ -70,8 +70,8 @@ class EditPost extends Component
             'excerpt' => 'required|string|max:255',
             'new_featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
-            'tag_id' => 'required|array',
-            'tag_id.*' => 'required|exists:tags,id',
+            'tag_ids' => 'required|array',
+            'tag_ids.*' => 'required|exists:tags,id',
             'status' => 'required|string|in:draft,published',
             'meta_description' => 'required|string|max:255',
         ];
@@ -109,7 +109,7 @@ class EditPost extends Component
             'status' => $this->status,
         ]);
 
-        $this->post->tags()->sync($this->tag_id);
+        $this->post->tags()->sync($this->tag_ids);
         return redirect()->route('posts.pending')->with('success_updated', 'Post updated successfully.');
     }
 

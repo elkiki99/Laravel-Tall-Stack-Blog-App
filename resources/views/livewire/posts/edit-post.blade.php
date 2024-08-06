@@ -99,19 +99,20 @@
         </div>
         
         <div class="mt-4">
-            <x-input-label for="tag_id" :value="__('Tags')" />
-            <select 
-                id="tag_id" 
-                multiple
-                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
-                wire:model="tag_id"
-            >
-                <option hidden>Select tags</option>
-                @foreach($tags as $tag)
-                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                @endforeach
-            </select>
-            <x-input-error :messages="$errors->get('tag_id')" class="mt-2" />
+            <x-input-label for="tag_ids" :value="__('Tags')" />
+            <div wire:ignore>
+                <select 
+                    multiple
+                    id="tag_ids" 
+                    class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
+                    wire:model='tag_ids' 
+                    >
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <x-input-error :messages="$errors->get('tag_ids')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-center">
@@ -151,4 +152,20 @@
             </div>           
         </div>
     </x-modal>
+
+    @script
+        <script>
+            $(document).ready(function() {              
+                $('#tag_ids').select2({
+                    placeholder: 'Select tags'
+                });
+                    
+                $('#tag_ids').on('change', function() {
+                    let data = $(this).val();
+                    $wire.set('tag_ids', data, false);
+                    // $wire.tag_ids = data;
+                })
+            });
+        </script>
+    @endscript
 <div>

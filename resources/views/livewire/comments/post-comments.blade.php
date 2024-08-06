@@ -32,9 +32,9 @@
                     </div>
                         
                     <p class="mr-24">{{ $comment->body }}</p>
-                    <button wire:click="setParentComment({{ $comment->id }})"
-                        class="text-sm text-blue-500">Reply</button>
                     @auth
+                        <button wire:click="setParentComment({{ $comment->id }})"
+                            class="text-sm text-blue-500">Reply</button>
                         @if(auth()->user()->id === $comment->user_id || auth()->user()->role === 'admin')
                             <button wire:click="deleteComment({{ $comment->id }})"
                                 class="ml-4 text-sm text-red-500">Delete</button>
@@ -77,7 +77,7 @@
                             <div class="w-full">
                                 <div class="flex items-center justify-between">
                                     <div>
-                                        <p class="font-semibold">{{ $comment->user->name }}</p>
+                                        <p class="font-semibold">{{ $childComment->user->name }}</p>
                                     </div>
                                     <div class="flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 size-4">

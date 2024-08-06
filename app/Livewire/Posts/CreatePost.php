@@ -21,14 +21,14 @@ class CreatePost extends Component
     public $excerpt;
     public $featured_image;
     public $category_id;
-    public $tag_id = [];
+    public $tag_ids = [];
     public $reading_time;
     public $views = 0;
     public $status = 'draft';
     public $meta_description;
 
     protected $messages = [
-        'tag_id.required' => 'At least one tag is required.',
+        'tag_ids.required' => 'At least one tag is required.',
         'category_id.required' => 'The category field is required.',
     ];
 
@@ -48,8 +48,8 @@ class CreatePost extends Component
         'excerpt' => 'required|string|max:255',
         'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         'category_id' => 'required|exists:categories,id',
-        'tag_id' => 'required|exists:tags,id',
-        'tag_id.*' => 'required|exists:tags,id',
+        'tag_ids' => 'required|exists:tags,id',
+        'tag_ids.*' => 'required|exists:tags,id',
         'status' => 'required|string|in:draft,published',
         'meta_description' => 'required|string|max:255',
     ];
@@ -82,7 +82,7 @@ class CreatePost extends Component
 
         $post->author_id = auth()->id();
         $post->save();
-        $post->tags()->sync($this->tag_id);
+        $post->tags()->sync($this->tag_ids);
         return redirect()->route('posts.pending')->with('success_created', 'Post created successfully.');
     }
 

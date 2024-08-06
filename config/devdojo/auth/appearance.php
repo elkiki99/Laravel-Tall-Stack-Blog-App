@@ -31,7 +31,7 @@ return [
         'container' => 'center',
     ],
     'favicon' => [
-        'light' => '/auth/img/favicon.png',
+        'light' => '/storage/auth/favicon.svg',
         'dark' => '/auth/img/favicon-dark.png',
     ],
 ];
