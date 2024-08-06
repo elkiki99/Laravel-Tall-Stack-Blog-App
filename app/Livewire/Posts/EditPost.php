@@ -21,6 +21,7 @@ class EditPost extends Component
     public $body;
     public $slug;
     public $excerpt;
+    public $featured_image;
     public $new_featured_image;
     public $category_id;
     public $tag_ids = [];
@@ -37,7 +38,8 @@ class EditPost extends Component
         $this->body = $this->post->body;
         $this->slug = $this->post->slug;
         $this->excerpt = $this->post->excerpt;
-        $this->new_featured_image = $this->post->new_featured_image;
+        $this->featured_image = $this->post->featured_image;
+        // $this->new_featured_image = $this->post->new_featured_image;
         $this->category_id = $this->post->category_id;
         $this->tag_ids = $this->post->tags->pluck('id')->toArray();
         $this->reading_time = $this->post->reading_time;
@@ -68,6 +70,7 @@ class EditPost extends Component
                 Rule::unique('posts', 'slug')->ignore($this->post->id),
             ],
             'excerpt' => 'required|string|max:255',
+            // 'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'new_featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
             'tag_ids' => 'required|array',
@@ -84,14 +87,14 @@ class EditPost extends Component
         $directory = 'public/featured_images';
         Storage::exists($directory) || Storage::makeDirectory($directory);
 
-        if ($this->new_featured_image && $this->new_featured_image->isValid()) {
+        if ($this->new_featured_image) {
             if ($this->post->new_featured_image) {
                 Storage::delete($directory . '/' . $this->post->new_featured_image);
             }
             $featuredImagePath = $this->new_featured_image->store($directory);
             $featuredImageName = basename($featuredImagePath);
         } else {
-            $featuredImageName = $this->post->new_featured_image;
+            $featuredImageName = $this->post->featured_image;
         }
 
         $readingTime = Post::calculateReadingTime($this->body);

@@ -65,17 +65,17 @@
     </div>
 
     <div class="mt-4">
-        <x-input-label for="featured_image" :value="__('Featured Image')" />
+        <x-input-label for="featured_image" :value="__('Featured image')" />
         <x-text-input 
             id="featured_image" 
             type="file" 
             wire:model="featured_image" 
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
         />
-        @if ($featured_image)
+        @if($featured_image)
             <div class="mt-4">
-                <x-input-label :value="__('Image Preview')" />
-                <img src="{{ $featured_image->temporaryUrl() }}" alt="Image Preview" class="w-1/2 mt-2 rounded-md shadow-md"/>
+                <x-input-label :value="__('Image preview')" />
+                <img src="{{ $featured_image->temporaryUrl() }}" alt="Image Preview" class="mt-2 rounded-md shadow-md md:w-1/2"/>
             </div>
         @endif
 

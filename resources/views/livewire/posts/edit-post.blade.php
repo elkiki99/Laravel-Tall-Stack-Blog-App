@@ -65,9 +65,20 @@
             ></textarea>
             <x-input-error :messages="$errors->get('meta_description')" class="mt-2" />
         </div>
-
+        
         <div class="mt-4">
-            <x-input-label for="new_featured_image" :value="__('Featured Image')" />
+            @if($featured_image)
+                <div class="mt-4">
+                    <x-input-label :value="__('Actual image')" />
+                    <img src="{{ asset('storage/featured_images/' . $post->featured_image) }}" alt="Actual image" class="mt-2 rounded-md shadow-md md:w-1/2"/>
+                </div>
+            @endif
+    
+            <x-input-error :messages="$errors->get('featured_image')" class="mt-2" />
+        </div>
+        
+        <div class="mt-4">
+            <x-input-label for="new_featured_image" :value="__('Featured image')" />
             <x-text-input 
                 id="new_featured_image" 
                 type="file" 
@@ -77,7 +88,7 @@
             @if ($new_featured_image)
                 <div class="mt-4">
                     <x-input-label :value="__('Image Preview')" />
-                    <img src="{{ $new_featured_image->temporaryUrl() }}" alt="Image Preview" class="w-1/2 mt-2 rounded-md shadow-md"/>
+                    <img src="{{ $new_featured_image->temporaryUrl() }}" alt="Image Preview" class="mt-2 rounded-md shadow-md md:w-1/2"/>
                 </div>
             @endif
             <x-input-error :messages="$errors->get('new_featured_image')" class="mt-2" />
