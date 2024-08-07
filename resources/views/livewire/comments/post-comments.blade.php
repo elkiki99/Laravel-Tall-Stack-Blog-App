@@ -6,17 +6,7 @@
             wire:key="{{ $comment->id }}"
             class="my-10">
             <div class="flex items-start p-4 rounded-lg bg-gray-50">
-                @if ($comment->user->profile_pic)
-                    <img src="{{ asset('storage/' . $comment->user->profile_pic) }}" alt="Profile picture"
-                        class="mr-4 rounded-full size-12">
-                @else
-                    <svg class="mr-4 text-gray-400 rounded-full size-12" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                        <path fill-rule="evenodd"
-                            d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                @endif
+                <x-profile-picture :user="$comment->user" />
 
                 <div class="w-full">
                     <div class="flex items-center justify-between">
@@ -62,17 +52,8 @@
                 <div class="mt-4 ml-8">
                     @foreach ($comment->children as $childComment)
                         <div wire:loading.remove wire:target='deleteComment({{ $childComment->id }})' wire:key='{{ $comment->id }}' class="flex items-start p-4 bg-gray-100 rounded-lg">
-                            @if ($childComment->user->profile_pic)
-                                <img src="{{ asset('storage/' . $childComment->user->profile_pic) }}"
-                                    alt="Profile picture" class="mr-4 rounded-full size-12">
-                            @else
-                                <svg class="mr-4 text-gray-400 rounded-full size-12" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                    <path fill-rule="evenodd"
-                                        d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            @endif
+                            
+                            <x-profile-picture :user="$childComment->user" />
                             
                             <div class="w-full">
                                 <div class="flex items-center justify-between">
