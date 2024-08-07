@@ -127,18 +127,18 @@
     </x-primary-button>
     
     @script
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#body'))
-            .then(body => {
-                body.model.document.on('change:data', () => {
-                @this.set('body', body.getData());
-                })
-           })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#body'))
+                .then(body => {
+                    body.model.document.on('change:data', () => {
+                    @this.set('body', body.getData());
+                    })
+            })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
     @endscript
 
     @script 

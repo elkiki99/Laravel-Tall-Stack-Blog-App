@@ -26,7 +26,16 @@
         
         <div class="mt-4">
             <x-input-label for="body" :value="__('Body')" />
-            <livewire:quill :value="$body" />
+            <div wire:ignore>
+                <textarea 
+                    id="body"
+                    wire:model="body"
+                    placeholder="Create an awesome blog post!">
+                    {{ $body }} <!-- This will set the initial content of the editor -->
+
+                </textarea>
+            </div>
+    
             <x-input-error :messages="$errors->get('body')" class="mt-2" />
         </div>
         
@@ -163,6 +172,22 @@
             </div>           
         </div>
     </x-modal>
+
+    @script
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#body'))
+                .then(body => {
+                    body.setData(@this.body);
+                    body.model.document.on('change:data', () => {
+                    @this.set('body', body.getData());
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+    @endscript
 
     @script
         <script>

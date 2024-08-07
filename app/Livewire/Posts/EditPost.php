@@ -4,7 +4,6 @@ namespace App\Livewire\Posts;
 
 use App\Models\Tag;
 use App\Models\Post;
-use App\Livewire\Quill;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
@@ -39,22 +38,12 @@ class EditPost extends Component
         $this->slug = $this->post->slug;
         $this->excerpt = $this->post->excerpt;
         $this->featured_image = $this->post->featured_image;
-        // $this->new_featured_image = $this->post->new_featured_image;
         $this->category_id = $this->post->category_id;
         $this->tag_ids = $this->post->tags->pluck('id')->toArray();
         $this->reading_time = $this->post->reading_time;
         $this->views = $this->post->views;
         $this->status = 'draft';
         $this->meta_description = $this->post->meta_description;
-    }
-
-    public $listeners = [
-        Quill::EVENT_VALUE_UPDATED
-    ];
-
-    public function quill_value_updated($value)
-    {
-        $this->body = $value;
     }
 
     protected function rules()
@@ -70,7 +59,6 @@ class EditPost extends Component
                 Rule::unique('posts', 'slug')->ignore($this->post->id),
             ],
             'excerpt' => 'required|string|max:255',
-            // 'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'new_featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
             'tag_ids' => 'required|array',
