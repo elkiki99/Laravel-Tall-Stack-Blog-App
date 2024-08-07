@@ -13,6 +13,12 @@ class ShowComments extends Component
     
     public $searchComments = '';
     
+    public function deleteComment($commentId)
+    {
+        $comment = Comment::findOrFail($commentId);
+        $comment->delete();
+    }
+
     public function render()
     {
         $comments = Comment::query()

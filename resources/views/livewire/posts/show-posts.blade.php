@@ -62,7 +62,9 @@
 
             <tbody>
                 @foreach($posts as $post)
-                    <tr wire:loading.remove wire:target='deletePost({{ $post->id }})' class="odd:bg-white even:bg-gray-100">
+                    <tr wire:loading.remove wire:target='deletePost({{ $post->id }})' 
+                        class="bg-white border-b-2"
+                    />
                         <td class="p-4 font-bold rounded-lg">
                             <a wire:navigate href="{{ route('posts.show', $post) }}">
                                 {{ \Illuminate\Support\Str::limit($post->title, 40) }}

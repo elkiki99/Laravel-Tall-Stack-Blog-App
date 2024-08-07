@@ -58,7 +58,7 @@
                     <tr 
                         wire:loading.remove 
                         wire:target='deleteCategory({{ $tag->id }})'
-                        class="rounded-lg odd:bg-white even:bg-gray-100"
+                        class="bg-white border-b-2"
                     />
                         <td class="p-4 font-bold">
                             <a wire:navigate href="{{ route('tags.show', $tag) }}">

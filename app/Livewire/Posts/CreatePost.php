@@ -4,7 +4,6 @@ namespace App\Livewire\Posts;
 
 use App\Models\Tag;
 use App\Models\Post;
-use App\Livewire\Quill;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithFileUploads;
@@ -31,14 +30,6 @@ class CreatePost extends Component
         'tag_ids.required' => 'At least one tag is required.',
         'category_id.required' => 'The category field is required.',
     ];
-
-    public $listeners = [
-        Quill::EVENT_VALUE_UPDATED
-    ];
-    
-    public function quill_value_updated($value){
-        $this->body = $value;
-    }
 
     protected $rules = [
         'title' => 'required|string|max:255',
