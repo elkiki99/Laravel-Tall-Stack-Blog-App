@@ -47,14 +47,14 @@ class CreatePost extends Component
     
     public function submit()
     {
-        $this->validate();
+        $this->validate();  
 
         $directory = 'public/featured_images';
-            Storage::exists($directory) || Storage::makeDirectory($directory);
-            $featuredImagePath = $this->featured_image 
-            ? $this->featured_image->store($directory) 
-            : null;
-            $featuredImageName = $featuredImagePath ? basename($featuredImagePath) : null;
+        Storage::exists($directory) || Storage::makeDirectory($directory);
+        $featuredImagePath = $this->featured_image 
+        ? $this->featured_image->store($directory) 
+        : null;
+        $featuredImageName = $featuredImagePath ? basename($featuredImagePath) : null;
 
         $readingTime = Post::calculateReadingTime($this->body);
 

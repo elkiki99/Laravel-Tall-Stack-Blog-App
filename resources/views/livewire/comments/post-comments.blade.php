@@ -1,10 +1,10 @@
-<div class="my-10">
+<div>
     @forelse($comments as $comment)
         <div 
             wire:loading.remove 
             wire:target='deleteComment({{ $comment->id }})' 
             wire:key="{{ $comment->id }}"
-            class="mb-4">
+            class="my-10">
             <div class="flex items-start p-4 rounded-lg bg-gray-50">
                 @if ($comment->user->profile_pic)
                     <img src="{{ asset('storage/' . $comment->user->profile_pic) }}" alt="Profile picture"

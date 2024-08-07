@@ -46,12 +46,10 @@
 
                 <div class="w-full md:w-5/6">                    
                     {!! $post->body !!}
-                    {{-- <td>{!! html_entity_decode($post->body) !!}</td> --}}
-
-                    
+                        
                     @if(auth()->check() && auth()->user()->role === 'admin')
                         <div class="flex">
-                            <div>
+                            <div class="mt-10">
                                 <x-post-created-data :post="$post" />
                                 <x-post-tags class="my-5" :post="$post" />
                             </div>
@@ -95,7 +93,7 @@
                             @endif
                         </div>  
                     @else
-                        <div>
+                        <div class="mt-10">
                             <x-post-created-data :post="$post" />
                             <x-post-tags class="my-5" :post="$post" />
                         </div>
@@ -103,7 +101,7 @@
                 </div>
             </div>
 
-            <div class="max-w-5xl py-24 mx-auto">
+            <div class="max-w-5xl pt-24 mx-auto">
                 <h3 class="text-6xl font-bold">{{ __('Comments') }}</h3>
 
                 <livewire:comments.post-comments :post="$post" />

@@ -114,8 +114,8 @@
             </div>
             <div x-show="openMenuIndex === 2"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="{{ route('posts.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage posts</a>
                 <a wire:navigate href="{{ route('posts.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new post</a>
+                <a wire:navigate href="{{ route('posts.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage posts</a>
                 <a wire:navigate href="{{ route('posts.pending') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Pending posts</a>
             </div>
             <div x-show="openMenuIndex === 3"
@@ -143,7 +143,7 @@
             <div x-show="openMenuIndex === 8"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
                 <a wire:navigate href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Profile</a>
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage account</a>
+                <a wire:navigate href="{{ route('profile.picture') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage account</a>
             </div>
         </div>
     </div>

@@ -172,18 +172,18 @@
         </div>
         <div x-show="hoverSection === 'post' || (hoverSection === null && activeSection === 'post')"
             class="transition-opacity duration-300">
-            <a wire:navigate href="{{ route('posts.index') }}">
-                <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage posts</h3>
-                    <p class="text-sm text-black 2xl:text-md">View published blog posts</p>
-                </div>
-            </a>
             <a wire:navigate href="{{ route('posts.create') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new post</h3>
                     <p class="text-sm text-black 2xl:text-md">Create a new blog posts</p>
+                </div>
+            </a>
+            <a wire:navigate href="{{ route('posts.index') }}">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage posts</h3>
+                    <p class="text-sm text-black 2xl:text-md">View published blog posts</p>
                 </div>
             </a>
             <a wire:navigate href="{{ route('posts.pending') }}">
@@ -274,7 +274,7 @@
                     <p class="text-sm text-black 2xl:text-md">View your profile</p>
                 </div>
             </a>
-            <a wire:navigate href="#">
+            <a wire:navigate href="{{ route('profile.picture') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage account</h3>
