@@ -25,10 +25,9 @@
     
     <div class="mt-4">
         <x-input-label for="body" :value="__('Body')" />
-        <div wire:ignore >
+        <div wire:ignore>
             <textarea 
-                class="form-control" 
-                id="body" 
+                id="body"
                 wire:model="body"
                 placeholder="Create an awesome blog post!">
             </textarea>
@@ -127,6 +126,21 @@
         Create post
     </x-primary-button>
     
+    @script
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#body'))
+            .then(body => {
+                body.model.document.on('change:data', () => {
+                @this.set('body', body.getData());
+                })
+           })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    @endscript
+
     @script 
         <script>
             $(document).ready(function() {              
@@ -141,19 +155,5 @@
                 })
             });
         </script>
-    @endscript
-
-    @script
-        <script>
-            ClassicEditor
-            .create( document.querySelector( '#body' ) )
-            .catch( error => {
-            console.error( error );
-            });
-        </script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" ></script>
     @endscript
 </form>

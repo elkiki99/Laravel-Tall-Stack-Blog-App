@@ -47,6 +47,7 @@ class CreatePost extends Component
     
     public function submit()
     {
+        dd($this->body);
         $this->validate();
 
         $directory = 'public/featured_images';

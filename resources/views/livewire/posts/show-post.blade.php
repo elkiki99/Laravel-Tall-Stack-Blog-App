@@ -46,6 +46,8 @@
 
                 <div class="w-full md:w-5/6">                    
                     {!! $post->body !!}
+                    {{-- <td>{!! html_entity_decode($post->body) !!}</td> --}}
+
                     
                     @if(auth()->check() && auth()->user()->role === 'admin')
                         <div class="flex">
