@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_pic')->nullable();
+            $table->string('provider_id')->nullable()->unique();
         });
     }
 
@@ -21,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profile_pic');
+        Schema::table('users', function (Blueprint $table) {
+            Schema::dropIfExists('provider_id');
+        });
     }
 };

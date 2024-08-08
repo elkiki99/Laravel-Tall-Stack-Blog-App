@@ -22,21 +22,21 @@
     
     <form wire:submit.prevent="uploadProfilePicture">
         <div class="mt-4">
-            <x-input-label for="profile_pic" :value="__('Profile picture')" />
+            <x-input-label for="avatar" :value="__('Profile picture')" />
             <x-text-input 
-                id="profile_pic" 
+                id="avatar" 
                 type="file" 
-                wire:model="profile_pic" 
+                wire:model="avatar" 
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
             />
-            @if($profile_pic)
+            @if($avatar)
                 <div class="mt-4">
                     <x-input-label :value="__('Image preview')" />
-                    <img src="{{ $profile_pic->temporaryUrl() }}" alt="Image Preview" class="mt-2 rounded-md shadow-md md:w-1/2"/>
+                    <img src="{{ $avatar->temporaryUrl() }}" alt="Image Preview" class="mt-2 rounded-md shadow-md md:w-1/2"/>
                 </div>
             @endif
     
-            <x-input-error :messages="$errors->get('profile_pic')" class="mt-2" />
+            <x-input-error :messages="$errors->get('avatar')" class="mt-2" />
         </div>
     
         <x-secondary-button class="px-4 py-2 my-5" type="submit">

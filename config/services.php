@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'github' => [
+        'client_id'     => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect'      => env('GITHUB_REDIRECT_URL'),
+    ]
+
+    // 'zoho' => [
+    //     'client_id' => env('ZOHO_CLIENT_ID'),
+    //     'client_secret' => env('ZOHO_CLIENT_SECRET'),
+    //     'redirect' => env('ZOHO_REDIRECT_URI'),
+    // ],
 ];

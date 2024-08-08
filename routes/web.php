@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePagesController;
 use App\Http\Controllers\LegalPagesController;
+use App\Http\Controllers\Auth\GitHubSocialiteController;
 use App\Http\Controllers\ManageProfileController;
 
 /**
@@ -72,6 +73,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/profile/manage', [ManageProfileController::class, 'picture'])->name('profile.picture');
+});
+
+/**
+ * GitHub socialite.
+ */
+Route::middleware('guest')->group(function () {
+    Route::get('auth/github/redirect', [GitHubSocialiteController::class, 'redirect'])->name('github.login');
+    Route::get('auth/github/callback', [GitHubSocialiteController::class, 'callback']);    
 });
 
 

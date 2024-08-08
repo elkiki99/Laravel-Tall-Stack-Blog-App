@@ -11,29 +11,29 @@ class UploadProfilePicture extends Component
     use WithFileUploads;
 
     public $user;
-    public $profile_pic;
+    public $avatar;
 
     public function mount($user)
     {
         $this->user = $user;
     }
 
-    public function uploadProfilePicture()
+    public function uploadAvatar()
     {
         $this->validate([
-            'profile_pic' => 'required|image|max:1024',
+            'avatar' => 'required|image|max:1024',
         ]);
 
-        $directory = 'public/profile_pics';
+        $directory = 'public/avatars';
         if (!Storage::exists($directory)) {
             Storage::makeDirectory($directory);
         }
 
-        $profilePicPath = $this->profile_pic->store($directory);
-        $profilePicName = basename($profilePicPath);
+        $avatarPath = $this->avatar->store($directory);
+        $avatarName = basename($avatarPath);
 
         $this->user->update([
-            'profile_pic' => $profilePicName,
+            'avatar' => $avatarName,
         ]);
         return redirect()->route('profile.picture')->with('success_created', 'Profile picture uploaded successfully.');
     }
