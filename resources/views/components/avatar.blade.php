@@ -1,5 +1,7 @@
+@props(['class' => ''])
+
 @if ($user->avatar)
-    <img src="{{ asset('storage/avatars/' . $user->avatar) }}" class="object-cover w-24 h-24 mr-2 bg-gray-200 rounded-full">
+    <img src="{{ asset('storage/avatars/' . $user->avatar) }}" class="object-cover p-1 {{ $class }} mr-2 shadow rounded-full">
 @else
     <svg class="mr-4 text-gray-400 rounded-full size-24" xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24" fill="currentColor" class="size-6">

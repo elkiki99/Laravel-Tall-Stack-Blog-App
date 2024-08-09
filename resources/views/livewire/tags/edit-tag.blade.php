@@ -10,9 +10,8 @@
                 id="name" 
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
             </x-text-input>
-            @error('name')
-                <p class="text-sm text-red-600">{{ $message }}</p>
-            @enderror
+
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Slug -->
@@ -25,9 +24,8 @@
                 id="slug"  
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
             </x-text-input>
-            @error('slug')
-                <p class="text-sm text-red-600">{{ $message }}</p>
-            @enderror
+
+            <x-input-error :messages="$errors->get('slug')" class="mt-2" />
         </div>
 
         <!-- Description -->
@@ -40,9 +38,8 @@
                 rows="4" 
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" 
                 ></textarea>
-            @error('description')
-                <p class="text-sm text-red-600">{{ $message }}</p>
-            @enderror
+
+                <x-input-error :messages="$errors->get('description')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-center">

@@ -8,7 +8,7 @@ class HomePagesController extends Controller
 {
     public function blog()
     {
-        $posts = Post::with('author')->where('status', 'published')->get();
+        $posts = Post::with('author')->where('status', 'published')->latest()->paginate(10);
 
         return view ('homepages.blog', [
             'posts' => $posts

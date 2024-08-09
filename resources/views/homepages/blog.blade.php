@@ -181,4 +181,6 @@
             @endforelse
         </section>
     </div>
+
+    <div class="max-w-7xl mx-auto">{{ $posts->links() }}</div>
 </x-app-layout>

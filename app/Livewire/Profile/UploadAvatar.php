@@ -21,7 +21,7 @@ class UploadAvatar extends Component
     public function uploadAvatar()
     {
         $this->validate([
-            'avatar' => 'required|image|max:1024',
+            'avatar' => 'required|image|max:2048',
         ]);
 
         $directory = 'public/avatars';
@@ -35,7 +35,7 @@ class UploadAvatar extends Component
         $this->user->update([
             'avatar' => $avatarName,
         ]);
-        return redirect()->route('profile.picture')->with('success_created', ' uploaded successfully.');
+        return redirect()->route('profile.picture')->with('success_created', 'Avatar uploaded successfully.');
     }
 
     public function render()
