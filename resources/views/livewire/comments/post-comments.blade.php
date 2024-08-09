@@ -1,6 +1,6 @@
 <div>
     @forelse($comments as $comment)
-        <div 
+        <div
             wire:loading.remove 
             wire:target='deleteComment({{ $comment->id }})' 
             wire:key="{{ $comment->id }}"

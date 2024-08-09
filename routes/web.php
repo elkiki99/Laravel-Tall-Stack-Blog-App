@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
@@ -32,11 +33,6 @@ Route::get('/cookies', [LegalPagesController::class, 'cookies'])->name('cookies'
 Route::get('/disclaimer', [LegalPagesController::class, 'disclaimer'])->name('disclaimer');
 
 /**
- * Admin panel.
- */
-Route::get('/panel', [PanelController::class, 'admin'])->name('panel.admin');
-
-/**
  * Blog pages.
  */
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
@@ -62,9 +58,11 @@ Route::get('/blog/tag/{tag:slug}', [TagController::class, 'show'])->name('tags.s
 Route::get('/tag/edit/{tag:slug}', [TagController::class, 'edit'])->name('tags.edit');
 
 /**
- * Comments.
+ * User pages.
  */
-Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/user/{user:nickname}', [UserController::class, 'show'])->name('users.show');
+Route::get('/user/edit/{user:nickname}', [UserController::class, 'edit'])->name('users.edit');
 
 /**
  * Profile.
@@ -75,6 +73,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/profile/manage', [ManageProfileController::class, 'picture'])->name('profile.picture');
 });
+
+/**
+ * Admin panel.
+ */
+Route::get('/panel', [PanelController::class, 'admin'])->name('panel.admin');
+
+/**
+ * Comments.
+ */
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
 
 /**
  * GitHub socialite.
