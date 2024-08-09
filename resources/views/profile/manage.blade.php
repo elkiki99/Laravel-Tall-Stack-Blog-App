@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="max-w-6xl min-h-screen px-4 py-10 pb-32 mx-auto sm:px-10">
         
-        <livewire:profile.upload-profile-picture :user="$user" />
+        <livewire:profile.upload-avatar :user="$user" />
         
         <section class="max-w-xl">
             <header>

@@ -6,7 +6,7 @@
             wire:key="{{ $comment->id }}"
             class="my-10">
             <div class="flex items-start p-4 rounded-lg bg-gray-50">
-                <x-profile-picture :user="$comment->user" />
+                <x-avatar :user="$comment->user" />
 
                 <div class="w-full">
                     <div class="flex items-center justify-between">
@@ -53,7 +53,7 @@
                     @foreach ($comment->children as $childComment)
                         <div wire:loading.remove wire:target='deleteComment({{ $childComment->id }})' wire:key='{{ $comment->id }}' class="flex items-start p-4 bg-gray-100 rounded-lg">
                             
-                            <x-profile-picture :user="$childComment->user" />
+                            <x-avatar :user="$childComment->user" />
                             
                             <div class="w-full">
                                 <div class="flex items-center justify-between">

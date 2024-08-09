@@ -120,13 +120,13 @@
             </div>
             <div x-show="openMenuIndex === 3"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="{{ route('categories.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage categories</a>
                 <a wire:navigate href="{{ route('categories.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new category</a>
+                <a wire:navigate href="{{ route('categories.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage categories</a>
             </div>  
             <div x-show="openMenuIndex === 4"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="{{ route('tags.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage tags</a>
                 <a wire:navigate href="{{ route('tags.create') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Create new tag</a>
+                <a wire:navigate href="{{ route('tags.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage tags</a>
             </div>   
             <div x-show="openMenuIndex === 5"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">

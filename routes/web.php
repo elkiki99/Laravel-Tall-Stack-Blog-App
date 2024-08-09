@@ -9,8 +9,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePagesController;
 use App\Http\Controllers\LegalPagesController;
-use App\Http\Controllers\Auth\GitHubSocialiteController;
 use App\Http\Controllers\ManageProfileController;
+use App\Http\Controllers\Auth\GitHubSocialiteController;
+// use App\Http\Controllers\Auth\GoogleSocialiteController;
 
 /**
  * Home pages.
@@ -80,7 +81,9 @@ Route::middleware('auth')->group(function () {
  */
 Route::middleware('guest')->group(function () {
     Route::get('auth/github/redirect', [GitHubSocialiteController::class, 'redirect'])->name('github.login');
-    Route::get('auth/github/callback', [GitHubSocialiteController::class, 'callback']);    
+    Route::get('auth/github/callback', [GitHubSocialiteController::class, 'callback']);
+    // Route::get('auth/google/redirect', [GoogleSocialiteController::class, 'redirect'])->name('google.login');
+    // Route::get('auth/google/callback', [GoogleSocialiteController::class, 'callback']);    
 });
 
 

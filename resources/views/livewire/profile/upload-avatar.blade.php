@@ -1,11 +1,11 @@
 <section class="max-w-xl">
     <header>
         <h2 class="text-2xl font-bold sm:text-3xl">
-            {{ __('Profile picture') }}
+            {{ __('Avatar') }}
         </h2>
 
         <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
-            {{ __("Update your account's profile picture.") }}
+            {{ __("Update your account's avatar.") }}
         </p>
                 
         @if(session('success_created'))
@@ -20,9 +20,9 @@
         @endif
     </header>
     
-    <form wire:submit.prevent="uploadProfilePicture">
+    <form wire:submit.prevent="uploadAvatar">
         <div class="mt-4">
-            <x-input-label for="avatar" :value="__('Profile picture')" />
+            <x-input-label for="avatar" :value="__('Avatar')" />
             <x-text-input 
                 id="avatar" 
                 type="file" 
@@ -40,7 +40,7 @@
         </div>
     
         <x-secondary-button class="px-4 py-2 my-5" type="submit">
-            {{ __('Upload picture') }}
+            {{ __('Upload avatar') }}
         </x-secondary-button>
     </form>
 </section>

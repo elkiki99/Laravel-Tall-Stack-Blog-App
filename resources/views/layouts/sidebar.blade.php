@@ -196,13 +196,6 @@
         </div>
         <div x-show="hoverSection === 'category' || (hoverSection === null && activeSection === 'category')"
             class="transition-opacity duration-300">
-            <a wire:navigate href="{{ route('categories.index') }}">
-                <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage categories</h3>
-                    <p class="text-sm text-black 2xl:text-md">View all categories</p>
-                </div>
-            </a>
             <a wire:navigate href="{{ route('categories.create') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
@@ -210,21 +203,28 @@
                     <p class="text-sm text-black 2xl:text-md">Create a new category</p>
                 </div>
             </a>
+            <a wire:navigate href="{{ route('categories.index') }}">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage categories</h3>
+                    <p class="text-sm text-black 2xl:text-md">View all categories</p>
+                </div>
+            </a>
         </div>
         <div x-show="hoverSection === 'tag' || (hoverSection === null && activeSection === 'tag')"
             class="transition-opacity duration-300">
-            <a wire:navigate href="{{ route('tags.index') }}">
-                <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage tags</h3>
-                    <p class="text-sm text-black 2xl:text-md">View all tags</p>
-                </div>
-            </a>
             <a wire:navigate href="{{ route('tags.create') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new tag</h3>
                     <p class="text-sm text-black 2xl:text-md">Create a new tag</p>
+                </div>
+            </a>
+            <a wire:navigate href="{{ route('tags.index') }}">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage tags</h3>
+                    <p class="text-sm text-black 2xl:text-md">View all tags</p>
                 </div>
             </a>
         </div>

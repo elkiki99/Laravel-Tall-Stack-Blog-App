@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ProfilePicture extends Component
+class Avatar extends Component
 {
     public $user;
     
@@ -20,6 +20,6 @@ class ProfilePicture extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.profile-picture');
+        return view('components.avatar');
     }
 }

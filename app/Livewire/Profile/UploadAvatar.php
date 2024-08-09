@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
-class UploadProfilePicture extends Component
+class UploadAvatar extends Component
 {
     use WithFileUploads;
 
@@ -35,11 +35,11 @@ class UploadProfilePicture extends Component
         $this->user->update([
             'avatar' => $avatarName,
         ]);
-        return redirect()->route('profile.picture')->with('success_created', 'Profile picture uploaded successfully.');
+        return redirect()->route('profile.picture')->with('success_created', ' uploaded successfully.');
     }
 
     public function render()
     {
-        return view('livewire.profile.upload-profile-picture');
+        return view('livewire.profile.upload-avatar');
     }
 }
