@@ -16,10 +16,12 @@ class ShowUser extends Component
     
     public function render()
     {
+        $user = $this->user;
         $posts = $this->user->posts()->where('status', 'published')->latest()->paginate(10);
 
         return view('livewire.users.show-user', [
-            'posts' => $posts
+            'posts' => $posts,
+            'user' => $user
         ]);
     }
 }

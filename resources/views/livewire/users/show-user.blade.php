@@ -23,12 +23,12 @@
         <p class="text-gray-700">
             &#64;{{ $user->nickname }}
             &#9679;
-            @if ($user->posts->where('status', 'published')->count() < 1)
+            @if ($posts->count() < 1)
                 No posts yet
-            @elseif($user->posts->where('status', 'published')->count() === 1)
+            @elseif($posts->count() === 1)
                 1 post
-            @elseif($user->posts->where('status', 'published')->count() > 1)
-                {{ $user->posts->where('status', 'published')->count() }} posts
+            @elseif($posts->count() > 1)
+                {{ $posts->count() }} posts
             @endif
         </p>
 
@@ -66,7 +66,7 @@
     <section class="py-24 space-y-4">
         <h3 class="text-4xl font-bold">Published blog posts</h3>
 
-        @forelse($user->posts as $post)
+        @forelse($posts as $post)
             <div class="flex flex-col pb-10 bg-white rounded-lg 2xl:pb-5 2xl:flex-row dark:bg-gray-800">
                 <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
                     <a wire:navigate href="{{ route('posts.show', $post) }}">

@@ -18,6 +18,8 @@
         $activeSection = 'subscription';
     } elseif(str_contains($routeName, 'profile')) {
         $activeSection = 'profile';
+    } elseif(str_contains($routeName, 'users')) {
+        $activeSection = 'users';
     }
 @endphp
 
@@ -102,6 +104,19 @@
                 stroke="white" class="m-2 size-7">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                </svg>
+            </div>
+            <div class="flex items-center justify-center hover:cursor-pointer"
+                :class="{
+                    'blur-xs': hoverSection === 'users' && activeSection !== 'users',
+                    'bg-gray-800 rounded-md': activeSection === 'users',
+                    '': hoverSection !== 'users' && activeSection !== 'users'
+                }"      
+                @mouseover="hoverSection = 'users'"
+                @mouseleave="hoverSection = null" 
+                @click="activeSection = 'users'; hoverSection = null">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="size-7 m-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
                 </svg>
             </div>
         @endif
@@ -245,6 +260,16 @@
                 </div>
             </a> --}}
         </div>
+        <div x-show="hoverSection === 'users' || (hoverSection === null && activeSection === 'users')"
+        class="transition-opacity duration-300">
+            <a wire:navigate href="{{ route('users.index') }}">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">All users</h3>
+                    <p class="text-sm text-black 2xl:text-md">Manage users</p>
+                </div>
+            </a>
+        </div>
         <div x-show="hoverSection === 'subscription' || (hoverSection === null && activeSection === 'subscription')"
             class="transition-opacity duration-300">
             <a wire:navigate href="#">
@@ -267,18 +292,27 @@
         </div>
         <div x-show="hoverSection === 'profile' || (hoverSection === null && activeSection === 'profile')"
             class="transition-opacity duration-300">
-            <a wire:navigate href="{{ route('profile.edit') }}">
-                <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Profile</h3>
-                    <p class="text-sm text-black 2xl:text-md">View your profile</p>
-                </div>
-            </a>
+            @if(auth()->user()->role === 'author')
+                <a wire:navigate href="{{ route('users.show', App\Models\User::find(auth()->user()->id)) }}">
+                    <div
+                        class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                        <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">View profile</h3>
+                        <p class="text-sm text-black 2xl:text-md">View my author profile</p>
+                    </div>
+                </a>
+            @endif
             <a wire:navigate href="{{ route('profile.picture') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage account</h3>
                     <p class="text-sm text-black 2xl:text-md">Manage your account</p>
+                </div>
+            </a>
+            <a wire:navigate href="{{ route('profile.edit') }}">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Settings</h3>
+                    <p class="text-sm text-black 2xl:text-md">Profile settings</p>
                 </div>
             </a>
         </div>

@@ -69,7 +69,7 @@
                             {{ $user->nickname }}
                         </td>
                         <td class="hidden p-4 font-medium lg:table-cell">
-                            {{ \Illuminate\Support\Str::limit($user->bio, 40) }}
+                            {{ \Illuminate\Support\Str::limit(strip_tags($user->bio), 40) }}
                         </td>
                         <td class="p-4">
                             <div class="flex items-end justify-end">
