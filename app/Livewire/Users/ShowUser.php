@@ -13,6 +13,26 @@ class ShowUser extends Component
     {
         $this->user = User::find($userId);
     }
+
+    public function removeAuthorRole()
+    {
+        $this->user->update([
+            'nickname' => null,
+            'role' => 'user',
+            'linkedin_profile' => null,
+            'website' => null,
+            'bio' => null,
+        ]);
+
+        $this->user->posts()->update([
+            'status' => 'draft',
+            'author_id' => 3,
+        ]);
+
+        $this->user->save();
+
+        return redirect()->route('users.index')->with('author_role_deleted', 'Author role deleted successfully for '.$this->user->name.'.');
+    }
     
     public function render()
     {
@@ -25,3 +45,4 @@ class ShowUser extends Component
         ]);
     }
 }
+

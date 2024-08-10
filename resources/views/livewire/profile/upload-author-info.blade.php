@@ -60,6 +60,19 @@
             <x-input-error :messages="$errors->get('bio')" class="mt-2" />
         </div>
 
+        <div class="mb-4">
+            <x-input-label for="nickname" :value="__('Nickname')" />
+            <x-text-input 
+                type="text" 
+                wire:model='nickname'
+                placeholder="Your nickname"
+                id="nickname"  
+                class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
+            </x-text-input>
+
+            <x-input-error :messages="$errors->get('nickname')" class="mt-2" />
+        </div>
+
         <div class="mt-4">
             <x-input-label for="avatar" :value="__('Avatar')" />
 
@@ -73,7 +86,7 @@
             @if($avatar)
                 <div class="mt-4">
                     <x-input-label :value="__('Image preview')" />
-                    <img src="{{ $avatar->temporaryUrl() }}" alt="Image Preview" class="size-32 object-cover p-1 mr-2 shadow rounded-full"/>
+                    <img src="{{ $avatar->temporaryUrl() }}" alt="Image Preview" class="object-cover p-1 mr-2 rounded-full shadow size-32"/>
                 </div>
             @endif
 

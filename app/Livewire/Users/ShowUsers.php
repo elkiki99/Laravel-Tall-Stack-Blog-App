@@ -12,10 +12,13 @@ class ShowUsers extends Component
     use WithPagination;
 
     public string $searchUsers = '';
+    public string $searchRole = '';
 
     public function render()
     {
         $users = User::query()
+            ->where('role', '!=', 'admin')
+            ->when($this->searchRole !== '', fn(Builder $query) => $query->where('role', 'like', '%' . $this->searchRole . '%')) 
             ->when($this->searchUsers !== '', function (Builder $query) {
                 $query->where('name', 'like', '%' . $this->searchUsers . '%');
             })

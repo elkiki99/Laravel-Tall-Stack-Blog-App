@@ -3,21 +3,32 @@
         <x-avatar :user="$user" class="sm:size-44 size-32" />
 
         @if($user->role === 'author')
-            <div class="flex items-center">
-                <h2 class="text-2xl my-2 font-bold sm:text-3xl">
-                    {{ $user->name }}
-                </h2>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="size-6 ml-2 text-blue-500">
-                    <path fill-rule="evenodd"
-                        d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clip-rule="evenodd" />
-                </svg>
+            <div class="flex justify-between">
+                <div class="flex items-center">
+                    <h2 class="my-2 text-2xl font-bold sm:text-3xl">
+                        {{ $user->name }}
+                    </h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="ml-2 text-blue-500 size-6">
+                        <path fill-rule="evenodd"
+                            d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+                <button 
+                    class="flex items-center text-red-500 hover:blur-xs" 
+                    x-on:click.prevent="$dispatch('open-modal', 'remove-author-role')"
+                >
+                    <p>Remove author role</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="mx-2 text-red-500 size-6">
+                        <path fill-rule="evenodd"
+                            d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>  
             </div>
-        @elseif($user->role === 'user')
-            <h2 class="text-2xl my-2 font-bold sm:text-3xl">
-                {{ $user->name }}
-            </h2>
         @endif
 
         <p class="text-gray-700">
@@ -35,7 +46,7 @@
         <div class="flex my-4 space-x-4">
             <a href="mailto:{{ $user->email }}" class="text-gray-800">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="h-6 w-6">
+                    stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
@@ -43,7 +54,7 @@
 
             <a href="{{ $user->website }}" class="text-gray-800">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="h-6 w-6">
+                    stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
                 </svg>
@@ -58,7 +69,7 @@
             </a>
         </div>
 
-        <p class=" text-gray-600 text-md dark:text-gray-400">
+        <p class="text-gray-600 text-md dark:text-gray-400">
             {!! $user->bio !!}
         </p>
     </section>
@@ -113,4 +124,29 @@
 
         {{ $posts->links() }}
     </section>
+
+    <x-modal name="remove-author-role">
+        <div class="p-6">
+            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {{ __('Are you sure you want to remove this author role?') }}
+            </h3>
+            
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                {{ __('All of the blog posts which are associated with this user will lose it\'s author and will become drafts.') }}
+            </p>
+            
+            <div class="flex justify-end mt-6">
+                <x-secondary-button class="px-4 py-2" x-on:click="$dispatch('close')">
+                    {{ __('Cancel') }}
+                </x-secondary-button>
+
+                <x-danger-button 
+                    class="px-4 py-2 ms-3" 
+                    wire:click="removeAuthorRole({{ $user->id }})"
+                >
+                    {{ __('Yes, remove') }}
+                </x-danger-button>            
+            </div>
+        </div>
+    </x-modal>
 </div>

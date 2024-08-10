@@ -14,6 +14,7 @@ class UploadAuthorInfo extends Component
     public $linkedin_profile;
     public $website;
     public $bio;
+    public $nickname;
     public $avatar;
 
     public function mount($user)
@@ -22,6 +23,7 @@ class UploadAuthorInfo extends Component
         $this->linkedin_profile = $user->linkedin_profile;
         $this->website = $user->website;
         $this->bio = $user->bio;
+        $this->nickname = $user->nickname;
     }
 
     public function uploadAuthorInfo()
@@ -30,6 +32,7 @@ class UploadAuthorInfo extends Component
             'linkedin_profile' => 'nullable|url',
             'website' => 'nullable|url',
             'bio' => 'nullable|string|max:1024',
+            'nickname' => 'string|max:40',
             'avatar' => 'nullable|image|max:2048',
         ]);
 
@@ -52,6 +55,7 @@ class UploadAuthorInfo extends Component
             'linkedin_profile' => $this->linkedin_profile,
             'website' => $this->website,
             'bio' => $this->bio,
+            'nickname' => $this->nickname,
             'avatar' => $avatarName,
         ]);
         return redirect()->route('profile.picture')->with('success_created', 'Information uploaded successfully.');
