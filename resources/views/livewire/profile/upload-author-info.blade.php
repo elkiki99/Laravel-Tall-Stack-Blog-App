@@ -76,11 +76,17 @@
         <div class="mt-4">
             <x-input-label for="avatar" :value="__('Avatar')" />
 
-            <x-text-input 
+            {{-- <x-text-input 
                 id="avatar" 
                 type="file" 
                 wire:model="avatar" 
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
+            /> --}}
+            <livewire:dropzone
+                id="avatar"
+                wire:model="avatar"
+                :rules="['image','mimes:png,jpeg','max:2048']"
+                {{-- :multiple="true"  --}}
             />
 
             @if($avatar)

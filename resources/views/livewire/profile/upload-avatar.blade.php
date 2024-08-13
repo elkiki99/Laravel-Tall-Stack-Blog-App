@@ -3,11 +3,11 @@
         <h2 class="text-2xl font-bold sm:text-3xl">
             {{ __('Avatar') }}
         </h2>
-
+        
         <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
             {{ __("Update your account's avatar.") }}
         </p>
-                
+        
         @if(session('success_created'))
             <p
                 x-data="{ show: true }"
