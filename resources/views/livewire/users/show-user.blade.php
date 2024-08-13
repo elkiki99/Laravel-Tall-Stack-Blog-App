@@ -132,7 +132,7 @@
             </h3>
             
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                {{ __('All of the blog posts which are associated with this user will lose it\'s author and will become drafts.') }}
+                {{ __('All blog posts associated with this user will be reassigned to the admin author and will be set to draft status.') }}
             </p>
             
             <div class="flex justify-end mt-6">

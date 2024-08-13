@@ -20,7 +20,8 @@
             
             <select wire:model.live="searchRole"
             class="block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600">
-                <option value="0">Role</option>
+                <option hidden>Filter by role</option>
+                <option value="all">All</option>
                 <option value="user">User</option>
                 <option value="author">Author</option>
             </select>

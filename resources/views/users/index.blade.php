@@ -9,15 +9,15 @@
             {{ __('Manage your users, grant authorizations or remove them') }}
         </p>
 
-        @if(session('author_role_deleted'))
+        @if(session('author_role_removed'))
             <p
                 x-data="{ show: true }"
                 x-show="show"
-                class="text-green-500"
+                class="text-red-500"
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
                 class="text-sm text-gray-600 dark:text-gray-400"
-            >{{ session('author_role_deleted') }}</p>
+            >{{ session('author_role_removed') }}</p>
         @endif
         
         {{-- @elseif(session('success_deleted'))

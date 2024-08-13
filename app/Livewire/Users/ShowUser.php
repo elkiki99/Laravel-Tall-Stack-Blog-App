@@ -15,7 +15,7 @@ class ShowUser extends Component
     }
 
     public function removeAuthorRole()
-    {
+    {   
         $this->user->update([
             'nickname' => null,
             'role' => 'user',
@@ -26,12 +26,12 @@ class ShowUser extends Component
 
         $this->user->posts()->update([
             'status' => 'draft',
-            'author_id' => 3,
+            'author_id' => User::where('role', 'admin')->first()->id,
         ]);
 
         $this->user->save();
 
-        return redirect()->route('users.index')->with('author_role_deleted', 'Author role deleted successfully for '.$this->user->name.'.');
+        return redirect()->route('users.index')->with('author_role_removed', 'Author role deleted successfully for '.$this->user->name.'.');
     }
     
     public function render()

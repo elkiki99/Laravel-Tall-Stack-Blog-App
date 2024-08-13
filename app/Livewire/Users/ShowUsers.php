@@ -18,8 +18,9 @@ class ShowUsers extends Component
     {
         $users = User::query()
             ->where('role', '!=', 'admin')
-            ->when($this->searchRole !== '', fn(Builder $query) => $query->where('role', 'like', '%' . $this->searchRole . '%')) 
-            ->when($this->searchUsers !== '', function (Builder $query) {
+            ->when($this->searchRole && $this->searchRole !== 'all', function (Builder $query) {
+                $query->where('role', 'like', '%' . $this->searchRole . '%');
+            })            ->when($this->searchUsers !== '', function (Builder $query) {
                 $query->where('name', 'like', '%' . $this->searchUsers . '%');
             })
             ->paginate(20);

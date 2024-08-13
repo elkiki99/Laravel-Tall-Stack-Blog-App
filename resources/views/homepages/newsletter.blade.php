@@ -32,7 +32,7 @@
                                     {{ __('Give us your email') }}
                                 </h2>
                                 <p class="mt-1 text-gray-600 text-md dark:text-gray-400">
-                                    {{ __("We'll try to answer as soon as possible, just give us your email") }}
+                                    {{ __("You will get an email with a link to confirm your subscription") }}
                                 </p>
                             </header>
                             

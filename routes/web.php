@@ -61,6 +61,7 @@ Route::get('/tag/edit/{tag:slug}', [TagController::class, 'edit'])->name('tags.e
  * User pages.
  */
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/user/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::get('/user/{user:nickname}', [UserController::class, 'show'])->name('users.show');
 
 /**

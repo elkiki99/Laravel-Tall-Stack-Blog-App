@@ -40,6 +40,6 @@
             >{{ session('success_created') }}</p>
         @endif --}}
         
-        <livewire:users.show-user />
+        <livewire:users.show-user :userId="$user->id" />
     </div>
 </x-admin-layout>
