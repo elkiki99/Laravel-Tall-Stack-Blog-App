@@ -67,6 +67,7 @@ class PostComments extends Component
         $comments = $this->post->comments()
                     ->with('user', 'children.user')
                     ->whereNull('parent_id')
+                    // ->latest()
                     ->paginate(10);
 
         return view('livewire.comments.post-comments', [

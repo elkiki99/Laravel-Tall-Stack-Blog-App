@@ -20,15 +20,15 @@ class ShowComments extends Component
     }
 
     public function render()
-    {
-        $comments = Comment::query()
+    {        
+        $comments = Comment::with('post', 'user')
             ->when($this->searchComments !== '', function (Builder $query) {
                 $query->where('body', 'like', '%' . $this->searchComments . '%');
             })
             ->paginate(20);
         
         return view('livewire.comments.show-comments', [
-            'comments' => $comments
+            'comments' => $comments,
         ]);
     }
 }

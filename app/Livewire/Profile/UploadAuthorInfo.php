@@ -32,7 +32,7 @@ class UploadAuthorInfo extends Component
             'linkedin_profile' => 'nullable|url',
             'website' => 'nullable|url',
             'bio' => 'nullable|string|max:1024',
-            'nickname' => 'string|max:40',
+            'nickname' => 'required|string|max:40',
             'avatar' => 'nullable|image|max:2048',
         ]);
 

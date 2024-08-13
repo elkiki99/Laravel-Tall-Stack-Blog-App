@@ -1,7 +1,13 @@
 @props(['class' => ''])
 
 @if ($user->avatar)
-    <img src="{{ asset('storage/avatars/' . $user->avatar) }}" class="object-cover p-1 {{ $class }} mr-2 shadow rounded-full">
+    @if($user->role === 'author')
+    <a wire:navigate href="{{ route('users.show', $user) }}" class="inline-block pr-2">
+        <img src="{{ asset('storage/avatars/' . $user->avatar) }}" class="object-cover p-1 {{ $class }} shadow rounded-full border-2 mr-2">
+        </a>
+    @else
+        <img src="{{ asset('storage/avatars/' . $user->avatar) }}" class="object-cover p-1 {{ $class }} mr-2 shadow rounded-full border-2">
+    @endif
 @else
     <svg class="mr-4 text-gray-400 rounded-full size-24" xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24" fill="currentColor" class="size-6">

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@dasundev/livewire-dropzone-styles";
+
 html {
     scroll-behavior: smooth;
 }
