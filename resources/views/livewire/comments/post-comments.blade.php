@@ -4,15 +4,15 @@
             class="my-5">
             <div class="flex items-start p-4 rounded-lg bg-gray-50">
                 @if ($comment->user->role === 'author')
-                    <x-avatar class="border-blue-500 size-20" :user="$comment->user" />
+                    <x-avatar class="mr-5 border-blue-500 size-20" :user="$comment->user" />
                 @else
-                    <x-avatar class="size-20" :user="$comment->user" />
+                    <x-avatar class="mr-5 size-20" :user="$comment->user" />
                 @endif
 
                 <div class="w-full">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            @if ($comment->user->id === $post->author->id)
+                            @if($comment->user->id === $post->author->id)
                                 <h3 class="text-lg font-bold">
                                     <a wire:navigate
                                         href="{{ route('users.show', $comment->user) }}">{{ $comment->user->name }}
@@ -65,14 +65,22 @@
             @if ($comment->children->isNotEmpty())
                 <div class="mt-3 ml-8">
                     @foreach ($comment->children as $childComment)
-                        <div wire:loading.remove wire:target='deleteComment({{ $childComment->id }})'
-                            wire:key='{{ $comment->id }}' class="flex items-start p-4 bg-gray-100 rounded-lg">
+                        <div 
+                            wire:loading.remove 
+                            wire:target='deleteComment({{ $childComment->id }})'
+                            wire:key='{{ $comment->id }}' 
+                            class="flex items-start p-4 my-5 bg-gray-100 rounded-lg">
 
-                            @if ($childComment->user->role === 'author')
-                                <x-avatar class="border-blue-500 size-20" :user="$childComment->user" />
+                            @if($childComment->user->role === 'author')
+                                <x-avatar class="mr-5 border-blue-500 size-20" :user="$childComment->user" />
                             @else
-                                <x-avatar class="size-20" :user="$childComment->user" />
+                                <x-avatar class="mr-5 size-20" :user="$childComment->user" />
                             @endif
+                                {{-- @if ($comment->user->role === 'author')
+                                <x-avatar class="mr-5 border-blue-500 size-20" :user="$comment->user" />
+                            @else
+                                <x-avatar class="mr-5 size-20" :user="$comment->user" />
+                            @endif --}}
                             <div class="w-full">
                                 <div class="flex items-center justify-between">
                                     <div>
@@ -102,7 +110,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
                                         </svg>
-                                        {{ $comment->created_at->diffForHumans() }}
+                                        {{ $childComment->created_at->diffForHumans() }}
                                     </div>
                                 </div>
 

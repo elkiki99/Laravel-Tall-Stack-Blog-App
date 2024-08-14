@@ -75,7 +75,7 @@
                                 <x-avatar class="m-1 size-16" :user="$comment->user" />
                             @endif
                         </td>
-                        <td class="p-4 font-bold rounded-lg">
+                        <td class="p-4 font-medium rounded-lg">
                             <a  wire:navigate href="{{ route('posts.show', $comment->post) }}">
                                 {{ \Illuminate\Support\Str::limit($comment->body, 40) }}
                             </a>
@@ -91,9 +91,11 @@
                                     <x-verified class="ml-2 size-6" />
                                 <div>
                             @elseif($comment->user->role === 'author')
-                                <a wire:navigate
-                                    href="{{ route('users.show', $comment->user) }}">{{ $comment->user->name }}
-                                </a>
+                                <h3 class="text-lg font-bold">
+                                    <a wire:navigate
+                                        href="{{ route('users.show', $comment->user) }}">{{ $comment->user->name }}
+                                    </a>
+                                </h3>
                             @else
                                 <h3 class="text-lg font-bold">{{ $comment->user->name }}</h3>
                             @endif                      

@@ -1,8 +1,7 @@
-
 <div class="min-h-screen mt-5 overflow-x-auto">
     <div class="flex flex-col w-full pb-5 md:flex-row">
         <!-- Search Bar -->
-        <div class="w-full mb-4 md:w-1/2 md:mb-0">        
+        <div class="w-full mb-0 md:w-1/2">        
             <form class="flex items-center p-1">
                 <x-input-label class="sr-only">Search</x-input-label>
                 <div class="relative w-full">
@@ -16,8 +15,7 @@
             </form>
         </div>
         <!-- Role Filter -->
-        <div class="w-full px-2 md:w-1/2">
-            
+        <div class="w-full px-1 md:w-1/2">
             <select wire:model.live="searchRole"
             class="block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600">
                 <option hidden>Filter by role</option>
@@ -32,6 +30,14 @@
         <table class="min-w-full bg-white">
             <thead class="bg-gray-100">
                 <tr>
+                    <th class="p-4 font-normal text-left">
+                        <div class="inline-flex items-center">
+                            Avatar
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 ml-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                            </svg>
+                        </div>
+                    </th>
                     <th class="p-4 font-normal text-left">
                         <div class="inline-flex items-center">
                             Name
@@ -79,13 +85,19 @@
                 @foreach($users as $user)
                     <tr 
                         wire:target='grantRole({{ $user->id }})'
-                        class="bg-white border-b-2"
-                    />
+                        class="bg-white border-b-2">
+                        <td>
+                            @if($user->role === 'author')
+                                <x-avatar class="m-1 border-blue-500 size-16" :user="$user" />
+                            @else
+                                <x-avatar class="m-1 size-16" :user="$user" />
+                            @endif
+                        </td>
                         <td class="p-4 font-bold">
                             @if($user->role === 'author')
-                            <a wire:navigate href="{{ route('users.show', $user) }}">
-                                {{ $user->name }}
-                            </a>
+                                <a wire:navigate href="{{ route('users.show', $user) }}">
+                                    {{ $user->name }}
+                                </a>
                             @else
                                 {{ $user->name }}
                             @endif
@@ -93,40 +105,22 @@
                         <td class="hidden p-4 font-medium md:table-cell">
                             {{ $user->email }}
                         </td>
-                        <td class="hidden p-4 font-medium lg:table-cell">
+                        <td class="hidden p-4 font-normal lg:table-cell">
                             @if($user->bio)
-                                {{ \Illuminate\Support\Str::limit(strip_tags($user->bio), 40) }}
+                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($user->bio), 40) }}</p>
                             @else
                                 <p class="text-gray-300">No bio at the time</p>
                             @endif                        
                         </td>
-                        <td class="hidden p-4 font-medium sm:flex">
+                        <td class="hidden h-full p-4 font-medium sm:table-cell">
                             {{ ucfirst($user->role) }}
-                            @if($user->role === 'author')
-                                {{-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"         fill="currentColor"
-                                class="ml-2 text-blue-500 size-6">
-                                    <path fill-rule="evenodd"
-                                        d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                        clip-rule="evenodd" 
-                                    />
-                                </svg> --}}
-                            @endif
                         </td>
                         <td class="p-4">
                             <div class="flex items-end justify-end h-full">
                                 @if($user->role === 'author')
-                                    <svg 
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"         fill="currentColor"
-                                        class="mx-2 text-blue-500 size-6">
-                                        <path fill-rule="evenodd"
-                                            d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                            clip-rule="evenodd" 
-                                        />
-                                    </svg>
+                                    <x-verified class="ml-2 size-6" />
                                 @else
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 text-gray-300 size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                                    </svg>
+                                    <x-verified class="ml-2 text-gray-300 size-6" />
                                 @endif
                                 @if($user->role === 'author')                              
                                     <a class="hover:blur-xs" wire:navigate href="{{ route('users.show', $user) }}">

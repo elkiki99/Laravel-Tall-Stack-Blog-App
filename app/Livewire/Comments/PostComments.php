@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Comments;
 
+use DB;
 use App\Models\Post;
 use App\Models\Comment;
 use Livewire\Component;
@@ -65,9 +66,16 @@ class PostComments extends Component
     public function render()
     {
         $comments = $this->post->comments()
-                    ->with('user', 'children.user')
+                    ->with(['user', 'children' => function($query) {
+                        $query->latest();  
+                    }, 'children.user'])
                     ->whereNull('parent_id')
-                    // ->latest()
+                    ->withCount(['children as latest_child_at' => function ($query) {
+                        $query->select(\DB::raw('MAX(created_at)'));
+                    }])
+                    ->orderByDesc(\DB::raw("
+                        COALESCE(latest_child_at, comments.created_at)
+                    "))
                     ->paginate(10);
 
         return view('livewire.comments.post-comments', [
