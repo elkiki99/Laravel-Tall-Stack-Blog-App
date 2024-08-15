@@ -117,23 +117,20 @@
                         </td>
                         <td class="p-4">
                             <div class="flex items-end justify-end h-full">
-                                @if($user->role === 'author')
-                                    <x-verified class="ml-2 size-6" />
-                                @else
-                                    <x-verified class="ml-2 text-gray-300 size-6" />
-                                @endif
-                                @if($user->role === 'author')                              
+                                <x-verified class="ml-2 size-6" />
+                                
+                                @if($user->nickname)
                                     <a class="hover:blur-xs" wire:navigate href="{{ route('users.show', $user) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                         </svg>                                   
-                                    </a>                
+                                    </a> 
                                 @else
-                                    <a class="hover:blur-xs" wire:navigate href="{{ route('users.show', $user) }}">
+                                    <a class="text-gray-400">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 size-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                         </svg>                                   
-                                    </a>    
+                                    </a> 
                                 @endif
                             </div>
                         </td>

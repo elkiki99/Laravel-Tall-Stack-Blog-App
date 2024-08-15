@@ -11,7 +11,7 @@
                 <x-verified class="ml-2 text-blue-500 size-6" />
             </div>
             
-            @if(auth()->user()->role === 'admin')
+            @if(auth()->check() && auth()->user()->role === 'admin')
                 <button 
                     class="flex items-center text-red-500 hover:blur-xs" 
                     x-on:click.prevent="$dispatch('open-modal', 'remove-author-role')"

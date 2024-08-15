@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PanelController;
@@ -84,6 +85,12 @@ Route::get('/panel', [PanelController::class, 'admin'])->name('panel.admin');
 Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
 
 /**
+ * Likes.
+ */
+
+Route::get('/likes', [LikeController::class, 'index'])->name('likes.index');
+
+/**
  * GitHub socialite.
  */
 Route::middleware('guest')->group(function () {
@@ -92,6 +99,5 @@ Route::middleware('guest')->group(function () {
     // Route::get('auth/google/redirect', [GoogleSocialiteController::class, 'redirect'])->name('google.login');
     // Route::get('auth/google/callback', [GoogleSocialiteController::class, 'callback']);    
 });
-
 
 require __DIR__.'/auth.php';

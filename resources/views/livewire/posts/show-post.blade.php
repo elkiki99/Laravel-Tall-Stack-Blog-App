@@ -94,9 +94,14 @@
                             @endif
                         </div>  
                     @else
-                        <div class="mt-10">
-                            <x-post-created-data :post="$post" />
-                            <x-post-tags class="my-5" :post="$post" />
+                        <div class="flex justify-between mt-10">
+                            <div>                                
+                                <x-post-created-data :post="$post" />
+                                <x-post-tags class="my-5" :post="$post" />
+                            </div>
+                            <div>
+                                <livewire:likes.toggle-like :post="$post" />
+                            </div>
                         </div>
                     @endif
                 </div>

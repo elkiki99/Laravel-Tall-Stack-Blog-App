@@ -2,25 +2,23 @@
     <section>
         <x-avatar :user="$user" class="sm:size-44 size-32" />
 
-        {{-- @if($user->role === 'author') --}}
-            <div class="flex justify-between">
-                <div class="flex items-center">
-                    <h2 class="my-2 text-2xl font-bold sm:text-3xl">
-                        {{ $user->name }}
-                    </h2>
-                </div>
-                
-                @if(auth()->user()->role === 'admin')
-                    <button 
-                        class="flex items-center text-green-500 hover:blur-xs" 
-                        x-on:click.prevent="$dispatch('open-modal', 'grant-author-role')"
-                    >
-                        <p>Grant author role</p>
-                        <x-verified class="mx-2 text-green-500 size-6" />
-                    </button>  
-                @endif
+        <div class="flex justify-between">
+            <div class="flex items-center">
+                <h2 class="my-2 text-2xl font-bold sm:text-3xl">
+                    {{ $user->name }}
+                </h2>
             </div>
-        {{-- @endif --}}
+            
+            @if(auth()->check() && auth()->user()->role === 'admin')
+                <button 
+                    class="flex items-center text-green-500 hover:blur-xs" 
+                    x-on:click.prevent="$dispatch('open-modal', 'grant-author-role')"
+                >
+                    <p>Grant author role</p>
+                    <x-verified class="mx-2 text-green-500 size-6" />
+                </button>  
+            @endif
+        </div>
 
         <p class="text-gray-700">
             &#64;{{ $user->nickname }}

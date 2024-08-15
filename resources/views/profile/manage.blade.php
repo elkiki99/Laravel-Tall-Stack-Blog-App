@@ -1,11 +1,7 @@
 <x-admin-layout>
     <div class="max-w-6xl min-h-screen px-4 py-10 pb-32 mx-auto sm:px-10">
         
-        @if(auth()->user()->role !== 'user')
-            <livewire:profile.upload-author-info :user="$user" />
-        @else
-            <livewire:profile.upload-avatar :user="$user" />
-        @endif
+        <livewire:profile.upload-user-info :user="$user" />
 
         <section class="max-w-xl">
             <header>

@@ -4,9 +4,10 @@ namespace App\Livewire\Profile;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 
-class UploadAuthorInfo extends Component
+class UploadUserInfo extends Component
 {
     use WithFileUploads;
 
@@ -26,13 +27,19 @@ class UploadAuthorInfo extends Component
         $this->nickname = $user->nickname;
     }
 
-    public function uploadAuthorInfo()
+    public function uploadUserInfo()
     {
         $this->validate([
             'linkedin_profile' => 'nullable|url',
             'website' => 'nullable|url',
             'bio' => 'nullable|string|max:1024',
-            'nickname' => 'required|string|max:40',
+            'nickname' => [
+                'required', 
+                'string',
+                'min:3',
+                'max:40',
+                Rule::unique('users', 'nickname')->ignore($this->user->id),
+            ],
             'avatar' => 'nullable|image|max:2048',
         ]);
 
@@ -63,6 +70,6 @@ class UploadAuthorInfo extends Component
 
     public function render()
     {
-        return view('livewire.profile.upload-author-info');
+        return view('livewire.profile.upload-user-info');
     }
 }

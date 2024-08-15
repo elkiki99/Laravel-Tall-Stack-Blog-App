@@ -1,11 +1,11 @@
 <section class="max-w-xl">
     <header>
         <h2 class="text-2xl font-bold sm:text-3xl">
-            {{ __('Author information') }}
+            {{ __('User information') }}
         </h2>
 
         <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
-            {{ __("Update your account's author information.") }}
+            {{ __("Update your account's user information.") }}
         </p>
                 
         @if(session('success_created'))
@@ -20,7 +20,7 @@
         @endif
     </header>
     
-    <form wire:submit.prevent="uploadAuthorInfo">
+    <form wire:submit.prevent="uploadUserInfo">
         <div class="mb-4">
             <x-input-label for="linkedin_profile" :value="__('Linkedin profile')" />
             <x-text-input 
@@ -61,7 +61,10 @@
         </div>
 
         <div class="mb-4">
-            <x-input-label for="nickname" :value="__('Nickname')" />
+            <div class="inline-flex items-center">
+                <x-input-label for="nickname" :value="__('Nickname')" />
+                <span class="ml-1 text-xl text-red-500">*</span>
+            </div>
             <x-text-input 
                 type="text" 
                 wire:model='nickname'
@@ -76,18 +79,17 @@
         <div class="mt-4">
             <x-input-label for="avatar" :value="__('Avatar')" />
 
-            {{-- <x-text-input 
+            <x-text-input 
                 id="avatar" 
                 type="file" 
                 wire:model="avatar" 
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
-            /> --}}
-            <livewire:dropzone
+            />
+            {{-- <livewire:dropzone
                 id="avatar"
                 wire:model="avatar"
                 :rules="['image','mimes:png,jpeg','max:2048']"
-                {{-- :multiple="true"  --}}
-            />
+            /> --}}
 
             @if($avatar)
                 <div class="mt-4">
