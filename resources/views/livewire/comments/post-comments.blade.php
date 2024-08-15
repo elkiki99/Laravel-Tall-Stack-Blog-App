@@ -12,14 +12,16 @@
                 <div class="w-full">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            @if($comment->user->id === $post->author->id)
+                            {{-- @if($comment->user->id === $post->author->id) --}}
                                 <h3 class="text-lg font-bold">
                                     <a wire:navigate
                                         href="{{ route('users.show', $comment->user) }}">{{ $comment->user->name }}
                                     </a>
                                 </h3>
-                                <x-verified class="ml-2 size-6" />
-                            @elseif($comment->user->role === 'author')
+                                @if($comment->user->id === $post->author->id)
+                                    <x-verified class="ml-2 size-6" />
+                                @endif  
+                            {{-- @elseif($comment->user->role === 'author')
                                 <h3 class="text-lg font-bold">
                                     <a wire:navigate
                                         href="{{ route('users.show', $comment->user) }}">{{ $comment->user->name }}
@@ -27,7 +29,7 @@
                                 </h3>
                             @else
                                 <h3 class="text-lg font-bold">{{ $comment->user->name }}</h3>
-                            @endif
+                            @endif --}}
                         </div>
                         <div class="flex">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -73,26 +75,25 @@
 
                             @if($childComment->user->role === 'author')
                                 <x-avatar class="mr-5 border-blue-500 size-20" :user="$childComment->user" />
-                            @else
+                            @else   
                                 <x-avatar class="mr-5 size-20" :user="$childComment->user" />
                             @endif
-                                {{-- @if ($comment->user->role === 'author')
-                                <x-avatar class="mr-5 border-blue-500 size-20" :user="$comment->user" />
-                            @else
-                                <x-avatar class="mr-5 size-20" :user="$comment->user" />
-                            @endif --}}
+                            
                             <div class="w-full">
                                 <div class="flex items-center justify-between">
                                     <div>
                                         <div class="flex items-center">
-                                            @if ($childComment->user->id === $post->author->id)
+                                            {{-- @if ($childComment->user->id === $post->author->id) --}}
                                                 <h3 class="text-lg font-bold">
                                                     <a wire:navigate
                                                         href="{{ route('users.show', $childComment->user) }}">{{ $childComment->user->name }}
                                                     </a>
                                                 </h3>
-                                                <x-verified class="ml-2 size-6" />
-                                            @elseif($childComment->user->role === 'author')
+                                                
+                                                @if($childComment->user->id === $post->author->id)
+                                                    <x-verified class="ml-2 size-6" />
+                                                @endif
+                                            {{-- @elseif($childComment->user->role === 'author')
                                                 <h3 class="text-lg font-bold">
                                                     <a wire:navigate
                                                         href="{{ route('users.show', $comment->user) }}">{{ $childComment->user->name }}
@@ -100,7 +101,7 @@
                                                 </h3>
                                             @else
                                                 <h3 class="text-lg font-bold">{{ $childComment->user->name }}</h3>
-                                            @endif
+                                            @endif --}}
                                         </div>
                                     </div>
 

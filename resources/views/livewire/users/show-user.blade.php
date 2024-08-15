@@ -123,12 +123,12 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button 
+                <x-primary-button 
                     class="px-4 py-2 bg-green-500 ms-3" 
                     wire:click="grantAuthorRole({{ $user->id }})"
                 >
                     {{ __('Yes, grant') }}
-                </x-danger-button>            
+                </x-primary-button>            
             </div>
         </div>
     </x-modal>

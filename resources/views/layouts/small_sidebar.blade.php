@@ -152,13 +152,13 @@
             </div>
             <div x-show="openMenuIndex === 8"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My likes</a>
+                <a wire:navigate href="{{ route('likes.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My likes</a>
             </div>        
             <div x-show="openMenuIndex === 9"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                @if(auth()->user()->role === 'author')
+                
                     <a  wire:navigate href="{{ route('users.show', App\Models\User::find(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">View profile</a>
-                @endif
+
                 <a wire:navigate href="{{ route('profile.picture') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage account</a>
                 <a wire:navigate href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Settings</a>
             </div>

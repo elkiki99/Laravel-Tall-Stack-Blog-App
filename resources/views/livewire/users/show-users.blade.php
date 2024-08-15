@@ -117,7 +117,11 @@
                         </td>
                         <td class="p-4">
                             <div class="flex items-end justify-end h-full">
-                                <x-verified class="ml-2 size-6" />
+                                @if($user->role === 'author')
+                                    <x-verified class="ml-2 size-6" />
+                                @elseif($user->role === 'user')
+                                    <x-verified class="ml-2 text-gray-400 size-6" />
+                                @endif
                                 
                                 @if($user->nickname)
                                     <a class="hover:blur-xs" wire:navigate href="{{ route('users.show', $user) }}">
