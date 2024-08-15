@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="min-h-screen px-2 mx-auto py-18 sm:py-36 max-w-7xl">
+    <section class="min-h-screen px-2 py-16 mx-auto sm:py-36 max-w-7xl">
         <h1 class="mb-6 text-4xl font-bold sm:text-5xl xl:text-8xl lg:text-7xl md:text-6xl">Privacy Policy</h1>
         <p>Last updated: July 21, 2024</p>
         <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
