@@ -17,20 +17,9 @@
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
                 class="text-sm text-gray-600 dark:text-gray-400"
-            >{{ session('author_role_removed') }}</p>
-        @endif
-        
-        {{-- @elseif(session('success_deleted'))
-            <p
-                x-data="{ show: true }"
-                x-show="show"
-                class="text-red-500"
-                x-transition
-                x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600 dark:text-gray-400"
-            >{{ session('success_deleted') }}</p>
-
-        @elseif(session('success_created'))
+                >{{ session('author_role_removed') }}
+            </p>
+        @elseif(session('author_role_granted'))
             <p
                 x-data="{ show: true }"
                 x-show="show"
@@ -38,9 +27,9 @@
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
                 class="text-sm text-gray-600 dark:text-gray-400"
-            >{{ session('success_created') }}</p>
-        @endif --}}
-        
+                >{{ session('author_role_granted') }}
+            </p>
+        @endif
         <livewire:users.show-users />
     </div>
 </x-admin-layout>

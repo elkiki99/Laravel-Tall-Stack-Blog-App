@@ -14,14 +14,10 @@ class ShowUser extends Component
         $this->user = User::find($userId);
     }
 
-    public function removeAuthorRole()
+    public function grantAuthorRole()
     {   
         $this->user->update([
-            'nickname' => null,
-            'role' => 'user',
-            'linkedin_profile' => null,
-            'website' => null,
-            'bio' => null,
+            'role' => 'author',
         ]);
 
         $this->user->posts()->update([
@@ -31,7 +27,7 @@ class ShowUser extends Component
 
         $this->user->save();
 
-        return redirect()->route('users.index')->with('author_role_removed', 'Author role deleted successfully for '.$this->user->name.'.');
+        return redirect()->route('users.index')->with('author_role_granted', 'Author role granted successfully for '.$this->user->name.'.');
     }
     
     public function render()
