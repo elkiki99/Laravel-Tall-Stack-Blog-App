@@ -11,6 +11,12 @@
         <link rel="icon" href="{{ asset('favicon.svg') }}">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <style>
+            [x-cloak] {
+                display: none;
+            }
+        </style>    
         
         <!-- Scripts -->
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
