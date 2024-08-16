@@ -100,7 +100,9 @@
                                 <x-post-tags class="my-5" :post="$post" />
                             </div>
                             <div>
-                                <livewire:likes.toggle-like :post="$post" />
+                                @auth
+                                    <livewire:likes.toggle-like :post="$post" />
+                                @endauth
                             </div>
                         </div>
                     @endif

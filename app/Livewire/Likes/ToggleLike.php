@@ -9,23 +9,29 @@ use Illuminate\Support\Facades\Auth;
 class ToggleLike extends Component
 {
     public $post;
-    public $isLiked;
 
     public function mount(Post $post)
     {
         $this->post = $post;
-        $this->isLiked = $post->likes()->where('user_id', Auth::id())->exists();
     }
     
     public function toggleLike()
     {
-        if ($this->isLiked) {
+        $isLiked = $this->post->likes()->where('user_id', Auth::id())->exists();
+
+        if ($isLiked) {
             $this->post->likes()->detach(Auth::id());
         } else {
             $this->post->likes()->attach(Auth::id());
         }
 
-        $this->isLiked = !$this->isLiked;
+        $likesCount = $this->post->likes()->count();
+        $isLiked = !$isLiked;
+
+        return [
+            'likesCount' => $likesCount,
+            'isLiked' => $isLiked,
+        ];
     }
 
     public function render()
