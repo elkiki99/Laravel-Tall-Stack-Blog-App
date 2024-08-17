@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\LikeController;
@@ -98,6 +99,17 @@ Route::middleware('guest')->group(function () {
     Route::get('auth/github/callback', [GitHubSocialiteController::class, 'callback']);
     // Route::get('auth/google/redirect', [GoogleSocialiteController::class, 'redirect'])->name('google.login');
     // Route::get('auth/google/callback', [GoogleSocialiteController::class, 'callback']);    
+});
+
+Route::get('send-mail', function () {
+    $details = [
+        'title' => 'Success',
+        'content' => 'This is an email testing using Laravel-Brevo',
+    ];
+   
+    Mail::to('brossani23@gmail.com')->send(new \App\Mail\TestMail($details));
+   
+    return 'Email sent at ' . now();
 });
 
 require __DIR__.'/auth.php';
