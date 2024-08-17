@@ -6,7 +6,9 @@ use App\Models\Tag;
 use App\Models\Post;
 use Livewire\Component;
 use App\Models\Category;
+use App\Mail\PostCreated;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class CreatePost extends Component
@@ -74,6 +76,9 @@ class CreatePost extends Component
         $post->author_id = auth()->id();
         $post->save();
         $post->tags()->sync($this->tag_ids);
+
+        Mail::to('brossani23@gmail.com')->queue(new PostCreated($post));
+
         return redirect()->route('posts.pending')->with('success_created', 'Post created successfully.');
     }
 

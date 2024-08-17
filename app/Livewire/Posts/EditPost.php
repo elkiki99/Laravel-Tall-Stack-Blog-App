@@ -6,8 +6,10 @@ use App\Models\Tag;
 use App\Models\Post;
 use Livewire\Component;
 use App\Models\Category;
+use App\Mail\PostCreated;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class EditPost extends Component
@@ -101,6 +103,9 @@ class EditPost extends Component
         ]);
 
         $this->post->tags()->sync($this->tag_ids);
+
+        Mail::to('brossani23@gmail.com')->send(new PostCreated($this->post));
+
         return redirect()->route('posts.pending')->with('success_updated', 'Post updated successfully.');
     }
 
