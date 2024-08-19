@@ -26,7 +26,7 @@ class ContactUs extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($email, $url, $message, $userName = 'Guest', $userEmail = 'N/A', $nickname = 'N/A', $userRole = 'N/A')
+    public function __construct($email, $message, $userName = 'Guest', $userEmail = 'N/A', $nickname = 'N/A', $userRole = 'N/A', $url = 'N/A')
     {
         $this->email = $email;
         $this->message = $message;
@@ -62,11 +62,12 @@ class ContactUs extends Mailable
         return new Content(
             markdown: 'emails.contact-us',
             with: [
-                // 'userName' => $this->user ? $this->user->name : 'Guest',
-                // 'userEmail' => $this->user ? $this->user->email : $this->email,
-                // 'nickname' => $this->user ? $this->user->nickname : 'N/A',
-                // 'userRole' => $this->user ? $this->user->role : 'N/A',
-                // 'message' => $this->message,
+                'userName' => $this->userName,
+                'userEmail' => $this->userEmail,
+                'nickname' => $this->nickname,
+                'userRole' => $this->userRole,
+                'message' => $this->message,
+                'url' => $this->url,
             ]
         );
     }

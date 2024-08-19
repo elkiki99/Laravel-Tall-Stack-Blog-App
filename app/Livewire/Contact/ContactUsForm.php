@@ -20,14 +20,14 @@ class ContactUsForm extends Component
     public function submit()
     {
         $this->validate();
-
+    
         $user = auth()->user();
         $userName = $user ? $user->name : 'Guest';
         $userEmail = $user ? $user->email : $this->email;
         $nickname = $user ? $user->nickname : 'N/A';
         $userRole = $user ? $user->role : 'N/A';
-        $url = $this->user ? config('app.url') . '/user/' . $this->user->nickname : 'N/A';
-
+        $url = $user ? config('app.url') . '/user/' . $user->nickname : 'N/A';
+    
         Mail::to('brossani23@gmail.com')->send(new ContactUs(
             $this->email,
             $this->message,
@@ -35,9 +35,9 @@ class ContactUsForm extends Component
             $userEmail,
             $nickname,
             $userRole,
-            $url,
+            $url
         ));
-
+    
         return redirect()->route('contact')->with('message-sent', 'Message sent successfully.');
     }
 

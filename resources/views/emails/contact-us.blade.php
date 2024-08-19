@@ -1,24 +1,23 @@
 <x-mail::message>
     <x-mail::panel>
-        # New contact message from {{ $userName }}
+        # 🎉 New contact message from {{ $userName }}
     </x-mail::panel>
 
     Message:
-
     {{ $message }}
 
-    @auth
-        User details:
+@auth
+    User details:
 
-        - Email: {{ $userEmail }}
-        - Nickname: {{ $nickname }}
-        - Role: {{ ucfirst($userRole) }}
+    - Email: {{ $userEmail }}
+    - Nickname: {{ $nickname }}
+    - Role: {{ ucfirst($userRole) }}
 
-        View user profile - {{ $url }}
-    @else
-        - Email: {{ $email }}
-        - User not registered
-    @endif
+    View user profile - {{ $url }}
+@else
+    - Email: {{ $email }}
+    - User not registered
+@endif
 
     Sent on: {{ now()->format('F j, Y \a\t g:i A') }}
 
