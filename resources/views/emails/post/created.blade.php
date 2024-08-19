@@ -16,6 +16,8 @@
     Review Post - {{ $url }}
     
     Thank you for your attention to this matter.
+
+    Sent on: {{ now()->format('F j, Y \a\t g:i A') }}
     
     Best regards,  
     {{ config('app.name') }}

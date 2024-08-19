@@ -1,14 +1,27 @@
 <x-mail::message>
-# Introduction
+    <x-mail::panel>
+        # New contact message from {{ $userName }}
+    </x-mail::panel>
 
-{{-- Gazzete! {{ $name }} has contacted you.
-Message:
-    ''
+    Message:
 
-<x-mail::button :url="$url">
-View user
-</x-mail::button> --}}
+    {{ $message }}
 
-Thanks,<br>
-{{ config('app.name') }}
+    @auth
+        User details:
+
+        - Email: {{ $userEmail }}
+        - Nickname: {{ $nickname }}
+        - Role: {{ ucfirst($userRole) }}
+
+        View user profile - {{ $url }}
+    @else
+        - Email: {{ $email }}
+        - User not registered
+    @endif
+
+    Sent on: {{ now()->format('F j, Y \a\t g:i A') }}
+
+    Thanks for staying connected, 
+    {{ config('app.name') }} Team
 </x-mail::message>

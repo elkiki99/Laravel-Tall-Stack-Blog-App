@@ -8,13 +8,9 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactUsForm extends Component
 {
+    public $user;
     public $email;
     public $message;
-
-    protected $fillable = [
-        'email',
-        'message',
-    ];
 
     protected $rules = [
         'email' => 'required|email',
@@ -25,7 +21,22 @@ class ContactUsForm extends Component
     {
         $this->validate();
 
-        Mail::to('brossani23@gmail.com')->send(new ContactUs($this->email, $this->message));
+        $user = auth()->user();
+        $userName = $user ? $user->name : 'Guest';
+        $userEmail = $user ? $user->email : $this->email;
+        $nickname = $user ? $user->nickname : 'N/A';
+        $userRole = $user ? $user->role : 'N/A';
+        $url = $this->user ? config('app.url') . '/user/' . $this->user->nickname : 'N/A';
+
+        Mail::to('brossani23@gmail.com')->send(new ContactUs(
+            $this->email,
+            $this->message,
+            $userName,
+            $userEmail,
+            $nickname,
+            $userRole,
+            $url,
+        ));
 
         return redirect()->route('contact')->with('message-sent', 'Message sent successfully.');
     }

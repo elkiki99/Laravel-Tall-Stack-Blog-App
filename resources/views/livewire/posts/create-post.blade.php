@@ -113,7 +113,7 @@
                 id="tag_ids" 
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
                 wire:model='tag_ids' 
-                >
+            >
                 @foreach($tags as $tag)
                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                 @endforeach

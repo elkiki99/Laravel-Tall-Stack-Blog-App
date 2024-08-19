@@ -15,17 +15,26 @@ class ContactUs extends Mailable
     use Queueable, SerializesModels;
 
     public $user;
+    public $userName;
+    public $userEmail;
+    public $nickname;
+    public $userRole;
     public $message;
     public $email;
+    public $url;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($email, $message)
+    public function __construct($email, $url, $message, $userName = 'Guest', $userEmail = 'N/A', $nickname = 'N/A', $userRole = 'N/A')
     {
-        $this->user = auth()->user();
         $this->email = $email;
         $this->message = $message;
+        $this->userName = $userName;
+        $this->userEmail = $userEmail;
+        $this->nickname = $nickname;
+        $this->userRole = $userRole;
+        $this->url = $url;
     }
 
     /**
@@ -37,7 +46,10 @@ class ContactUs extends Mailable
             subject: 'Contact us',
             tags: ['contact', 'us'],
             metadata: [
-                'user' => $this->user,
+                'user_name' => $this->userName,
+                'user_email' => $this->userEmail,
+                'nickname' => $this->nickname,
+                'user_role' => $this->userRole,
             ]
         );
     }
@@ -50,11 +62,11 @@ class ContactUs extends Mailable
         return new Content(
             markdown: 'emails.contact-us',
             with: [
-                // 'userName' => $this->user->name,
-                // 'userEmail' => $this->user->email,
-                // 'nickname' => $this->user->nickname,
-                // 'role' => $this->user->role,
-                // 'url' => config('app.url') . '/user/' . $this->user->nickname,
+                // 'userName' => $this->user ? $this->user->name : 'Guest',
+                // 'userEmail' => $this->user ? $this->user->email : $this->email,
+                // 'nickname' => $this->user ? $this->user->nickname : 'N/A',
+                // 'userRole' => $this->user ? $this->user->role : 'N/A',
+                // 'message' => $this->message,
             ]
         );
     }
