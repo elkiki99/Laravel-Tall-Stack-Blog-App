@@ -1,11 +1,11 @@
 <x-mail::message>
     <x-mail::panel>
-        # 🎉 New Post Created!
+        # 🎉 Post Updated!
     </x-mail::panel>
 
     Dear Admin,
     
-    We wanted to inform you that a new blog post has been created by {{ $author }}. Please review the post and take the necessary actions to publish it.
+    We wanted to inform you that a blog post by {{ $author }} has been updated. This means that it has become a draft until you review the post and take the necessary actions to publish it.
     
     Post Details:
     

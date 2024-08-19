@@ -5,22 +5,18 @@ namespace App\Mail;
 use App\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Symfony\Component\Mime\Email;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class PostCreated extends Mailable
+class PostUpdated extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $post;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct(Post $post) 
+    public function __construct(Post $post)
     {
         $this->post = $post;
     }
@@ -31,8 +27,8 @@ class PostCreated extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Post created',
-            tags: ['post', 'created'],
+            subject: 'Post updated',
+            tags: ['post', 'updated'],
             metadata: [
                 'post_id' => $this->post->id,
             ],
@@ -45,7 +41,7 @@ class PostCreated extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.post.created',
+            markdown: 'emails.post.updated',
             with: [
                 'title' => $this->post->title,
                 'subtitle' => $this->post->subtitle,

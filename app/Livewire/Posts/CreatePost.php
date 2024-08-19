@@ -8,6 +8,7 @@ use Livewire\Component;
 use App\Models\Category;
 use App\Mail\PostCreated;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -73,12 +74,13 @@ class CreatePost extends Component
             'status' => $this->status,
         ]);
 
-        $post->author_id = auth()->id();
+        $post->author_id = Auth::id();
         $post->save();
         $post->tags()->sync($this->tag_ids);
 
-        Mail::to('brossani23@gmail.com')->queue(new PostCreated($post));
-
+        if(auth()->user()->role === 'author') {
+            Mail::to('brossani23@gmail.com')->send(new PostCreated($post));
+        }
         return redirect()->route('posts.pending')->with('success_created', 'Post created successfully.');
     }
 

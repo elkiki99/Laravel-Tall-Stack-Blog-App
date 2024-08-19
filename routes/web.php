@@ -101,15 +101,4 @@ Route::middleware('guest')->group(function () {
     // Route::get('auth/google/callback', [GoogleSocialiteController::class, 'callback']);    
 });
 
-Route::get('send-mail', function () {
-    $details = [
-        'title' => 'Success',
-        'content' => 'This is an email testing using Laravel-Brevo',
-    ];
-   
-    Mail::to('brossani23@gmail.com')->send(new \App\Mail\TestMail($details));
-   
-    return 'Email sent at ' . now();
-});
-
 require __DIR__.'/auth.php';

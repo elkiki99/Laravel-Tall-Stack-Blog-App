@@ -5,7 +5,7 @@
         <x-blog-nav-bar />
     </section>
     <div class="flex flex-col min-h-screen mx-auto max-w-7xl lg:flex-row">
-        <!-- First Section -->
+        <!-- First Section -->  
         <section class="w-full px-2 pb-10 lg:pb-20 lg:w-4/6">
             <div class="grid grid-cols-1 gap-6 py-5">
                 @forelse($posts as $post)
@@ -113,7 +113,7 @@
                     <div class="flex pt-2">
                         <x-post-tags :post="$post"  />
                         
-                        <a wire:navigate href="#" class="ml-auto hover:cursor-pointer">  
+                        <a wire:navigate href="{{ route('posts.show', $post) }}" class="ml-auto hover:cursor-pointer">  
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                             </svg> 
@@ -182,5 +182,5 @@
         </section>
     </div>
 
-    <div class="max-w-7xl mx-auto">{{ $posts->links() }}</div>
+    <div class="mx-auto max-w-7xl">{{ $posts->links() }}</div>
 </x-app-layout>
