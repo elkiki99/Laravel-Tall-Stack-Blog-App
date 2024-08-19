@@ -10,6 +10,7 @@ use App\Http\Controllers\PanelController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomePagesController;
 use App\Http\Controllers\LegalPagesController;
 use App\Http\Controllers\ManageProfileController;
@@ -100,5 +101,12 @@ Route::middleware('guest')->group(function () {
     // Route::get('auth/google/redirect', [GoogleSocialiteController::class, 'redirect'])->name('google.login');
     // Route::get('auth/google/callback', [GoogleSocialiteController::class, 'callback']);    
 });
+
+/** 
+ * Stripe payment.
+ */
+
+Route::get('checkout/{plan?}', CheckoutController::class)->middleware('auth')->name('checkout');
+Route::view('success', 'success')->middleware('auth')->name('success');
 
 require __DIR__.'/auth.php';
