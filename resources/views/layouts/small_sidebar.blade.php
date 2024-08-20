@@ -80,7 +80,7 @@
                     </button>
                 </div>
             @endif
-            @if(auth()->user()->role === 'user')
+            @if(auth()->user()->subscribed())
                 <div class="flex items-center justify-center hover:blur-xs">
                     <button @click="openMenuIndex = openMenuIndex === 7 ? null : 7"
                         class="{{str_contains($routeName, 'subscription') ? 'bg-gray-800 rounded-full sm:rounded-md' : ''}}"
@@ -148,7 +148,8 @@
             </div>  
             <div x-show="openMenuIndex === 7"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My subscription</a>
+                <a wire:navigate href="{{ route('subscriptions.show') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My subscription</a>
+                <a wire:navigate href="{{ route('subscriptions.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">All subscriptions</a>
             </div>
             <div x-show="openMenuIndex === 8"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">

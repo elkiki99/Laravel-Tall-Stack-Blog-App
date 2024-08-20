@@ -9,13 +9,33 @@ class CheckoutController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, $plan)
+    public function foundationPlan(Request $request, $plan)
     {
         return $request->user()
-        ->newSubscription('', $plan)
+        ->newSubscription(config('pricing.plans.foundation_plan.product_id'), $plan)
         ->checkout([
-            'success_url' => route('success'),
-            'cancel_url' => route('welcome'),
+            'success_url' => route('subscriptions.show'),
+            'cancel_url' => route('newsletter'),
+        ]);
+    }
+
+    public function structuralPlan(Request $request, $plan)
+    {
+        return $request->user()
+        ->newSubscription(config('pricing.plans.structural_plan.product_id'), $plan)
+        ->checkout([
+            'success_url' => route('subscriptions.show'),
+            'cancel_url' => route('newsletter'),
+        ]);
+    }
+
+    public function masterPlan(Request $request, $plan)
+    {
+        return $request->user()
+        ->newSubscription(config('pricing.plans.master_plan.product_id'), $plan)
+        ->checkout([
+            'success_url' => route('subscriptions.show'),
+            'cancel_url' => route('newsletter'),
         ]);
     }
 }

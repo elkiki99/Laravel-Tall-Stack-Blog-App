@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Subscription;
+use Laravel\Cashier\Cashier;
 use Illuminate\Support\Facades\Gate;
-// use Illuminate\Support\Facades\Event;
+use Laravel\Cashier\SubscriptionItem;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,13 +22,14 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
-        // Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
-        //     $event->extendSocialite('discord', \SocialiteProviders\Discord\Provider::class);
-        // });
-        
+    {   
         Gate::define('view-admin-panel', function($user) {
             return $user !== null;
         });
+
+        Cashier::useSubscriptionModel(Subscription::class);
+        Cashier::useSubscriptionItemModel(SubscriptionItem::class);
+        
+        // Cashier::calculateTaxes();
     }
 }

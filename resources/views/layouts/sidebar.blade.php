@@ -120,7 +120,7 @@
                 </svg>
             </div>
         @endif
-        @if(auth()->user()->role === 'user')
+        @if(auth()->user()->subscribed())
             <div class="flex items-center justify-center hover:cursor-pointer"  
                 :class="{
                     'blur-xs': hoverSection === 'subscription' && activeSection !== 'subscription',
@@ -272,11 +272,18 @@
         </div>
         <div x-show="hoverSection === 'subscription' || (hoverSection === null && activeSection === 'subscription')"
             class="transition-opacity duration-300">
-            <a wire:navigate href="#">
+            <a wire:navigate href="{{ route('subscriptions.show') }}">
                 <div
                     class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">My subscription</h3>
-                    <p class="text-sm text-black 2xl:text-md">Your daily/weekly subscription</p>
+                    <p class="text-sm text-black 2xl:text-md">Your subscription</p>
+                </div>
+            </a>
+            <a wire:navigate href="{{ route('subscriptions.index') }}">
+                <div
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">All subscription</h3>
+                    <p class="text-sm text-black 2xl:text-md">View all subscriptions options</p>
                 </div>
             </a>
         </div>

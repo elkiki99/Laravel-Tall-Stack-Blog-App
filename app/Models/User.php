@@ -67,4 +67,9 @@ class User extends AuthUser
     {
         return $this->belongsToMany(Post::class, 'likes');
     }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
 }

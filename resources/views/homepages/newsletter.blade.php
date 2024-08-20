@@ -9,13 +9,13 @@
                 <p class="pb-5 text-2xl text-gray-800 border-b-2">Stay updated with our latest news and special offers
                     directly in your inbox.</p>
 
-                <section class="py-16" x-data="{ isAnnual: $el.querySelector('#hs-basic-with-description').checked }">
+                <section class="py-16" x-data="{ isAnnual: $el.querySelector('#checkbox').checked }">
                     <h2 class="text-6xl font-bold">Pricing</h2>
                     <!-- Toggle switch -->
                     <div class="flex py-5 justify-center items-center">
                         <label class="min-w-14 text-sm text-gray-500 me-3 dark:text-neutral-400">Monthly</label>
 
-                        <input type="checkbox" id="hs-basic-with-description"
+                        <input type="checkbox" id="checkbox"
                             class="relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-yellow-500 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-yellow-500 checked:border-yellow-500 focus:checked:border-yellow-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-yellow-500 dark:checked:border-yellow-500 dark:focus:ring-offset-gray-600
                     
                             before:inline-block before:size-6 before:bg-white checked:before:bg-white before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-neutral-400 dark:checked:before:bg-white" checked
@@ -39,12 +39,18 @@
                             </span>
                         </label>
                     </div>
-                    <div class="justify-center py-16 space-x-6 md:flex">
+
+                    <div class="justify-center md:space-x-6 md:flex">
                         <!-- Foundation Plan -->
-                        <div class="w-full p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 hover:scale-[1.02]">
-                            <div class="flex items-center justify-between text-center">
-                                <h2 class="mb-4 text-2xl font-semibold">Foundation Plan</h2>
-                                <span class="mb-4 text-2xl font-bold" x-text="isAnnual ? '$49/yr' : '$5/mo'"></span>
+                        <div 
+                            class="w-full my-10 p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 md:hover:scale-[1.02]"
+                            x-data="{ 
+                                annualUrl: '{{ route('checkout', ['plan' => config('pricing.plans.foundation_plan.prices.annual')]) }}',
+                                monthlyUrl: '{{ route('checkout', ['plan' => config('pricing.plans.foundation_plan.prices.monthly')]) }}'
+                            }">
+                            <div class="lg:flex pb-2 items-center text-start justify-between">
+                                <h2 class="text-2xl font-semibold">Foundation</h2>
+                                <span class="text-4xl font-bold underline-yellow" x-text="isAnnual ? '$49/yr' : '$5/mo'"></span>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
                                 stroke="currentColor" class="size-16 md:size-20">
@@ -63,17 +69,22 @@
                                 <li class="flex text-start mb-2"><x-check class="mr-2 size-6" />Downloadable resources
                                 </li>
                             </ul>
-                            <a href="{{ route('checkout', ['plan' => 'price_1PpcFGCjBsuQEGoeUp80iibT']) }}"
-                                class="flex items-center justify-center w-full px-4 py-2 my-6 text-gray-100 hover:blur-xs hover:cursor-pointer bg-gray-950">Subscribe
-                                now</a>
+                            <a :href="isAnnual ? annualUrl : monthlyUrl" 
+                                class="flex items-center justify-center rounded-lg w-full px-4 py-2 my-6 text-gray-100 hover:blur-xs hover:cursor-pointer bg-gray-950">
+                                Subscribe now
+                            </a>
                         </div>
 
-                        <!-- Structural Plan (Center Highlighted) -->
+                        <!-- Structural (Center Highlighted) -->
                         <div
-                            class="w-full p-6 text-center transition transform scale-105 bg-black border rounded-lg shadow-lg md:w-1/3 hover:scale-[1.07]">
-                            <div class="flex items-center justify-between text-center">
-                                <h2 class="mb-4 text-2xl font-semibold text-gray-100">Structural Plan</h2>
-                                <span class="mb-4 text-2xl text-gray-100 font-bold" x-text="isAnnual ? '$99/yr' : '$10/mo'"></span>
+                            class="w-full my-10 p-6 text-center transition transform md:scale-105 bg-gray-950 border rounded-lg shadow-lg md:w-1/3 hover:scale-[1.07]"
+                            x-data="{ 
+                                annualUrl: '{{ route('checkout', ['plan' => config('pricing.plans.structural_plan.prices.annual')]) }}',
+                                monthlyUrl: '{{ route('checkout', ['plan' => config('pricing.plans.structural_plan.prices.monthly')]) }}'
+                            }">
+                            <div class="lg:flex pb-2 items-center text-gray-100 text-start justify-between">
+                                <h2 class="text-2xl font-semibold">Structural</h2>
+                                <span class="text-4xl font-bold underline-yellow" x-text="isAnnual ? '$99/yr' : '$10/mo'"></span>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
                                 stroke="currentColor" class="size-16 text-gray-300 md:size-20">
@@ -95,17 +106,22 @@
                                 <li class="flex text-start mb-2 text-gray-200"><x-check class="mr-2 size-6" />Discounts
                                     on architectural events and workshops</li>
                             </ul>
-                            <a href="{{ route('checkout', ['plan' => 'price_1Ppbr2CjBsuQEGoeCh9Isn65']) }}"
-                                class="flex items-center justify-center w-full px-4 py-2 my-6 text-gray-900 bg-gray-100 hover:blur-xs hover:cursor-pointer">Subscribe
-                                now</a>
+                            <a :href="isAnnual ? annualUrl : monthlyUrl" 
+                                class="flex items-center justify-center rounded-lg w-full px-4 py-2 my-6 text-gray-900 hover:blur-xs hover:cursor-pointer bg-yellow-500">
+                                Subscribe now
+                            </a>    
                         </div>
 
-                        <!-- Master Plan -->
+                        <!-- Master -->
                         <div
-                            class="w-full p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 hover:scale-[1.02]">
-                            <div class="flex items-center justify-between">
-                                <h2 class="mb-4 text-2xl font-semibold">Master Plan</h2>
-                                <span class="mb-4 text-2xl font-bold" x-text="isAnnual ? '$199/yr' : '$20/mo'"></span>
+                            class="w-full my-10 p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 md:hover:scale-[1.02]"
+                            x-data="{ 
+                                annualUrl: '{{ route('checkout', ['plan' => config('pricing.plans.master_plan.prices.annual')]) }}',
+                                monthlyUrl: '{{ route('checkout', ['plan' => config('pricing.plans.master_plan.prices.monthly')]) }}'
+                            }">
+                            <div class="lg:flex pb-2 items-center text-start justify-between">
+                                <h2 class="text-2xl font-semibold">Master</h2>
+                                <span class="text-4xl font-bold underline-yellow" x-text="isAnnual ? '$199/yr' : '$20/mo'"></span>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
                                 stroke="currentColor" class="size-16 md:size-20">
@@ -128,8 +144,8 @@
                                 <li class="flex text-start mb-2"><x-check class="mr-2 size-6" />Access to all future
                                     digital products and courses</li>
                             </ul>
-                            <a href="{{ route('checkout', ['plan' => 'price_1PpcFGCjBsuQEGoedB60MSmh']) }}"
-                                class="flex items-center justify-center w-full px-4 py-2 my-6 text-gray-100 hover:blur-xs hover:cursor-pointer bg-gray-950">Subscribe
+                            <a :href="isAnnual ? annualUrl : monthlyUrl"
+                                class="flex items-center justify-center rounded-lg w-full px-4 py-2 my-6 text-gray-100 hover:blur-xs hover:cursor-pointer bg-gray-950">Subscribe
                                 now</a>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Mail;
+use App\Http\Middleware\Subscribed;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\LikeController;
@@ -13,9 +13,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomePagesController;
 use App\Http\Controllers\LegalPagesController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ManageProfileController;
 use App\Http\Controllers\Auth\GitHubSocialiteController;
-// use App\Http\Controllers\Auth\GoogleSocialiteController;
 
 /**
  * Home pages.
@@ -98,15 +98,19 @@ Route::get('/likes', [LikeController::class, 'index'])->name('likes.index');
 Route::middleware('guest')->group(function () {
     Route::get('auth/github/redirect', [GitHubSocialiteController::class, 'redirect'])->name('github.login');
     Route::get('auth/github/callback', [GitHubSocialiteController::class, 'callback']);
-    // Route::get('auth/google/redirect', [GoogleSocialiteController::class, 'redirect'])->name('google.login');
-    // Route::get('auth/google/callback', [GoogleSocialiteController::class, 'callback']);    
 });
 
 /** 
  * Stripe payment.
  */
+Route::get('checkout/{plan}', [CheckoutController::class, 'foundationPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/{plan}', [CheckoutController::class, 'structuralPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/{plan}', [CheckoutController::class, 'masterPlan'])->middleware('auth')->name('checkout');
 
-Route::get('checkout/{plan?}', CheckoutController::class)->middleware('auth')->name('checkout');
-Route::view('success', 'success')->middleware('auth')->name('success');
+/**
+ * Subscription pages.
+ */
+Route::get('/subscriptions', [SubscriptionController::class, 'index'])->middleware([Subscribed::class])->name('subscriptions.index');
+Route::get('/subscription', [SubscriptionController::class, 'show'])->middleware([Subscribed::class])->name('subscriptions.show');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
