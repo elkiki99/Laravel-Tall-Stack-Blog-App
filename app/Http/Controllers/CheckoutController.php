@@ -13,8 +13,6 @@ class CheckoutController extends Controller
     {
         return $request->user()
         ->newSubscription('', $plan)
-        ->trialDays(7)
-        ->allowPromotionCodes()
         ->checkout([
             'success_url' => route('success'),
             'cancel_url' => route('welcome'),
