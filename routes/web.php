@@ -116,5 +116,4 @@ Route::get('/billing', function (Request $request) {
     })->middleware(['auth'])->name('billing');
 Route::get('/subscription', [SubscriptionController::class, 'show'])->middleware([Subscribed::class])->name('subscriptions.show');
 
-
 require __DIR__ . '/auth.php';
