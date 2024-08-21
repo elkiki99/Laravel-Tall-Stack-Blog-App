@@ -252,13 +252,6 @@
                     <p class="text-sm text-black 2xl:text-md">Show all comments</p>
                 </div>
             </a>
-            {{-- <a wire:navigate href="{{ route('comments.pending') }}">
-                <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Approve comments</h3>
-                    <p class="text-sm text-black 2xl:text-md">Manage pending comments</p>
-                </div>
-            </a> --}}
         </div>
         <div x-show="hoverSection === 'users' || (hoverSection === null && activeSection === 'users')"
             class="transition-opacity duration-300">
@@ -283,7 +276,7 @@
                 <div
                     class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage subscription</h3>
-                    <p class="text-sm text-black 2xl:text-md">View all subscriptions options</p>
+                    <p class="text-sm text-black 2xl:text-md">Manage your subscriptions options</p>
                 </div>
             </a>
         </div>
@@ -300,13 +293,15 @@
         <div x-show="hoverSection === 'profile' || (hoverSection === null && activeSection === 'profile')"
             class="transition-opacity duration-300">
             
-            <a wire:navigate href="{{ route('users.show', App\Models\User::find(auth()->user()->id)) }}">
-                <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">View profile</h3>
-                    <p class="text-sm text-black 2xl:text-md">View my author profile</p>
-                </div>
-            </a>
+            @if(auth()->user()->nickname)
+                <a wire:navigate href="{{ route('users.show', App\Models\User::find(auth()->user()->id)) }}">
+                    <div
+                        class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                        <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">View profile</h3>
+                        <p class="text-sm text-black 2xl:text-md">View my author profile</p>
+                    </div>
+                </a>
+            @endif
             <a wire:navigate href="{{ route('profile.picture') }}">
                 <div
                     class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">

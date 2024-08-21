@@ -8,6 +8,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PanelController;
+use App\Http\Middleware\ValidateNickname;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -65,7 +66,7 @@ Route::get('/tag/edit/{tag:slug}', [TagController::class, 'edit'])->name('tags.e
  * User pages.
  */
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::get('/user/{user:nickname}', [UserController::class, 'show'])->name('users.show');
+Route::get('/user/{user:nickname?}', [UserController::class, 'show'])->middleware([ValidateNickname::class])->name('users.show');
 
 /**
  * Profile.

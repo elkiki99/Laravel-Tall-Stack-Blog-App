@@ -8,38 +8,6 @@
             {{ __('Manage your current subscription') }}
         </p>
 
-            @if(auth()->user()->subscribed())
-                <p>Congratulations! You are subscribed.</p>
-            @endif
-
-        @if (auth()->user()->subscribedToProduct(config('pricing.plans.foundation_plan.product_id')))
-            <p>Congratulations! You are subscribed to our Foundation product.</p>
-        @endif
-
-        @if (auth()->user()->subscribedToPrice(config('pricing.plans.foundation_plan.prices.monthly')))
-            <p>Congratulations! You are subscribed to our monthly Foundation plan.</p>
-        @elseif(auth()->user()->subscribedToPrice(config('pricing.plans.foundation_plan.prices.annual')))
-            <p>Congratulations! You are subscribed to our annual Foundation plan.</p>
-        @endif
-
-        @if (auth()->user()->subscribedToProduct(config('pricing.plans.structural_plan.product_id')))
-            <p>Congratulations! You are subscribed to our Structural product.</p>
-        @endif
-
-        @if (auth()->user()->subscribedToPrice(config('pricing.plans.structural_plan.prices.monthly')))
-            <p>Congratulations! You are subscribed to our monthly Structural plan.</p>
-        @elseif (auth()->user()->subscribedToPrice(config('pricing.plans.structural_plan.prices.annual')))
-            <p>Congratulations! You are subscribed to our annual Structural plan.</p>
-        @endif
-
-        @if (auth()->user()->subscribedToProduct(config('pricing.plans.master_plan.product_id')))
-            <p>Congratulations! You are subscribed to our Master product.</p>
-        @endif
-
-        @if (auth()->user()->subscribedToPrice(config('pricing.plans.master_plan.prices.monthly')))
-            <p>Congratulations! You are subscribed to our monthly Master plan.</p>
-        @elseif (auth()->user()->subscribedToPrice(config('pricing.plans.master_plan.prices.annual')))
-            <p>Congratulations! You are subscribed to our annual Master plan.</p>
-        @endif
+        <livewire:subscriptions.show-subscription />
     </div>
 </x-admin-layout>

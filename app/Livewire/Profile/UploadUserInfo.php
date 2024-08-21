@@ -5,6 +5,7 @@ namespace App\Livewire\Profile;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Storage;
 
 class UploadUserInfo extends Component
@@ -15,8 +16,10 @@ class UploadUserInfo extends Component
     public $linkedin_profile;
     public $website;
     public $bio;
-    public $nickname;
     public $avatar;
+
+    #[Validate] 
+    public $nickname;
 
     public function mount($user)
     {
@@ -27,12 +30,9 @@ class UploadUserInfo extends Component
         $this->nickname = $user->nickname;
     }
 
-    public function uploadUserInfo()
+    public function rules()
     {
-        $this->validate([
-            'linkedin_profile' => 'nullable|url',
-            'website' => 'nullable|url',
-            'bio' => 'nullable|string|max:1024',
+        return [
             'nickname' => [
                 'required', 
                 'string',
@@ -40,6 +40,15 @@ class UploadUserInfo extends Component
                 'max:40',
                 Rule::unique('users', 'nickname')->ignore($this->user->id),
             ],
+        ];
+    }
+
+    public function uploadUserInfo()
+    {
+        $this->validate([
+            'linkedin_profile' => 'nullable|url',
+            'website' => 'nullable|url',
+            'bio' => 'nullable|string|max:1024',
             'avatar' => 'nullable|image|max:2048',
         ]);
 
@@ -65,6 +74,7 @@ class UploadUserInfo extends Component
             'nickname' => $this->nickname,
             'avatar' => $avatarName,
         ]);
+        
         return redirect()->route('profile.picture')->with('success_created', 'Information uploaded successfully.');
     }
 

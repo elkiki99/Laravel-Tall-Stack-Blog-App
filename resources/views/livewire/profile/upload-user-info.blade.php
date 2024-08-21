@@ -65,9 +65,12 @@
                 <x-input-label for="nickname" :value="__('Nickname')" />
                 <span class="ml-1 text-xl text-red-500">*</span>
             </div>
+            @if(!auth()->user()->nickname)
+                <p class="my-1 text-gray-500">{{ __('By adding a nickname, you will unlock a public user page.') }}</p>
+            @endif
             <x-text-input 
                 type="text" 
-                wire:model='nickname'
+                wire:model.live='nickname'
                 placeholder="Your nickname"
                 id="nickname"  
                 class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
