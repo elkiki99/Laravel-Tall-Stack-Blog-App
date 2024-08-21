@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Http\Middleware\Subscribed;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
@@ -110,11 +111,10 @@ Route::get('checkout/master-plan/{price?}', [CheckoutController::class, 'masterP
 /**
  * Subscription pages.
  */
-Route::get('/subscriptions', [SubscriptionController::class, 'index'])
-        ->middleware([Subscribed::class])
-        ->name('subscriptions.index');
-Route::get('/subscription', [SubscriptionController::class, 'show'])
-        ->middleware([Subscribed::class])
-        ->name('subscriptions.show');
+Route::get('/billing', function (Request $request) {
+        return $request->user()->redirectToBillingPortal(route('subscriptions.show'));
+    })->middleware(['auth'])->name('billing');
+Route::get('/subscription', [SubscriptionController::class, 'show'])->middleware([Subscribed::class])->name('subscriptions.show');
+
 
 require __DIR__ . '/auth.php';

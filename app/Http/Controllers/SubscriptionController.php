@@ -2,19 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subscription;
-
 class SubscriptionController extends Controller
 {
-    public function index()
+    public function show()
     {
-        return view('subscriptions.index');
-    }
-
-    public function show(Subscription $subscription)
-    {
-        return view('subscriptions.show', [
-            'subscription' => $subscription,
-        ]);
+        return view('subscriptions.show');
     }
 }

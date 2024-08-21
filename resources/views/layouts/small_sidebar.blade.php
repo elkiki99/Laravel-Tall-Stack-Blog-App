@@ -149,7 +149,7 @@
             <div x-show="openMenuIndex === 7"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
                 <a wire:navigate href="{{ route('subscriptions.show') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">My subscription</a>
-                <a wire:navigate href="{{ route('subscriptions.index') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">All subscriptions</a>
+                <a href="{{ route('billing') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Manage subscriptions</a>
             </div>
             <div x-show="openMenuIndex === 8"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
