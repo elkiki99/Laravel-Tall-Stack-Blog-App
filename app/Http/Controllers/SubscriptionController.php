@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Subscription;
 
 class SubscriptionController extends Controller
 {
@@ -11,10 +11,10 @@ class SubscriptionController extends Controller
         return view('subscriptions.index');
     }
 
-    public function show()
+    public function show(Subscription $subscription)
     {
         return view('subscriptions.show', [
-            // 'user' => $user
+            'subscription' => $subscription,
         ]);
     }
 }

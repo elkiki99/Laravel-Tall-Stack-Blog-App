@@ -103,14 +103,18 @@ Route::middleware('guest')->group(function () {
 /** 
  * Stripe payment.
  */
-Route::get('checkout/{plan}', [CheckoutController::class, 'foundationPlan'])->middleware('auth')->name('checkout');
-Route::get('checkout/{plan}', [CheckoutController::class, 'structuralPlan'])->middleware('auth')->name('checkout');
-Route::get('checkout/{plan}', [CheckoutController::class, 'masterPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/foundation-plan/{price?}', [CheckoutController::class, 'foundationPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/structural-plan/{price?}', [CheckoutController::class, 'structuralPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/master-plan/{price?}', [CheckoutController::class, 'masterPlan'])->middleware('auth')->name('checkout');
 
 /**
  * Subscription pages.
  */
-Route::get('/subscriptions', [SubscriptionController::class, 'index'])->middleware([Subscribed::class])->name('subscriptions.index');
-Route::get('/subscription', [SubscriptionController::class, 'show'])->middleware([Subscribed::class])->name('subscriptions.show');
+Route::get('/subscriptions', [SubscriptionController::class, 'index'])
+        ->middleware([Subscribed::class])
+        ->name('subscriptions.index');
+Route::get('/subscription', [SubscriptionController::class, 'show'])
+        ->middleware([Subscribed::class])
+        ->name('subscriptions.show');
 
 require __DIR__ . '/auth.php';

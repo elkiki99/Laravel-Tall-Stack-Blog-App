@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Models\Subscription;
 use Laravel\Cashier\Cashier;
 use Illuminate\Support\Facades\Gate;
@@ -27,9 +28,11 @@ class AppServiceProvider extends ServiceProvider
             return $user !== null;
         });
 
-        Cashier::useSubscriptionModel(Subscription::class);
-        Cashier::useSubscriptionItemModel(SubscriptionItem::class);
-        
+        // Cashier::useCustomerModel(User::class);
+
+        // Cashier::useSubscriptionModel(Subscription::class);
+        // Cashier::useSubscriptionItemModel(SubscriptionItem::class);
+
         // Cashier::calculateTaxes();
     }
 }
