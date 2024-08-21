@@ -38,7 +38,7 @@
                 @else
                     @if(auth()->user()->role === 'admin')
                         <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
-                            <a class="hidden text-sm md:flex hover:blur-xs" wire:navigate href="{{ route('posts.index') }}">Panel</a>
+                            <a class="hidden text-sm md:flex hover:blur-xs" wire:navigate href="{{ route('panel.admin') }}">Panel</a>
                         </div>
                     @elseif(auth()->user()->role === 'author')
                         <div class="absolute top-0 right-0 z-20 p-3 mt-10 mr-10">
