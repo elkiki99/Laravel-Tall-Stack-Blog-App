@@ -19,9 +19,21 @@
             <select wire:model.live="searchRole"
             class="block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600">
                 <option hidden>Filter by role</option>
-                <option value="all">All</option>
+                <option value="allRoles">All</option>
                 <option value="user">User</option>
                 <option value="author">Author</option>
+            </select>
+        </div>
+
+        <!-- Role Filter -->
+        <div class="w-full px-1 md:w-1/2">
+            <select wire:model.live="searchPlan"
+            class="block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600">
+                <option hidden>Filter by subscribed plans</option>
+                <option value="allPlans">All</option>
+                <option value="foundation">Foundation</option>
+                <option value="structural">Structural</option>
+                <option value="master">Master</option>
             </select>
         </div>
     </div>
