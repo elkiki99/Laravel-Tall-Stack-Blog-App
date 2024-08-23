@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Devdojo\Auth\Models\User as AuthUser;
 use Laravel\Cashier\Billable;
 
-class User extends AuthUser 
+class User extends AuthUser
 {
     use HasFactory, Notifiable, Billable;
 
@@ -71,5 +71,12 @@ class User extends AuthUser
     public function subscriptions()
     {
         return $this->hasMany(Subscription::class);
+    }
+
+    public static function clients()
+    {
+        return static::whereHas('subscriptions', function ($query) {
+            $query->where('stripe_status', 'active');
+        });
     }
 }

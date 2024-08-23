@@ -105,9 +105,9 @@ Route::middleware('guest')->group(function () {
 /** 
  * Stripe payment.
  */
-Route::get('checkout/foundation-plan/{price?}', [CheckoutController::class, 'foundationPlan'])->middleware('auth')->name('checkout');
-Route::get('checkout/structural-plan/{price?}', [CheckoutController::class, 'structuralPlan'])->middleware('auth')->name('checkout');
-Route::get('checkout/master-plan/{price?}', [CheckoutController::class, 'masterPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/{price?}', [CheckoutController::class, 'foundationPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/{price?}', [CheckoutController::class, 'structuralPlan'])->middleware('auth')->name('checkout');
+Route::get('checkout/{price?}', [CheckoutController::class, 'masterPlan'])->middleware('auth')->name('checkout');
 
 /**
  * Subscription pages.

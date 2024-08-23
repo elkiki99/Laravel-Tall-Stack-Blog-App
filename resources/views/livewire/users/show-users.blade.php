@@ -31,9 +31,9 @@
             class="block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600">
                 <option hidden>Filter by subscribed plans</option>
                 <option value="allPlans">All</option>
-                <option value="foundation">Foundation</option>
-                <option value="structural">Structural</option>
-                <option value="master">Master</option>
+                <option value="subscribed">Subscribed</option>
+                <option value="not_subscribed">Not subscribed</option>
+                {{-- <option value="master">Master</option> --}}
             </select>
         </div>
     </div>

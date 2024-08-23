@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
     public function foundationPlan(Request $request, $price)
     {
         return $request->user()

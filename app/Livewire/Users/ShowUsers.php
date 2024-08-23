@@ -15,12 +15,6 @@ class ShowUsers extends Component
     public string $searchRole = '';
     public string $searchPlan = '';
 
-    protected $plans = [
-        'foundation' => 'prod_QhJo9wxyLqHvKI',
-        'structural' => 'prod_QhJqrVJiUo5TUJ',
-        'master' => 'prod_QhKEnbLlRlLxzi',
-    ];
-
     public function render()
     {
         $users = User::query()
@@ -32,13 +26,10 @@ class ShowUsers extends Component
                 $query->where('name', 'like', '%' . $this->searchUsers . '%');
             })
             ->when($this->searchPlan && $this->searchPlan !== 'allPlans', function (Builder $query) {
-                $planProductId = $this->plans[$this->searchPlan] ?? null;
-
-                if ($planProductId) {
-                    $query->whereHas('subscriptions', function (Builder $query) use ($planProductId) {
-                        $query->where('stripe_product', $planProductId)
-                              ->where('stripe_status', 'active'); // Filtra solo suscripciones activas
-                    });
+                if ($this->searchPlan === 'subscribed') {
+                    $query->whereHas('subscriptions');
+                } elseif ($this->searchPlan === 'not_subscribed') {
+                    $query->whereDoesntHave('subscriptions');
                 }
             })
             ->paginate(20);
