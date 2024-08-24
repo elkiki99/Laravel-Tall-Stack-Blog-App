@@ -17,7 +17,6 @@
     },
     "dependencies": {
         "@dasundev/livewire-dropzone-styles": "^1.0.8",
-        "@stripe/ui-extension-sdk": "^8.9.1",
         "quill": "^2.0.2"
     }
 }

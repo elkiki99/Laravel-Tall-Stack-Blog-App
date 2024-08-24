@@ -41,7 +41,8 @@
 
                     <div class="justify-center md:space-x-6 md:flex">
                         <!-- Foundation Plan -->
-                        <div class="w-full my-10 p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 md:hover:scale-[1.02]"
+                        <div 
+                            class="w-full my-10 p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 md:hover:scale-[1.02]"
                             x-data="{
                                 annualFoundationUrl: '{{ route('checkout', ['price' => config('pricing.plans.foundation_plan.prices.annual')]) }}',
                                 monthlyFoundationUrl: '{{ route('checkout', ['price' => config('pricing.plans.foundation_plan.prices.monthly')]) }}'

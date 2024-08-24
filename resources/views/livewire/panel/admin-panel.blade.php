@@ -1,6 +1,6 @@
 <div class="gap-6 lg:flex">
     <div class="w-full py-10 lg:w-2/3">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
             <a target="_blank" rel="noopener noreferrer" href="https://dashboard.stripe.com/test/balance/overview">
                 <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
                     <div class="flex justify-between">
@@ -21,7 +21,7 @@
                 </div>
             </a>
             <a wire:navigate href="{{ route('posts.index') }}">
-                <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
+                <div class="h-full p-6 space-y-2 bg-gray-50 rounded-3xl">
                     <div class="flex justify-between">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2"
                             stroke="currentColor" class="size-10">
@@ -35,7 +35,7 @@
                 </div>
             </a>
             <a wire:navigate href="{{ route('users.index') }}">
-                <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
+                <div class="h-full p-6 space-y-2 bg-gray-50 rounded-3xl">
                     <div class="flex justify-between">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2"
                             stroke="currentColor" class="size-10">
@@ -51,7 +51,7 @@
                 </div>
             </a>
             <a wire:navigate href="{{ route('comments.index') }}">
-                <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
+                <div class="h-full p-6 space-y-2 bg-gray-50 rounded-3xl">
                     <div class="flex justify-between">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2"
                             stroke="currentColor" class="size-10">
@@ -68,8 +68,8 @@
             </a>
         </div>
 
-        <div class="flex gap-4 py-4">
-            <div class="grid w-1/3 grid-cols-1 gap-4 gap-y-4">
+        <div class="w-full gap-4 py-4 md:flex">
+            <div class="grid grid-cols-2 gap-4 md:w-1/3 md:grid-cols-1 gap-y-4">
                 <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
                     <p class="text-lg font-semibold">New weekly clients</p>
                     <div class="flex items-center justify-around">
@@ -89,12 +89,10 @@
                 </div>
             </div>
 
-            <div class="w-2/3 p-6 space-y-4 bg-gray-50 rounded-3xl">
-                <p class="text-xl font-semibold">Marketing campaign</p>
-
-                <div x-data="lineChartComponent">
-                    <div id="linechart-container" x-init="init()"></div>
-                </div>
+            <!-- CHART !-->
+            <div class="w-full p-6 mt-4 space-y-4 md:mt-0 md:w-2/3 bg-gray-50 rounded-3xl">
+                <p class="text-xl font-semibold">Weekly sales</p>
+                <canvas id="lineChart"></canvas>
             </div>
         </div>
 
@@ -273,5 +271,44 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('lineChart').getContext('2d');
+            
+            const labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'];
+            const salesData = @json($salesData);
+            
+            const data = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Weekly sales',
+                        data: salesData,
+                        borderColor: 'rgba(0, 0, 0, 1)',
+                        backgroundColor: 'rgba(245, 158, 11, 1)', 
+                    },
+                ]
+            };
+    
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: false,
+                        }
+                    }
+                }
+            };
+    
+            new Chart(ctx, config);
+        });
+    </script>
 </div>
 

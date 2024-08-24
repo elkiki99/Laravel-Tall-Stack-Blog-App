@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Panel;
 
+use Carbon\Carbon;
+use Stripe\Stripe;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
@@ -9,25 +11,28 @@ use Livewire\Component;
 use App\Models\Category;
 use Stripe\StripeClient;
 
+
 class AdminPanel extends Component
 {
     public $posts;
     public $users;
-    public $comments;
-    public $clients;
     public $mails;
+    public $clients;
     public $balance;
+    public $comments;
     public $currency;
     public $uncategorizedPosts;
+    public $salesData = [];
 
     public function mount()
     {
+        $this->retrieveBalance();
         $this->posts = Post::get();
         $this->users = User::get();
-        $this->clients = User::clients()->get();
-        $this->comments = Comment::get();
-        $this->retrieveBalance();
         $this->uncategorizedPosts();
+        $this->comments = Comment::get();
+        $this->clients = User::clients()->get();
+        $this->salesData = $this->weeklySales();
     }
 
     public function retrieveBalance()
@@ -45,6 +50,58 @@ class AdminPanel extends Component
         $this->uncategorizedPosts = $uncategorizedCategory
             ? Post::where('category_id', $uncategorizedCategory->id)->get()
             : collect();
+    }
+
+    public function weeklySales()
+    {
+        $dates = collect();
+        for ($i = 0; $i < 6; $i++) {
+            $dates->push(now()->subWeeks($i));
+        }
+
+        $dates = $dates->reverse();
+
+        $weeklySales = [];
+
+        $stripe = new StripeClient(env('STRIPE_SECRET'));
+        $subscriptions = $stripe->subscriptions->all();
+
+        foreach ($dates as $date) {
+            $weekStart = $date->copy()->startOfWeek();
+            $weekEnd = $date->copy()->endOfWeek();
+
+            $totalSales = 0;
+
+            foreach ($subscriptions->data as $subscription) {
+                $subscriptionId = $subscription->id;
+
+                $allSubscriptionItems = $stripe->subscriptionItems->all([
+                    'subscription' => $subscriptionId,
+                ]);
+
+                $sales = collect($allSubscriptionItems->data)->filter(function ($item) use ($weekStart, $weekEnd) {
+                    $createdAt = \Carbon\Carbon::createFromTimestamp($item->created);
+                    return $createdAt->between($weekStart, $weekEnd);
+                });
+
+                // Sumar los precios
+                $totalSales += $sales->sum(function ($item) {
+                    return match ($item->price->id) {
+                        config('pricing.plans.structural_plan.prices.monthly') => 5,
+                        config('pricing.plans.structural_plan.prices.annual') => 49,
+                        config('pricing.plans.foundation_plan.prices.monthly') => 10,
+                        config('pricing.plans.foundation_plan.prices.annual') => 99,
+                        config('pricing.plans.master_plan.prices.monthly') => 20,
+                        config('pricing.plans.master_plan.prices.annual') => 199,
+                        default => 0,
+                    };
+                });
+            }
+
+            $weeklySales[] = $totalSales;
+        }
+
+        return $weeklySales;
     }
 
     public function render()
