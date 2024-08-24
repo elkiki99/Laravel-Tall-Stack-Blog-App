@@ -169,10 +169,12 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                 </svg>
-                <p class="text-3xl font-bold text-gray-100">7,200/mo</p>
+                <p class="text-3xl font-bold text-gray-100">XX,XXX</p>
             </div>
-            <x-secondary-button class="justify-center w-full px-4 py-2 rounded-lg text-md">View
-                stats</x-secondary-button>
+            <a 
+                rel="noopener noreferrer" target="_blank" href="https://marketingplatform.google.com/about/analytics/" class="inline-flex items-center justify-center w-full px-4 py-2 text-black bg-white border-2 border-gray-100 rounded-lg dark:bg-gray-900 dark:text-white hover:blur-xs hover:text-black hover:border-gray-300 dark:hover:text-white focus:text-black focus:border-gray-200 dark:focus:text-white text-md">View
+                stats
+            </a>
         </div>
 
         <div class="my-8 space-y-4">

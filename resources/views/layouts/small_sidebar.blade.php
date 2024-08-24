@@ -127,7 +127,7 @@
             <div x-show="openMenuIndex === 1"
                 class="absolute top-0 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">
                 <a wire:navigate href="{{ route('panel.admin') }}" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Admin panel</a>
-                <a wire:navigate href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Analytics</a>
+                <a rel="noopener noreferrer" target="_blank" href="https://marketingplatform.google.com/about/analytics/" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Analytics</a>
             </div>
             <div x-show="openMenuIndex === 2"
                 class="absolute top-0 z-40 w-56 mt-2 bg-white rounded-md shadow-lg -right-60 backdrop-filter backdrop-blur-3xl">

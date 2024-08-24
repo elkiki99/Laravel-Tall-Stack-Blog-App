@@ -54,49 +54,56 @@ class AdminPanel extends Component
 
     public function weeklySales()
     {
-        $dates = collect();
+        // Prepare date ranges for the last 6 weeks
+        $dateRanges = collect();
         for ($i = 0; $i < 6; $i++) {
-            $dates->push(now()->subWeeks($i));
+            $startOfWeek = now()->subWeeks($i)->startOfWeek();
+            $endOfWeek = now()->subWeeks($i)->endOfWeek();
+            $dateRanges->push(['start' => $startOfWeek, 'end' => $endOfWeek]);
         }
 
-        $dates = $dates->reverse();
+        // Reverse the order to start from the most recent week
+        $dateRanges = $dateRanges->reverse();
 
         $weeklySales = [];
 
+        // Initialize Stripe client
         $stripe = new StripeClient(env('STRIPE_SECRET'));
+
+        // Fetch all subscriptions once
         $subscriptions = $stripe->subscriptions->all();
 
-        foreach ($dates as $date) {
-            $weekStart = $date->copy()->startOfWeek();
-            $weekEnd = $date->copy()->endOfWeek();
+        // Fetch all subscription items in a single API call (if possible)
+        $allSubscriptionItems = collect();
+        foreach ($subscriptions->data as $subscription) {
+            $subscriptionItems = $stripe->subscriptionItems->all([
+                'subscription' => $subscription->id,
+            ]);
+            $allSubscriptionItems = $allSubscriptionItems->merge($subscriptionItems->data);
+        }
 
+        // Calculate sales for each week
+        foreach ($dateRanges as $range) {
             $totalSales = 0;
 
-            foreach ($subscriptions->data as $subscription) {
-                $subscriptionId = $subscription->id;
+            // Filter items for the current week range
+            $sales = $allSubscriptionItems->filter(function ($item) use ($range) {
+                $createdAt = \Carbon\Carbon::createFromTimestamp($item->created);
+                return $createdAt->between($range['start'], $range['end']);
+            });
 
-                $allSubscriptionItems = $stripe->subscriptionItems->all([
-                    'subscription' => $subscriptionId,
-                ]);
-
-                $sales = collect($allSubscriptionItems->data)->filter(function ($item) use ($weekStart, $weekEnd) {
-                    $createdAt = \Carbon\Carbon::createFromTimestamp($item->created);
-                    return $createdAt->between($weekStart, $weekEnd);
-                });
-
-                // Sumar los precios
-                $totalSales += $sales->sum(function ($item) {
-                    return match ($item->price->id) {
-                        config('pricing.plans.structural_plan.prices.monthly') => 5,
-                        config('pricing.plans.structural_plan.prices.annual') => 49,
-                        config('pricing.plans.foundation_plan.prices.monthly') => 10,
-                        config('pricing.plans.foundation_plan.prices.annual') => 99,
-                        config('pricing.plans.master_plan.prices.monthly') => 20,
-                        config('pricing.plans.master_plan.prices.annual') => 199,
-                        default => 0,
-                    };
-                });
-            }
+            // Sum prices for the current week
+            $totalSales = $sales->sum(function ($item) {
+                return match ($item->price->id) {
+                    config('pricing.plans.structural_plan.prices.monthly') => 5,
+                    config('pricing.plans.structural_plan.prices.annual') => 49,
+                    config('pricing.plans.foundation_plan.prices.monthly') => 10,
+                    config('pricing.plans.foundation_plan.prices.annual') => 99,
+                    config('pricing.plans.master_plan.prices.monthly') => 20,
+                    config('pricing.plans.master_plan.prices.annual') => 199,
+                    default => 0,
+                };
+            });
 
             $weeklySales[] = $totalSales;
         }
