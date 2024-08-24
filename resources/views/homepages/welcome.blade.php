@@ -74,6 +74,7 @@
 
                     <p class="text-gray-400">Easily customizable to fit your brand's style and requirements.</p>
                 </div>
+                
                 <div
                     class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">Built with TALL Stack</h3>
@@ -85,6 +86,7 @@
                     <p class="text-gray-400">Combining TailwindCSS, Alpine.js, Livewire, and Laravel for a seamless
                         development experience.</p>
                 </div>
+                
                 <div
                     class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">User Comments</h3>
@@ -98,12 +100,12 @@
                 </div>
                 <div
                     class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
-                    <h3 class="my-2 text-3xl font-bold text-gray-300">Analytics</h3>
-                    <svg class="w-12 h-12 mb-2 text-gray-100" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
+                    <h3 class="my-2 text-3xl font-bold text-gray-300">Payment gateways</h3>
+
+                    <svg class="w-12 h-12 mb-2 text-gray-100" xmlns="http://www.w3.org/2000/svg" fill="none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+                      </svg>
+                      
 
                     <p class="text-gray-400">Built-in metrics and analytics to track your blog's performance.</p>
                 </div>

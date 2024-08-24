@@ -1,4 +1,5 @@
 import "./bootstrap";
+import './linechart.js';
 
 window.addEventListener("scroll", function () {
     const parallaxElements = document.querySelectorAll(".parallax-bg");

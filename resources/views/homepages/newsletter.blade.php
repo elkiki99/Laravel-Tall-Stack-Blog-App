@@ -92,7 +92,8 @@
                         </div>
 
                         <!-- Structural (Center Highlighted) -->
-                        <div class="w-full my-10 p-6 text-center transition transform md:scale-110 bg-gray-950 border rounded-lg shadow-lg md:w-1/3 hover:scale-[1.12]"
+                        <div 
+                            class="w-full my-10 p-6 text-center transition transform md:scale-110 bg-gray-950 border       rounded-lg shadow-lg md:w-1/3 hover:scale-[1.12]"
                             x-data="{
                                 annualStructuralUrl: '{{ route('checkout', ['price' => config('pricing.plans.structural_plan.prices.annual')]) }}',
                                 monthlyStructuralUrl: '{{ route('checkout', ['price' => config('pricing.plans.structural_plan.prices.monthly')]) }}'
@@ -145,7 +146,8 @@
                         </div>
 
                         <!-- Master -->
-                        <div class="w-full my-10 p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 md:hover:scale-[1.02]"
+                        <div 
+                            class="w-full my-10 p-6 text-center transition bg-gray-100 border rounded-lg shadow-lg md:w-1/3 md:hover:scale-[1.02]"
                             x-data="{
                                 annualMasterUrl: '{{ route('checkout', ['price' => config('pricing.plans.master_plan.prices.annual')]) }}',
                                 monthlyMasterUrl: '{{ route('checkout', ['price' => config('pricing.plans.master_plan.prices.monthly')]) }}'
@@ -190,7 +192,7 @@
                                     </a>
                                 @endif
                             @else
-                                <a :href="isAnnual ? annualStructuralUrl : monthlyStructuralUrl"
+                                <a :href="isAnnual ? annualMasterUrl : monthlyMasterUrl"
                                     class="flex items-center justify-center w-full px-4 py-2 my-6 text-gray-100 rounded-lg hover:blur-xs hover:cursor-pointer bg-gray-950">Subscribe
                                     now
                                 </a>
