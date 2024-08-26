@@ -106,7 +106,7 @@
             
             <table class="min-w-full bg-gray-50">
                 <tbody>
-                        @foreach (App\Models\Comment::latest()->take(5)->get() as $comment)
+                        @foreach (App\Models\Comment::latest()->take(3)->get() as $comment)
                         <tr wire:loading.remove wire:target='deleteComment({{ $comment->id }})'
                             wire:key="{{ $comment->id }}" class="border-b-2 bg-gray-50" />
                             <td>

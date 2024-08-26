@@ -21,6 +21,7 @@ class Post extends Model
         'views',
         'status',
         'meta_description',
+        'is_featured'
     ];
 
     public static function calculateReadingTime($body)

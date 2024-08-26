@@ -30,6 +30,7 @@ class EditPost extends Component
     public $views;
     public $status;
     public $meta_description;
+    public $is_featured;
 
     public function mount($postId)
     {
@@ -46,6 +47,7 @@ class EditPost extends Component
         $this->views = $this->post->views;
         $this->status = 'draft';
         $this->meta_description = $this->post->meta_description;
+        $this->is_featured = $this->post->is_featured;
     }
 
     protected function rules()
@@ -100,6 +102,7 @@ class EditPost extends Component
             'meta_description' => $this->meta_description,
             'reading_time' => $readingTime,
             'status' => $this->status,
+            'is_featured' => $this->is_featured
         ]);
 
         $this->post->tags()->sync($this->tag_ids);

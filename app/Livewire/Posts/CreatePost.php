@@ -28,6 +28,7 @@ class CreatePost extends Component
     public $views = 0;
     public $status = 'draft';
     public $meta_description;
+    public $is_featured;
 
     protected $messages = [
         'tag_ids.required' => 'At least one tag is required.',
@@ -46,6 +47,7 @@ class CreatePost extends Component
         'tag_ids.*' => 'required|exists:tags,id',
         'status' => 'required|string|in:draft,published',
         'meta_description' => 'required|string|max:255',
+        'is_featured' => 'nullable|boolean',
     ];
     
     public function submit()
@@ -72,6 +74,7 @@ class CreatePost extends Component
             'meta_description' => $this->meta_description,
             'reading_time' => $readingTime,
             'status' => $this->status,
+            'is_featured' => $this->is_featured
         ]);
 
         $post->author_id = Auth::id();
