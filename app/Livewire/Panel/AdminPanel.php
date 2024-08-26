@@ -83,7 +83,7 @@ class AdminPanel extends Component
         $uncategorizedCategory = Category::where('name', 'Uncategorized')->first();
 
         $this->uncategorizedPosts = $uncategorizedCategory
-            ? Post::where('category_id', $uncategorizedCategory->id)->get()
+            ? Post::where('category_id', $uncategorizedCategory->id)->where('status', 'published')->get()
             : collect();
     }
 

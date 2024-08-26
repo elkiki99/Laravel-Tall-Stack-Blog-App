@@ -5,11 +5,9 @@ namespace App\Mail;
 use App\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Symfony\Component\Mime\Email;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PostCreated extends Mailable
 {

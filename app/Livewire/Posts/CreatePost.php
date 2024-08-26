@@ -79,7 +79,7 @@ class CreatePost extends Component
         $post->tags()->sync($this->tag_ids);
 
         if(auth()->user()->role === 'author') {
-            Mail::to('brossani23@gmail.com')->send(new PostCreated($post));
+            Mail::to(config('mail.from.address'))->send(new PostCreated($post));
         }
         return redirect()->route('posts.pending')->with('success_created', 'Post created successfully.');
     }

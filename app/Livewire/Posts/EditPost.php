@@ -105,7 +105,7 @@ class EditPost extends Component
         $this->post->tags()->sync($this->tag_ids);
 
         if(auth()->user()->role === 'author') {
-            Mail::to('brossani23@gmail.com')->send(new PostUpdated($this->post));
+            Mail::to(config('mail.from.address'))->send(new PostUpdated($this->post));
         }
         return redirect()->route('posts.pending')->with('success_updated', 'Post updated successfully.');
     }
