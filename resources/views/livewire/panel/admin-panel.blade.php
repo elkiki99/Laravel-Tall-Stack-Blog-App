@@ -265,16 +265,25 @@
                     <p class="text-xl font-bold text-gray-100">Daily todos</p>
                     <p class="text-sm text-gray-100">{{ Carbon\Carbon::now()->toDayDateTimeString() }}</p>
                 </div>
-            </div>
-            <ul>
-                <a wire:navigate href="{{ route('posts.pending') }}">
-                    <li class="text-gray-100">{{ $posts->where('status', 'draft')->count() }} blog posts to check and
-                    publish</li>
-                </a>
-                <a wire:navigate href="{{ route('categories.show', 'uncategorized') }}">
-                    <li class="text-gray-100">{{ $uncategorizedPosts->count() }} uncategorized blog posts</li>
-                </a>
-            </ul>
+            </div>  
+            @if($posts->where('status', 'draft')->count() > 0 || $uncategorizedPosts->count() > 0)
+                <ul>
+                    @if($posts->where('status', 'draft')->count() > 0)
+                        <a wire:navigate href="{{ route('posts.pending') }}">
+                            <li class="text-gray-100">{{ $posts->where('status', 'draft')->count() }} blog posts to check and
+                            publish</li>
+                        </a>
+                    @endif
+                    
+                    @if($uncategorizedPosts->count() > 0)
+                        <a wire:navigate href="{{ route('categories.show', 'uncategorized') }}">
+                            <li class="text-gray-100">{{ $uncategorizedPosts->count() }} uncategorized blog posts</li>
+                        </a>
+                    @endif
+                </ul>
+            @else
+                <p class="text-gray-100">No todos yet.</p>
+            @endif
         </div>
     </div>
 
