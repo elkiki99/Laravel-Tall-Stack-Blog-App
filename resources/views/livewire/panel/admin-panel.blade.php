@@ -70,21 +70,23 @@
 
         <div class="w-full gap-4 py-4 md:flex">
             <div class="grid grid-cols-2 gap-4 md:w-1/3 md:grid-cols-1 gap-y-4">
-                <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
-                    <p class="text-lg font-semibold">New weekly clients</p>
-                    <div class="flex items-center justify-around">
-                        <p class="text-6xl font-bold">
-                            {{ $clients->where('created_at', '>=', Carbon\Carbon::now()->subDays(7))->count() }}</p>
-                        <p class="py-0.5 text-sm px-3 text-green-800 bg-green-200 rounded-lg">+10%</p>
+                <div x-data="{ currentWeekClients: @entangle('currentWeekClients') }">
+                    <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
+                        <p class="text-lg font-semibold">New weekly clients</p>
+                        <div class="flex items-center justify-around">
+                            <p class="text-6xl font-bold" x-text="currentWeekClients"></p>
+                            <div class="mr-3 bg-green-300 rounded-full size-3"></div>
+                        </div>
                     </div>
                 </div>
-
+                
                 <div class="p-6 space-y-2 bg-gray-50 rounded-3xl">
                     <p class="text-lg font-semibold">Weekly blog posts</p>
                     <div class="flex items-center justify-around">
                         <p class="text-6xl font-bold">
-                            {{ $posts->where('created_at', '>=', Carbon\Carbon::now()->subDays(7))->count() }}</p>
-                        <p class="py-0.5 text-sm px-3 text-red-800 bg-red-200 rounded-lg">-2%</p>
+                            {{ $posts->where('created_at', '>=', Carbon\Carbon::now()->subDays(7))->count() }}
+                        </p>
+                        <div class="mr-3 bg-green-300 rounded-full size-3"></div>
                     </div>
                 </div>
             </div>
@@ -92,7 +94,9 @@
             <!-- CHART !-->
             <div class="w-full p-6 mt-4 space-y-4 md:mt-0 md:w-2/3 bg-gray-50 rounded-3xl">
                 <p class="text-xl font-semibold">Weekly sales</p>
-                <canvas id="lineChart"></canvas>
+                <div x-data="chartComponent" x-init="initChart">
+                    <canvas id="lineChart" width="400" height="200"></canvas>
+                </div>
             </div>
         </div>
 
@@ -275,42 +279,46 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('lineChart').getContext('2d');
-            
-            const labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'];
-            const salesData = @json($salesData);
-            
-            const data = {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Weekly sales',
-                        data: salesData,
-                        borderColor: 'rgba(0, 0, 0, 1)',
-                        backgroundColor: 'rgba(245, 158, 11, 1)', 
-                    },
-                ]
-            };
+        function chartComponent() {
+            return {
+                chart: null,
+                salesData: @json($salesData),
     
-            const config = {
-                type: 'line',
-                data: data,
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        title: {
-                            display: false,
+                initChart() {
+                    const ctx = document.getElementById('lineChart').getContext('2d');
+    
+                    const labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'];
+        
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Weekly sales',
+                            data: this.salesData,
+                            borderColor: 'rgba(0, 0, 0, 1)',
+                            backgroundColor: 'rgba(245, 158, 11, 1)',
+                        }]
+                    };
+        
+                    const config = {
+                        type: 'line',
+                        data: data,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                title: {
+                                    display: false,
+                                }
+                            }
                         }
-                    }
+                    };
+        
+                    this.chart = new Chart(ctx, config);
                 }
             };
-    
-            new Chart(ctx, config);
-        });
+        }
     </script>
 </div>
 

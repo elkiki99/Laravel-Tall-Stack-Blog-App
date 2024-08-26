@@ -3,14 +3,12 @@
 namespace App\Livewire\Panel;
 
 use Carbon\Carbon;
-use Stripe\Stripe;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
 use Livewire\Component;
 use App\Models\Category;
 use Stripe\StripeClient;
-
 
 class AdminPanel extends Component
 {
@@ -23,9 +21,13 @@ class AdminPanel extends Component
     public $currency;
     public $uncategorizedPosts;
     public $salesData = [];
+    public $currentWeekClients;
+
+    protected $stripe;
 
     public function mount()
     {
+        $this->stripe = new StripeClient(env('STRIPE_SECRET'));
         $this->retrieveBalance();
         $this->posts = Post::get();
         $this->users = User::get();
@@ -33,6 +35,39 @@ class AdminPanel extends Component
         $this->comments = Comment::get();
         $this->clients = User::clients()->get();
         $this->salesData = $this->weeklySales();
+        $this->currentWeekClients = $this->getCurrentWeekClients();
+    }
+
+    public function getCurrentWeekClients()
+    {
+        $now = Carbon::now();
+        $currentWeekStart = $now->startOfWeek();
+
+        $allSubscriptions = [];
+        $hasMore = true;
+        $startingAfter = null;
+
+        while ($hasMore) {
+            $params = ['limit' => 100];
+            if ($startingAfter) {
+                $params['starting_after'] = $startingAfter;
+            }
+
+            $response = $this->stripe->subscriptions->all($params);
+            $allSubscriptions = array_merge($allSubscriptions, $response->data);
+
+            $hasMore = $response->has_more;
+            if ($hasMore) {
+                $startingAfter = end($response->data)->id;
+            }
+        }
+
+        $currentWeekSubscriptions = array_filter($allSubscriptions, function ($subscription) use ($currentWeekStart) {
+            $createdTimestamp = $subscription->created;
+            return Carbon::createFromTimestamp($createdTimestamp)->greaterThanOrEqualTo($currentWeekStart);
+        });
+
+        return count($currentWeekSubscriptions);
     }
 
     public function retrieveBalance()
@@ -54,7 +89,6 @@ class AdminPanel extends Component
 
     public function weeklySales()
     {
-        // Prepare date ranges for the last 6 weeks
         $dateRanges = collect();
         for ($i = 0; $i < 6; $i++) {
             $startOfWeek = now()->subWeeks($i)->startOfWeek();
@@ -62,18 +96,12 @@ class AdminPanel extends Component
             $dateRanges->push(['start' => $startOfWeek, 'end' => $endOfWeek]);
         }
 
-        // Reverse the order to start from the most recent week
         $dateRanges = $dateRanges->reverse();
-
         $weeklySales = [];
 
-        // Initialize Stripe client
         $stripe = new StripeClient(env('STRIPE_SECRET'));
 
-        // Fetch all subscriptions once
         $subscriptions = $stripe->subscriptions->all();
-
-        // Fetch all subscription items in a single API call (if possible)
         $allSubscriptionItems = collect();
         foreach ($subscriptions->data as $subscription) {
             $subscriptionItems = $stripe->subscriptionItems->all([
@@ -81,18 +109,14 @@ class AdminPanel extends Component
             ]);
             $allSubscriptionItems = $allSubscriptionItems->merge($subscriptionItems->data);
         }
-
-        // Calculate sales for each week
         foreach ($dateRanges as $range) {
             $totalSales = 0;
 
-            // Filter items for the current week range
             $sales = $allSubscriptionItems->filter(function ($item) use ($range) {
                 $createdAt = \Carbon\Carbon::createFromTimestamp($item->created);
                 return $createdAt->between($range['start'], $range['end']);
             });
 
-            // Sum prices for the current week
             $totalSales = $sales->sum(function ($item) {
                 return match ($item->price->id) {
                     config('pricing.plans.structural_plan.prices.monthly') => 5,
