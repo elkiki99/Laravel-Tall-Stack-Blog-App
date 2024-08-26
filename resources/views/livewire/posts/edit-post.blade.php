@@ -84,6 +84,19 @@
             </select>
             <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
         </div>
+    
+        <div class="mt-4">
+            <x-input-label for="tag_ids" :value="__('Tags')" />
+            <div wire:ignore>
+                <select multiple id="tag_ids" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"
+                    wire:model='tag_ids'>
+                    @foreach ($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <x-input-error :messages="$errors->get('tag_ids')" class="mt-2" />
+        </div>
 
         <!-- Switch featured post -->
         <div x-data="{ 

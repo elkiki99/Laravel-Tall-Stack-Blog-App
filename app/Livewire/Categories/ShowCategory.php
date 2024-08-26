@@ -16,10 +16,12 @@ class ShowCategory extends Component
 
     public function render()
     {
-        $posts = $this->category->posts()->where('status', 'published')->latest()->paginate(10);
+        $posts = $this->category->posts()->where('status', 'published')->where('is_featured', 0)->latest()->paginate(10);
+        $featuredPosts = $this->category->posts()->where('status', 'published')->where('is_featured', 1)->latest()->take(3)->get();
 
         return view('livewire.categories.show-category', [
-            'posts' => $posts
+            'posts' => $posts,
+            'featuredPosts' => $featuredPosts
         ]);
     }
 }

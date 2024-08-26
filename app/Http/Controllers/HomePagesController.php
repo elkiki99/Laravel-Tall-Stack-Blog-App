@@ -8,10 +8,12 @@ class HomePagesController extends Controller
 {
     public function blog()
     {
-        $posts = Post::with('author')->where('status', 'published')->latest()->paginate(10);
+        $posts = Post::with('author')->where('status', 'published')->where('is_featured', 0)->latest()->paginate(10);
+        $featuredPosts = Post::with('author')->where('status', 'published')->where('is_featured', 1)->latest()->paginate(10);
 
         return view ('homepages.blog', [
-            'posts' => $posts
+            'posts' => $posts,
+            'featuredPosts' => $featuredPosts
         ]);
     }
 

@@ -6,7 +6,7 @@
     </div>
     <div class="items-center justify-center hidden space-x-4 lg:flex">
         <a wire:navigate href="{{ route('blog') }}" class="px-1 font-medium hover:text-black  relative pb-2 {{ request()->routeIs('blog') ? 'text-black border-b-4  border-gray-700' : 'text-gray-600' }}">All</a>
-        @foreach(App\Models\Category::all() as $category)
+        @foreach(App\Models\Category::where('name', '!=', 'Uncategorized')->get() as $category)
             <a 
                 wire:navigate 
                 href="{{ route('categories.show', $category) }}" 

@@ -75,7 +75,7 @@
 
     <!-- Second Section -->
     <section class="px-2 pb-20 mt-5 lg:px-5 lg:w-2/6 lg:mt-0">
-        @forelse($posts as $post)
+        @forelse($featuredPosts as $post)
             <div class="py-6 pb-5 border-b-2 border-gray-300">
                 <div class="flex items-center justify-center">
                     <x-post-metrics :post="$post" />

@@ -16,9 +16,12 @@ class ShowTag extends Component
 
     public function render()
     {
-        $posts = $this->tag->posts()->where('status', 'published')->latest()->paginate(10);
+        $posts = $this->tag->posts()->where('status', 'published')->where('is_featured', 0)->latest()->paginate(10);
+        $featuredPosts = $this->tag->posts()->where('status', 'published')->where('is_featured', 1)->latest()->take(3)->get();
+
         return view('livewire.tags.show-tag', [
-            'posts' => $posts
+            'posts' => $posts,
+            'featuredPosts' => $featuredPosts
         ]);
     }
 }
