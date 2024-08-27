@@ -28,7 +28,7 @@ class ContactUsForm extends Component
         $userRole = $user ? $user->role : 'N/A';
         $url = $user ? config('app.url') . '/user/' . $user->nickname : 'N/A';
     
-        Mail::to('brossani23@gmail.com')->send(new ContactUs(
+        Mail::to('gazzete@localhost')->send(new ContactUs(
             $this->email,
             $this->message,
             $userName,

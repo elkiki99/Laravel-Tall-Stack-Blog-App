@@ -18,9 +18,11 @@
         <form action="{{ route('search', ['query' => '']) }}" method="GET" id="search-form">
             <div class="relative pb-2">
                 <input type="text" name="query" placeholder="Search..." class="py-2 pl-10 pr-4 text-sm font-medium text-gray-600 bg-white border-none focus:outline-none focus:ring-0" id="search-input">
-                <svg class="absolute pb-2 text-gray-500 transform -translate-y-1/2 w-7 h-7 top-1/2 left-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M18.07 10.93A7.07 7.07 0 1110.93 4.93a7.07 7.07 0 017.14 6z"></path>
-                </svg>
+                <button type="submit">
+                    <svg class="absolute pb-2 text-gray-500 transform -translate-y-1/2 w-7 h-7 top-1/2 left-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M18.07 10.93A7.07 7.07 0 1110.93 4.93a7.07 7.07 0 017.14 6z"></path>
+                    </svg>
+                </button>
             </div>
         </form>
     </div>
@@ -29,13 +31,17 @@
     <div class="flex items-center justify-between px-5 lg:hidden">
         <form action="{{ route('search', ['query' => '']) }}" method="GET" id="search-form">
             <div class="relative flex-1">
+                <!-- Input Field -->
                 <input name="query" type="text" placeholder="Search..." class="w-full py-2 pl-10 pr-4 text-sm font-medium text-gray-600 bg-white border-none focus:outline-none focus:ring-0">
-                <svg class="absolute text-gray-500 transform -translate-y-1/2 top-1/2 left-2 w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M18.07 10.93A7.07 7.07 0 1110.93 4.93a7.07 7.07 0 017.14 6z"></path>
-                </svg>  
+                
+                <!-- Button with SVG Icon -->
+                <button type="submit" class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500 hover:text-gray-700">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M18.07 10.93A7.07 7.07 0 1110.93 4.93a7.07 7.07 0 017.14 6z"></path>
+                    </svg>
+                </button>
             </div>
         </form>
-
         
         <button @click="open = !open" class="text-gray-600 hover:text-black focus:outline-none">     
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-5">

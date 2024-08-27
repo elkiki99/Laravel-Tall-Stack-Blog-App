@@ -54,36 +54,7 @@
                         </div>
                     </div>
                 @empty
-                    <!-- Placeholder Blog Post -->
-                    <div class="flex flex-col bg-white rounded-lg dark:bg-gray-700 2xl:flex-row">
-                        <!-- Placeholder Image -->
-                        <div class="w-full overflow-hidden bg-gray-200 2xl:w-1/2 2xl:aspect-square aspect-video"></div>
-
-                        <div class="flex flex-col justify-between w-full px-0 py-4 2xl:px-4 2xl:w-1/2">
-                            <div>
-                                <!-- Placeholder Metrics -->
-                                <div class="w-48 h-4 mb-4 bg-gray-300"></div>
-
-                                <!-- Placeholder Title -->
-                                <div class="w-64 h-8 mb-4 bg-gray-300"></div>
-
-                                <!-- Placeholder Paragraph -->
-                                <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                                <div class="w-full h-4 mb-2 bg-gray-200"></div>
-                                <div class="w-1/2 h-4 bg-gray-200"></div>
-                            </div>
-
-                            <!-- Placeholder Created Data -->
-                            <div class="w-32 h-4 mt-5 mb-4 bg-gray-300 2xl:mt-auto"></div>
-
-                            <!-- Placeholder Tags -->
-                            <div class="flex space-x-2">
-                                <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
-                                <div class="w-24 h-4 px-2 py-1 text-gray-800 bg-gray-200"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <h3 class="text-2xl font-medium text-gray-500">No blog posts found</h3>
             @endforelse
         </section>
     </div>

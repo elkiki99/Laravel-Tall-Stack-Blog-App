@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostController extends Controller
 {
@@ -44,10 +45,26 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $posts = Post::search($query)->paginate(10);
-        
+    
+        // Perform the search using Scout
+        $searchResults = Post::search($query)->get();
+    
+        // Filter results to include only published posts
+        $posts = $searchResults->filter(function ($post) {
+            return $post->status === 'published';
+        });
+    
+        // Paginate manually (Scout does not handle pagination directly)
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = 10;
+        $currentItems = $posts->slice(($currentPage - 1) * $perPage, $perPage)->all();
+        $paginatedResults = new LengthAwarePaginator($currentItems, $posts->count(), $perPage, $currentPage, [
+            'path' => LengthAwarePaginator::resolveCurrentPath()
+        ]);
+    
         return view('posts.search', [
-            'posts' => $posts, 'query' => $query]
-        );
+            'posts' => $paginatedResults,
+            'query' => $query
+        ]);
     }
 }
