@@ -120,7 +120,6 @@ Route::get('/subscription', [SubscriptionController::class, 'show'])->middleware
 /**
  * Search page.
  */
-Route::get('/search/{query}', [PostController::class, 'search'])->name('search');
-
+Route::get('/search/{query?}', [PostController::class, 'search'])->name('search');
 
 require __DIR__ . '/auth.php';

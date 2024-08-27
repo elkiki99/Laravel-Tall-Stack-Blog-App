@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
@@ -38,5 +39,15 @@ class PostController extends Controller
         return view('posts.edit', [
             'post' => $post
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $posts = Post::search($query)->paginate(10);
+        
+        return view('posts.search', [
+            'posts' => $posts, 'query' => $query]
+        );
     }
 }

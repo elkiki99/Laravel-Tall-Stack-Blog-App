@@ -17,6 +17,8 @@
     },
     "dependencies": {
         "@dasundev/livewire-dropzone-styles": "^1.0.8",
+        "algoliasearch": "^5.1.1",
+        "instantsearch.js": "^4.74.0",
         "quill": "^2.0.2"
     }
 }

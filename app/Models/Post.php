@@ -31,12 +31,6 @@ class Post extends Model
         return 'posts_index';
     }
 
-    public function search($query)
-    {
-        $posts = Post::search($query)->get();
-        return $posts;
-    }
-
     public static function calculateReadingTime($body)
     {
         $wordCount = str_word_count(strip_tags($body));

@@ -4,6 +4,7 @@
     <section class="pt-16 pb-10 sm:pt-32">
         <x-blog-nav-bar />
     </section>
+    
     <div class="flex flex-col min-h-screen mx-auto max-w-7xl lg:flex-row">
         <!-- First Section -->  
         <section class="w-full px-2 pb-10 lg:pb-20 lg:w-4/6">
@@ -182,5 +183,5 @@
         </section>
     </div>
 
-    <div class="mx-auto max-w-7xl">{{ $posts->links() }}</div>
+    <div class="mx-auto mb-20 max-w-7xl">{{ $posts->links() }}</div>
 </x-app-layout>
