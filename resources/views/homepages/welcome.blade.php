@@ -124,7 +124,7 @@
                     <div class="flex flex-col justify-between">
                         <div>
                             <div class="flex my-1 text-sm ">
-                                <p class="flex items-center">
+                                {{-- <p class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-4 h-4 mr-2">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
@@ -134,7 +134,7 @@
                                     </svg>
                                     4.5k views
                                 </p>
-                                <p class="mx-2"> | </p>
+                                <p class="mx-2"> | </p> --}}
                                 <p class="flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-4 h-4 mr-2">
@@ -182,7 +182,7 @@
                             <div class="flex flex-col justify-between w-full p-4 2xl:w-1/2">
                                 <div>
                                     <div class="flex my-1 text-sm">
-                                        <p class="flex items-center">
+                                        {{-- <p class="flex items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                 fill="currentColor" class="w-4 h-4 mr-2">
                                                 <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
@@ -192,7 +192,7 @@
                                             </svg>
                                             4.5k views
                                         </p>
-                                        <p class="mx-2"> | </p>
+                                        <p class="mx-2"> | </p> --}}
                                         <p class="flex items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                 fill="currentColor" class="w-4 h-4 mr-2">

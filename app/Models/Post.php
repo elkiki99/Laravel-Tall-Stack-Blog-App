@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
     use HasFactory;
+    use Searchable;
 
     protected $fillable = [
         'title',
@@ -23,6 +25,17 @@ class Post extends Model
         'meta_description',
         'is_featured'
     ];
+
+    public function searchableAs()
+    {   
+        return 'posts_index';
+    }
+
+    public function search($query)
+    {
+        $posts = Post::search($query)->get();
+        return $posts;
+    }
 
     public static function calculateReadingTime($body)
     {

@@ -117,4 +117,10 @@ Route::get('/billing', function (Request $request) {
     })->middleware(['auth'])->name('billing');
 Route::get('/subscription', [SubscriptionController::class, 'show'])->middleware([Subscribed::class])->name('subscriptions.show');
 
+/**
+ * Search page.
+ */
+Route::get('/search/{query}', [PostController::class, 'search'])->name('search');
+
+
 require __DIR__ . '/auth.php';
