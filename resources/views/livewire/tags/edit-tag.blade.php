@@ -62,11 +62,11 @@
 
     <x-modal name="confirm-tag-deletion">
         <div class="p-6">
-            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            <h3 class="text-lg font-medium text-gray-900">
                 {{ __('Are you sure you want to delete this tag?') }}
             </h3>
             
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            <p class="mt-1 text-sm text-gray-600">
                 {{ __('All of your blog posts which are associated with this tag will lose this tag.') }}
             </p>
             

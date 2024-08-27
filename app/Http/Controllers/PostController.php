@@ -46,15 +46,12 @@ class PostController extends Controller
     {
         $query = $request->input('query');
     
-        // Perform the search using Scout
         $searchResults = Post::search($query)->get();
     
-        // Filter results to include only published posts
         $posts = $searchResults->filter(function ($post) {
             return $post->status === 'published';
         });
     
-        // Paginate manually (Scout does not handle pagination directly)
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $perPage = 10;
         $currentItems = $posts->slice(($currentPage - 1) * $perPage, $perPage)->all();

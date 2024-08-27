@@ -14,14 +14,14 @@
                     </div>
                 </div>
                 
-                <div class="px-6 py-16 bg-white sm:px-0 dark:bg-gray-800">
+                <div class="px-6 py-16 bg-white sm:px-0">
                     <div class="max-w-xl">
                         <section>
                             <header>
-                                <h2 class="text-4xl font-medium text-gray-900 dark:text-gray-100">
+                                <h2 class="text-4xl font-medium text-gray-900">
                                     {{ __('Give us your email') }}
                                 </h2>
-                                <p class="mt-1 text-gray-600 text-md dark:text-gray-400">
+                                <p class="mt-1 text-gray-600 text-md">
                                     {{ __("We'll try to answer as soon as possible, just give us your email") }}
                                 </p>
                             </header>
@@ -33,7 +33,6 @@
                                     class="text-sm text-green-500"
                                     x-transition
                                     x-init="setTimeout(() => show = false, 2000)"
-                                    {{-- class="text-sm text-gray-600 dark:text-gray-400" --}}
                                     >{{ session('message-sent') }}
                                 </p>
                             @endif

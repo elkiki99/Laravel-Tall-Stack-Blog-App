@@ -9,7 +9,7 @@
             @endif
         </h2>
 
-        <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
+        <p class="pb-4 mt-2 text-gray-600 text-md">
             @if(auth()->user()->role === 'admin')
             {{ __('Manage all published posts, update or delete them') }}
             @elseif(auth()->user()->role === 'author')
@@ -24,7 +24,7 @@
                 class="text-red-500"
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600 dark:text-gray-400"
+                class="text-sm text-gray-600"
             >{{ session('success_deleted') }}</p>
         @elseif(session('success_published'))
             <p
@@ -33,7 +33,7 @@
                 class="text-green-500"
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600 dark:text-gray-400"
+                class="text-sm text-gray-600"
             >{{ session('success_published') }}</p>
         @endif
 

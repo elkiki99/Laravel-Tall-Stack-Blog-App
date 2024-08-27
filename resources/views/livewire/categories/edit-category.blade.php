@@ -65,11 +65,11 @@
     
     <x-modal name="confirm-category-deletion">
         <div class="p-6">
-            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            <h3 class="text-lg font-medium text-gray-900">
                 {{ __('Are you sure you want to delete this category?') }}
             </h3>
             
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            <p class="mt-1 text-sm text-gray-600">
                 {{ __('All of your blog posts which are associated with this category will be reasigned to uncategorized.') }}
             </p>
             

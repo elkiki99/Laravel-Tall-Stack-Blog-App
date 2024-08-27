@@ -5,7 +5,7 @@
             {{ __('Manage pending posts') }}
         </h2>
 
-        <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
+        <p class="pb-4 mt-2 text-gray-600 text-md">
             {{ __('Publish or delete pending posts') }}
         </p>
         
@@ -16,7 +16,7 @@
                 class="text-green-500"
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600 dark:text-gray-400"
+                class="text-sm text-gray-600"
             >{{ session('success_updated') }}
             </p>
             
@@ -27,7 +27,7 @@
                 class="text-red-500"
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600 dark:text-gray-400"
+                class="text-sm text-gray-600"
             >{{ session('success_drafted') }}</p>
 
         @elseif(session('success_created'))
@@ -37,7 +37,7 @@
                 class="text-green-500"
                 x-transition
                 x-init="setTimeout(() => show = false, 2000)"
-                class="text-sm text-gray-600 dark:text-gray-400"
+                class="text-sm text-gray-600"
             >{{ session('success_created') }}</p>
         @endif
 

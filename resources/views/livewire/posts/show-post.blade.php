@@ -118,11 +118,11 @@
 
         <x-modal name="publish-post">
             <div class="p-6">
-                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                <h3 class="text-lg font-medium text-gray-900">
                     {{ __('Are you sure you want to publish this post?') }}
                 </h3>
                 
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                <p class="mt-1 text-sm text-gray-600">
                     {{ __('This post will go live for everyone to see!') }}
                 </p>
                 
@@ -143,11 +143,11 @@
     
         <x-modal name="move-to-drafts">
             <div class="p-6">
-                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                <h3 class="text-lg font-medium text-gray-900">
                     {{ __('Are you sure you want to move this post to drafts?') }}
                 </h3>
                 
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                <p class="mt-1 text-sm text-gray-600">
                     {{ __('This post will move to drafts until you publish it again!') }}
                 </p>
                 
@@ -168,11 +168,11 @@
 
         <x-modal name="confirm-post-deletion">
             <div class="p-6">
-                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                <h3 class="text-lg font-medium text-gray-900">
                     {{ __('Are you sure you want to delete this post?') }}
                 </h3>
                 
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                <p class="mt-1 text-sm text-gray-600">
                     {{ __('You won\'t be able to revert this.') }}
                 </p>
                 

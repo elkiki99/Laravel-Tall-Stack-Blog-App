@@ -4,7 +4,7 @@
             {{ __('Update password') }}
         </h2>
 
-        <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
+        <p class="pb-4 mt-2 text-gray-600 text-md">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
@@ -40,7 +40,7 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
+                    class="text-sm text-gray-600"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>

@@ -24,7 +24,7 @@
     </head>
     
     <body class="font-sans antialiased">
-        <div class="bg-white dark:bg-gray-900">
+        <div class="bg-white">
             <div class="flex">
                 <div class="z-10 hidden w-1/5 xl:block">
                     @include('layouts.sidebar')

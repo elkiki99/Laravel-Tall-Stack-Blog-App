@@ -1,6 +1,6 @@
 <div class="grid grid-cols-1 gap-6 py-5">
     @forelse($posts as $post)
-        <div class="flex flex-col pb-10 bg-white rounded-lg 2xl:pb-5 2xl:flex-row dark:bg-gray-800">
+        <div class="flex flex-col pb-10 bg-white rounded-lg 2xl:pb-5 2xl:flex-row">
             <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 2xl:aspect-square aspect-video">
                 <a wire:navigate href="{{ route('posts.show', $post) }}">
                     <img loading="lazy" src="{{ asset('storage/featured_images/' . $post->featured_image) }}" alt="Blog Image 1" class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
@@ -11,12 +11,12 @@
                         <x-post-metrics :post="$post" />
                         
                         <a wire:navigate href="{{ route('posts.show', $post) }}">
-                            <h2 class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">
+                            <h2 class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800">
                                     {{ $post->title }}
                             </h2>
                         </a>
 
-                        <p class="text-lg text-gray-700 dark:text-gray-300">{{ \Illuminate\Support\Str::limit($post->excerpt, 100) }}</p>
+                        <p class="text-lg text-gray-700">{{ \Illuminate\Support\Str::limit($post->excerpt, 100) }}</p>
                     </div>
                     
                     <div class="flex items-center justify-center">    

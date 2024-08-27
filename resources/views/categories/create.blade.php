@@ -5,7 +5,7 @@
             {{ __('Create category') }}
         </h2>
 
-        <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
+        <p class="pb-4 mt-2 text-gray-600 text-md">
             {{ __('Create a new category') }}
         </p>
 

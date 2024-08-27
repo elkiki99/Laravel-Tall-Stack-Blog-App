@@ -172,14 +172,14 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('panel.admin') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Admin panel</h3>
                     <p class="text-sm text-black 2xl:text-md">Manage your post</p>
                 </div>
             </a>
             <a rel="noopener noreferrer" target="_blank" href="https://marketingplatform.google.com/about/analytics/">
                 <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Analytics</h3>
                     <p class="text-sm text-black 2xl:text-md">Check out you website performance</p>
                 </div>
@@ -189,21 +189,21 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('posts.create') }}">
                 <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new post</h3>
                     <p class="text-sm text-black 2xl:text-md">Create a new blog posts</p>
                 </div>
             </a>
             <a wire:navigate href="{{ route('posts.index') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage posts</h3>
                     <p class="text-sm text-black 2xl:text-md">View published blog posts</p>
                 </div>
             </a>
             <a wire:navigate href="{{ route('posts.pending') }}">
                 <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Pending posts</h3>
                     <p class="text-sm text-black 2xl:text-md">View pending blog posts</p>
                 </div>
@@ -213,14 +213,14 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('categories.create') }}">
                 <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new category</h3>
                     <p class="text-sm text-black 2xl:text-md">Create a new category</p>
                 </div>
             </a>
             <a wire:navigate href="{{ route('categories.index') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage categories</h3>
                     <p class="text-sm text-black 2xl:text-md">View all categories</p>
                 </div>
@@ -230,14 +230,14 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('tags.create') }}">
                 <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Create new tag</h3>
                     <p class="text-sm text-black 2xl:text-md">Create a new tag</p>
                 </div>
             </a>
             <a wire:navigate href="{{ route('tags.index') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage tags</h3>
                     <p class="text-sm text-black 2xl:text-md">View all tags</p>
                 </div>
@@ -247,7 +247,7 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('comments.index') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">All comments</h3>
                     <p class="text-sm text-black 2xl:text-md">Show all comments</p>
                 </div>
@@ -257,7 +257,7 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('users.index') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">All users</h3>
                     <p class="text-sm text-black 2xl:text-md">Manage users</p>
                 </div>
@@ -267,14 +267,14 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('subscriptions.show') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">My subscription</h3>
                     <p class="text-sm text-black 2xl:text-md">Your subscription</p>
                 </div>
             </a>
             <a href="{{ route('billing') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage subscription</h3>
                     <p class="text-sm text-black 2xl:text-md">Manage your subscriptions options</p>
                 </div>
@@ -284,7 +284,7 @@
             class="transition-opacity duration-300">
             <a wire:navigate href="{{ route('likes.index') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">My likes</h3>
                     <p class="text-sm text-black 2xl:text-md">View my liked posts</p>
                 </div>
@@ -296,7 +296,7 @@
             @if(auth()->user()->nickname)
                 <a wire:navigate href="{{ route('users.show', App\Models\User::find(auth()->user()->id)) }}">
                     <div
-                        class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                        class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl">
                         <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">View profile</h3>
                         <p class="text-sm text-black 2xl:text-md">View my author profile</p>
                     </div>
@@ -304,14 +304,14 @@
             @endif
             <a wire:navigate href="{{ route('profile.picture') }}">
                 <div
-                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 hover:scale-[1.02] transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Manage account</h3>
                     <p class="text-sm text-black 2xl:text-md">Manage your account</p>
                 </div>
             </a>
             <a wire:navigate href="{{ route('profile.edit') }}">
                 <div
-                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-2 m-2 transition-transform duration-300 bg-transparent rounded-lg hover:cursor-pointer hover:shadow-lg hover:scale-[1.02] backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 font-bold text-black text-md 2xl:text-xl">Settings</h3>
                     <p class="text-sm text-black 2xl:text-md">Profile settings</p>
                 </div>

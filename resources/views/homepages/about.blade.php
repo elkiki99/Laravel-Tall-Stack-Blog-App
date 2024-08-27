@@ -3,7 +3,7 @@
         <div class="absolute inset-0 px-6 pt-10 bg-fixed bg-no-repeat bg-cover parallax-bg" style="background-image: url('{{ asset('images/about.jpg') }}');">
             <div class="z-10 flex flex-col items-center justify-center h-full py-10 mx-auto sm:py-0 max-w-7xl">
                 <h1 class="mt-0 mb-8 text-6xl font-bold text-center text-white sm:mt-20 sm:text-7xl md:text-8xl"><span class="underline-yellow">Our purpose</span> is to inspire bloggers all over the globe</h1>
-                <button class="inline-flex items-center px-4 py-1 my-5 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+                <button class="inline-flex items-center px-4 py-1 my-5 text-xl text-white bg-gray-950 rounded-2xl hover:blur-xs hover:text-white hover:border-gray-300 focus:text-white focus:border-gray-300">
                     <a class="flex" wire:navigate href="{{ route('newsletter') }}">
                         <span class="inline-flex items-center">Our newsletter</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 ml-4">
@@ -34,7 +34,7 @@
                         </div>
                         <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Best buildings in Netherlands</h4>
                         <div class="my-1 mt-auto">
-                            <p dark:text-gray-300">by <span class="font-bold text-black">Bruno </span>| 2 days ago</p>
+                            <p>by <span class="font-bold text-black">Bruno </span>| 2 days ago</p>
                         </div>                    
                     </div>
                     
@@ -46,7 +46,7 @@
                         </div>
                         <h4 class="mt-2 text-xl font-bold hover:cursor-pointer">Architecture for modern people</h4>
                         <div class="my-1 mt-auto">
-                            <p dark:text-gray-300">by <span class="font-bold text-black">Bruno </span>| 2 days ago</p>
+                            <p>by <span class="font-bold text-black">Bruno </span>| 2 days ago</p>
                         </div>                    
                     </div>
                     
@@ -77,7 +77,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 gap-10 py-5 md:grid-cols-2">
-                    <div class="flex flex-col bg-white rounded-lg dark:bg-gray-700 2xl:flex-row">
+                    <div class="flex flex-col bg-white rounded-lg 2xl:flex-row">
                         <!-- Placeholder Image -->
                         <div class="w-full overflow-hidden bg-gray-200 2xl:w-1/2 2xl:aspect-square aspect-video"></div>
                         

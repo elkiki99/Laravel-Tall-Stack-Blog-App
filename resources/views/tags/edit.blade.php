@@ -5,7 +5,7 @@
             {{ __('Edit tag') }}
         </h2>
 
-        <p class="pb-4 mt-2 text-gray-600 text-md dark:text-gray-400">
+        <p class="pb-4 mt-2 text-gray-600 text-md">
             {{ __('Edit the current tag') }}
         </p>
 

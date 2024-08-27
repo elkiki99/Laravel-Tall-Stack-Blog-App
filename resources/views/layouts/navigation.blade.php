@@ -1,10 +1,10 @@
-<nav x-data="{ open: false }" class="fixed top-0 z-50 w-full px-3 mx-auto text-sm font-medium text-center bg-transparent rounded-none sm:rounded-full sm:w-auto sm:top-10 backdrop-filter backdrop-blur-3xl sm:flex dark:text-zinc-200 dark:ring-white/10">
+<nav x-data="{ open: false }" class="fixed top-0 z-50 w-full px-3 mx-auto text-sm font-medium text-center bg-transparent rounded-none sm:rounded-full sm:w-auto sm:top-10 backdrop-filter backdrop-blur-3xl sm:flex">
     <!-- Primary Navigation Menu -->
     <div class="flex items-center justify-between h-12 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <!-- Logo -->
         <div class="flex items-center">
             <a href="{{ route('welcome') }}">
-                <x-application-logo class="block w-auto text-black fill-current size-8 dark:text-gray-200" />
+                <x-application-logo class="block w-auto text-black fill-current size-8" />
             </a>
         </div>
 
@@ -47,7 +47,7 @@
                 </form>
             @endauth
             
-            <x-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-3 py-1 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black">
+            <x-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-3 py-1 text-white bg-gray-900 rounded-2xl hover:blur-xs hover:text-white hover:border-gray-300 focus:text-white focus:border-gray-300">
                 <div class="flex items-center">
                     {{ __('Newsletter') }}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
@@ -96,7 +96,7 @@
             @endauth
             
             <div class="flex justify-start">
-                <x-responsive-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-3 py-1 text-white bg-gray-900 rounded-2xl hover:blur-xs dark:bg-gray-100 dark:text-black hover:text-white hover:border-gray-300 dark:hover:text-black focus:text-white focus:border-gray-300 dark:focus:text-black" style="width: auto;">
+                <x-responsive-nav-link wire:navigate :href="route('newsletter')" class="inline-flex items-center px-3 py-1 text-white bg-gray-900 rounded-2xl hover:blur-xs hover:text-white hover:border-gray-300 focus:text-white focus:border-gray-300" style="width: auto;">
                     <div class="flex items-center">
                         {{ __('Newsletter') }}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">

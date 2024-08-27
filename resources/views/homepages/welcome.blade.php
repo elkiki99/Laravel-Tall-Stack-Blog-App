@@ -42,7 +42,7 @@
         <div class="px-6 py-6 mx-auto max-w-7xl lg:px-8 lg:py-8">
             <div class="grid grid-cols-1 gap-4 py-24 md:grid-cols-2 lg:grid-cols-3">
                 <div
-                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">SEO Optimized</h3>
                     <svg class="w-12 h-12 mb-2 text-gray-100" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
@@ -53,7 +53,7 @@
                 </div>
 
                 <div
-                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">Responsive Design</h3>
                     <svg class="w-12 h-12 mb-2 text-gray-100" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
@@ -64,7 +64,7 @@
                 </div>
 
                 <div
-                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">Customizable</h3>
                     <svg class="w-12 h-12 mb-2 text-gray-100" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke-width="1" stroke="currentColor">
@@ -76,7 +76,7 @@
                 </div>
                 
                 <div
-                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">Built with TALL Stack</h3>
                     <svg class="w-12 h-12 mb-2 text-gray-100" viewBox="0 0 316 316" xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" stroke="currentColor">
@@ -88,7 +88,7 @@
                 </div>
                 
                 <div
-                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">User Comments</h3>
                     <svg class="w-12 h-12 mb-2 text-gray-100" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
@@ -99,7 +99,7 @@
                     <p class="text-gray-400">Integrated comments section to engage with your readers.</p>
                 </div>
                 <div
-                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl dark:bg-gray-800">
+                    class="justify-between p-6 transition-transform duration-300 bg-transparent rounded-lg shadow-lg hover:scale-105 backdrop-filter backdrop-blur-3xl">
                     <h3 class="my-2 text-3xl font-bold text-gray-300">Payment gateways</h3>
 
                     <svg class="w-12 h-12 mb-2 text-gray-100" xmlns="http://www.w3.org/2000/svg" fill="none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" >
@@ -113,14 +113,14 @@
         </div>
     </section>
 
-    <section class="flex flex-col min-h-screen p-4 md:p-10 dark:bg-gray-900">
+    <section class="flex flex-col min-h-screen p-4 md:p-10">
         <h2 class="relative py-5 my-12 text-6xl font-bold text-center sm:mt-24 md:text-7xl">Get your website
             <span class="underline-yellow">up and running</span>
         </h2>
 
         <div class="flex flex-col justify-center space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0">
             <div class="w-full lg:w-1/2 ">
-                <div class="bg-white rounded-lg dark:bg-gray-800">
+                <div class="bg-white rounded-lg">
                     <div class="flex flex-col justify-between">
                         <div>
                             <div class="flex my-1 text-sm ">
@@ -147,11 +147,11 @@
                             </div>
                             <a wire:navigate href="#">
                                 <h2
-                                    class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">
+                                    class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800">
                                     Netherlands: A Journey Through Time and Design
                                 </h2>
                             </a>
-                            <p class="py-2 text-lg text-gray-700 dark:text-gray-300">We dive into the different types
+                            <p class="py-2 text-lg text-gray-700">We dive into the different types
                                 of buildings in the Netherlands and its overall design system.</p>
                         </div>
                     </div>
@@ -169,12 +169,12 @@
                             class="px-2 py-1 text-sm text-gray-800 bg-gray-200 rounded-full hover:cursor-pointer">Modern</span>
                     </div>
                     <div class="my-1 mt-auto">
-                        <p class="text-lg dark:text-gray-300">by <span class="font-bold text-black">Bruno </span>| 2
+                        <p class="text-lg">by <span class="font-bold text-black">Bruno </span>| 2
                             days ago</p>
                     </div>
                     <div class="grid grid-cols-1 gap-6 py-10">
                         {{-- @foreach ($posts as $post) --}}
-                        <div class="flex flex-col bg-white rounded-lg shadow-sm 2xl:flex-row dark:bg-gray-800">
+                        <div class="flex flex-col bg-white rounded-lg shadow-sm 2xl:flex-row">
                             <div class="w-full overflow-hidden shadow-lg 2xl:w-1/2 aspect-square">
                                 <img loading="lazy" src="{{ asset('images/welcome3.jpg') }}" alt="Blog Image 1"
                                     class="object-cover w-full h-full transition-transform duration-300 transform hover:scale-105 hover:cursor-pointer">
@@ -204,10 +204,10 @@
                                         </p>
                                     </div>
                                     <h2
-                                        class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800 dark:text-gray-100">
+                                        class="my-5 mb-2 text-2xl font-bold text-gray-900 md:text-4xl hover:cursor-pointer hover:text-gray-800">
                                         Best buildings in Netherlands
                                     </h2>
-                                    <p class="text-lg text-gray-700 dark:text-gray-300">In this post, we dive into the
+                                    <p class="text-lg text-gray-700">In this post, we dive into the
                                         different types of buildings in the Netherlands and its overall design system.
                                         What makes them unique?</p>
                                 </div>
@@ -218,7 +218,7 @@
                                         class="px-2 py-1 text-sm text-gray-800 bg-gray-200 rounded-full hover:cursor-pointer">Modern</span>
                                 </div>
                                 <div class="my-1 mt-auto">
-                                    <p class="text-lg dark:text-gray-300">by <span class="font-bold text-black">Bruno
+                                    <p class="text-lg">by <span class="font-bold text-black">Bruno
                                         </span>| 2 days ago</p>
                                 </div>
                             </div>

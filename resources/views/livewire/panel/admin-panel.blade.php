@@ -176,7 +176,7 @@
                 <p class="text-3xl font-bold text-gray-100">XX,XXX</p>
             </div>
             <a 
-                rel="noopener noreferrer" target="_blank" href="https://marketingplatform.google.com/about/analytics/" class="inline-flex items-center justify-center w-full px-4 py-2 text-black bg-white border-2 border-gray-100 rounded-lg dark:bg-gray-900 dark:text-white hover:blur-xs hover:text-black hover:border-gray-300 dark:hover:text-white focus:text-black focus:border-gray-200 dark:focus:text-white text-md">View
+                rel="noopener noreferrer" target="_blank" href="https://marketingplatform.google.com/about/analytics/" class="inline-flex items-center justify-center w-full px-4 py-2 text-black bg-white border-2 border-gray-100 rounded-lg hover:blur-xs hover:text-black hover:border-gray-300 focus:text-black focus:border-gray-200 text-md">View
                 stats
             </a>
         </div>
