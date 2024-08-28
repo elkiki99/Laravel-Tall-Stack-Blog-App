@@ -13,6 +13,7 @@
 - **Security and Scalability**: Built on Laravel, ensuring high security and scalability.
 - **SEO Optimization**: Structured with SEO best practices, including dynamic meta tags and clean URLs.
 - **Multilanguage Support**: Easily localize content for multiple languages.
+- **Email Notifications**: Automatically send email notifications to admins and authors for actions related to blog posts, such as new submissions, updates, or approvals.
 
 ## Getting Started
 
@@ -42,35 +43,14 @@ To use **Edifice Gazette**, follow these steps:
 
 ## Usage
 
-- **Admin Panel**: Access the admin panel at `/admin` to manage all aspects of the application.
+- **Admin Panel**: Access the admin panel at `/panel` to manage all aspects of the application.
 - **Subscription Management**: Use Stripe to handle subscriptions and manage customer plans.
 - **Content Management**: Easily create, edit, and delete posts, categories, and tags.
+- **Integration**: Check out the .env file to edit your email account, email provider, stripe account & algolia for product/subscription filtering.
 
 ## Contributions
 
-Contributions are welcome! If you'd like to contribute to **Edifice Gazette**, please follow these steps:
-
-1. **Fork the repository.**
-
-2. **Create a new branch for your feature:**
-
-    ```bash
-    git checkout -b feature/new-feature
-    ```
-
-3. **Make your changes and commit them:**
-
-    ```bash
-    git commit -m 'Add new feature'
-    ```
-
-4. **Push your branch:**
-
-    ```bash
-    git push origin feature/new-feature
-    ```
-
-5. **Open a Pull Request.**
+Contributions are welcome! If you'd like to contribute to **The Edifice Gazette**, please follow these steps:
 
 ## Contact
 
