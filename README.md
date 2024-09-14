@@ -56,3 +56,7 @@ Contributions are welcome! If you'd like to contribute to **The Edifice Gazette*
 
 For any inquiries, please reach out at brossani23@gmail.com.
 
+## Demo
+
+https://blog-floral-dream-8361.fly.dev/
+
